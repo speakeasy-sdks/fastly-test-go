@@ -1,0 +1,8 @@
+configVersion: 1.0.0
+generation:
+  sdkClassName: SDK
+  singleTagPerOp: false
+go:
+  version: 0.0.1
+  maxMethodParams: 0
+  packageName: Fastly
