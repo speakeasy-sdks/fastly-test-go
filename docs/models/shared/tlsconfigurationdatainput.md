@@ -1,0 +1,10 @@
+# TLSConfigurationDataInput
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `Attributes`                                                                             | [*TLSConfigurationDataAttributes](../../models/shared/tlsconfigurationdataattributes.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `Relationships`                                                                          | *interface{}*                                                                            | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| `Type`                                                                                   | [*TypeTLSConfiguration](../../models/shared/typetlsconfiguration.md)                     | :heavy_minus_sign:                                                                       | Resource type                                                                            |

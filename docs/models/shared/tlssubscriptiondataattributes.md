@@ -1,0 +1,8 @@
+# TLSSubscriptionDataAttributes
+
+
+## Fields
+
+| Field                                                                                                                          | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `CertificateAuthority`                                                                                                         | [*TLSSubscriptionDataAttributesCertificateAuthority](../../models/shared/tlssubscriptiondataattributescertificateauthority.md) | :heavy_minus_sign:                                                                                                             | The entity that issues and certifies the TLS certificates for your subscription.                                               |

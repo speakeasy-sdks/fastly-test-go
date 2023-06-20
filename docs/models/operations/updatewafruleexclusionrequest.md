@@ -1,0 +1,11 @@
+# UpdateWafRuleExclusionRequest
+
+
+## Fields
+
+| Field                                                                 | Type                                                                  | Required                                                              | Description                                                           | Example                                                               |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| `ExclusionNumber`                                                     | *int64*                                                               | :heavy_check_mark:                                                    | A numeric ID identifying a WAF exclusion.                             | 1                                                                     |
+| `FirewallID`                                                          | *string*                                                              | :heavy_check_mark:                                                    | Alphanumeric string identifying a WAF Firewall.                       | fW7g2uUGZzb2W9Euo4Mo0r                                                |
+| `FirewallVersionNumber`                                               | *int64*                                                               | :heavy_check_mark:                                                    | Integer identifying a WAF firewall version.                           | 1                                                                     |
+| `WafExclusionInput`                                                   | [*shared.WafExclusionInput](../../models/shared/wafexclusioninput.md) | :heavy_minus_sign:                                                    | N/A                                                                   |                                                                       |

@@ -1,0 +1,12 @@
+# Snippet2
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `Content`                                                         | **string*                                                         | :heavy_minus_sign:                                                | The VCL code that specifies exactly what the snippet does.        |                                                                   |
+| `Dynamic`                                                         | [*SnippetDynamic](../../models/shared/snippetdynamic.md)          | :heavy_minus_sign:                                                | Sets the snippet version.                                         |                                                                   |
+| `Name`                                                            | **string*                                                         | :heavy_minus_sign:                                                | The name for the snippet.                                         | test-snippet                                                      |
+| `Priority`                                                        | **string*                                                         | :heavy_minus_sign:                                                | Priority determines execution order. Lower numbers execute first. | 10                                                                |
+| `Type`                                                            | [*SnippetType](../../models/shared/snippettype.md)                | :heavy_minus_sign:                                                | The location in generated VCL where the snippet should be placed. |                                                                   |

@@ -1,0 +1,16 @@
+# DomainResponse
+
+OK
+
+
+## Fields
+
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `Comment`                                                       | **string*                                                       | :heavy_minus_sign:                                              | A freeform descriptive note.                                    |                                                                 |
+| `CreatedAt`                                                     | [*time.Time](https://pkg.go.dev/time#Time)                      | :heavy_minus_sign:                                              | Date and time in ISO 8601 format.                               | 2020-04-09T18:14:30Z                                            |
+| `DeletedAt`                                                     | [*time.Time](https://pkg.go.dev/time#Time)                      | :heavy_minus_sign:                                              | Date and time in ISO 8601 format.                               | 2020-04-09T18:14:30Z                                            |
+| `Name`                                                          | **string*                                                       | :heavy_minus_sign:                                              | The name of the domain or domains associated with this service. | www.example.com                                                 |
+| `ServiceID`                                                     | **string*                                                       | :heavy_minus_sign:                                              | N/A                                                             | SU1Z0isxPaozGVKXdv0eY                                           |
+| `UpdatedAt`                                                     | [*time.Time](https://pkg.go.dev/time#Time)                      | :heavy_minus_sign:                                              | Date and time in ISO 8601 format.                               | 2020-04-09T18:14:30Z                                            |
+| `Version`                                                       | **int64*                                                        | :heavy_minus_sign:                                              | N/A                                                             | 1                                                               |
