@@ -1,0 +1,10 @@
+# TLSBulkCertificateDataInput
+
+
+## Fields
+
+| Field                                                                                        | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                 | [*TLSBulkCertificateDataAttributes](../../models/shared/tlsbulkcertificatedataattributes.md) | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `Relationships`                                                                              | *interface{}*                                                                                | :heavy_minus_sign:                                                                           | N/A                                                                                          |
+| `Type`                                                                                       | [*TypeTLSBulkCertificate](../../models/shared/typetlsbulkcertificate.md)                     | :heavy_minus_sign:                                                                           | Resource type                                                                                |

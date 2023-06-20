@@ -1,0 +1,12 @@
+# ListWafFirewallsRequest
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `FilterServiceID`                                                 | **string*                                                         | :heavy_minus_sign:                                                | Limit the results returned to a specific service.                 |                                                                   |
+| `FilterServiceVersionNumber`                                      | **string*                                                         | :heavy_minus_sign:                                                | Limit the results returned to a specific service version.         |                                                                   |
+| `Include`                                                         | [*shared.FirewallInclude](../../models/shared/firewallinclude.md) | :heavy_minus_sign:                                                | Include related objects. Optional.                                |                                                                   |
+| `PageNumber`                                                      | **int64*                                                          | :heavy_minus_sign:                                                | Current page.                                                     | 1                                                                 |
+| `PageSize`                                                        | **int64*                                                          | :heavy_minus_sign:                                                | Number of records per page.                                       | 20                                                                |

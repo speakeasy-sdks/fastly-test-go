@@ -1,0 +1,10 @@
+# GetDomainRequest
+
+
+## Fields
+
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     | Example                                                         |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `DomainName`                                                    | *string*                                                        | :heavy_check_mark:                                              | The name of the domain or domains associated with this service. | www.example.com                                                 |
+| `ServiceID`                                                     | *string*                                                        | :heavy_check_mark:                                              | Alphanumeric string identifying the service.                    | SU1Z0isxPaozGVKXdv0eY                                           |
+| `VersionID`                                                     | *int64*                                                         | :heavy_check_mark:                                              | Integer identifying a service version.                          | 1                                                               |
