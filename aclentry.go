@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -83,6 +84,8 @@ func (s *aclEntry) BulkUpdateACLEntries(ctx context.Context, request operations.
 			}
 
 			res.BulkUpdateACLEntries200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -146,6 +149,8 @@ func (s *aclEntry) CreateACLEntry(ctx context.Context, request operations.Create
 			}
 
 			res.ACLEntryResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -202,6 +207,8 @@ func (s *aclEntry) DeleteACLEntry(ctx context.Context, request operations.Delete
 			}
 
 			res.DeleteACLEntry200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -258,6 +265,8 @@ func (s *aclEntry) GetACLEntry(ctx context.Context, request operations.GetACLEnt
 			}
 
 			res.ACLEntryResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -320,6 +329,8 @@ func (s *aclEntry) ListACLEntries(ctx context.Context, request operations.ListAC
 			}
 
 			res.ACLEntryResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -383,6 +394,8 @@ func (s *aclEntry) UpdateACLEntry(ctx context.Context, request operations.Update
 			}
 
 			res.ACLEntryResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/utils"
 	"bytes"
 	"context"
@@ -72,6 +73,8 @@ func (s *domainOwnerships) ListDomainOwnerships(ctx context.Context, security op
 			}
 
 			res.ListDomainOwnerships200ApplicationVndAPIPlusJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

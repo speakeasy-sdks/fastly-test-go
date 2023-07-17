@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *loggingBigquery) CreateLogBigquery(ctx context.Context, request operati
 			}
 
 			res.LoggingBigqueryResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -138,6 +141,8 @@ func (s *loggingBigquery) DeleteLogBigquery(ctx context.Context, request operati
 			}
 
 			res.DeleteLogBigquery200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -194,6 +199,8 @@ func (s *loggingBigquery) GetLogBigquery(ctx context.Context, request operations
 			}
 
 			res.LoggingBigqueryResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -250,6 +257,8 @@ func (s *loggingBigquery) ListLogBigquery(ctx context.Context, request operation
 			}
 
 			res.LoggingBigqueryResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -313,6 +322,8 @@ func (s *loggingBigquery) UpdateLogBigquery(ctx context.Context, request operati
 			}
 
 			res.LoggingBigqueryResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

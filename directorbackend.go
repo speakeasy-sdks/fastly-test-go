@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -75,6 +76,8 @@ func (s *directorBackend) CreateDirectorBackend(ctx context.Context, request ope
 			}
 
 			res.DirectorBackend = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -131,6 +134,8 @@ func (s *directorBackend) DeleteDirectorBackend(ctx context.Context, request ope
 			}
 
 			res.DeleteDirectorBackend200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -187,6 +192,8 @@ func (s *directorBackend) GetDirectorBackend(ctx context.Context, request operat
 			}
 
 			res.DirectorBackend = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 404:
 	}

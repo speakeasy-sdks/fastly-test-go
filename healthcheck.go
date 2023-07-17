@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *healthcheck) CreateHealthcheck(ctx context.Context, request operations.
 			}
 
 			res.HealthcheckResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -138,6 +141,8 @@ func (s *healthcheck) DeleteHealthcheck(ctx context.Context, request operations.
 			}
 
 			res.DeleteHealthcheck200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -194,6 +199,8 @@ func (s *healthcheck) GetHealthcheck(ctx context.Context, request operations.Get
 			}
 
 			res.HealthcheckResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -250,6 +257,8 @@ func (s *healthcheck) ListHealthchecks(ctx context.Context, request operations.L
 			}
 
 			res.HealthcheckResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -313,6 +322,8 @@ func (s *healthcheck) UpdateHealthcheck(ctx context.Context, request operations.
 			}
 
 			res.HealthcheckResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

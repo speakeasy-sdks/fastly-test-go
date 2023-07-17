@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *configStore) CreateConfigStore(ctx context.Context, request shared.Conf
 			}
 
 			res.ConfigStoreResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -136,6 +139,8 @@ func (s *configStore) DeleteConfigStore(ctx context.Context, request operations.
 			}
 
 			res.DeleteConfigStore200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -192,6 +197,8 @@ func (s *configStore) GetConfigStore(ctx context.Context, request operations.Get
 			}
 
 			res.ConfigStoreResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -248,6 +255,8 @@ func (s *configStore) GetConfigStoreInfo(ctx context.Context, request operations
 			}
 
 			res.ConfigStoreInfoResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -304,6 +313,8 @@ func (s *configStore) ListConfigStoreServices(ctx context.Context, request opera
 			}
 
 			res.ListConfigStoreServices200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -357,6 +368,8 @@ func (s *configStore) ListConfigStores(ctx context.Context, security operations.
 			}
 
 			res.ConfigStoreResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -420,6 +433,8 @@ func (s *configStore) UpdateConfigStore(ctx context.Context, request operations.
 			}
 
 			res.ConfigStoreResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

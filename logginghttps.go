@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *loggingHTTPS) CreateLogHTTPS(ctx context.Context, request operations.Cr
 			}
 
 			res.LoggingHTTPSResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -138,6 +141,8 @@ func (s *loggingHTTPS) DeleteLogHTTPS(ctx context.Context, request operations.De
 			}
 
 			res.DeleteLogHTTPS200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -194,6 +199,8 @@ func (s *loggingHTTPS) GetLogHTTPS(ctx context.Context, request operations.GetLo
 			}
 
 			res.LoggingHTTPSResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -250,6 +257,8 @@ func (s *loggingHTTPS) ListLogHTTPS(ctx context.Context, request operations.List
 			}
 
 			res.LoggingHTTPSResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -313,6 +322,8 @@ func (s *loggingHTTPS) UpdateLogHTTPS(ctx context.Context, request operations.Up
 			}
 
 			res.LoggingHTTPSResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

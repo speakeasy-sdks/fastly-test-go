@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *vcl) CreateCustomVcl(ctx context.Context, request operations.CreateCust
 			}
 
 			res.VclResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -138,6 +141,8 @@ func (s *vcl) DeleteCustomVcl(ctx context.Context, request operations.DeleteCust
 			}
 
 			res.DeleteCustomVcl200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -198,6 +203,8 @@ func (s *vcl) GetCustomVcl(ctx context.Context, request operations.GetCustomVclR
 			}
 
 			res.VclResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -250,6 +257,8 @@ func (s *vcl) GetCustomVclBoilerplate(ctx context.Context, request operations.Ge
 		case utils.MatchContentType(contentType, `text/plain`):
 			out := string(rawBody)
 			res.GetCustomVclBoilerplate200TextPlainString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -306,6 +315,8 @@ func (s *vcl) GetCustomVclGenerated(ctx context.Context, request operations.GetC
 			}
 
 			res.VclResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -358,6 +369,8 @@ func (s *vcl) GetCustomVclRaw(ctx context.Context, request operations.GetCustomV
 		case utils.MatchContentType(contentType, `text/plain`):
 			out := string(rawBody)
 			res.GetCustomVclRaw200TextPlainString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -414,6 +427,8 @@ func (s *vcl) ListCustomVcl(ctx context.Context, request operations.ListCustomVc
 			}
 
 			res.VclResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -470,6 +485,8 @@ func (s *vcl) SetCustomVclMain(ctx context.Context, request operations.SetCustom
 			}
 
 			res.VclResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -533,6 +550,8 @@ func (s *vcl) UpdateCustomVcl(ctx context.Context, request operations.UpdateCust
 			}
 
 			res.VclResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

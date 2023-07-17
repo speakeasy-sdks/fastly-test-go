@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -75,6 +76,8 @@ func (s *domain) CheckDomain(ctx context.Context, request operations.CheckDomain
 			}
 
 			res.DomainCheckResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -131,6 +134,8 @@ func (s *domain) CheckDomains(ctx context.Context, request operations.CheckDomai
 			}
 
 			res.DomainCheckResponseList = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -194,6 +199,8 @@ func (s *domain) CreateDomain(ctx context.Context, request operations.CreateDoma
 			}
 
 			res.DomainResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -250,6 +257,8 @@ func (s *domain) DeleteDomain(ctx context.Context, request operations.DeleteDoma
 			}
 
 			res.DeleteDomain200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -306,6 +315,8 @@ func (s *domain) GetDomain(ctx context.Context, request operations.GetDomainRequ
 			}
 
 			res.DomainResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -362,6 +373,8 @@ func (s *domain) ListDomains(ctx context.Context, request operations.ListDomains
 			}
 
 			res.DomainsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -425,6 +438,8 @@ func (s *domain) UpdateDomain(ctx context.Context, request operations.UpdateDoma
 			}
 
 			res.DomainResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *tlsActivations) CreateTLSActivation(ctx context.Context, request shared
 			}
 
 			res.TLSActivationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -187,6 +190,8 @@ func (s *tlsActivations) GetTLSActivation(ctx context.Context, request operation
 			}
 
 			res.TLSActivationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -244,6 +249,8 @@ func (s *tlsActivations) ListTLSActivations(ctx context.Context, request operati
 			}
 
 			res.TLSActivationsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -307,6 +314,8 @@ func (s *tlsActivations) UpdateTLSActivation(ctx context.Context, request operat
 			}
 
 			res.TLSActivationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

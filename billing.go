@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 		case utils.MatchContentType(contentType, `text/csv`):
 			out := string(rawBody)
 			res.GetInvoice200TextCsvCsvString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -141,6 +144,8 @@ func (s *billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 		case utils.MatchContentType(contentType, `text/csv`):
 			out := string(rawBody)
 			res.GetInvoiceByID200TextCsvCsvString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -201,6 +206,8 @@ func (s *billing) GetInvoiceMtd(ctx context.Context, request operations.GetInvoi
 			}
 
 			res.BillingEstimateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

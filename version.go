@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -75,6 +76,8 @@ func (s *version) ActivateServiceVersion(ctx context.Context, request operations
 			}
 
 			res.VersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -131,6 +134,8 @@ func (s *version) CloneServiceVersion(ctx context.Context, request operations.Cl
 			}
 
 			res.Version = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -187,6 +192,8 @@ func (s *version) CreateServiceVersion(ctx context.Context, request operations.C
 			}
 
 			res.VersionCreateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -243,6 +250,8 @@ func (s *version) DeactivateServiceVersion(ctx context.Context, request operatio
 			}
 
 			res.VersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -299,6 +308,8 @@ func (s *version) GetServiceVersion(ctx context.Context, request operations.GetS
 			}
 
 			res.VersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -355,6 +366,8 @@ func (s *version) ListServiceVersions(ctx context.Context, request operations.Li
 			}
 
 			res.VersionResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -411,6 +424,8 @@ func (s *version) LockServiceVersion(ctx context.Context, request operations.Loc
 			}
 
 			res.Version = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -474,6 +489,8 @@ func (s *version) UpdateServiceVersion(ctx context.Context, request operations.U
 			}
 
 			res.VersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -530,6 +547,8 @@ func (s *version) ValidateServiceVersion(ctx context.Context, request operations
 			}
 
 			res.ValidateServiceVersion200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

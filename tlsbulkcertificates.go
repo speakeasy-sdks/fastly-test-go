@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -123,6 +124,8 @@ func (s *tlsBulkCertificates) GetTLSBulkCert(ctx context.Context, request operat
 			}
 
 			res.TLSBulkCertificateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -180,6 +183,8 @@ func (s *tlsBulkCertificates) ListTLSBulkCerts(ctx context.Context, request oper
 			}
 
 			res.TLSBulkCertificatesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -243,6 +248,8 @@ func (s *tlsBulkCertificates) UpdateBulkTLSCert(ctx context.Context, request ope
 			}
 
 			res.TLSBulkCertificateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -303,6 +310,8 @@ func (s *tlsBulkCertificates) UploadTLSBulkCert(ctx context.Context, request sha
 			}
 
 			res.TLSBulkCertificateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

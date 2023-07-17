@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *serviceAuthorizations) CreateServiceAuthorization(ctx context.Context, 
 			}
 
 			res.ServiceAuthorizationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -184,6 +187,8 @@ func (s *serviceAuthorizations) ListServiceAuthorization(ctx context.Context, re
 			}
 
 			res.ServiceAuthorizationsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -240,6 +245,8 @@ func (s *serviceAuthorizations) ShowServiceAuthorization(ctx context.Context, re
 			}
 
 			res.ServiceAuthorizationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -303,6 +310,8 @@ func (s *serviceAuthorizations) UpdateServiceAuthorization(ctx context.Context, 
 			}
 
 			res.ServiceAuthorizationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

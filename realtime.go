@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -75,6 +76,8 @@ func (s *realtime) GetStatsLast120Seconds(ctx context.Context, request operation
 			}
 
 			res.Realtime = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -131,6 +134,8 @@ func (s *realtime) GetStatsLast120SecondsLimitEntries(ctx context.Context, reque
 			}
 
 			res.Realtime = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -187,6 +192,8 @@ func (s *realtime) GetStatsLastSecond(ctx context.Context, request operations.Ge
 			}
 
 			res.Realtime = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

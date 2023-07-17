@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -77,6 +78,8 @@ func (s *purge) PurgeAll(ctx context.Context, request operations.PurgeAllRequest
 			}
 
 			res.PurgeAll200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -135,6 +138,8 @@ func (s *purge) PurgeSingleURL(ctx context.Context, request operations.PurgeSing
 			}
 
 			res.PurgeResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -193,6 +198,8 @@ func (s *purge) PurgeTag(ctx context.Context, request operations.PurgeTagRequest
 			}
 
 			res.PurgeResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

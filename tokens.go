@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -73,6 +74,8 @@ func (s *tokens) GetTokenCurrent(ctx context.Context, security operations.GetTok
 			}
 
 			res.TokenResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
 		fallthrough
@@ -85,6 +88,8 @@ func (s *tokens) GetTokenCurrent(ctx context.Context, security operations.GetTok
 			}
 
 			res.GenericTokenError = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -141,6 +146,8 @@ func (s *tokens) ListTokensCustomer(ctx context.Context, request operations.List
 			}
 
 			res.TokenResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -194,6 +201,8 @@ func (s *tokens) ListTokensUser(ctx context.Context, security operations.ListTok
 			}
 
 			res.TokenResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 401:
 		fallthrough
@@ -206,6 +215,8 @@ func (s *tokens) ListTokensUser(ctx context.Context, security operations.ListTok
 			}
 
 			res.GenericTokenError = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -269,6 +280,8 @@ func (s *tokens) RevokeToken(ctx context.Context, request operations.RevokeToken
 			}
 
 			res.GenericTokenError = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -327,6 +340,8 @@ func (s *tokens) RevokeTokenCurrent(ctx context.Context, security operations.Rev
 			}
 
 			res.GenericTokenError = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

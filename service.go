@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *service) CreateService(ctx context.Context, request shared.ServiceCreat
 			}
 
 			res.ServiceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -136,6 +139,8 @@ func (s *service) DeleteService(ctx context.Context, request operations.DeleteSe
 			}
 
 			res.DeleteService200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -192,6 +197,8 @@ func (s *service) GetService(ctx context.Context, request operations.GetServiceR
 			}
 
 			res.ServiceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -252,6 +259,8 @@ func (s *service) GetServiceDetail(ctx context.Context, request operations.GetSe
 			}
 
 			res.ServiceDetail = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -308,6 +317,8 @@ func (s *service) ListServiceDomains(ctx context.Context, request operations.Lis
 			}
 
 			res.DomainResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -367,6 +378,8 @@ func (s *service) ListServices(ctx context.Context, request operations.ListServi
 			}
 
 			res.ServiceListResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -424,6 +437,8 @@ func (s *service) SearchService(ctx context.Context, request operations.SearchSe
 			}
 
 			res.ServiceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -487,6 +502,8 @@ func (s *service) UpdateService(ctx context.Context, request operations.UpdateSe
 			}
 
 			res.ServiceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

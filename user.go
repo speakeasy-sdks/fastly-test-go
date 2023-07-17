@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *user) CreateUser(ctx context.Context, request shared.UserInput, securit
 			}
 
 			res.UserResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -136,6 +139,8 @@ func (s *user) DeleteUser(ctx context.Context, request operations.DeleteUserRequ
 			}
 
 			res.DeleteUser200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -189,6 +194,8 @@ func (s *user) GetCurrentUser(ctx context.Context, security operations.GetCurren
 			}
 
 			res.UserResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -245,6 +252,8 @@ func (s *user) GetUser(ctx context.Context, request operations.GetUserRequest, s
 			}
 
 			res.UserResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -301,6 +310,8 @@ func (s *user) RequestPasswordReset(ctx context.Context, request operations.Requ
 			}
 
 			res.RequestPasswordReset200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -364,6 +375,8 @@ func (s *user) UpdateUser(ctx context.Context, request operations.UpdateUserRequ
 			}
 
 			res.UserResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -424,6 +437,8 @@ func (s *user) UpdateUserPassword(ctx context.Context, request shared.PasswordCh
 			}
 
 			res.UserResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

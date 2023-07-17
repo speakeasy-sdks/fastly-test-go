@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/utils"
 	"bytes"
 	"context"
@@ -122,6 +123,8 @@ func (s *iamUserGroups) GetAUserGroup(ctx context.Context, request operations.Ge
 			}
 
 			res.GetAUserGroup200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -182,6 +185,8 @@ func (s *iamUserGroups) ListUserGroupMembers(ctx context.Context, request operat
 			}
 
 			res.ListUserGroupMembers200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -242,6 +247,8 @@ func (s *iamUserGroups) ListUserGroupRoles(ctx context.Context, request operatio
 			}
 
 			res.ListUserGroupRoles200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -302,6 +309,8 @@ func (s *iamUserGroups) ListUserGroupServiceGroups(ctx context.Context, request 
 			}
 
 			res.ListUserGroupServiceGroups200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -359,6 +368,8 @@ func (s *iamUserGroups) ListUserGroups(ctx context.Context, request operations.L
 			}
 
 			res.ListUserGroups200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

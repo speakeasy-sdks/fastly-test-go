@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -140,6 +141,8 @@ func (s *wafActiveRules) CreateWafActiveRule(ctx context.Context, request operat
 			}
 
 			res.WafActiveRuleCreationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -307,6 +310,8 @@ func (s *wafActiveRules) GetWafActiveRule(ctx context.Context, request operation
 			}
 
 			res.WafActiveRuleResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -369,6 +374,8 @@ func (s *wafActiveRules) ListWafActiveRules(ctx context.Context, request operati
 			}
 
 			res.WafActiveRulesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -434,6 +441,8 @@ func (s *wafActiveRules) UpdateWafActiveRule(ctx context.Context, request operat
 			}
 
 			res.WafActiveRuleResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

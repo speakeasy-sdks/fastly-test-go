@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -76,6 +77,8 @@ func (s *customer) DeleteCustomer(ctx context.Context, request operations.Delete
 			}
 
 			res.DeleteCustomer200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -132,6 +135,8 @@ func (s *customer) GetCustomer(ctx context.Context, request operations.GetCustom
 			}
 
 			res.CustomerResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -185,6 +190,8 @@ func (s *customer) GetLoggedInCustomer(ctx context.Context, security operations.
 			}
 
 			res.CustomerResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -241,6 +248,8 @@ func (s *customer) ListUsers(ctx context.Context, request operations.ListUsersRe
 			}
 
 			res.SchemasUserResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -304,6 +313,8 @@ func (s *customer) UpdateCustomer(ctx context.Context, request operations.Update
 			}
 
 			res.CustomerResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

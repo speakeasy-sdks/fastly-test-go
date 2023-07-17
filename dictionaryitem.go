@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *dictionaryItem) BulkUpdateDictionaryItem(ctx context.Context, request o
 			}
 
 			res.BulkUpdateDictionaryItem200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -145,6 +148,8 @@ func (s *dictionaryItem) CreateDictionaryItem(ctx context.Context, request opera
 			}
 
 			res.DictionaryItemResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -201,6 +206,8 @@ func (s *dictionaryItem) DeleteDictionaryItem(ctx context.Context, request opera
 			}
 
 			res.DeleteDictionaryItem200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -257,6 +264,8 @@ func (s *dictionaryItem) GetDictionaryItem(ctx context.Context, request operatio
 			}
 
 			res.DictionaryItemResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -319,6 +328,8 @@ func (s *dictionaryItem) ListDictionaryItems(ctx context.Context, request operat
 			}
 
 			res.DictionaryItemResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -382,6 +393,8 @@ func (s *dictionaryItem) UpdateDictionaryItem(ctx context.Context, request opera
 			}
 
 			res.DictionaryItemResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -445,6 +458,8 @@ func (s *dictionaryItem) UpsertDictionaryItem(ctx context.Context, request opera
 			}
 
 			res.DictionaryItemResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

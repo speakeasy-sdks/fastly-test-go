@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *mutualAuthentication) CreateMutualTLSAuthentication(ctx context.Context
 			}
 
 			res.MutualAuthenticationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -187,6 +190,8 @@ func (s *mutualAuthentication) GetMutualAuthentication(ctx context.Context, requ
 			}
 
 			res.MutualAuthenticationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -244,6 +249,8 @@ func (s *mutualAuthentication) ListMutualAuthentications(ctx context.Context, re
 			}
 
 			res.MutualAuthenticationsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -307,6 +314,8 @@ func (s *mutualAuthentication) PatchMutualAuthentication(ctx context.Context, re
 			}
 
 			res.MutualAuthenticationResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

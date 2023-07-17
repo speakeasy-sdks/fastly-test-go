@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -81,6 +82,8 @@ func (s *wafRuleRevisions) GetWafRuleRevision(ctx context.Context, request opera
 			}
 
 			res.WafRuleRevisionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -143,6 +146,8 @@ func (s *wafRuleRevisions) ListWafRuleRevisions(ctx context.Context, request ope
 			}
 
 			res.WafRuleRevisionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

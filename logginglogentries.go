@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -84,6 +85,8 @@ func (s *loggingLogentries) CreateLogLogentries(ctx context.Context, request ope
 			}
 
 			res.LoggingLogentriesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -142,6 +145,8 @@ func (s *loggingLogentries) DeleteLogLogentries(ctx context.Context, request ope
 			}
 
 			res.DeleteLogLogentries200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -200,6 +205,8 @@ func (s *loggingLogentries) GetLogLogentries(ctx context.Context, request operat
 			}
 
 			res.LoggingLogentriesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -258,6 +265,8 @@ func (s *loggingLogentries) ListLogLogentries(ctx context.Context, request opera
 			}
 
 			res.LoggingLogentriesResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -323,6 +332,8 @@ func (s *loggingLogentries) UpdateLogLogentries(ctx context.Context, request ope
 			}
 
 			res.LoggingLogentriesResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

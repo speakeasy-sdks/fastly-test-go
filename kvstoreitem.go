@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/utils"
 	"bytes"
 	"context"
@@ -129,6 +130,8 @@ func (s *kvStoreItem) GetKeys(ctx context.Context, request operations.GetKeysReq
 			}
 
 			res.GetKeys200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -183,6 +186,8 @@ func (s *kvStoreItem) GetValueForKey(ctx context.Context, request operations.Get
 		case utils.MatchContentType(contentType, `application/octet-stream`):
 			out := string(rawBody)
 			res.GetValueForKey200ApplicationOctetStreamByteString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -250,6 +255,8 @@ func (s *kvStoreItem) SetValueForKey(ctx context.Context, request operations.Set
 		case utils.MatchContentType(contentType, `application/octet-stream`):
 			out := string(rawBody)
 			res.SetValueForKey200ApplicationOctetStreamByteString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

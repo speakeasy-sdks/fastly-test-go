@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -77,6 +78,8 @@ func (s *historical) GetHistStats(ctx context.Context, request operations.GetHis
 			}
 
 			res.HistoricalResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -134,6 +137,8 @@ func (s *historical) GetHistStatsAggregated(ctx context.Context, request operati
 			}
 
 			res.HistoricalAggregateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -194,6 +199,8 @@ func (s *historical) GetHistStatsField(ctx context.Context, request operations.G
 			}
 
 			res.HistoricalFieldResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -254,6 +261,8 @@ func (s *historical) GetHistStatsService(ctx context.Context, request operations
 			}
 
 			res.HistoricalAggregateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -314,6 +323,8 @@ func (s *historical) GetHistStatsServiceField(ctx context.Context, request opera
 			}
 
 			res.HistoricalFieldAggregateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -367,6 +378,8 @@ func (s *historical) GetRegions(ctx context.Context, security operations.GetRegi
 			}
 
 			res.HistoricalRegionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -424,6 +437,8 @@ func (s *historical) GetUsage(ctx context.Context, request operations.GetUsageRe
 			}
 
 			res.HistoricalUsageAggregateResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -481,6 +496,8 @@ func (s *historical) GetUsageMonth(ctx context.Context, request operations.GetUs
 			}
 
 			res.HistoricalUsageMonthResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -538,6 +555,8 @@ func (s *historical) GetUsageService(ctx context.Context, request operations.Get
 			}
 
 			res.HistoricalUsageServiceResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

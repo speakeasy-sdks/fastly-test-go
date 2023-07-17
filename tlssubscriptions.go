@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -83,6 +84,8 @@ func (s *tlsSubscriptions) CreateGlobalsignEmailChallenge(ctx context.Context, r
 			}
 
 			res.CreateGlobalsignEmailChallenge201ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -147,6 +150,8 @@ func (s *tlsSubscriptions) CreateTLSSub(ctx context.Context, request operations.
 			}
 
 			res.TLSSubscriptionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -301,6 +306,8 @@ func (s *tlsSubscriptions) GetTLSSub(ctx context.Context, request operations.Get
 			}
 
 			res.TLSSubscriptionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -358,6 +365,8 @@ func (s *tlsSubscriptions) ListTLSSubs(ctx context.Context, request operations.L
 			}
 
 			res.TLSSubscriptionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -425,6 +434,8 @@ func (s *tlsSubscriptions) PatchTLSSub(ctx context.Context, request operations.P
 			}
 
 			res.TLSSubscriptionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/utils"
 	"bytes"
 	"context"
@@ -122,6 +123,8 @@ func (s *iamServiceGroups) GetAServiceGroup(ctx context.Context, request operati
 			}
 
 			res.GetAServiceGroup200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -182,6 +185,8 @@ func (s *iamServiceGroups) ListServiceGroupServices(ctx context.Context, request
 			}
 
 			res.ListServiceGroupServices200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -239,6 +244,8 @@ func (s *iamServiceGroups) ListServiceGroups(ctx context.Context, request operat
 			}
 
 			res.ListServiceGroups200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

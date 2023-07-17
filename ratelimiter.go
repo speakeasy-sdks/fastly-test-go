@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -75,6 +76,8 @@ func (s *rateLimiter) DeleteRateLimiter(ctx context.Context, request operations.
 			}
 
 			res.DeleteRateLimiter200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -131,6 +134,8 @@ func (s *rateLimiter) GetRateLimiter(ctx context.Context, request operations.Get
 			}
 
 			res.RateLimiterResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -187,6 +192,8 @@ func (s *rateLimiter) ListRateLimiters(ctx context.Context, request operations.L
 			}
 
 			res.RateLimiterResponses = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

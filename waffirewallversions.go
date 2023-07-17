@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -77,6 +78,8 @@ func (s *wafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, reque
 			}
 
 			res.WafFirewallVersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -142,6 +145,8 @@ func (s *wafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, requ
 			}
 
 			res.WafFirewallVersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -200,6 +205,8 @@ func (s *wafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Conte
 			}
 
 			res.DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -262,6 +269,8 @@ func (s *wafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request
 			}
 
 			res.WafFirewallVersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -324,6 +333,8 @@ func (s *wafFirewallVersions) ListWafFirewallVersions(ctx context.Context, reque
 			}
 
 			res.WafFirewallVersionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -389,6 +400,8 @@ func (s *wafFirewallVersions) UpdateWafFirewallVersion(ctx context.Context, requ
 			}
 
 			res.WafFirewallVersionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

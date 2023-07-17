@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -80,6 +81,8 @@ func (s *tlsPrivateKeys) CreateTLSKey(ctx context.Context, request shared.TLSPri
 			}
 
 			res.TLSPrivateKeyResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -183,6 +186,8 @@ func (s *tlsPrivateKeys) GetTLSKey(ctx context.Context, request operations.GetTL
 			}
 
 			res.TLSPrivateKeyResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -240,6 +245,8 @@ func (s *tlsPrivateKeys) ListTLSKeys(ctx context.Context, request operations.Lis
 			}
 
 			res.TLSPrivateKeysResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/utils"
 	"bytes"
 	"context"
@@ -78,6 +79,8 @@ func (s *publish) Publish(ctx context.Context, request operations.PublishRequest
 		case utils.MatchContentType(contentType, `text/plain`):
 			out := string(rawBody)
 			res.Publish200TextPlainString = &out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -85,6 +86,8 @@ func (s *wafExclusions) CreateWafRuleExclusion(ctx context.Context, request oper
 			}
 
 			res.WafExclusionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -192,6 +195,8 @@ func (s *wafExclusions) GetWafRuleExclusion(ctx context.Context, request operati
 			}
 
 			res.WafExclusionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -254,6 +259,8 @@ func (s *wafExclusions) ListWafRuleExclusions(ctx context.Context, request opera
 			}
 
 			res.WafExclusionsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -319,6 +326,8 @@ func (s *wafExclusions) UpdateWafRuleExclusion(ctx context.Context, request oper
 			}
 
 			res.WafExclusionResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

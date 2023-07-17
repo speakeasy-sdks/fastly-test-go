@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *wafFirewalls) CreateWafFirewall(ctx context.Context, request shared.Waf
 			}
 
 			res.WafFirewallResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -200,6 +203,8 @@ func (s *wafFirewalls) GetWafFirewall(ctx context.Context, request operations.Ge
 			}
 
 			res.WafFirewallResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -259,6 +264,8 @@ func (s *wafFirewalls) ListWafFirewalls(ctx context.Context, request operations.
 			}
 
 			res.WafFirewallsResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -324,6 +331,8 @@ func (s *wafFirewalls) UpdateWafFirewall(ctx context.Context, request operations
 			}
 
 			res.WafFirewallResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/utils"
 	"bytes"
 	"context"
@@ -122,6 +123,8 @@ func (s *iamRoles) GetARole(ctx context.Context, request operations.GetARoleRequ
 			}
 
 			res.GetARole200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -178,6 +181,8 @@ func (s *iamRoles) ListRolePermissions(ctx context.Context, request operations.L
 			}
 
 			res.ListRolePermissions200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -235,6 +240,8 @@ func (s *iamRoles) ListRoles(ctx context.Context, request operations.ListRolesRe
 			}
 
 			res.ListRoles200ApplicationJSONObject = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 

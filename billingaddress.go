@@ -4,6 +4,7 @@ package sdk
 
 import (
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/sdkerrors"
 	"Fastly/pkg/models/shared"
 	"Fastly/pkg/utils"
 	"bytes"
@@ -82,6 +83,8 @@ func (s *billingAddress) AddBillingAddr(ctx context.Context, request operations.
 			}
 
 			res.BillingAddressResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
 		switch {
@@ -92,6 +95,8 @@ func (s *billingAddress) AddBillingAddr(ctx context.Context, request operations.
 			}
 
 			res.BillingAddressVerificationErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -195,6 +200,8 @@ func (s *billingAddress) GetBillingAddr(ctx context.Context, request operations.
 			}
 
 			res.BillingAddressResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
@@ -258,6 +265,8 @@ func (s *billingAddress) UpdateBillingAddr(ctx context.Context, request operatio
 			}
 
 			res.BillingAddressResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	case httpRes.StatusCode == 400:
 		switch {
@@ -268,6 +277,8 @@ func (s *billingAddress) UpdateBillingAddr(ctx context.Context, request operatio
 			}
 
 			res.BillingAddressVerificationErrorResponse = out
+		default:
+			return nil, sdkerrors.NewSDKError(fmt.Sprintf("unknown content-type received: %s", contentType), httpRes.StatusCode, string(rawBody), httpRes)
 		}
 	}
 
