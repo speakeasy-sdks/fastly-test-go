@@ -34,6 +34,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.BulkUpdateACLEntriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACLEntry.BulkUpdateACLEntries(ctx, operations.BulkUpdateACLEntriesRequest{
@@ -64,9 +67,7 @@ func main() {
             },
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.BulkUpdateACLEntriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -110,6 +111,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateACLEntrySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACLEntry.CreateACLEntry(ctx, operations.CreateACLEntryRequest{
@@ -121,9 +125,7 @@ func main() {
         },
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.CreateACLEntrySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -166,15 +168,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteACLEntrySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACLEntry.DeleteACLEntry(ctx, operations.DeleteACLEntryRequest{
         ACLEntryID: "6yxNzlOpW1V7JfSwvLGtOc",
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DeleteACLEntrySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -217,15 +220,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetACLEntrySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACLEntry.GetACLEntry(ctx, operations.GetACLEntryRequest{
         ACLEntryID: "6yxNzlOpW1V7JfSwvLGtOc",
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetACLEntrySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -269,6 +273,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListACLEntriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACLEntry.ListACLEntries(ctx, operations.ListACLEntriesRequest{
@@ -278,9 +285,7 @@ func main() {
         PerPage: sdk.Int64(20),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Sort: sdk.String("created"),
-    }, operations.ListACLEntriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -324,6 +329,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateACLEntrySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACLEntry.UpdateACLEntry(ctx, operations.UpdateACLEntryRequest{
@@ -336,9 +344,7 @@ func main() {
         ACLEntryID: "6yxNzlOpW1V7JfSwvLGtOc",
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpdateACLEntrySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

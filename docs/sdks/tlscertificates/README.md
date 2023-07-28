@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateTLSCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSCertificates.CreateTLSCert(ctx, shared.TLSCertificateInput{
@@ -60,9 +63,7 @@ func main() {
             },
             Type: shared.TypeTLSCertificateTLSCertificate.ToPointer(),
         },
-    }, operations.CreateTLSCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -105,13 +106,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteTLSCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSCertificates.DeleteTLSCert(ctx, operations.DeleteTLSCertRequest{
         TLSCertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.DeleteTLSCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -154,13 +156,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTLSCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSCertificates.GetTLSCert(ctx, operations.GetTLSCertRequest{
         TLSCertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.GetTLSCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,6 +207,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSCertsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSCertificates.ListTLSCerts(ctx, operations.ListTLSCertsRequest{
@@ -214,9 +220,7 @@ func main() {
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),
-    }, operations.ListTLSCertsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -260,6 +264,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateTLSCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSCertificates.UpdateTLSCert(ctx, operations.UpdateTLSCertRequest{
@@ -282,9 +289,7 @@ func main() {
             },
         },
         TLSCertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.UpdateTLSCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -27,15 +27,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetDictionaryInfoSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryInfo.GetDictionaryInfo(ctx, operations.GetDictionaryInfoRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetDictionaryInfoSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

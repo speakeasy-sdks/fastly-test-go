@@ -203,6 +203,27 @@ type RateLimiterResponseResponse struct {
 	Status *int64 `json:"status,omitempty"`
 }
 
+func (o *RateLimiterResponseResponse) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *RateLimiterResponseResponse) GetContentType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentType
+}
+
+func (o *RateLimiterResponseResponse) GetStatus() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 // RateLimiterResponseWindowSize - Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.
 type RateLimiterResponseWindowSize int64
 
@@ -270,4 +291,130 @@ type RateLimiterResponse struct {
 	Version           *int64  `json:"version,omitempty"`
 	// Number of seconds during which the RPS limit must be exceeded in order to trigger a violation.
 	WindowSize *RateLimiterResponseWindowSize `json:"window_size,omitempty"`
+}
+
+func (o *RateLimiterResponse) GetAction() *RateLimiterResponseAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *RateLimiterResponse) GetClientKey() []string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientKey
+}
+
+func (o *RateLimiterResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *RateLimiterResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *RateLimiterResponse) GetFeatureRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FeatureRevision
+}
+
+func (o *RateLimiterResponse) GetHTTPMethods() []RateLimiterResponseHTTPMethods {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPMethods
+}
+
+func (o *RateLimiterResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RateLimiterResponse) GetLoggerType() *RateLimiterResponseLoggerType {
+	if o == nil {
+		return nil
+	}
+	return o.LoggerType
+}
+
+func (o *RateLimiterResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *RateLimiterResponse) GetPenaltyBoxDuration() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PenaltyBoxDuration
+}
+
+func (o *RateLimiterResponse) GetResponse() *RateLimiterResponseResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Response
+}
+
+func (o *RateLimiterResponse) GetResponseObjectName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseObjectName
+}
+
+func (o *RateLimiterResponse) GetRpsLimit() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RpsLimit
+}
+
+func (o *RateLimiterResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *RateLimiterResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *RateLimiterResponse) GetURIDictionaryName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URIDictionaryName
+}
+
+func (o *RateLimiterResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *RateLimiterResponse) GetWindowSize() *RateLimiterResponseWindowSize {
+	if o == nil {
+		return nil
+	}
+	return o.WindowSize
 }

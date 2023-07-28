@@ -10,6 +10,13 @@ type DeleteDirectorBackendSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteDirectorBackendSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteDirectorBackendRequest struct {
 	// The name of the backend.
 	BackendName string `pathParam:"style=simple,explode=false,name=backend_name"`
@@ -21,10 +28,45 @@ type DeleteDirectorBackendRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteDirectorBackendRequest) GetBackendName() string {
+	if o == nil {
+		return ""
+	}
+	return o.BackendName
+}
+
+func (o *DeleteDirectorBackendRequest) GetDirectorName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DirectorName
+}
+
+func (o *DeleteDirectorBackendRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteDirectorBackendRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteDirectorBackend200ApplicationJSON - OK
 type DeleteDirectorBackend200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteDirectorBackend200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteDirectorBackendResponse struct {
@@ -33,4 +75,32 @@ type DeleteDirectorBackendResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteDirectorBackend200ApplicationJSONObject *DeleteDirectorBackend200ApplicationJSON
+}
+
+func (o *DeleteDirectorBackendResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteDirectorBackendResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteDirectorBackendResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteDirectorBackendResponse) GetDeleteDirectorBackend200ApplicationJSONObject() *DeleteDirectorBackend200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteDirectorBackend200ApplicationJSONObject
 }

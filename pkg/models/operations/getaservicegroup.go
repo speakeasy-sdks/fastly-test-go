@@ -10,9 +10,23 @@ type GetAServiceGroupSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetAServiceGroupSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetAServiceGroupRequest struct {
 	// Alphanumeric string identifying the service group.
 	ServiceGroupID string `pathParam:"style=simple,explode=false,name=service_group_id"`
+}
+
+func (o *GetAServiceGroupRequest) GetServiceGroupID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceGroupID
 }
 
 // GetAServiceGroup200ApplicationJSON - OK
@@ -25,4 +39,32 @@ type GetAServiceGroupResponse struct {
 	RawResponse *http.Response
 	// OK
 	GetAServiceGroup200ApplicationJSONObject *GetAServiceGroup200ApplicationJSON
+}
+
+func (o *GetAServiceGroupResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetAServiceGroupResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetAServiceGroupResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetAServiceGroupResponse) GetGetAServiceGroup200ApplicationJSONObject() *GetAServiceGroup200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.GetAServiceGroup200ApplicationJSONObject
 }

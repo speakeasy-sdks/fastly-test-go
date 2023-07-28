@@ -21,3 +21,52 @@ type DirectorBackend struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
 }
+
+func (o *DirectorBackend) GetBackendName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BackendName
+}
+
+func (o *DirectorBackend) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *DirectorBackend) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *DirectorBackend) GetDirector() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Director
+}
+
+func (o *DirectorBackend) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *DirectorBackend) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *DirectorBackend) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

@@ -11,3 +11,24 @@ type DictionaryInfoResponse struct {
 	// Timestamp (UTC) when the dictionary was last updated or an item was added or removed.
 	LastUpdated *string `json:"last_updated,omitempty"`
 }
+
+func (o *DictionaryInfoResponse) GetDigest() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Digest
+}
+
+func (o *DictionaryInfoResponse) GetItemCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ItemCount
+}
+
+func (o *DictionaryInfoResponse) GetLastUpdated() *string {
+	if o == nil {
+		return nil
+	}
+	return o.LastUpdated
+}

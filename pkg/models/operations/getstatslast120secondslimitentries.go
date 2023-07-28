@@ -11,11 +11,32 @@ type GetStatsLast120SecondsLimitEntriesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetStatsLast120SecondsLimitEntriesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetStatsLast120SecondsLimitEntriesRequest struct {
 	// Maximum number of results to show.
 	MaxEntries int64 `pathParam:"style=simple,explode=false,name=max_entries"`
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
+}
+
+func (o *GetStatsLast120SecondsLimitEntriesRequest) GetMaxEntries() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.MaxEntries
+}
+
+func (o *GetStatsLast120SecondsLimitEntriesRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
 }
 
 type GetStatsLast120SecondsLimitEntriesResponse struct {
@@ -24,4 +45,32 @@ type GetStatsLast120SecondsLimitEntriesResponse struct {
 	RawResponse *http.Response
 	// OK
 	Realtime *shared.Realtime
+}
+
+func (o *GetStatsLast120SecondsLimitEntriesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetStatsLast120SecondsLimitEntriesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetStatsLast120SecondsLimitEntriesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetStatsLast120SecondsLimitEntriesResponse) GetRealtime() *shared.Realtime {
+	if o == nil {
+		return nil
+	}
+	return o.Realtime
 }

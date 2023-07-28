@@ -11,11 +11,32 @@ type ListLogSyslogSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListLogSyslogSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListLogSyslogRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListLogSyslogRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListLogSyslogRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListLogSyslogResponse struct {
@@ -24,4 +45,32 @@ type ListLogSyslogResponse struct {
 	RawResponse *http.Response
 	// OK
 	LoggingSyslogResponses []shared.LoggingSyslogResponse
+}
+
+func (o *ListLogSyslogResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListLogSyslogResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListLogSyslogResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListLogSyslogResponse) GetLoggingSyslogResponses() []shared.LoggingSyslogResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSyslogResponses
 }

@@ -204,3 +204,136 @@ type LoggingKafka5 struct {
 	// SASL user.
 	User *string `form:"name=user"`
 }
+
+func (o *LoggingKafka5) GetAuthMethod() *LoggingKafkaAuthMethod {
+	if o == nil {
+		return nil
+	}
+	return o.AuthMethod
+}
+
+func (o *LoggingKafka5) GetBrokers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Brokers
+}
+
+func (o *LoggingKafka5) GetCompressionCodec() *LoggingKafkaCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingKafka5) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingKafka5) GetFormatVersion() *LoggingKafkaFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingKafka5) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingKafka5) GetParseLogKeyvals() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.ParseLogKeyvals
+}
+
+func (o *LoggingKafka5) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingKafka5) GetPlacement() *LoggingKafkaPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingKafka5) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingKafka5) GetRequiredAcks() *LoggingKafkaRequiredAcks {
+	if o == nil {
+		return nil
+	}
+	return o.RequiredAcks
+}
+
+func (o *LoggingKafka5) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingKafka5) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingKafka5) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingKafka5) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingKafka5) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingKafka5) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}
+
+func (o *LoggingKafka5) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}
+
+func (o *LoggingKafka5) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}

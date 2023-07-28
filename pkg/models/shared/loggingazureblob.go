@@ -165,3 +165,108 @@ type LoggingAzureblobInput struct {
 	// The Azure shared access signature providing write access to the blob service objects. Be sure to update your token before it expires or the logging functionality will not work. Required.
 	SasToken *string `form:"name=sas_token"`
 }
+
+func (o *LoggingAzureblobInput) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingAzureblobInput) GetCompressionCodec() *LoggingAzureblobCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingAzureblobInput) GetContainer() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Container
+}
+
+func (o *LoggingAzureblobInput) GetFileMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FileMaxBytes
+}
+
+func (o *LoggingAzureblobInput) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingAzureblobInput) GetFormatVersion() *LoggingAzureblobFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingAzureblobInput) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingAzureblobInput) GetMessageType() *LoggingAzureblobMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingAzureblobInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingAzureblobInput) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingAzureblobInput) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingAzureblobInput) GetPlacement() *LoggingAzureblobPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingAzureblobInput) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingAzureblobInput) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingAzureblobInput) GetSasToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SasToken
+}

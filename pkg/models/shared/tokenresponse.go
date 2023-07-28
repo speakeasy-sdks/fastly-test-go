@@ -68,3 +68,87 @@ type TokenResponse struct {
 	UserAgent *string `json:"user_agent,omitempty"`
 	UserID    *string `json:"user_id,omitempty"`
 }
+
+func (o *TokenResponse) GetCreatedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TokenResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TokenResponse) GetExpiresAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ExpiresAt
+}
+
+func (o *TokenResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TokenResponse) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *TokenResponse) GetLastUsedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.LastUsedAt
+}
+
+func (o *TokenResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *TokenResponse) GetScope() *TokenResponseScope {
+	if o == nil {
+		return nil
+	}
+	return o.Scope
+}
+
+func (o *TokenResponse) GetServices() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Services
+}
+
+func (o *TokenResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *TokenResponse) GetUserAgent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserAgent
+}
+
+func (o *TokenResponse) GetUserID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserID
+}

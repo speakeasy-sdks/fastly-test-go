@@ -56,3 +56,59 @@ type Director struct {
 	// What type of load balance group to use.
 	Type *DirectorType `json:"type,omitempty" form:"name=type"`
 }
+
+func (o *Director) GetBackends() []Backend {
+	if o == nil {
+		return nil
+	}
+	return o.Backends
+}
+
+func (o *Director) GetCapacity() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Capacity
+}
+
+func (o *Director) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Director) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Director) GetQuorum() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Quorum
+}
+
+func (o *Director) GetRetries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Retries
+}
+
+func (o *Director) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Director) GetType() *DirectorType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

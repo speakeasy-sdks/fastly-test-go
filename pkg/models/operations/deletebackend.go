@@ -10,6 +10,13 @@ type DeleteBackendSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteBackendSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteBackendRequest struct {
 	// The name of the backend.
 	BackendName string `pathParam:"style=simple,explode=false,name=backend_name"`
@@ -19,10 +26,38 @@ type DeleteBackendRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteBackendRequest) GetBackendName() string {
+	if o == nil {
+		return ""
+	}
+	return o.BackendName
+}
+
+func (o *DeleteBackendRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteBackendRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteBackend200ApplicationJSON - OK
 type DeleteBackend200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteBackend200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteBackendResponse struct {
@@ -31,4 +66,32 @@ type DeleteBackendResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteBackend200ApplicationJSONObject *DeleteBackend200ApplicationJSON
+}
+
+func (o *DeleteBackendResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteBackendResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteBackendResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteBackendResponse) GetDeleteBackend200ApplicationJSONObject() *DeleteBackend200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteBackend200ApplicationJSONObject
 }

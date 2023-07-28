@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogDigoceanSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.CreateLogDigocean(ctx, operations.CreateLogDigoceanRequest{
@@ -57,9 +60,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogDigoceanSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -102,15 +103,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogDigoceanSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.DeleteLogDigocean(ctx, operations.DeleteLogDigoceanRequest{
         LoggingDigitaloceanName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogDigoceanSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogDigoceanSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.GetLogDigocean(ctx, operations.GetLogDigoceanRequest{
         LoggingDigitaloceanName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogDigoceanSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,14 +207,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogDigoceanSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.ListLogDigocean(ctx, operations.ListLogDigoceanRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogDigoceanSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,6 +259,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogDigoceanSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.UpdateLogDigocean(ctx, operations.UpdateLogDigoceanRequest{
@@ -281,9 +288,7 @@ func main() {
         LoggingDigitaloceanName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogDigoceanSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

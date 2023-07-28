@@ -10,13 +10,48 @@ type DeleteARoleSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteARoleSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteARoleRequest struct {
 	// Alphanumeric string identifying the role.
 	RoleID string `pathParam:"style=simple,explode=false,name=role_id"`
+}
+
+func (o *DeleteARoleRequest) GetRoleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.RoleID
 }
 
 type DeleteARoleResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteARoleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteARoleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteARoleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

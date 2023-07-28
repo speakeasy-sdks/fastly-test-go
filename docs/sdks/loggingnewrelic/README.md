@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogNewrelicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.CreateLogNewrelic(ctx, operations.CreateLogNewrelicRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogNewrelicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogNewrelicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.DeleteLogNewrelic(ctx, operations.DeleteLogNewrelicRequest{
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogNewrelicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogNewrelicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.GetLogNewrelic(ctx, operations.GetLogNewrelicRequest{
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogNewrelicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogNewrelicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.ListLogNewrelic(ctx, operations.ListLogNewrelicRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogNewrelicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogNewrelicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.UpdateLogNewrelic(ctx, operations.UpdateLogNewrelicRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogNewrelicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

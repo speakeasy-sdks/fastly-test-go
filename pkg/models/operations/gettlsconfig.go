@@ -11,6 +11,13 @@ type GetTLSConfigSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetTLSConfigSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetTLSConfigRequest struct {
 	// Include related objects. Optional, comma-separated values. Permitted values: `dns_records`.
 	//
@@ -19,10 +26,52 @@ type GetTLSConfigRequest struct {
 	TLSConfigurationID string `pathParam:"style=simple,explode=false,name=tls_configuration_id"`
 }
 
+func (o *GetTLSConfigRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *GetTLSConfigRequest) GetTLSConfigurationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSConfigurationID
+}
+
 type GetTLSConfigResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSConfigurationResponse *shared.TLSConfigurationResponse
+}
+
+func (o *GetTLSConfigResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetTLSConfigResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetTLSConfigResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetTLSConfigResponse) GetTLSConfigurationResponse() *shared.TLSConfigurationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSConfigurationResponse
 }

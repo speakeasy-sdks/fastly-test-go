@@ -11,6 +11,13 @@ type CreateCacheSettingsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateCacheSettingsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateCacheSettingsRequest struct {
 	CacheSetting1 *shared.CacheSetting1 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateCacheSettingsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateCacheSettingsRequest) GetCacheSetting1() *shared.CacheSetting1 {
+	if o == nil {
+		return nil
+	}
+	return o.CacheSetting1
+}
+
+func (o *CreateCacheSettingsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateCacheSettingsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateCacheSettingsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	CacheSettingResponse *shared.CacheSettingResponse
+}
+
+func (o *CreateCacheSettingsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateCacheSettingsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateCacheSettingsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateCacheSettingsResponse) GetCacheSettingResponse() *shared.CacheSettingResponse {
+	if o == nil {
+		return nil
+	}
+	return o.CacheSettingResponse
 }

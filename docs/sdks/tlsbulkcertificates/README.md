@@ -31,13 +31,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteBulkTLSCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.DeleteBulkTLSCert(ctx, operations.DeleteBulkTLSCertRequest{
         CertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.DeleteBulkTLSCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -80,13 +81,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTLSBulkCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.GetTLSBulkCert(ctx, operations.GetTLSBulkCertRequest{
         CertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.GetTLSBulkCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -130,6 +132,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSBulkCertsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.ListTLSBulkCerts(ctx, operations.ListTLSBulkCertsRequest{
@@ -137,9 +142,7 @@ func main() {
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),
-    }, operations.ListTLSBulkCertsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -183,6 +186,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateBulkTLSCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.UpdateBulkTLSCert(ctx, operations.UpdateBulkTLSCertRequest{
@@ -215,9 +221,7 @@ func main() {
                 Type: shared.TypeTLSBulkCertificateTLSBulkCertificate.ToPointer(),
             },
         },
-    }, operations.UpdateBulkTLSCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -261,6 +265,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UploadTLSBulkCertSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.UploadTLSBulkCert(ctx, shared.TLSBulkCertificateDataInput{
@@ -288,9 +295,7 @@ func main() {
             },
         },
         Type: shared.TypeTLSBulkCertificateTLSBulkCertificate.ToPointer(),
-    }, operations.UploadTLSBulkCertSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

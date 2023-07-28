@@ -6,3 +6,10 @@ package shared
 type GenericTokenError struct {
 	Msg *string `json:"msg,omitempty"`
 }
+
+func (o *GenericTokenError) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
+}

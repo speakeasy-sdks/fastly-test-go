@@ -30,15 +30,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteRequestSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RequestSettings.DeleteRequestSettings(ctx, operations.DeleteRequestSettingsRequest{
         RequestSettingsName: "test-request-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteRequestSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -81,15 +82,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetRequestSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RequestSettings.GetRequestSettings(ctx, operations.GetRequestSettingsRequest{
         RequestSettingsName: "test-request-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetRequestSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -132,14 +134,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListRequestSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RequestSettings.ListRequestSettings(ctx, operations.ListRequestSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListRequestSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -183,6 +186,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateRequestSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RequestSettings.UpdateRequestSettings(ctx, operations.UpdateRequestSettingsRequest{
@@ -203,9 +209,7 @@ func main() {
         RequestSettingsName: "test-request-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateRequestSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -31,11 +31,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTokenCurrentSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Tokens.GetTokenCurrent(ctx, operations.GetTokenCurrentSecurity{
-        Token: "",
-    })
+    res, err := s.Tokens.GetTokenCurrent(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -77,13 +78,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTokensCustomerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Tokens.ListTokensCustomer(ctx, operations.ListTokensCustomerRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.ListTokensCustomerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -126,11 +128,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTokensUserSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Tokens.ListTokensUser(ctx, operations.ListTokensUserSecurity{
-        Token: "",
-    })
+    res, err := s.Tokens.ListTokensUser(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -172,13 +175,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.RevokeTokenSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Tokens.RevokeToken(ctx, operations.RevokeTokenRequest{
         TokenID: "5Yo3XXnrQpjc20u0ybrf2g",
-    }, operations.RevokeTokenSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -221,11 +225,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.RevokeTokenCurrentSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Tokens.RevokeTokenCurrent(ctx, operations.RevokeTokenCurrentSecurity{
-        Token: "",
-    })
+    res, err := s.Tokens.RevokeTokenCurrent(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

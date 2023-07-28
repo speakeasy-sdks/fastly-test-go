@@ -124,3 +124,94 @@ type LoggingScalyrResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
 }
+
+func (o *LoggingScalyrResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingScalyrResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingScalyrResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingScalyrResponse) GetFormatVersion() *LoggingScalyrResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingScalyrResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingScalyrResponse) GetPlacement() *LoggingScalyrResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingScalyrResponse) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingScalyrResponse) GetRegion() *LoggingScalyrResponseRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingScalyrResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingScalyrResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingScalyrResponse) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingScalyrResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingScalyrResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

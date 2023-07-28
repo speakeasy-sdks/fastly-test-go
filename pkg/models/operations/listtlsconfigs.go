@@ -11,6 +11,13 @@ type ListTLSConfigsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSConfigsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSConfigsRequest struct {
 	// Optionally filters by the bulk attribute.
 	FilterBulk *string `queryParam:"style=form,explode=true,name=filter[bulk]"`
@@ -23,10 +30,66 @@ type ListTLSConfigsRequest struct {
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
+func (o *ListTLSConfigsRequest) GetFilterBulk() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterBulk
+}
+
+func (o *ListTLSConfigsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSConfigsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSConfigsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
 type ListTLSConfigsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSConfigurationsResponse *shared.TLSConfigurationsResponse
+}
+
+func (o *ListTLSConfigsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSConfigsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSConfigsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSConfigsResponse) GetTLSConfigurationsResponse() *shared.TLSConfigurationsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSConfigurationsResponse
 }

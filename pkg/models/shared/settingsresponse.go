@@ -15,3 +15,45 @@ type SettingsResponse struct {
 	ServiceID              *string `json:"service_id,omitempty"`
 	Version                *int64  `json:"version,omitempty"`
 }
+
+func (o *SettingsResponse) GetGeneralDefaultHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralDefaultHost
+}
+
+func (o *SettingsResponse) GetGeneralDefaultTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralDefaultTTL
+}
+
+func (o *SettingsResponse) GetGeneralStaleIfError() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralStaleIfError
+}
+
+func (o *SettingsResponse) GetGeneralStaleIfErrorTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralStaleIfErrorTTL
+}
+
+func (o *SettingsResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *SettingsResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

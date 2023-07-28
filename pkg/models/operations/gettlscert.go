@@ -11,9 +11,23 @@ type GetTLSCertSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetTLSCertSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetTLSCertRequest struct {
 	// Alphanumeric string identifying a TLS certificate.
 	TLSCertificateID string `pathParam:"style=simple,explode=false,name=tls_certificate_id"`
+}
+
+func (o *GetTLSCertRequest) GetTLSCertificateID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSCertificateID
 }
 
 type GetTLSCertResponse struct {
@@ -22,4 +36,32 @@ type GetTLSCertResponse struct {
 	RawResponse *http.Response
 	// OK
 	TLSCertificateResponse *shared.TLSCertificateResponse
+}
+
+func (o *GetTLSCertResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetTLSCertResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetTLSCertResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetTLSCertResponse) GetTLSCertificateResponse() *shared.TLSCertificateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertificateResponse
 }

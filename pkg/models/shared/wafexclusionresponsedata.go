@@ -10,3 +10,31 @@ type WafExclusionResponseData struct {
 	// Resource type.
 	Type *TypeWafExclusion `json:"type,omitempty"`
 }
+
+func (o *WafExclusionResponseData) GetAttributes() *WafExclusionResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafExclusionResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafExclusionResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafExclusionResponseData) GetType() *TypeWafExclusion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

@@ -11,6 +11,13 @@ type UpdateLogHTTPSSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateLogHTTPSSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateLogHTTPSRequest struct {
 	LoggingHttps4 *shared.LoggingHttps4 `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +28,66 @@ type UpdateLogHTTPSRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogHTTPSRequest) GetLoggingHttps4() *shared.LoggingHttps4 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHttps4
+}
+
+func (o *UpdateLogHTTPSRequest) GetLoggingHTTPSName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingHTTPSName
+}
+
+func (o *UpdateLogHTTPSRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogHTTPSRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogHTTPSResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingHTTPSResponse *shared.LoggingHTTPSResponse
+}
+
+func (o *UpdateLogHTTPSResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogHTTPSResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogHTTPSResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogHTTPSResponse) GetLoggingHTTPSResponse() *shared.LoggingHTTPSResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHTTPSResponse
 }

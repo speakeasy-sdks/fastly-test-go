@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogScalyrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.CreateLogScalyr(ctx, operations.CreateLogScalyrRequest{
@@ -47,9 +50,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogScalyrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -92,15 +93,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogScalyrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.DeleteLogScalyr(ctx, operations.DeleteLogScalyrRequest{
         LoggingScalyrName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogScalyrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -143,15 +145,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogScalyrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.GetLogScalyr(ctx, operations.GetLogScalyrRequest{
         LoggingScalyrName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogScalyrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -194,14 +197,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogScalyrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.ListLogScalyr(ctx, operations.ListLogScalyrRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogScalyrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -245,6 +249,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogScalyrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.UpdateLogScalyr(ctx, operations.UpdateLogScalyrRequest{
@@ -261,9 +268,7 @@ func main() {
         LoggingScalyrName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogScalyrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

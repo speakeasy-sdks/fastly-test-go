@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogFtpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingFtp.CreateLogFtp(ctx, operations.CreateLogFtpRequest{
@@ -59,9 +62,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogFtpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -104,15 +105,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogFtpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingFtp.DeleteLogFtp(ctx, operations.DeleteLogFtpRequest{
         LoggingFtpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogFtpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -155,15 +157,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogFtpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingFtp.GetLogFtp(ctx, operations.GetLogFtpRequest{
         LoggingFtpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogFtpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -206,14 +209,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogFtpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingFtp.ListLogFtp(ctx, operations.ListLogFtpRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogFtpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -257,6 +261,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogFtpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingFtp.UpdateLogFtp(ctx, operations.UpdateLogFtpRequest{
@@ -285,9 +292,7 @@ func main() {
         LoggingFtpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogFtpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

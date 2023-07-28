@@ -11,6 +11,13 @@ type UpdateACLSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateACLSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateACLRequest struct {
 	ACL *shared.ACL `request:"mediaType=application/x-www-form-urlencoded"`
 	// Name for the ACL. Must start with an alphanumeric character and contain only alphanumeric characters, underscores, and whitespace.
@@ -21,10 +28,66 @@ type UpdateACLRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateACLRequest) GetACL() *shared.ACL {
+	if o == nil {
+		return nil
+	}
+	return o.ACL
+}
+
+func (o *UpdateACLRequest) GetACLName() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLName
+}
+
+func (o *UpdateACLRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateACLRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateACLResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	ACLResponse *shared.ACLResponse
+}
+
+func (o *UpdateACLResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateACLResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateACLResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateACLResponse) GetACLResponse() *shared.ACLResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ACLResponse
 }

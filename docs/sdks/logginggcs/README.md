@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogGcsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingGcs.CreateLogGcs(ctx, operations.CreateLogGcsRequest{
@@ -61,9 +64,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogGcsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -106,15 +107,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogGcsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingGcs.DeleteLogGcs(ctx, operations.DeleteLogGcsRequest{
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogGcsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -157,15 +159,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogGcsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingGcs.GetLogGcs(ctx, operations.GetLogGcsRequest{
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogGcsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -208,14 +211,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogGcsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingGcs.ListLogGcs(ctx, operations.ListLogGcsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogGcsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -259,6 +263,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogGcsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingGcs.UpdateLogGcs(ctx, operations.UpdateLogGcsRequest{
@@ -289,9 +296,7 @@ func main() {
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogGcsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -13,6 +13,13 @@ type ListWafRuleExclusionsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListWafRuleExclusionsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 // ListWafRuleExclusionsFilterExclusionType - Filters the results based on this exclusion type.
 type ListWafRuleExclusionsFilterExclusionType string
 
@@ -64,10 +71,94 @@ type ListWafRuleExclusionsRequest struct {
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
+func (o *ListWafRuleExclusionsRequest) GetFilterExclusionType() *ListWafRuleExclusionsFilterExclusionType {
+	if o == nil {
+		return nil
+	}
+	return o.FilterExclusionType
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFilterName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterName
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFilterWafRulesModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafRulesModsecRuleID
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
+func (o *ListWafRuleExclusionsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafRuleExclusionsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafRuleExclusionsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
 type ListWafRuleExclusionsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafExclusionsResponse *shared.WafExclusionsResponse
+}
+
+func (o *ListWafRuleExclusionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafRuleExclusionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafRuleExclusionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafRuleExclusionsResponse) GetWafExclusionsResponse() *shared.WafExclusionsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusionsResponse
 }

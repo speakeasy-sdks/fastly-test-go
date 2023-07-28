@@ -11,6 +11,13 @@ type GetUsageSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetUsageSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetUsageRequest struct {
 	// Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`.
 	//
@@ -20,10 +27,52 @@ type GetUsageRequest struct {
 	To *string `queryParam:"style=form,explode=true,name=to"`
 }
 
+func (o *GetUsageRequest) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *GetUsageRequest) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 type GetUsageResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	HistoricalUsageAggregateResponse *shared.HistoricalUsageAggregateResponse
+}
+
+func (o *GetUsageResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetUsageResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetUsageResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetUsageResponse) GetHistoricalUsageAggregateResponse() *shared.HistoricalUsageAggregateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HistoricalUsageAggregateResponse
 }

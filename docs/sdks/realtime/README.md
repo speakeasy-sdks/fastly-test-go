@@ -29,13 +29,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetStatsLast120SecondsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Realtime.GetStatsLast120Seconds(ctx, operations.GetStatsLast120SecondsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetStatsLast120SecondsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -78,14 +79,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetStatsLast120SecondsLimitEntriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Realtime.GetStatsLast120SecondsLimitEntries(ctx, operations.GetStatsLast120SecondsLimitEntriesRequest{
         MaxEntries: 1,
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetStatsLast120SecondsLimitEntriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -128,14 +130,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetStatsLastSecondSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Realtime.GetStatsLastSecond(ctx, operations.GetStatsLastSecondRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         TimestampInSeconds: 1608560817,
-    }, operations.GetStatsLastSecondSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

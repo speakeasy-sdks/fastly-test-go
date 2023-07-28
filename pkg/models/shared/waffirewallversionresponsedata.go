@@ -10,3 +10,31 @@ type WafFirewallVersionResponseData struct {
 	// Resource type.
 	Type *TypeWafFirewallVersion `json:"type,omitempty"`
 }
+
+func (o *WafFirewallVersionResponseData) GetAttributes() *WafFirewallVersionResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafFirewallVersionResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafFirewallVersionResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafFirewallVersionResponseData) GetType() *TypeWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

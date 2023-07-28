@@ -9,3 +9,31 @@ type TLSActivationResponseData struct {
 	// Resource type.
 	Type *TypeTLSActivation `json:"type,omitempty"`
 }
+
+func (o *TLSActivationResponseData) GetAttributes() *Timestamps {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSActivationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSActivationResponseData) GetRelationships() *RelationshipsForTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSActivationResponseData) GetType() *TypeTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

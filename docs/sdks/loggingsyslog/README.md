@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogSyslogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.CreateLogSyslog(ctx, operations.CreateLogSyslogRequest{
@@ -55,9 +58,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogSyslogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -100,15 +101,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogSyslogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.DeleteLogSyslog(ctx, operations.DeleteLogSyslogRequest{
         LoggingSyslogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogSyslogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -151,15 +153,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogSyslogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.GetLogSyslog(ctx, operations.GetLogSyslogRequest{
         LoggingSyslogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogSyslogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -202,14 +205,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogSyslogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.ListLogSyslog(ctx, operations.ListLogSyslogRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogSyslogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -253,6 +257,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogSyslogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.UpdateLogSyslog(ctx, operations.UpdateLogSyslogRequest{
@@ -277,9 +284,7 @@ func main() {
         LoggingSyslogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogSyslogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

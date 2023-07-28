@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogHoneycombSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.CreateLogHoneycomb(ctx, operations.CreateLogHoneycombRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogHoneycombSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogHoneycombSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.DeleteLogHoneycomb(ctx, operations.DeleteLogHoneycombRequest{
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogHoneycombSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogHoneycombSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.GetLogHoneycomb(ctx, operations.GetLogHoneycombRequest{
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogHoneycombSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogHoneycombSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.ListLogHoneycomb(ctx, operations.ListLogHoneycombRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogHoneycombSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogHoneycombSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.UpdateLogHoneycomb(ctx, operations.UpdateLogHoneycombRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogHoneycombSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -11,11 +11,32 @@ type ListServiceAuthorizationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListServiceAuthorizationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListServiceAuthorizationRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+}
+
+func (o *ListServiceAuthorizationRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListServiceAuthorizationRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
 }
 
 type ListServiceAuthorizationResponse struct {
@@ -24,4 +45,32 @@ type ListServiceAuthorizationResponse struct {
 	RawResponse *http.Response
 	// OK
 	ServiceAuthorizationsResponse *shared.ServiceAuthorizationsResponse
+}
+
+func (o *ListServiceAuthorizationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListServiceAuthorizationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListServiceAuthorizationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListServiceAuthorizationResponse) GetServiceAuthorizationsResponse() *shared.ServiceAuthorizationsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceAuthorizationsResponse
 }

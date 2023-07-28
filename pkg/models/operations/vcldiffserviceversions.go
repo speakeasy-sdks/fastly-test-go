@@ -11,6 +11,13 @@ type VclDiffServiceVersionsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *VclDiffServiceVersionsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type VclDiffServiceVersionsRequest struct {
 	// Optional method to format the diff field.
 	Format *shared.QueryFormat `queryParam:"style=form,explode=true,name=format"`
@@ -22,10 +29,66 @@ type VclDiffServiceVersionsRequest struct {
 	ToVersionID int64 `pathParam:"style=simple,explode=false,name=to_version_id"`
 }
 
+func (o *VclDiffServiceVersionsRequest) GetFormat() *shared.QueryFormat {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *VclDiffServiceVersionsRequest) GetFromVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FromVersionID
+}
+
+func (o *VclDiffServiceVersionsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *VclDiffServiceVersionsRequest) GetToVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.ToVersionID
+}
+
 type VclDiffServiceVersionsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	VclDiff *shared.VclDiff
+}
+
+func (o *VclDiffServiceVersionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *VclDiffServiceVersionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *VclDiffServiceVersionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *VclDiffServiceVersionsResponse) GetVclDiff() *shared.VclDiff {
+	if o == nil {
+		return nil
+	}
+	return o.VclDiff
 }

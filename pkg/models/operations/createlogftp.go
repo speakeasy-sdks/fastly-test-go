@@ -11,6 +11,13 @@ type CreateLogFtpSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateLogFtpSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateLogFtpRequest struct {
 	LoggingFtpInput *shared.LoggingFtpInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateLogFtpRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogFtpRequest) GetLoggingFtpInput() *shared.LoggingFtpInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingFtpInput
+}
+
+func (o *CreateLogFtpRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogFtpRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogFtpResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingFtpResponse *shared.LoggingFtpResponse
+}
+
+func (o *CreateLogFtpResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogFtpResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogFtpResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogFtpResponse) GetLoggingFtpResponse() *shared.LoggingFtpResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingFtpResponse
 }

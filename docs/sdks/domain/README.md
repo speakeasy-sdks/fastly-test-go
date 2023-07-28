@@ -33,15 +33,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CheckDomainSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.CheckDomain(ctx, operations.CheckDomainRequest{
         DomainName: "www.example.com",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CheckDomainSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -84,14 +85,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CheckDomainsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.CheckDomains(ctx, operations.CheckDomainsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CheckDomainsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -135,6 +137,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateDomainSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.CreateDomain(ctx, operations.CreateDomainRequest{
@@ -144,9 +149,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateDomainSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -189,15 +192,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteDomainSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.DeleteDomain(ctx, operations.DeleteDomainRequest{
         DomainName: "www.example.com",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteDomainSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -240,15 +244,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetDomainSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.GetDomain(ctx, operations.GetDomainRequest{
         DomainName: "www.example.com",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetDomainSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -291,14 +296,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListDomainsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.ListDomains(ctx, operations.ListDomainsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListDomainsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -342,6 +348,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateDomainSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Domain.UpdateDomain(ctx, operations.UpdateDomainRequest{
@@ -352,9 +361,7 @@ func main() {
         DomainName: "www.example.com",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateDomainSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

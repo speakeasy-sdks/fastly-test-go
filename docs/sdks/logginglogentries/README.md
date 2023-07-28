@@ -34,6 +34,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogLogentriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.CreateLogLogentries(ctx, operations.CreateLogLogentriesRequest{
@@ -50,9 +53,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogLogentriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -97,15 +98,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogLogentriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.DeleteLogLogentries(ctx, operations.DeleteLogLogentriesRequest{
         LoggingLogentriesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogLogentriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -150,15 +152,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogLogentriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.GetLogLogentries(ctx, operations.GetLogLogentriesRequest{
         LoggingLogentriesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogLogentriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -203,14 +206,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogLogentriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.ListLogLogentries(ctx, operations.ListLogLogentriesRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogLogentriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -256,6 +260,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogLogentriesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.UpdateLogLogentries(ctx, operations.UpdateLogLogentriesRequest{
@@ -273,9 +280,7 @@ func main() {
         LoggingLogentriesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogLogentriesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

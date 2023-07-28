@@ -11,6 +11,13 @@ type GetHealthcheckSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetHealthcheckSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetHealthcheckRequest struct {
 	// The name of the health check.
 	HealthcheckName string `pathParam:"style=simple,explode=false,name=healthcheck_name"`
@@ -20,10 +27,59 @@ type GetHealthcheckRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetHealthcheckRequest) GetHealthcheckName() string {
+	if o == nil {
+		return ""
+	}
+	return o.HealthcheckName
+}
+
+func (o *GetHealthcheckRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetHealthcheckRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetHealthcheckResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	HealthcheckResponse *shared.HealthcheckResponse
+}
+
+func (o *GetHealthcheckResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetHealthcheckResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetHealthcheckResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetHealthcheckResponse) GetHealthcheckResponse() *shared.HealthcheckResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HealthcheckResponse
 }

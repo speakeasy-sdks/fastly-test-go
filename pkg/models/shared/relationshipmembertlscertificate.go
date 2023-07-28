@@ -7,8 +7,29 @@ type RelationshipMemberTLSCertificateInput struct {
 	Type *TypeTLSCertificate `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberTLSCertificateInput) GetType() *TypeTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberTLSCertificate struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
 	Type *TypeTLSCertificate `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberTLSCertificate) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSCertificate) GetType() *TypeTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

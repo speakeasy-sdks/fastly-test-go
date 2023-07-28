@@ -15,3 +15,38 @@ type HTTPResponseFormat struct {
 	// The HTTP status string. Defaults to a string appropriate for `code`.
 	Reason *string `json:"reason,omitempty"`
 }
+
+func (o *HTTPResponseFormat) GetBody() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Body
+}
+
+func (o *HTTPResponseFormat) GetBodyBin() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BodyBin
+}
+
+func (o *HTTPResponseFormat) GetCode() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Code
+}
+
+func (o *HTTPResponseFormat) GetHeaders() map[string]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *HTTPResponseFormat) GetReason() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Reason
+}

@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateServerPoolSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Pool.CreateServerPool(ctx, operations.CreateServerPoolRequest{
@@ -60,9 +63,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateServerPoolSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -105,15 +106,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteServerPoolSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Pool.DeleteServerPool(ctx, operations.DeleteServerPoolRequest{
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteServerPoolSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -156,15 +158,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServerPoolSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Pool.GetServerPool(ctx, operations.GetServerPoolRequest{
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetServerPoolSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -207,14 +210,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServerPoolsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Pool.ListServerPools(ctx, operations.ListServerPoolsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListServerPoolsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -258,6 +262,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateServerPoolSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Pool.UpdateServerPool(ctx, operations.UpdateServerPoolRequest{
@@ -287,9 +294,7 @@ func main() {
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateServerPoolSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

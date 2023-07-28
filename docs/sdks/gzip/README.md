@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateGzipConfigSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Gzip.CreateGzipConfig(ctx, operations.CreateGzipConfigRequest{
@@ -43,9 +46,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateGzipConfigSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -88,15 +89,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteGzipConfigSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Gzip.DeleteGzipConfig(ctx, operations.DeleteGzipConfigRequest{
         GzipName: "test-gzip",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteGzipConfigSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -139,15 +141,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetGzipConfigsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Gzip.GetGzipConfigs(ctx, operations.GetGzipConfigsRequest{
         GzipName: "test-gzip",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetGzipConfigsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -190,14 +193,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListGzipConfigsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Gzip.ListGzipConfigs(ctx, operations.ListGzipConfigsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListGzipConfigsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -241,6 +245,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateGzipConfigSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Gzip.UpdateGzipConfig(ctx, operations.UpdateGzipConfigRequest{
@@ -253,9 +260,7 @@ func main() {
         GzipName: "test-gzip",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateGzipConfigSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

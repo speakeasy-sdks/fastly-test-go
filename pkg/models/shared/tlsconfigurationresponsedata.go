@@ -6,14 +6,35 @@ type TLSConfigurationResponseDataRelationships2DNSRecords struct {
 	Data []RelationshipMemberTLSDNSRecord `json:"data,omitempty"`
 }
 
+func (o *TLSConfigurationResponseDataRelationships2DNSRecords) GetData() []RelationshipMemberTLSDNSRecord {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 // TLSConfigurationResponseDataRelationships2 - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
 type TLSConfigurationResponseDataRelationships2 struct {
 	DNSRecords *TLSConfigurationResponseDataRelationships2DNSRecords `json:"dns_records,omitempty"`
 }
 
+func (o *TLSConfigurationResponseDataRelationships2) GetDNSRecords() *TLSConfigurationResponseDataRelationships2DNSRecords {
+	if o == nil {
+		return nil
+	}
+	return o.DNSRecords
+}
+
 // TLSConfigurationResponseDataRelationships1 - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
 type TLSConfigurationResponseDataRelationships1 struct {
 	Service *RelationshipMemberService `json:"service,omitempty"`
+}
+
+func (o *TLSConfigurationResponseDataRelationships1) GetService() *RelationshipMemberService {
+	if o == nil {
+		return nil
+	}
+	return o.Service
 }
 
 type TLSConfigurationResponseData struct {
@@ -22,4 +43,32 @@ type TLSConfigurationResponseData struct {
 	Relationships interface{}                         `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeTLSConfiguration `json:"type,omitempty"`
+}
+
+func (o *TLSConfigurationResponseData) GetAttributes() *TLSConfigurationResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSConfigurationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSConfigurationResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSConfigurationResponseData) GetType() *TypeTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

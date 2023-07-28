@@ -7,7 +7,28 @@ type TLSSubscriptionResponseData struct {
 	ID         *string                            `json:"id,omitempty"`
 }
 
+func (o *TLSSubscriptionResponseData) GetAttributes() *TLSSubscriptionResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSSubscriptionResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
 // TLSSubscriptionResponse - Created
 type TLSSubscriptionResponse struct {
 	Data *TLSSubscriptionResponseData `json:"data,omitempty"`
+}
+
+func (o *TLSSubscriptionResponse) GetData() *TLSSubscriptionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

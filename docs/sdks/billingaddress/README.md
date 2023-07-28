@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.AddBillingAddrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.BillingAddress.AddBillingAddr(ctx, operations.AddBillingAddrRequest{
@@ -50,9 +53,7 @@ func main() {
             SkipVerification: sdk.Bool(false),
         },
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.AddBillingAddrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -95,13 +96,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteBillingAddrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.BillingAddress.DeleteBillingAddr(ctx, operations.DeleteBillingAddrRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.DeleteBillingAddrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -144,13 +146,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetBillingAddrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.BillingAddress.GetBillingAddr(ctx, operations.GetBillingAddrRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.GetBillingAddrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -194,6 +197,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateBillingAddrSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.BillingAddress.UpdateBillingAddr(ctx, operations.UpdateBillingAddrRequest{
@@ -213,9 +219,7 @@ func main() {
             },
             SkipVerification: sdk.Bool(false),
         },
-    }, operations.UpdateBillingAddrSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -11,6 +11,13 @@ type ListTLSBulkCertsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSBulkCertsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSBulkCertsRequest struct {
 	// Filter certificates by their matching, fully-qualified domain name.
 	FilterTLSDomainID *string `queryParam:"style=form,explode=true,name=filter[tls_domain.id]"`
@@ -22,10 +29,66 @@ type ListTLSBulkCertsRequest struct {
 	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListTLSBulkCertsRequest) GetFilterTLSDomainID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSDomainID
+}
+
+func (o *ListTLSBulkCertsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSBulkCertsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListTLSBulkCertsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListTLSBulkCertsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSBulkCertificatesResponse *shared.TLSBulkCertificatesResponse
+}
+
+func (o *ListTLSBulkCertsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSBulkCertsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSBulkCertsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSBulkCertsResponse) GetTLSBulkCertificatesResponse() *shared.TLSBulkCertificatesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSBulkCertificatesResponse
 }

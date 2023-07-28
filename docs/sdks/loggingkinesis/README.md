@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogKinesisSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.CreateLogKinesis(ctx, operations.CreateLogKinesisRequest{
@@ -47,9 +50,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogKinesisSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -92,15 +93,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogKinesisSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.DeleteLogKinesis(ctx, operations.DeleteLogKinesisRequest{
         LoggingKinesisName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogKinesisSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -143,15 +145,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogKinesisSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.GetLogKinesis(ctx, operations.GetLogKinesisRequest{
         LoggingKinesisName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogKinesisSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -194,14 +197,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogKinesisSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.ListLogKinesis(ctx, operations.ListLogKinesisRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogKinesisSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

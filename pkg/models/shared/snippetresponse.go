@@ -114,3 +114,80 @@ type SnippetResponse struct {
 	// String representing the number identifying a version of the service.
 	Version *string `json:"version,omitempty"`
 }
+
+func (o *SnippetResponse) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *SnippetResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *SnippetResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *SnippetResponse) GetDynamic() *SnippetResponseDynamic {
+	if o == nil {
+		return nil
+	}
+	return o.Dynamic
+}
+
+func (o *SnippetResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *SnippetResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *SnippetResponse) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *SnippetResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *SnippetResponse) GetType() *SnippetResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *SnippetResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *SnippetResponse) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

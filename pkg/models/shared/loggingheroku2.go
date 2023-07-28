@@ -84,3 +84,52 @@ type LoggingHeroku2 struct {
 	// The URL to stream logs to.
 	URL *string `form:"name=url"`
 }
+
+func (o *LoggingHeroku2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingHeroku2) GetFormatVersion() *LoggingHerokuFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingHeroku2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingHeroku2) GetPlacement() *LoggingHerokuPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingHeroku2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingHeroku2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingHeroku2) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}

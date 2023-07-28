@@ -11,6 +11,13 @@ type GetHeaderObjectSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetHeaderObjectSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetHeaderObjectRequest struct {
 	// A handle to refer to this Header object.
 	HeaderName string `pathParam:"style=simple,explode=false,name=header_name"`
@@ -20,10 +27,59 @@ type GetHeaderObjectRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetHeaderObjectRequest) GetHeaderName() string {
+	if o == nil {
+		return ""
+	}
+	return o.HeaderName
+}
+
+func (o *GetHeaderObjectRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetHeaderObjectRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetHeaderObjectResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	HeaderResponse *shared.HeaderResponse
+}
+
+func (o *GetHeaderObjectResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetHeaderObjectResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetHeaderObjectResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetHeaderObjectResponse) GetHeaderResponse() *shared.HeaderResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderResponse
 }

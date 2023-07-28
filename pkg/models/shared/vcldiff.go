@@ -49,3 +49,31 @@ type VclDiff struct {
 	// The version number of the service from which changes in the generated VCL are being compared.
 	To *int64 `json:"to,omitempty"`
 }
+
+func (o *VclDiff) GetDiff() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Diff
+}
+
+func (o *VclDiff) GetFormat() *VclDiffFormat {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *VclDiff) GetFrom() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *VclDiff) GetTo() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}

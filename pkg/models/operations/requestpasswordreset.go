@@ -10,9 +10,23 @@ type RequestPasswordResetSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *RequestPasswordResetSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type RequestPasswordResetRequest struct {
 	// The login associated with the user (typically, an email address).
 	UserLogin string `pathParam:"style=simple,explode=false,name=user_login"`
+}
+
+func (o *RequestPasswordResetRequest) GetUserLogin() string {
+	if o == nil {
+		return ""
+	}
+	return o.UserLogin
 }
 
 // RequestPasswordReset200ApplicationJSON - OK
@@ -21,10 +35,45 @@ type RequestPasswordReset200ApplicationJSON struct {
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *RequestPasswordReset200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type RequestPasswordResetResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	RequestPasswordReset200ApplicationJSONObject *RequestPasswordReset200ApplicationJSON
+}
+
+func (o *RequestPasswordResetResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *RequestPasswordResetResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *RequestPasswordResetResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *RequestPasswordResetResponse) GetRequestPasswordReset200ApplicationJSONObject() *RequestPasswordReset200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.RequestPasswordReset200ApplicationJSONObject
 }

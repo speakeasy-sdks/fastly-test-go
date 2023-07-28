@@ -24,3 +24,66 @@ type LoggingKinesis struct {
 	// The Amazon Kinesis stream to send logs to. Required.
 	Topic *string `form:"name=topic"`
 }
+
+func (o *LoggingKinesis) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingKinesis) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingKinesis) GetFormatVersion() *LoggingFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingKinesis) GetIamRole() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IamRole
+}
+
+func (o *LoggingKinesis) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingKinesis) GetPlacement() *LoggingPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingKinesis) GetRegion() *AwsRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingKinesis) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingKinesis) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}

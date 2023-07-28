@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogLogglySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.CreateLogLoggly(ctx, operations.CreateLogLogglyRequest{
@@ -45,9 +48,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogLogglySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -90,15 +91,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogLogglySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.DeleteLogLoggly(ctx, operations.DeleteLogLogglyRequest{
         LoggingLogglyName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogLogglySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -141,15 +143,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogLogglySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.GetLogLoggly(ctx, operations.GetLogLogglyRequest{
         LoggingLogglyName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogLogglySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -192,14 +195,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogLogglySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.ListLogLoggly(ctx, operations.ListLogLogglyRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogLogglySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -243,6 +247,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogLogglySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.UpdateLogLoggly(ctx, operations.UpdateLogLogglyRequest{
@@ -257,9 +264,7 @@ func main() {
         LoggingLogglyName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogLogglySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

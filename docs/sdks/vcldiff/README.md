@@ -28,6 +28,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.VclDiffServiceVersionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.VclDiff.VclDiffServiceVersions(ctx, operations.VclDiffServiceVersionsRequest{
@@ -35,9 +38,7 @@ func main() {
         FromVersionID: 1,
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         ToVersionID: 2,
-    }, operations.VclDiffServiceVersionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

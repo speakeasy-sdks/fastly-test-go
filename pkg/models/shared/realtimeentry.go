@@ -448,6 +448,1525 @@ type RealtimeEntryMeasurementsDataModel struct {
 	WebsocketRespHeaderBytes *int64 `json:"websocket_resp_header_bytes,omitempty"`
 }
 
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackBlockedReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackBlockedReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackBlockedReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackBlockedReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackLoggedReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackLoggedReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackLoggedReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackLoggedReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackPassedReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackPassedReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackPassedReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackPassedReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetAttackRespSynthBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackRespSynthBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BereqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BereqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetBodySize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BodySize
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeBereqErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqErrors
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeBereqs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqs
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeBerespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBerespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeBerespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBerespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeExecutionTimeMs() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeExecutionTimeMs
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeGlobalsLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeGlobalsLimitExceeded
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeGuestErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeGuestErrors
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeHeapLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeHeapLimitExceeded
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRAMUsed() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRAMUsed
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRequestTimeMs() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRequestTimeMs
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeResourceLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeResourceLimitExceeded
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespStatus1xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus1xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespStatus2xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus2xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespStatus3xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus3xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespStatus4xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus4xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRespStatus5xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus5xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeRuntimeErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRuntimeErrors
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetComputeStackLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeStackLimitExceeded
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDdosActionBlackhole() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionBlackhole
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDdosActionClose() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionClose
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDdosActionLimitStreamsConnections() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionLimitStreamsConnections
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDdosActionLimitStreamsRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionLimitStreamsRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDdosActionTarpit() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionTarpit
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDdosActionTarpitAccept() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionTarpitAccept
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDeliverSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DeliverSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetDeliverSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.DeliverSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeHitRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeHitRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeHitRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeHitRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeHitRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeHitRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeMissRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeMissRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeMissRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeMissRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeMissRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeMissRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetEdgeRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetErrorSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetErrorSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Errors
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBereqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBereqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutBerespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBerespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutBerespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBerespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutConnTimeMs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutConnTimeMs
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutRecvPublishes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutRecvPublishes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFanoutSendPublishes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutSendPublishes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFetchSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FetchSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetFetchSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.FetchSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHashSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HashSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHashSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HashSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHeaderSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderSize
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHitRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHitSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHitSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHits() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Hits
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHitsTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitsTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHttp2() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Http2
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetHttp3() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Http3
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgopto() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Imgopto
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgoptoRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgoptoRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgoptoShield() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoShield
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgoptoShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoShieldRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgoptoShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoShieldRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgoptoTransforms() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoTransforms
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideo() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Imgvideo
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoFrames() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoFrames
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoShield() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShield
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoShieldFrames() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShieldFrames
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShieldRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetImgvideoShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShieldRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetIpv6() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv6
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetLog() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Log
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetLogBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.LogBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetLogging() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Logging
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetMiss() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Miss
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetMissHistogram() *RealtimeEntryMeasurementsDataModelMissHistogram {
+	if o == nil {
+		return nil
+	}
+	return o.MissHistogram
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetMissRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetMissSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetMissSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetMissTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize100k() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize100k
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize100m() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize100m
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize10k() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize10k
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize10m() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize10m
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize1g() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize1g
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize1k() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize1k
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSize1m() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize1m
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectSizeOther() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSizeOther
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectStoreClassAOperations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreClassAOperations
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectStoreClassBOperations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreClassBOperations
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectStoreReadRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreReadRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetObjectStoreWriteRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreWriteRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginCacheFetchRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginCacheFetchRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginCacheFetchRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginCacheFetchRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginCacheFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginCacheFetches
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginFetchBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginFetchHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginFetchRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginFetchRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetches
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOriginRevalidations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginRevalidations
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfp() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Otfp
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpDeliverTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpDeliverTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpManifests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpManifests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpShield() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShield
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShieldRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShieldRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetOtfpShieldTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShieldTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPass() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Pass
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPassRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPassSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPassSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPassTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPci() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Pci
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPipeSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PipeSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPipeSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PipeSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPredeliverSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PredeliverSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPredeliverSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PredeliverSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPrehashSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PrehashSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetPrehashSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PrehashSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetRecvSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecvSubCount
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetRecvSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecvSubTime
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Requests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetRestarts() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Restarts
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetSegblockOriginFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.SegblockOriginFetches
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetSegblockShieldFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.SegblockShieldFetches
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShield() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldCacheFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldCacheFetches
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldFetchBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldFetchHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldFetchRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldFetchRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetches
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldHitRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldHitRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldHitRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldHitRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldHitRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldHitRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldMissRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldMissRequests
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldMissRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldMissRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldMissRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldMissRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldRespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetShieldRevalidations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldRevalidations
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus1xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status1xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus200() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status200
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus204() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status204
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus206() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status206
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus2xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status2xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus301() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status301
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus302() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status302
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus304() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status304
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus3xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status3xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus400() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status400
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus401() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status401
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus403() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status403
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus404() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status404
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus406() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status406
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus416() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status416
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus429() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status429
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus4xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status4xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus500() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status500
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus501() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status501
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus502() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status502
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus503() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status503
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus504() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status504
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus505() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status505
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetStatus5xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status5xx
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetSynth() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Synth
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetTLS() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLS
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetTLSV10() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV10
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetTLSV11() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV11
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetTLSV12() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV12
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetTLSV13() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV13
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetUncacheable() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Uncacheable
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetVideo() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Video
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWafBlocked() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WafBlocked
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWafLogged() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WafLogged
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWafPassed() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WafPassed
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBereqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBereqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketBerespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBerespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketBerespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBerespHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketConnTimeMs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketConnTimeMs
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketReqBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketReqHeaderBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketRespBodyBytes
+}
+
+func (o *RealtimeEntryMeasurementsDataModel) GetWebsocketRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketRespHeaderBytes
+}
+
 // RealtimeEntry - A list of records, each representing one second of time. The `Data` property provides access to [measurement data](#measurements-data-model) for that time period, grouped in various ways.
 type RealtimeEntry struct {
 	// Aggregates [measurements](#measurements-data-model) across all Fastly POPs.
@@ -456,4 +1975,25 @@ type RealtimeEntry struct {
 	Datacenter map[string]RealtimeMeasurements `json:"datacenter,omitempty"`
 	// The Unix timestamp at which this record's data was generated.
 	Recorded *int64 `json:"recorded,omitempty"`
+}
+
+func (o *RealtimeEntry) GetAggregated() *RealtimeEntryMeasurementsDataModel {
+	if o == nil {
+		return nil
+	}
+	return o.Aggregated
+}
+
+func (o *RealtimeEntry) GetDatacenter() map[string]RealtimeMeasurements {
+	if o == nil {
+		return nil
+	}
+	return o.Datacenter
+}
+
+func (o *RealtimeEntry) GetRecorded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Recorded
 }

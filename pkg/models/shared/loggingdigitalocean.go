@@ -165,3 +165,108 @@ type LoggingDigitaloceanInput struct {
 	// Your DigitalOcean Spaces account secret key.
 	SecretKey *string `form:"name=secret_key"`
 }
+
+func (o *LoggingDigitaloceanInput) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingDigitaloceanInput) GetBucketName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BucketName
+}
+
+func (o *LoggingDigitaloceanInput) GetCompressionCodec() *LoggingDigitaloceanCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingDigitaloceanInput) GetDomain() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Domain
+}
+
+func (o *LoggingDigitaloceanInput) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingDigitaloceanInput) GetFormatVersion() *LoggingDigitaloceanFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingDigitaloceanInput) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingDigitaloceanInput) GetMessageType() *LoggingDigitaloceanMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingDigitaloceanInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingDigitaloceanInput) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingDigitaloceanInput) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingDigitaloceanInput) GetPlacement() *LoggingDigitaloceanPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingDigitaloceanInput) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingDigitaloceanInput) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingDigitaloceanInput) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}

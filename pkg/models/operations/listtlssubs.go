@@ -11,6 +11,13 @@ type ListTLSSubsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSSubsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSSubsRequest struct {
 	// Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.
 	//
@@ -31,10 +38,87 @@ type ListTLSSubsRequest struct {
 	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListTLSSubsRequest) GetFilterHasActiveOrder() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.FilterHasActiveOrder
+}
+
+func (o *ListTLSSubsRequest) GetFilterState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterState
+}
+
+func (o *ListTLSSubsRequest) GetFilterTLSDomainsID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSDomainsID
+}
+
+func (o *ListTLSSubsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSSubsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSSubsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListTLSSubsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListTLSSubsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSSubscriptionsResponse *shared.TLSSubscriptionsResponse
+}
+
+func (o *ListTLSSubsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSSubsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSSubsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSSubsResponse) GetTLSSubscriptionsResponse() *shared.TLSSubscriptionsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSubscriptionsResponse
 }

@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreatePoolServerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Server.CreatePoolServer(ctx, operations.CreatePoolServerRequest{
@@ -46,9 +49,7 @@ func main() {
             Weight: sdk.Int64(63207),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.CreatePoolServerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeletePoolServerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Server.DeletePoolServer(ctx, operations.DeletePoolServerRequest{
         PoolID: "2Yd1WfiCBPENLloXfXmlO",
         ServerID: "6kEuoknxiaDBCLiAjKqyXq",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DeletePoolServerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetPoolServerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Server.GetPoolServer(ctx, operations.GetPoolServerRequest{
         PoolID: "2Yd1WfiCBPENLloXfXmlO",
         ServerID: "6kEuoknxiaDBCLiAjKqyXq",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetPoolServerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListPoolServersSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Server.ListPoolServers(ctx, operations.ListPoolServersRequest{
         PoolID: "2Yd1WfiCBPENLloXfXmlO",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.ListPoolServersSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdatePoolServerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Server.UpdatePoolServer(ctx, operations.UpdatePoolServerRequest{
@@ -259,9 +266,7 @@ func main() {
         },
         ServerID: "6kEuoknxiaDBCLiAjKqyXq",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpdatePoolServerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

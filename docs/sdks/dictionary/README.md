@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateDictionarySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Dictionary.CreateDictionary(ctx, operations.CreateDictionaryRequest{
@@ -41,9 +44,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateDictionarySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -86,15 +87,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteDictionarySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Dictionary.DeleteDictionary(ctx, operations.DeleteDictionaryRequest{
         DictionaryName: "test_dictionary",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteDictionarySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -137,15 +139,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetDictionarySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Dictionary.GetDictionary(ctx, operations.GetDictionaryRequest{
         DictionaryName: "test_dictionary",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetDictionarySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -188,14 +191,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListDictionariesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Dictionary.ListDictionaries(ctx, operations.ListDictionariesRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListDictionariesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -239,6 +243,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateDictionarySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Dictionary.UpdateDictionary(ctx, operations.UpdateDictionaryRequest{
@@ -249,9 +256,7 @@ func main() {
         DictionaryName: "test_dictionary",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateDictionarySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

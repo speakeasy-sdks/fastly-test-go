@@ -64,3 +64,73 @@ type ConditionResponse struct {
 	// A numeric string that represents the service version.
 	Version *string `json:"version,omitempty"`
 }
+
+func (o *ConditionResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ConditionResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ConditionResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ConditionResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ConditionResponse) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *ConditionResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ConditionResponse) GetStatement() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Statement
+}
+
+func (o *ConditionResponse) GetType() *ConditionResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *ConditionResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ConditionResponse) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

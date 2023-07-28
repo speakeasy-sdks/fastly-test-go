@@ -46,9 +46,23 @@ type ServiceInvitationDataAttributes struct {
 	Permission *ServiceInvitationDataAttributesPermission `json:"permission,omitempty"`
 }
 
+func (o *ServiceInvitationDataAttributes) GetPermission() *ServiceInvitationDataAttributesPermission {
+	if o == nil {
+		return nil
+	}
+	return o.Permission
+}
+
 // ServiceInvitationDataRelationshipsInput - Service the accepting user will have access to.
 type ServiceInvitationDataRelationshipsInput struct {
 	Service *RelationshipMemberServiceInput `json:"service,omitempty"`
+}
+
+func (o *ServiceInvitationDataRelationshipsInput) GetService() *RelationshipMemberServiceInput {
+	if o == nil {
+		return nil
+	}
+	return o.Service
 }
 
 type ServiceInvitationDataInput struct {
@@ -57,4 +71,25 @@ type ServiceInvitationDataInput struct {
 	Relationships *ServiceInvitationDataRelationshipsInput `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeServiceInvitation `json:"type,omitempty"`
+}
+
+func (o *ServiceInvitationDataInput) GetAttributes() *ServiceInvitationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *ServiceInvitationDataInput) GetRelationships() *ServiceInvitationDataRelationshipsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *ServiceInvitationDataInput) GetType() *TypeServiceInvitation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateResourceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Resource.CreateResource(ctx, operations.CreateResourceRequest{
@@ -41,9 +44,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateResourceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -86,15 +87,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteResourceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Resource.DeleteResource(ctx, operations.DeleteResourceRequest{
         ID: "7Lsb7Y76rChV9hSrv3KgFl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteResourceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -137,15 +139,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetResourceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Resource.GetResource(ctx, operations.GetResourceRequest{
         ID: "7Lsb7Y76rChV9hSrv3KgFl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetResourceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -188,14 +191,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListResourcesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Resource.ListResources(ctx, operations.ListResourcesRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListResourcesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -239,6 +243,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateResourceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Resource.UpdateResource(ctx, operations.UpdateResourceRequest{
@@ -249,9 +256,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateResourceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

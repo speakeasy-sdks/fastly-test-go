@@ -27,13 +27,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ContentCheckSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Content.ContentCheck(ctx, operations.ContentCheckRequest{
         URL: sdk.String("https://www.example.com/foo/bar"),
-    }, operations.ContentCheckSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

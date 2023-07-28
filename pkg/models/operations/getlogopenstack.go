@@ -11,6 +11,13 @@ type GetLogOpenstackSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetLogOpenstackSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetLogOpenstackRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingOpenstackName string `pathParam:"style=simple,explode=false,name=logging_openstack_name"`
@@ -20,10 +27,59 @@ type GetLogOpenstackRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogOpenstackRequest) GetLoggingOpenstackName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingOpenstackName
+}
+
+func (o *GetLogOpenstackRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogOpenstackRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogOpenstackResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingOpenstackResponse *shared.LoggingOpenstackResponse
+}
+
+func (o *GetLogOpenstackResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogOpenstackResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogOpenstackResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogOpenstackResponse) GetLoggingOpenstackResponse() *shared.LoggingOpenstackResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingOpenstackResponse
 }

@@ -10,13 +10,48 @@ type DeleteAServiceGroupSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteAServiceGroupSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteAServiceGroupRequest struct {
 	// Alphanumeric string identifying the service group.
 	ServiceGroupID string `pathParam:"style=simple,explode=false,name=service_group_id"`
+}
+
+func (o *DeleteAServiceGroupRequest) GetServiceGroupID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceGroupID
 }
 
 type DeleteAServiceGroupResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteAServiceGroupResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteAServiceGroupResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteAServiceGroupResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

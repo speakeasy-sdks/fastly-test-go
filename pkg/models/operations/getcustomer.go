@@ -11,9 +11,23 @@ type GetCustomerSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetCustomerSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetCustomerRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *GetCustomerRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 type GetCustomerResponse struct {
@@ -22,4 +36,32 @@ type GetCustomerResponse struct {
 	RawResponse *http.Response
 	// OK
 	CustomerResponse *shared.CustomerResponse
+}
+
+func (o *GetCustomerResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetCustomerResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetCustomerResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetCustomerResponse) GetCustomerResponse() *shared.CustomerResponse {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerResponse
 }

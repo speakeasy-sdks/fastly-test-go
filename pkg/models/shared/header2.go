@@ -101,3 +101,87 @@ type Header2 struct {
 	// Accepts a string value.
 	Type *HeaderType `form:"name=type"`
 }
+
+func (o *Header2) GetAction() *HeaderAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *Header2) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *Header2) GetDst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dst
+}
+
+func (o *Header2) GetIgnoreIfSet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.IgnoreIfSet
+}
+
+func (o *Header2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Header2) GetPriority() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *Header2) GetRegex() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Regex
+}
+
+func (o *Header2) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *Header2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *Header2) GetSrc() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Src
+}
+
+func (o *Header2) GetSubstitution() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Substitution
+}
+
+func (o *Header2) GetType() *HeaderType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

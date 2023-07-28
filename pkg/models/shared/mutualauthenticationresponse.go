@@ -6,3 +6,10 @@ package shared
 type MutualAuthenticationResponse struct {
 	Data *MutualAuthenticationResponseData `json:"data,omitempty"`
 }
+
+func (o *MutualAuthenticationResponse) GetData() *MutualAuthenticationResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

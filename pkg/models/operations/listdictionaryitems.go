@@ -11,6 +11,13 @@ type ListDictionaryItemsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListDictionaryItemsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListDictionaryItemsRequest struct {
 	// Alphanumeric string identifying a Dictionary.
 	DictionaryID string `pathParam:"style=simple,explode=false,name=dictionary_id"`
@@ -26,6 +33,48 @@ type ListDictionaryItemsRequest struct {
 	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListDictionaryItemsRequest) GetDictionaryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryID
+}
+
+func (o *ListDictionaryItemsRequest) GetDirection() *shared.Direction {
+	if o == nil {
+		return nil
+	}
+	return o.Direction
+}
+
+func (o *ListDictionaryItemsRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListDictionaryItemsRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListDictionaryItemsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListDictionaryItemsRequest) GetSort() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListDictionaryItemsResponse struct {
 	ContentType string
 	Headers     map[string][]string
@@ -33,4 +82,39 @@ type ListDictionaryItemsResponse struct {
 	RawResponse *http.Response
 	// OK
 	DictionaryItemResponses []shared.DictionaryItemResponse
+}
+
+func (o *ListDictionaryItemsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListDictionaryItemsResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *ListDictionaryItemsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListDictionaryItemsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListDictionaryItemsResponse) GetDictionaryItemResponses() []shared.DictionaryItemResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryItemResponses
 }

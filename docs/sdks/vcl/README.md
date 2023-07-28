@@ -36,6 +36,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateCustomVclSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.CreateCustomVcl(ctx, operations.CreateCustomVclRequest{
@@ -46,9 +49,7 @@ func main() {
             Name: sdk.String("test-vcl"),
         },
         VersionID: 1,
-    }, operations.CreateCustomVclSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteCustomVclSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.DeleteCustomVcl(ctx, operations.DeleteCustomVclRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VclName: "test-vcl",
         VersionID: 1,
-    }, operations.DeleteCustomVclSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,6 +144,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCustomVclSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.GetCustomVcl(ctx, operations.GetCustomVclRequest{
@@ -149,9 +154,7 @@ func main() {
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VclName: "test-vcl",
         VersionID: 1,
-    }, operations.GetCustomVclSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -194,14 +197,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCustomVclBoilerplateSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.GetCustomVclBoilerplate(ctx, operations.GetCustomVclBoilerplateRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetCustomVclBoilerplateSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,14 +248,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCustomVclGeneratedSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.GetCustomVclGenerated(ctx, operations.GetCustomVclGeneratedRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetCustomVclGeneratedSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -294,15 +299,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCustomVclRawSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.GetCustomVclRaw(ctx, operations.GetCustomVclRawRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VclName: "test-vcl",
         VersionID: 1,
-    }, operations.GetCustomVclRawSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -345,14 +351,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListCustomVclSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.ListCustomVcl(ctx, operations.ListCustomVclRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListCustomVclSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -395,15 +402,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.SetCustomVclMainSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.SetCustomVclMain(ctx, operations.SetCustomVclMainRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VclName: "test-vcl",
         VersionID: 1,
-    }, operations.SetCustomVclMainSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -447,6 +455,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateCustomVclSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Vcl.UpdateCustomVcl(ctx, operations.UpdateCustomVclRequest{
@@ -458,9 +469,7 @@ func main() {
         },
         VclName: "test-vcl",
         VersionID: 1,
-    }, operations.UpdateCustomVclSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

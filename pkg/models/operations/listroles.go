@@ -10,11 +10,32 @@ type ListRolesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListRolesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListRolesRequest struct {
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
 	// Number of records per page.
 	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
+}
+
+func (o *ListRolesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListRolesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
 }
 
 // ListRoles200ApplicationJSON - OK
@@ -27,4 +48,32 @@ type ListRolesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListRoles200ApplicationJSONObject *ListRoles200ApplicationJSON
+}
+
+func (o *ListRolesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListRolesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListRolesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListRolesResponse) GetListRoles200ApplicationJSONObject() *ListRoles200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListRoles200ApplicationJSONObject
 }

@@ -7,8 +7,22 @@ type TLSConfigurationDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *TLSConfigurationDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type TLSConfigurationDataRelationships2DNSRecordsInput struct {
 	Data []RelationshipMemberTLSDNSRecordInput `json:"data,omitempty"`
+}
+
+func (o *TLSConfigurationDataRelationships2DNSRecordsInput) GetData() []RelationshipMemberTLSDNSRecordInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 // TLSConfigurationDataRelationships2Input - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
@@ -16,9 +30,23 @@ type TLSConfigurationDataRelationships2Input struct {
 	DNSRecords *TLSConfigurationDataRelationships2DNSRecordsInput `json:"dns_records,omitempty"`
 }
 
+func (o *TLSConfigurationDataRelationships2Input) GetDNSRecords() *TLSConfigurationDataRelationships2DNSRecordsInput {
+	if o == nil {
+		return nil
+	}
+	return o.DNSRecords
+}
+
 // TLSConfigurationDataRelationships1Input - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
 type TLSConfigurationDataRelationships1Input struct {
 	Service *RelationshipMemberServiceInput `json:"service,omitempty"`
+}
+
+func (o *TLSConfigurationDataRelationships1Input) GetService() *RelationshipMemberServiceInput {
+	if o == nil {
+		return nil
+	}
+	return o.Service
 }
 
 type TLSConfigurationDataInput struct {
@@ -26,4 +54,25 @@ type TLSConfigurationDataInput struct {
 	Relationships interface{}                     `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeTLSConfiguration `json:"type,omitempty"`
+}
+
+func (o *TLSConfigurationDataInput) GetAttributes() *TLSConfigurationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSConfigurationDataInput) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSConfigurationDataInput) GetType() *TypeTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

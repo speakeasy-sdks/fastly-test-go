@@ -28,6 +28,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSDomainsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSDomains.ListTLSDomains(ctx, operations.ListTLSDomainsRequest{
@@ -38,9 +41,7 @@ func main() {
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortMinusCreatedAt.ToPointer(),
-    }, operations.ListTLSDomainsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

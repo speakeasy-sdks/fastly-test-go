@@ -11,6 +11,13 @@ type GetPoolServerSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetPoolServerSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetPoolServerRequest struct {
 	// Alphanumeric string identifying a Pool.
 	PoolID string `pathParam:"style=simple,explode=false,name=pool_id"`
@@ -20,10 +27,59 @@ type GetPoolServerRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *GetPoolServerRequest) GetPoolID() string {
+	if o == nil {
+		return ""
+	}
+	return o.PoolID
+}
+
+func (o *GetPoolServerRequest) GetServerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServerID
+}
+
+func (o *GetPoolServerRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 type GetPoolServerResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	ServerResponse *shared.ServerResponse
+}
+
+func (o *GetPoolServerResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetPoolServerResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetPoolServerResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetPoolServerResponse) GetServerResponse() *shared.ServerResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServerResponse
 }

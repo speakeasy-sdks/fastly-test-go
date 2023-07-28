@@ -11,6 +11,13 @@ type ListEventsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListEventsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListEventsRequest struct {
 	// Limit the returned events to a specific time frame. Accepts sub-parameters: lt, lte, gt, gte (e.g., filter[created_at][gt]=2022-01-12).
 	//
@@ -33,10 +40,101 @@ type ListEventsRequest struct {
 	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListEventsRequest) GetFilterCreatedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterCreatedAt
+}
+
+func (o *ListEventsRequest) GetFilterCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterCustomerID
+}
+
+func (o *ListEventsRequest) GetFilterEventType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterEventType
+}
+
+func (o *ListEventsRequest) GetFilterServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterServiceID
+}
+
+func (o *ListEventsRequest) GetFilterTokenID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTokenID
+}
+
+func (o *ListEventsRequest) GetFilterUserID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterUserID
+}
+
+func (o *ListEventsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListEventsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListEventsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListEventsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	EventsResponse *shared.EventsResponse
+}
+
+func (o *ListEventsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListEventsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListEventsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListEventsResponse) GetEventsResponse() *shared.EventsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.EventsResponse
 }

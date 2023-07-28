@@ -34,14 +34,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CloneWafFirewallVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewallVersions.CloneWafFirewallVersion(ctx, operations.CloneWafFirewallVersionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-    }, operations.CloneWafFirewallVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -87,6 +88,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateWafFirewallVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewallVersions.CreateWafFirewallVersion(ctx, operations.CreateWafFirewallVersionRequest{
@@ -128,9 +132,7 @@ func main() {
                 Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
             },
         },
-    }, operations.CreateWafFirewallVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -175,14 +177,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeployActivateWafFirewallVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewallVersions.DeployActivateWafFirewallVersion(ctx, operations.DeployActivateWafFirewallVersionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-    }, operations.DeployActivateWafFirewallVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -227,15 +230,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetWafFirewallVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewallVersions.GetWafFirewallVersion(ctx, operations.GetWafFirewallVersionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
         Include: sdk.String("waf_firewall,waf_active_rules"),
-    }, operations.GetWafFirewallVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -280,6 +284,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListWafFirewallVersionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewallVersions.ListWafFirewallVersions(ctx, operations.ListWafFirewallVersionsRequest{
@@ -287,9 +294,7 @@ func main() {
         Include: sdk.String("waf_firewall"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListWafFirewallVersionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -335,6 +340,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateWafFirewallVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewallVersions.UpdateWafFirewallVersion(ctx, operations.UpdateWafFirewallVersionRequest{
@@ -377,9 +385,7 @@ func main() {
                 Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
             },
         },
-    }, operations.UpdateWafFirewallVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

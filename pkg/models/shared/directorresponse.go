@@ -66,3 +66,94 @@ type DirectorResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
 }
+
+func (o *DirectorResponse) GetBackends() []Backend {
+	if o == nil {
+		return nil
+	}
+	return o.Backends
+}
+
+func (o *DirectorResponse) GetCapacity() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Capacity
+}
+
+func (o *DirectorResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *DirectorResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *DirectorResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *DirectorResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *DirectorResponse) GetQuorum() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Quorum
+}
+
+func (o *DirectorResponse) GetRetries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Retries
+}
+
+func (o *DirectorResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *DirectorResponse) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *DirectorResponse) GetType() *DirectorResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *DirectorResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *DirectorResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

@@ -6,6 +6,13 @@ type WafTagsResponseDataItemAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *WafTagsResponseDataItemAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type WafTagsResponseDataItem struct {
 	Attributes *WafTagsResponseDataItemAttributes `json:"attributes,omitempty"`
 	// Alphanumeric string identifying a WAF tag.
@@ -13,4 +20,32 @@ type WafTagsResponseDataItem struct {
 	Relationships *RelationshipWafRule `json:"relationships,omitempty"`
 	// Resource type.
 	Type *TypeWafTag `json:"type,omitempty"`
+}
+
+func (o *WafTagsResponseDataItem) GetAttributes() *WafTagsResponseDataItemAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafTagsResponseDataItem) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafTagsResponseDataItem) GetRelationships() *RelationshipWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafTagsResponseDataItem) GetType() *TypeWafTag {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

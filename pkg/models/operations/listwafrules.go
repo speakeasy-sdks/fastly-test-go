@@ -11,6 +11,13 @@ type ListWafRulesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListWafRulesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListWafRulesRequest struct {
 	// Limit the returned rules to a specific ModSecurity rule ID.
 	FilterModsecRuleID *string `queryParam:"style=form,explode=true,name=filter[modsec_rule_id]"`
@@ -29,10 +36,87 @@ type ListWafRulesRequest struct {
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
+func (o *ListWafRulesRequest) GetFilterModsecRuleID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterModsecRuleID
+}
+
+func (o *ListWafRulesRequest) GetFilterWafFirewallIDNotMatch() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafFirewallIDNotMatch
+}
+
+func (o *ListWafRulesRequest) GetFilterWafRuleRevisionsSource() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafRuleRevisionsSource
+}
+
+func (o *ListWafRulesRequest) GetFilterWafTagsName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafTagsName
+}
+
+func (o *ListWafRulesRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafRulesRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafRulesRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
 type ListWafRulesResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafRulesResponse *shared.WafRulesResponse
+}
+
+func (o *ListWafRulesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafRulesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafRulesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafRulesResponse) GetWafRulesResponse() *shared.WafRulesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafRulesResponse
 }

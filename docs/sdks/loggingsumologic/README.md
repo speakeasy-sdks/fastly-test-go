@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogSumologicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.CreateLogSumologic(ctx, operations.CreateLogSumologicRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogSumologicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogSumologicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.DeleteLogSumologic(ctx, operations.DeleteLogSumologicRequest{
         LoggingSumologicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogSumologicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogSumologicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.GetLogSumologic(ctx, operations.GetLogSumologicRequest{
         LoggingSumologicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogSumologicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogSumologicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.ListLogSumologic(ctx, operations.ListLogSumologicRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogSumologicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogSumologicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.UpdateLogSumologic(ctx, operations.UpdateLogSumologicRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingSumologicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogSumologicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

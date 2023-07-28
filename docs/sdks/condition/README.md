@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateConditionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Condition.CreateCondition(ctx, operations.CreateConditionRequest{
@@ -45,9 +48,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateConditionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -90,15 +91,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteConditionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Condition.DeleteCondition(ctx, operations.DeleteConditionRequest{
         ConditionName: "test-condition",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteConditionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -141,15 +143,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetConditionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Condition.GetCondition(ctx, operations.GetConditionRequest{
         ConditionName: "test-condition",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetConditionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -192,14 +195,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListConditionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Condition.ListConditions(ctx, operations.ListConditionsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListConditionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -243,6 +247,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateConditionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Condition.UpdateCondition(ctx, operations.UpdateConditionRequest{
@@ -257,9 +264,7 @@ func main() {
         ConditionName: "test-condition",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateConditionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

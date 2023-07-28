@@ -187,3 +187,185 @@ type LoggingS3Response struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
 }
+
+func (o *LoggingS3Response) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingS3Response) GetACL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ACL
+}
+
+func (o *LoggingS3Response) GetBucketName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BucketName
+}
+
+func (o *LoggingS3Response) GetCompressionCodec() *LoggingS3ResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingS3Response) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingS3Response) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingS3Response) GetDomain() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Domain
+}
+
+func (o *LoggingS3Response) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingS3Response) GetFormatVersion() *LoggingS3ResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingS3Response) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingS3Response) GetIamRole() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IamRole
+}
+
+func (o *LoggingS3Response) GetMessageType() *LoggingS3ResponseMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingS3Response) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingS3Response) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingS3Response) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingS3Response) GetPlacement() *LoggingS3ResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingS3Response) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingS3Response) GetRedundancy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Redundancy
+}
+
+func (o *LoggingS3Response) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingS3Response) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingS3Response) GetServerSideEncryption() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerSideEncryption
+}
+
+func (o *LoggingS3Response) GetServerSideEncryptionKmsKeyID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerSideEncryptionKmsKeyID
+}
+
+func (o *LoggingS3Response) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingS3Response) GetTimestampFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TimestampFormat
+}
+
+func (o *LoggingS3Response) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingS3Response) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

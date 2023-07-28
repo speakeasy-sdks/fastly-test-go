@@ -27,6 +27,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServiceStatsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Stats.GetServiceStats(ctx, operations.GetServiceStatsRequest{
@@ -35,9 +38,7 @@ func main() {
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         StartTime: sdk.Int64(1608560817),
         Year: sdk.String("2020"),
-    }, operations.GetServiceStatsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

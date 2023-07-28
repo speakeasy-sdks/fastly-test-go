@@ -11,10 +11,31 @@ type UpdateUserSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateUserSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateUserRequest struct {
 	UserInput *shared.UserInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the user.
 	UserID string `pathParam:"style=simple,explode=false,name=user_id"`
+}
+
+func (o *UpdateUserRequest) GetUserInput() *shared.UserInput {
+	if o == nil {
+		return nil
+	}
+	return o.UserInput
+}
+
+func (o *UpdateUserRequest) GetUserID() string {
+	if o == nil {
+		return ""
+	}
+	return o.UserID
 }
 
 type UpdateUserResponse struct {
@@ -23,4 +44,32 @@ type UpdateUserResponse struct {
 	RawResponse *http.Response
 	// OK
 	UserResponse *shared.UserResponse
+}
+
+func (o *UpdateUserResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateUserResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateUserResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateUserResponse) GetUserResponse() *shared.UserResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UserResponse
 }

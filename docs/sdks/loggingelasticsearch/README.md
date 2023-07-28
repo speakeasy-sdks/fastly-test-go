@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogElasticsearchSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.CreateLogElasticsearch(ctx, operations.CreateLogElasticsearchRequest{
@@ -55,9 +58,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogElasticsearchSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -100,15 +101,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogElasticsearchSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.DeleteLogElasticsearch(ctx, operations.DeleteLogElasticsearchRequest{
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogElasticsearchSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -151,15 +153,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogElasticsearchSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.GetLogElasticsearch(ctx, operations.GetLogElasticsearchRequest{
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogElasticsearchSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -202,14 +205,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogElasticsearchSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.ListLogElasticsearch(ctx, operations.ListLogElasticsearchRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogElasticsearchSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -253,6 +257,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogElasticsearchSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.UpdateLogElasticsearch(ctx, operations.UpdateLogElasticsearchRequest{
@@ -277,9 +284,7 @@ func main() {
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogElasticsearchSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

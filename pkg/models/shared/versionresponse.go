@@ -30,3 +30,80 @@ type VersionResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *VersionResponse) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *VersionResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *VersionResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *VersionResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *VersionResponse) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *VersionResponse) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *VersionResponse) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *VersionResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *VersionResponse) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *VersionResponse) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
+}
+
+func (o *VersionResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

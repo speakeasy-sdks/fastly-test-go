@@ -7,3 +7,17 @@ type RelationshipMemberWafActiveRule struct {
 	// Resource type.
 	Type *TypeWafActiveRule `json:"type,omitempty"`
 }
+
+func (o *RelationshipMemberWafActiveRule) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafActiveRule) GetType() *TypeWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

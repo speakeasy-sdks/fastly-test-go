@@ -11,10 +11,45 @@ type GetLoggedInCustomerSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetLoggedInCustomerSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetLoggedInCustomerResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	CustomerResponse *shared.CustomerResponse
+}
+
+func (o *GetLoggedInCustomerResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLoggedInCustomerResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLoggedInCustomerResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLoggedInCustomerResponse) GetCustomerResponse() *shared.CustomerResponse {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerResponse
 }

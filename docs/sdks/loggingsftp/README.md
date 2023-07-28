@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogSftpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSftp.CreateLogSftp(ctx, operations.CreateLogSftpRequest{
@@ -59,9 +62,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogSftpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -104,15 +105,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogSftpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSftp.DeleteLogSftp(ctx, operations.DeleteLogSftpRequest{
         LoggingSftpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogSftpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -155,15 +157,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogSftpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSftp.GetLogSftp(ctx, operations.GetLogSftpRequest{
         LoggingSftpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogSftpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -206,14 +209,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogSftpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSftp.ListLogSftp(ctx, operations.ListLogSftpRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogSftpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -257,6 +261,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogSftpSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSftp.UpdateLogSftp(ctx, operations.UpdateLogSftpRequest{
@@ -285,9 +292,7 @@ func main() {
         LoggingSftpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogSftpSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

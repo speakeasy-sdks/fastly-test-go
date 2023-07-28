@@ -113,3 +113,52 @@ type LoggingDatadog3 struct {
 	// The API key from your Datadog account. Required.
 	Token *string `form:"name=token"`
 }
+
+func (o *LoggingDatadog3) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingDatadog3) GetFormatVersion() *LoggingDatadogFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingDatadog3) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingDatadog3) GetPlacement() *LoggingDatadogPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingDatadog3) GetRegion() *LoggingDatadogRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingDatadog3) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingDatadog3) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}

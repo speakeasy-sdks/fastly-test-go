@@ -27,11 +27,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListFastlyIpsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.PublicIPList.ListFastlyIps(ctx, operations.ListFastlyIpsSecurity{
-        Token: "",
-    })
+    res, err := s.PublicIPList.ListFastlyIps(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

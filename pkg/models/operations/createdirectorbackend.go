@@ -11,6 +11,13 @@ type CreateDirectorBackendSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateDirectorBackendSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateDirectorBackendRequest struct {
 	// The name of the backend.
 	BackendName string `pathParam:"style=simple,explode=false,name=backend_name"`
@@ -22,10 +29,66 @@ type CreateDirectorBackendRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateDirectorBackendRequest) GetBackendName() string {
+	if o == nil {
+		return ""
+	}
+	return o.BackendName
+}
+
+func (o *CreateDirectorBackendRequest) GetDirectorName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DirectorName
+}
+
+func (o *CreateDirectorBackendRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateDirectorBackendRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateDirectorBackendResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DirectorBackend *shared.DirectorBackend
+}
+
+func (o *CreateDirectorBackendResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateDirectorBackendResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateDirectorBackendResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateDirectorBackendResponse) GetDirectorBackend() *shared.DirectorBackend {
+	if o == nil {
+		return nil
+	}
+	return o.DirectorBackend
 }

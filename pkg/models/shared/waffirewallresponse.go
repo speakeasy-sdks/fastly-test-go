@@ -7,3 +7,17 @@ type WafFirewallResponse struct {
 	Data     *WafFirewallResponseData    `json:"data,omitempty"`
 	Included []SchemasWafFirewallVersion `json:"included,omitempty"`
 }
+
+func (o *WafFirewallResponse) GetData() *WafFirewallResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafFirewallResponse) GetIncluded() []SchemasWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}

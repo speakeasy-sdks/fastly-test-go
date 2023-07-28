@@ -7,8 +7,29 @@ type RelationshipMemberTLSConfigurationInput struct {
 	Type *TypeTLSConfiguration `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberTLSConfigurationInput) GetType() *TypeTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberTLSConfiguration struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
 	Type *TypeTLSConfiguration `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberTLSConfiguration) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSConfiguration) GetType() *TypeTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

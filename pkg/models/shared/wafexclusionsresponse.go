@@ -13,6 +13,34 @@ type WafExclusionsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *WafExclusionsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *WafExclusionsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *WafExclusionsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *WafExclusionsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type WafExclusionsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,10 +52,66 @@ type WafExclusionsResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *WafExclusionsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *WafExclusionsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *WafExclusionsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *WafExclusionsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // WafExclusionsResponse - OK
 type WafExclusionsResponse struct {
 	Data     []WafExclusionResponseData  `json:"data,omitempty"`
 	Included []interface{}               `json:"included,omitempty"`
 	Links    *WafExclusionsResponseLinks `json:"links,omitempty"`
 	Meta     *WafExclusionsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *WafExclusionsResponse) GetData() []WafExclusionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafExclusionsResponse) GetIncluded() []interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}
+
+func (o *WafExclusionsResponse) GetLinks() *WafExclusionsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *WafExclusionsResponse) GetMeta() *WafExclusionsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

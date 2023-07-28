@@ -29,13 +29,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetEventSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Events.GetEvent(ctx, operations.GetEventRequest{
         EventID: "1PTzLK8g1NRKMGu5kUb8SC",
-    }, operations.GetEventSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,6 +80,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListEventsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Events.ListEvents(ctx, operations.ListEventsRequest{
@@ -91,9 +95,7 @@ func main() {
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),
-    }, operations.ListEventsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

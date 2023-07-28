@@ -11,6 +11,13 @@ type GetLogLogentriesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetLogLogentriesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetLogLogentriesRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingLogentriesName string `pathParam:"style=simple,explode=false,name=logging_logentries_name"`
@@ -20,10 +27,59 @@ type GetLogLogentriesRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogLogentriesRequest) GetLoggingLogentriesName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingLogentriesName
+}
+
+func (o *GetLogLogentriesRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogLogentriesRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogLogentriesResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingLogentriesResponse *shared.LoggingLogentriesResponse
+}
+
+func (o *GetLogLogentriesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogLogentriesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogLogentriesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogLogentriesResponse) GetLoggingLogentriesResponse() *shared.LoggingLogentriesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogentriesResponse
 }

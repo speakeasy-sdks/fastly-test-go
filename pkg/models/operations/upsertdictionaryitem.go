@@ -11,6 +11,13 @@ type UpsertDictionaryItemSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpsertDictionaryItemSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpsertDictionaryItemRequest struct {
 	// Alphanumeric string identifying a Dictionary.
 	DictionaryID   string                 `pathParam:"style=simple,explode=false,name=dictionary_id"`
@@ -21,10 +28,66 @@ type UpsertDictionaryItemRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *UpsertDictionaryItemRequest) GetDictionaryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryID
+}
+
+func (o *UpsertDictionaryItemRequest) GetDictionaryItem() *shared.DictionaryItem {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryItem
+}
+
+func (o *UpsertDictionaryItemRequest) GetDictionaryItemKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryItemKey
+}
+
+func (o *UpsertDictionaryItemRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 type UpsertDictionaryItemResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DictionaryItemResponse *shared.DictionaryItemResponse
+}
+
+func (o *UpsertDictionaryItemResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpsertDictionaryItemResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpsertDictionaryItemResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpsertDictionaryItemResponse) GetDictionaryItemResponse() *shared.DictionaryItemResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryItemResponse
 }

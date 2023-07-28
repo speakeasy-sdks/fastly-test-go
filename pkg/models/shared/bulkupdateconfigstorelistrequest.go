@@ -5,3 +5,10 @@ package shared
 type BulkUpdateConfigStoreListRequest struct {
 	Items []BulkUpdateConfigStoreItem `json:"items,omitempty"`
 }
+
+func (o *BulkUpdateConfigStoreListRequest) GetItems() []BulkUpdateConfigStoreItem {
+	if o == nil {
+		return nil
+	}
+	return o.Items
+}

@@ -77,3 +77,108 @@ type WafFirewallVersionResponseDataAttributes struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesFastlyBlockCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesFastlyBlockCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesFastlyLogCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesFastlyLogCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesFastlyScoreCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesFastlyScoreCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesOwaspBlockCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesOwaspBlockCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesOwaspLogCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesOwaspLogCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesOwaspScoreCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesOwaspScoreCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesTrustwaveBlockCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesTrustwaveBlockCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetActiveRulesTrustwaveLogCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesTrustwaveLogCount
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetDeployedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.DeployedAt
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetError() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Error
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetLastDeploymentStatus() *WafFirewallVersionResponseDataAttributesLastDeploymentStatus {
+	if o == nil {
+		return nil
+	}
+	return o.LastDeploymentStatus
+}
+
+func (o *WafFirewallVersionResponseDataAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

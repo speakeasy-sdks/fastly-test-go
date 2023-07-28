@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateServiceStarSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Star.CreateServiceStar(ctx, shared.StarInput{
@@ -47,9 +50,7 @@ func main() {
             },
             Type: shared.TypeStarStar.ToPointer(),
         },
-    }, operations.CreateServiceStarSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -92,13 +93,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteServiceStarSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Star.DeleteServiceStar(ctx, operations.DeleteServiceStarRequest{
         StarID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.DeleteServiceStarSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -141,13 +143,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServiceStarSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Star.GetServiceStar(ctx, operations.GetServiceStarRequest{
         StarID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.GetServiceStarSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -190,11 +193,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServiceStarsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Star.ListServiceStars(ctx, operations.ListServiceStarsSecurity{
-        Token: "",
-    })
+    res, err := s.Star.ListServiceStars(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

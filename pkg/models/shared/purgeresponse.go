@@ -7,3 +7,17 @@ type PurgeResponse struct {
 	ID     *string `json:"id,omitempty"`
 	Status *string `json:"status,omitempty"`
 }
+
+func (o *PurgeResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *PurgeResponse) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}

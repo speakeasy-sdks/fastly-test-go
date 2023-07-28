@@ -11,11 +11,32 @@ type ListInvitationsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListInvitationsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListInvitationsRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+}
+
+func (o *ListInvitationsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListInvitationsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
 }
 
 type ListInvitationsResponse struct {
@@ -24,4 +45,32 @@ type ListInvitationsResponse struct {
 	RawResponse *http.Response
 	// OK
 	InvitationsResponse *shared.InvitationsResponse
+}
+
+func (o *ListInvitationsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListInvitationsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListInvitationsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListInvitationsResponse) GetInvitationsResponse() *shared.InvitationsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.InvitationsResponse
 }

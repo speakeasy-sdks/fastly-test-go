@@ -10,13 +10,48 @@ type DeleteTLSActivationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteTLSActivationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteTLSActivationRequest struct {
 	// Alphanumeric string identifying a TLS activation.
 	TLSActivationID string `pathParam:"style=simple,explode=false,name=tls_activation_id"`
+}
+
+func (o *DeleteTLSActivationRequest) GetTLSActivationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSActivationID
 }
 
 type DeleteTLSActivationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteTLSActivationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteTLSActivationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteTLSActivationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

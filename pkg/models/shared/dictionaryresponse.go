@@ -22,3 +22,59 @@ type DictionaryResponse struct {
 	// Determines if items in the dictionary are readable or not.
 	WriteOnly *bool `json:"write_only,omitempty"`
 }
+
+func (o *DictionaryResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *DictionaryResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *DictionaryResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *DictionaryResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *DictionaryResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *DictionaryResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *DictionaryResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *DictionaryResponse) GetWriteOnly() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.WriteOnly
+}

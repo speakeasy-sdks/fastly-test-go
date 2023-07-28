@@ -165,3 +165,129 @@ type LoggingHttps4 struct {
 	// The URL to send logs to. Must use HTTPS. Required.
 	URL *string `form:"name=url"`
 }
+
+func (o *LoggingHttps4) GetContentType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentType
+}
+
+func (o *LoggingHttps4) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingHttps4) GetFormatVersion() *LoggingHTTPSFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingHttps4) GetHeaderName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderName
+}
+
+func (o *LoggingHttps4) GetHeaderValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderValue
+}
+
+func (o *LoggingHttps4) GetJSONFormat() *LoggingHTTPSJSONFormat {
+	if o == nil {
+		return nil
+	}
+	return o.JSONFormat
+}
+
+func (o *LoggingHttps4) GetMessageType() *LoggingMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingHttps4) GetMethod() *LoggingHTTPSMethod {
+	if o == nil {
+		return nil
+	}
+	return o.Method
+}
+
+func (o *LoggingHttps4) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingHttps4) GetPlacement() *LoggingHTTPSPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingHttps4) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingHttps4) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingHttps4) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingHttps4) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingHttps4) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingHttps4) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingHttps4) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingHttps4) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}

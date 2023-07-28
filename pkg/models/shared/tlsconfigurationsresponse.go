@@ -13,6 +13,34 @@ type TLSConfigurationsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *TLSConfigurationsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *TLSConfigurationsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *TLSConfigurationsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *TLSConfigurationsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type TLSConfigurationsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,9 +52,58 @@ type TLSConfigurationsResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *TLSConfigurationsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *TLSConfigurationsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *TLSConfigurationsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *TLSConfigurationsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // TLSConfigurationsResponse - OK
 type TLSConfigurationsResponse struct {
 	Data  []TLSConfigurationResponseData  `json:"data,omitempty"`
 	Links *TLSConfigurationsResponseLinks `json:"links,omitempty"`
 	Meta  *TLSConfigurationsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *TLSConfigurationsResponse) GetData() []TLSConfigurationResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *TLSConfigurationsResponse) GetLinks() *TLSConfigurationsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *TLSConfigurationsResponse) GetMeta() *TLSConfigurationsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

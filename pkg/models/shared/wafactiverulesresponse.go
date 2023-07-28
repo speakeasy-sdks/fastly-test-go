@@ -13,6 +13,34 @@ type WafActiveRulesResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *WafActiveRulesResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *WafActiveRulesResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *WafActiveRulesResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *WafActiveRulesResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type WafActiveRulesResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,10 +52,66 @@ type WafActiveRulesResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *WafActiveRulesResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *WafActiveRulesResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *WafActiveRulesResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *WafActiveRulesResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // WafActiveRulesResponse - OK
 type WafActiveRulesResponse struct {
 	Data     []WafActiveRuleResponseData  `json:"data,omitempty"`
 	Included []interface{}                `json:"included,omitempty"`
 	Links    *WafActiveRulesResponseLinks `json:"links,omitempty"`
 	Meta     *WafActiveRulesResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *WafActiveRulesResponse) GetData() []WafActiveRuleResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafActiveRulesResponse) GetIncluded() []interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}
+
+func (o *WafActiveRulesResponse) GetLinks() *WafActiveRulesResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *WafActiveRulesResponse) GetMeta() *WafActiveRulesResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

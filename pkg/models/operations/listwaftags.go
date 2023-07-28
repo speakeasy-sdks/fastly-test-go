@@ -11,6 +11,13 @@ type ListWafTagsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListWafTagsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListWafTagsRequest struct {
 	// Limit the returned tags to a specific name.
 	FilterName *string `queryParam:"style=form,explode=true,name=filter[name]"`
@@ -22,10 +29,66 @@ type ListWafTagsRequest struct {
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
+func (o *ListWafTagsRequest) GetFilterName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterName
+}
+
+func (o *ListWafTagsRequest) GetInclude() *shared.WafTagInclude {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafTagsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafTagsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
 type ListWafTagsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafTagsResponse *shared.WafTagsResponse
+}
+
+func (o *ListWafTagsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafTagsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafTagsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafTagsResponse) GetWafTagsResponse() *shared.WafTagsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafTagsResponse
 }

@@ -100,3 +100,108 @@ type LoggingGooglePubsubResponse struct {
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
 }
+
+func (o *LoggingGooglePubsubResponse) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingGooglePubsubResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingGooglePubsubResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingGooglePubsubResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingGooglePubsubResponse) GetFormatVersion() *LoggingGooglePubsubResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingGooglePubsubResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingGooglePubsubResponse) GetPlacement() *LoggingGooglePubsubResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingGooglePubsubResponse) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingGooglePubsubResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingGooglePubsubResponse) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingGooglePubsubResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingGooglePubsubResponse) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}
+
+func (o *LoggingGooglePubsubResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingGooglePubsubResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingGooglePubsubResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

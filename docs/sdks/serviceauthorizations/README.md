@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateServiceAuthorizationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.CreateServiceAuthorization(ctx, shared.ServiceAuthorizationInput{
@@ -51,9 +54,7 @@ func main() {
             },
             Type: shared.TypeServiceAuthorizationServiceAuthorization.ToPointer(),
         },
-    }, operations.CreateServiceAuthorizationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -96,13 +97,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteServiceAuthorizationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.DeleteServiceAuthorization(ctx, operations.DeleteServiceAuthorizationRequest{
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.DeleteServiceAuthorizationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -145,14 +147,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServiceAuthorizationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.ListServiceAuthorization(ctx, operations.ListServiceAuthorizationRequest{
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListServiceAuthorizationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -195,13 +198,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ShowServiceAuthorizationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.ShowServiceAuthorization(ctx, operations.ShowServiceAuthorizationRequest{
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.ShowServiceAuthorizationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -245,6 +249,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateServiceAuthorizationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.UpdateServiceAuthorization(ctx, operations.UpdateServiceAuthorizationRequest{
@@ -267,9 +274,7 @@ func main() {
             },
         },
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.UpdateServiceAuthorizationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

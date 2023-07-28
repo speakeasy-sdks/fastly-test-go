@@ -11,11 +11,32 @@ type ListLogHoneycombSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListLogHoneycombSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListLogHoneycombRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListLogHoneycombRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListLogHoneycombRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListLogHoneycombResponse struct {
@@ -24,4 +45,32 @@ type ListLogHoneycombResponse struct {
 	RawResponse *http.Response
 	// OK
 	LoggingHoneycombResponses []shared.LoggingHoneycombResponse
+}
+
+func (o *ListLogHoneycombResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListLogHoneycombResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListLogHoneycombResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListLogHoneycombResponse) GetLoggingHoneycombResponses() []shared.LoggingHoneycombResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHoneycombResponses
 }

@@ -104,3 +104,122 @@ type LoggingBigqueryResponse struct {
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
 }
+
+func (o *LoggingBigqueryResponse) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingBigqueryResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingBigqueryResponse) GetDataset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dataset
+}
+
+func (o *LoggingBigqueryResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingBigqueryResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingBigqueryResponse) GetFormatVersion() *LoggingBigqueryResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingBigqueryResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingBigqueryResponse) GetPlacement() *LoggingBigqueryResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingBigqueryResponse) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingBigqueryResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingBigqueryResponse) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingBigqueryResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingBigqueryResponse) GetTable() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Table
+}
+
+func (o *LoggingBigqueryResponse) GetTemplateSuffix() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TemplateSuffix
+}
+
+func (o *LoggingBigqueryResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingBigqueryResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingBigqueryResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

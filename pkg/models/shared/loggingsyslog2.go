@@ -102,3 +102,115 @@ type LoggingSyslog2 struct {
 	// Whether to use TLS.
 	UseTLS *LoggingUseTLS `form:"name=use_tls"`
 }
+
+func (o *LoggingSyslog2) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingSyslog2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingSyslog2) GetFormatVersion() *LoggingSyslogFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingSyslog2) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *LoggingSyslog2) GetIpv4() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv4
+}
+
+func (o *LoggingSyslog2) GetMessageType() *LoggingMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingSyslog2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingSyslog2) GetPlacement() *LoggingSyslogPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingSyslog2) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingSyslog2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingSyslog2) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingSyslog2) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingSyslog2) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingSyslog2) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingSyslog2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingSyslog2) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}

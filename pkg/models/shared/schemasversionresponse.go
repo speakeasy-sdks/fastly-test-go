@@ -29,3 +29,80 @@ type SchemasVersionResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *SchemasVersionResponse) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *SchemasVersionResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *SchemasVersionResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *SchemasVersionResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *SchemasVersionResponse) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *SchemasVersionResponse) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *SchemasVersionResponse) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *SchemasVersionResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *SchemasVersionResponse) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *SchemasVersionResponse) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
+}
+
+func (o *SchemasVersionResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

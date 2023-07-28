@@ -30,6 +30,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateInvitationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Invitations.CreateInvitation(ctx, shared.InvitationInput{
@@ -61,9 +64,7 @@ func main() {
             },
             Type: shared.TypeInvitationInvitation.ToPointer(),
         },
-    }, operations.CreateInvitationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -106,13 +107,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteInvitationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Invitations.DeleteInvitation(ctx, operations.DeleteInvitationRequest{
         InvitationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.DeleteInvitationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -155,14 +157,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListInvitationsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Invitations.ListInvitations(ctx, operations.ListInvitationsRequest{
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListInvitationsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

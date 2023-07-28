@@ -11,11 +11,32 @@ type GetConfigStoreItemSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetConfigStoreItemSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetConfigStoreItemRequest struct {
 	// An alphanumeric string identifying the config store.
 	ConfigStoreID string `pathParam:"style=simple,explode=false,name=config_store_id"`
 	// Item key, maximum 256 characters.
 	ConfigStoreItemKey string `pathParam:"style=simple,explode=false,name=config_store_item_key"`
+}
+
+func (o *GetConfigStoreItemRequest) GetConfigStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreID
+}
+
+func (o *GetConfigStoreItemRequest) GetConfigStoreItemKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreItemKey
 }
 
 type GetConfigStoreItemResponse struct {
@@ -24,4 +45,32 @@ type GetConfigStoreItemResponse struct {
 	RawResponse *http.Response
 	// OK
 	ConfigStoreItemResponse *shared.ConfigStoreItemResponse
+}
+
+func (o *GetConfigStoreItemResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetConfigStoreItemResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetConfigStoreItemResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetConfigStoreItemResponse) GetConfigStoreItemResponse() *shared.ConfigStoreItemResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConfigStoreItemResponse
 }

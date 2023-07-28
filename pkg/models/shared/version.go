@@ -17,6 +17,48 @@ type VersionInput struct {
 	Testing *bool `form:"name=testing"`
 }
 
+func (o *VersionInput) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *VersionInput) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *VersionInput) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *VersionInput) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *VersionInput) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *VersionInput) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
+}
+
 // Version - OK
 type Version struct {
 	// Whether this is the active version or not.
@@ -33,4 +75,53 @@ type Version struct {
 	Staging *bool `json:"staging,omitempty"`
 	// Unused at this time.
 	Testing *bool `json:"testing,omitempty"`
+}
+
+func (o *Version) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *Version) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Version) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *Version) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *Version) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *Version) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *Version) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
 }

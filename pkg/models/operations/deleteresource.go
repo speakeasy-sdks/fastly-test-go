@@ -10,6 +10,13 @@ type DeleteResourceSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteResourceSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteResourceRequest struct {
 	// An alphanumeric string identifying the resource link.
 	ID string `pathParam:"style=simple,explode=false,name=id"`
@@ -19,10 +26,38 @@ type DeleteResourceRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteResourceRequest) GetID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ID
+}
+
+func (o *DeleteResourceRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteResourceRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteResource200ApplicationJSON - OK
 type DeleteResource200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteResource200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteResourceResponse struct {
@@ -31,4 +66,32 @@ type DeleteResourceResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteResource200ApplicationJSONObject *DeleteResource200ApplicationJSON
+}
+
+func (o *DeleteResourceResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteResourceResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteResourceResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteResourceResponse) GetDeleteResource200ApplicationJSONObject() *DeleteResource200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteResource200ApplicationJSONObject
 }

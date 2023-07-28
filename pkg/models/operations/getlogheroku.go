@@ -11,6 +11,13 @@ type GetLogHerokuSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetLogHerokuSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetLogHerokuRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingHerokuName string `pathParam:"style=simple,explode=false,name=logging_heroku_name"`
@@ -20,10 +27,59 @@ type GetLogHerokuRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogHerokuRequest) GetLoggingHerokuName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingHerokuName
+}
+
+func (o *GetLogHerokuRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogHerokuRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogHerokuResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingHerokuResponse *shared.LoggingHerokuResponse
+}
+
+func (o *GetLogHerokuResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogHerokuResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogHerokuResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogHerokuResponse) GetLoggingHerokuResponse() *shared.LoggingHerokuResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHerokuResponse
 }

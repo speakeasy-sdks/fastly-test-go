@@ -220,3 +220,150 @@ type LoggingCloudfilesResponse struct {
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
 }
+
+func (o *LoggingCloudfilesResponse) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingCloudfilesResponse) GetBucketName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BucketName
+}
+
+func (o *LoggingCloudfilesResponse) GetCompressionCodec() *LoggingCloudfilesResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingCloudfilesResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingCloudfilesResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingCloudfilesResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingCloudfilesResponse) GetFormatVersion() *LoggingCloudfilesResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingCloudfilesResponse) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingCloudfilesResponse) GetMessageType() *LoggingCloudfilesResponseMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingCloudfilesResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingCloudfilesResponse) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingCloudfilesResponse) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingCloudfilesResponse) GetPlacement() *LoggingCloudfilesResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingCloudfilesResponse) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingCloudfilesResponse) GetRegion() *LoggingCloudfilesResponseRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingCloudfilesResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingCloudfilesResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingCloudfilesResponse) GetTimestampFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TimestampFormat
+}
+
+func (o *LoggingCloudfilesResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingCloudfilesResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingCloudfilesResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

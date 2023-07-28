@@ -18,3 +18,38 @@ type WafActiveRuleResponseDataAttributes struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *WafActiveRuleResponseDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetLatestRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.LatestRevision
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetOutdated() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Outdated
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

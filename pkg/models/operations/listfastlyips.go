@@ -11,10 +11,45 @@ type ListFastlyIpsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListFastlyIpsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListFastlyIpsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	PublicIPList *shared.PublicIPList
+}
+
+func (o *ListFastlyIpsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListFastlyIpsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListFastlyIpsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListFastlyIpsResponse) GetPublicIPList() *shared.PublicIPList {
+	if o == nil {
+		return nil
+	}
+	return o.PublicIPList
 }

@@ -37,3 +37,101 @@ type LoggingKinesisResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
 }
+
+func (o *LoggingKinesisResponse) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingKinesisResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingKinesisResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingKinesisResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingKinesisResponse) GetFormatVersion() *LoggingFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingKinesisResponse) GetIamRole() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IamRole
+}
+
+func (o *LoggingKinesisResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingKinesisResponse) GetPlacement() *LoggingPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingKinesisResponse) GetRegion() *AwsRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingKinesisResponse) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingKinesisResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingKinesisResponse) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}
+
+func (o *LoggingKinesisResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingKinesisResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

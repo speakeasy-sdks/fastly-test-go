@@ -11,6 +11,13 @@ type CreateLogLogshuttleSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateLogLogshuttleSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateLogLogshuttleRequest struct {
 	LoggingLogshuttle2 *shared.LoggingLogshuttle2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateLogLogshuttleRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogLogshuttleRequest) GetLoggingLogshuttle2() *shared.LoggingLogshuttle2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogshuttle2
+}
+
+func (o *CreateLogLogshuttleRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogLogshuttleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogLogshuttleResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingLogshuttleResponse *shared.LoggingLogshuttleResponse
+}
+
+func (o *CreateLogLogshuttleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogLogshuttleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogLogshuttleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogLogshuttleResponse) GetLoggingLogshuttleResponse() *shared.LoggingLogshuttleResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogshuttleResponse
 }

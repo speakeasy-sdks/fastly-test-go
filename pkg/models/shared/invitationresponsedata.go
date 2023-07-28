@@ -9,3 +9,31 @@ type InvitationResponseData struct {
 	// Resource type
 	Type *TypeInvitation `json:"type,omitempty"`
 }
+
+func (o *InvitationResponseData) GetAttributes() *Timestamps {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *InvitationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *InvitationResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *InvitationResponseData) GetType() *TypeInvitation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

@@ -11,11 +11,32 @@ type ListRateLimitersSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListRateLimitersSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListRateLimitersRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListRateLimitersRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListRateLimitersRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListRateLimitersResponse struct {
@@ -24,4 +45,32 @@ type ListRateLimitersResponse struct {
 	RawResponse *http.Response
 	// OK
 	RateLimiterResponses []shared.RateLimiterResponse
+}
+
+func (o *ListRateLimitersResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListRateLimitersResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListRateLimitersResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListRateLimitersResponse) GetRateLimiterResponses() []shared.RateLimiterResponse {
+	if o == nil {
+		return nil
+	}
+	return o.RateLimiterResponses
 }

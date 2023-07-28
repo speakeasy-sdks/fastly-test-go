@@ -12,3 +12,31 @@ type Settings struct {
 	// The default time-to-live (TTL) for serving the stale object for the version.
 	GeneralStaleIfErrorTTL *int64 `form:"name=general.stale_if_error_ttl"`
 }
+
+func (o *Settings) GetGeneralDefaultHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralDefaultHost
+}
+
+func (o *Settings) GetGeneralDefaultTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralDefaultTTL
+}
+
+func (o *Settings) GetGeneralStaleIfError() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralStaleIfError
+}
+
+func (o *Settings) GetGeneralStaleIfErrorTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralStaleIfErrorTTL
+}

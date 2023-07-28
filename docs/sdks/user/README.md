@@ -34,6 +34,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateUserSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.User.CreateUser(ctx, shared.UserInput{
@@ -44,9 +47,7 @@ func main() {
         Role: shared.RoleUserUser.ToPointer(),
         TwoFactorAuthEnabled: sdk.Bool(false),
         TwoFactorSetupRequired: sdk.Bool(false),
-    }, operations.CreateUserSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -89,13 +90,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteUserSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.User.DeleteUser(ctx, operations.DeleteUserRequest{
         UserID: "x9KzsrACXZv8tPwlEDsKb6",
-    }, operations.DeleteUserSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -138,11 +140,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCurrentUserSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.User.GetCurrentUser(ctx, operations.GetCurrentUserSecurity{
-        Token: "",
-    })
+    res, err := s.User.GetCurrentUser(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -184,13 +187,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetUserSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.User.GetUser(ctx, operations.GetUserRequest{
         UserID: "x9KzsrACXZv8tPwlEDsKb6",
-    }, operations.GetUserSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -233,13 +237,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.RequestPasswordResetSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.User.RequestPasswordReset(ctx, operations.RequestPasswordResetRequest{
         UserLogin: "krisowner@example.com",
-    }, operations.RequestPasswordResetSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -283,6 +288,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateUserSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.User.UpdateUser(ctx, operations.UpdateUserRequest{
@@ -296,9 +304,7 @@ func main() {
             TwoFactorSetupRequired: sdk.Bool(false),
         },
         UserID: "x9KzsrACXZv8tPwlEDsKb6",
-    }, operations.UpdateUserSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -342,15 +348,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateUserPasswordSecurity{
+            Password: "",
+            Username: "",
+        }
 
     ctx := context.Background()
     res, err := s.User.UpdateUserPassword(ctx, shared.PasswordChange{
         NewPassword: sdk.String("praesentium"),
         OldPassword: sdk.String("maiores"),
-    }, operations.UpdateUserPasswordSecurity{
-        Password: "",
-        Username: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

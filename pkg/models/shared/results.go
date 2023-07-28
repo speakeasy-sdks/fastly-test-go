@@ -439,3 +439,1508 @@ type Results struct {
 	// Total header bytes sent to end users over passthrough WebSocket connections.
 	WebsocketRespHeaderBytes *int64 `json:"websocket_resp_header_bytes,omitempty"`
 }
+
+func (o *Results) GetAttackBlockedReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackBlockedReqBodyBytes
+}
+
+func (o *Results) GetAttackBlockedReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackBlockedReqHeaderBytes
+}
+
+func (o *Results) GetAttackLoggedReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackLoggedReqBodyBytes
+}
+
+func (o *Results) GetAttackLoggedReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackLoggedReqHeaderBytes
+}
+
+func (o *Results) GetAttackPassedReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackPassedReqBodyBytes
+}
+
+func (o *Results) GetAttackPassedReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackPassedReqHeaderBytes
+}
+
+func (o *Results) GetAttackReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackReqBodyBytes
+}
+
+func (o *Results) GetAttackReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackReqHeaderBytes
+}
+
+func (o *Results) GetAttackRespSynthBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AttackRespSynthBytes
+}
+
+func (o *Results) GetBandwidth() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Bandwidth
+}
+
+func (o *Results) GetBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BereqBodyBytes
+}
+
+func (o *Results) GetBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BereqHeaderBytes
+}
+
+func (o *Results) GetBodySize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BodySize
+}
+
+func (o *Results) GetComputeBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqBodyBytes
+}
+
+func (o *Results) GetComputeBereqErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqErrors
+}
+
+func (o *Results) GetComputeBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqHeaderBytes
+}
+
+func (o *Results) GetComputeBereqs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBereqs
+}
+
+func (o *Results) GetComputeBerespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBerespBodyBytes
+}
+
+func (o *Results) GetComputeBerespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeBerespHeaderBytes
+}
+
+func (o *Results) GetComputeExecutionTimeMs() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeExecutionTimeMs
+}
+
+func (o *Results) GetComputeGlobalsLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeGlobalsLimitExceeded
+}
+
+func (o *Results) GetComputeGuestErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeGuestErrors
+}
+
+func (o *Results) GetComputeHeapLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeHeapLimitExceeded
+}
+
+func (o *Results) GetComputeRAMUsed() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRAMUsed
+}
+
+func (o *Results) GetComputeReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeReqBodyBytes
+}
+
+func (o *Results) GetComputeReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeReqHeaderBytes
+}
+
+func (o *Results) GetComputeRequestTimeMs() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRequestTimeMs
+}
+
+func (o *Results) GetComputeRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRequests
+}
+
+func (o *Results) GetComputeResourceLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeResourceLimitExceeded
+}
+
+func (o *Results) GetComputeRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespBodyBytes
+}
+
+func (o *Results) GetComputeRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespHeaderBytes
+}
+
+func (o *Results) GetComputeRespStatus1xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus1xx
+}
+
+func (o *Results) GetComputeRespStatus2xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus2xx
+}
+
+func (o *Results) GetComputeRespStatus3xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus3xx
+}
+
+func (o *Results) GetComputeRespStatus4xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus4xx
+}
+
+func (o *Results) GetComputeRespStatus5xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRespStatus5xx
+}
+
+func (o *Results) GetComputeRuntimeErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeRuntimeErrors
+}
+
+func (o *Results) GetComputeStackLimitExceeded() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ComputeStackLimitExceeded
+}
+
+func (o *Results) GetDdosActionBlackhole() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionBlackhole
+}
+
+func (o *Results) GetDdosActionClose() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionClose
+}
+
+func (o *Results) GetDdosActionLimitStreamsConnections() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionLimitStreamsConnections
+}
+
+func (o *Results) GetDdosActionLimitStreamsRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionLimitStreamsRequests
+}
+
+func (o *Results) GetDdosActionTarpit() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionTarpit
+}
+
+func (o *Results) GetDdosActionTarpitAccept() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DdosActionTarpitAccept
+}
+
+func (o *Results) GetDeliverSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.DeliverSubCount
+}
+
+func (o *Results) GetDeliverSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.DeliverSubTime
+}
+
+func (o *Results) GetEdgeHitRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeHitRequests
+}
+
+func (o *Results) GetEdgeHitRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeHitRespBodyBytes
+}
+
+func (o *Results) GetEdgeHitRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeHitRespHeaderBytes
+}
+
+func (o *Results) GetEdgeMissRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeMissRequests
+}
+
+func (o *Results) GetEdgeMissRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeMissRespBodyBytes
+}
+
+func (o *Results) GetEdgeMissRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeMissRespHeaderBytes
+}
+
+func (o *Results) GetEdgeRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeRequests
+}
+
+func (o *Results) GetEdgeRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeRespBodyBytes
+}
+
+func (o *Results) GetEdgeRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EdgeRespHeaderBytes
+}
+
+func (o *Results) GetErrorSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorSubCount
+}
+
+func (o *Results) GetErrorSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorSubTime
+}
+
+func (o *Results) GetErrors() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Errors
+}
+
+func (o *Results) GetFanoutBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBereqBodyBytes
+}
+
+func (o *Results) GetFanoutBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBereqHeaderBytes
+}
+
+func (o *Results) GetFanoutBerespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBerespBodyBytes
+}
+
+func (o *Results) GetFanoutBerespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutBerespHeaderBytes
+}
+
+func (o *Results) GetFanoutConnTimeMs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutConnTimeMs
+}
+
+func (o *Results) GetFanoutRecvPublishes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutRecvPublishes
+}
+
+func (o *Results) GetFanoutReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutReqBodyBytes
+}
+
+func (o *Results) GetFanoutReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutReqHeaderBytes
+}
+
+func (o *Results) GetFanoutRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutRespBodyBytes
+}
+
+func (o *Results) GetFanoutRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutRespHeaderBytes
+}
+
+func (o *Results) GetFanoutSendPublishes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FanoutSendPublishes
+}
+
+func (o *Results) GetFetchSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FetchSubCount
+}
+
+func (o *Results) GetFetchSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.FetchSubTime
+}
+
+func (o *Results) GetHashSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HashSubCount
+}
+
+func (o *Results) GetHashSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HashSubTime
+}
+
+func (o *Results) GetHeaderSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderSize
+}
+
+func (o *Results) GetHitRatio() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitRatio
+}
+
+func (o *Results) GetHitRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitRespBodyBytes
+}
+
+func (o *Results) GetHitSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitSubCount
+}
+
+func (o *Results) GetHitSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitSubTime
+}
+
+func (o *Results) GetHits() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Hits
+}
+
+func (o *Results) GetHitsTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.HitsTime
+}
+
+func (o *Results) GetHttp2() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Http2
+}
+
+func (o *Results) GetHttp3() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Http3
+}
+
+func (o *Results) GetImgopto() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Imgopto
+}
+
+func (o *Results) GetImgoptoRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoRespBodyBytes
+}
+
+func (o *Results) GetImgoptoRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoRespHeaderBytes
+}
+
+func (o *Results) GetImgoptoShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoShieldRespBodyBytes
+}
+
+func (o *Results) GetImgoptoShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgoptoShieldRespHeaderBytes
+}
+
+func (o *Results) GetImgvideo() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Imgvideo
+}
+
+func (o *Results) GetImgvideoFrames() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoFrames
+}
+
+func (o *Results) GetImgvideoRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoRespBodyBytes
+}
+
+func (o *Results) GetImgvideoRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoRespHeaderBytes
+}
+
+func (o *Results) GetImgvideoShield() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShield
+}
+
+func (o *Results) GetImgvideoShieldFrames() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShieldFrames
+}
+
+func (o *Results) GetImgvideoShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShieldRespBodyBytes
+}
+
+func (o *Results) GetImgvideoShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ImgvideoShieldRespHeaderBytes
+}
+
+func (o *Results) GetIpv6() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv6
+}
+
+func (o *Results) GetLog() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Log
+}
+
+func (o *Results) GetLogBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.LogBytes
+}
+
+func (o *Results) GetMiss() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Miss
+}
+
+func (o *Results) GetMissRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissRespBodyBytes
+}
+
+func (o *Results) GetMissSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissSubCount
+}
+
+func (o *Results) GetMissSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissSubTime
+}
+
+func (o *Results) GetMissTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.MissTime
+}
+
+func (o *Results) GetObjectSize100k() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize100k
+}
+
+func (o *Results) GetObjectSize100m() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize100m
+}
+
+func (o *Results) GetObjectSize10k() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize10k
+}
+
+func (o *Results) GetObjectSize10m() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize10m
+}
+
+func (o *Results) GetObjectSize1g() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize1g
+}
+
+func (o *Results) GetObjectSize1k() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize1k
+}
+
+func (o *Results) GetObjectSize1m() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectSize1m
+}
+
+func (o *Results) GetObjectStoreClassAOperations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreClassAOperations
+}
+
+func (o *Results) GetObjectStoreClassBOperations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreClassBOperations
+}
+
+func (o *Results) GetObjectStoreReadRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreReadRequests
+}
+
+func (o *Results) GetObjectStoreWriteRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ObjectStoreWriteRequests
+}
+
+func (o *Results) GetOriginCacheFetchRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginCacheFetchRespBodyBytes
+}
+
+func (o *Results) GetOriginCacheFetchRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginCacheFetchRespHeaderBytes
+}
+
+func (o *Results) GetOriginCacheFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginCacheFetches
+}
+
+func (o *Results) GetOriginFetchBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchBodyBytes
+}
+
+func (o *Results) GetOriginFetchHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchHeaderBytes
+}
+
+func (o *Results) GetOriginFetchRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchRespBodyBytes
+}
+
+func (o *Results) GetOriginFetchRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetchRespHeaderBytes
+}
+
+func (o *Results) GetOriginFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginFetches
+}
+
+func (o *Results) GetOriginRevalidations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OriginRevalidations
+}
+
+func (o *Results) GetOtfp() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Otfp
+}
+
+func (o *Results) GetOtfpDeliverTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpDeliverTime
+}
+
+func (o *Results) GetOtfpManifests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpManifests
+}
+
+func (o *Results) GetOtfpRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpRespBodyBytes
+}
+
+func (o *Results) GetOtfpRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpRespHeaderBytes
+}
+
+func (o *Results) GetOtfpShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShieldRespBodyBytes
+}
+
+func (o *Results) GetOtfpShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShieldRespHeaderBytes
+}
+
+func (o *Results) GetOtfpShieldTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.OtfpShieldTime
+}
+
+func (o *Results) GetPass() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Pass
+}
+
+func (o *Results) GetPassRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassRespBodyBytes
+}
+
+func (o *Results) GetPassSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassSubCount
+}
+
+func (o *Results) GetPassSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassSubTime
+}
+
+func (o *Results) GetPassTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PassTime
+}
+
+func (o *Results) GetPci() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Pci
+}
+
+func (o *Results) GetPipe() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Pipe
+}
+
+func (o *Results) GetPipeSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PipeSubCount
+}
+
+func (o *Results) GetPipeSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PipeSubTime
+}
+
+func (o *Results) GetPredeliverSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PredeliverSubCount
+}
+
+func (o *Results) GetPredeliverSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PredeliverSubTime
+}
+
+func (o *Results) GetPrehashSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PrehashSubCount
+}
+
+func (o *Results) GetPrehashSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PrehashSubTime
+}
+
+func (o *Results) GetRecvSubCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecvSubCount
+}
+
+func (o *Results) GetRecvSubTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecvSubTime
+}
+
+func (o *Results) GetReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ReqBodyBytes
+}
+
+func (o *Results) GetReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ReqHeaderBytes
+}
+
+func (o *Results) GetRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Requests
+}
+
+func (o *Results) GetRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RespBodyBytes
+}
+
+func (o *Results) GetRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RespHeaderBytes
+}
+
+func (o *Results) GetRestarts() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Restarts
+}
+
+func (o *Results) GetSegblockOriginFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.SegblockOriginFetches
+}
+
+func (o *Results) GetSegblockShieldFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.SegblockShieldFetches
+}
+
+func (o *Results) GetShield() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Results) GetShieldCacheFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldCacheFetches
+}
+
+func (o *Results) GetShieldFetchBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchBodyBytes
+}
+
+func (o *Results) GetShieldFetchHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchHeaderBytes
+}
+
+func (o *Results) GetShieldFetchRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchRespBodyBytes
+}
+
+func (o *Results) GetShieldFetchRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetchRespHeaderBytes
+}
+
+func (o *Results) GetShieldFetches() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldFetches
+}
+
+func (o *Results) GetShieldHitRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldHitRequests
+}
+
+func (o *Results) GetShieldHitRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldHitRespBodyBytes
+}
+
+func (o *Results) GetShieldHitRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldHitRespHeaderBytes
+}
+
+func (o *Results) GetShieldMissRequests() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldMissRequests
+}
+
+func (o *Results) GetShieldMissRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldMissRespBodyBytes
+}
+
+func (o *Results) GetShieldMissRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldMissRespHeaderBytes
+}
+
+func (o *Results) GetShieldRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldRespBodyBytes
+}
+
+func (o *Results) GetShieldRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldRespHeaderBytes
+}
+
+func (o *Results) GetShieldRevalidations() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ShieldRevalidations
+}
+
+func (o *Results) GetStatus1xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status1xx
+}
+
+func (o *Results) GetStatus200() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status200
+}
+
+func (o *Results) GetStatus204() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status204
+}
+
+func (o *Results) GetStatus206() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status206
+}
+
+func (o *Results) GetStatus2xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status2xx
+}
+
+func (o *Results) GetStatus301() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status301
+}
+
+func (o *Results) GetStatus302() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status302
+}
+
+func (o *Results) GetStatus304() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status304
+}
+
+func (o *Results) GetStatus3xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status3xx
+}
+
+func (o *Results) GetStatus400() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status400
+}
+
+func (o *Results) GetStatus401() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status401
+}
+
+func (o *Results) GetStatus403() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status403
+}
+
+func (o *Results) GetStatus404() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status404
+}
+
+func (o *Results) GetStatus406() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status406
+}
+
+func (o *Results) GetStatus416() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status416
+}
+
+func (o *Results) GetStatus429() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status429
+}
+
+func (o *Results) GetStatus4xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status4xx
+}
+
+func (o *Results) GetStatus500() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status500
+}
+
+func (o *Results) GetStatus501() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status501
+}
+
+func (o *Results) GetStatus502() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status502
+}
+
+func (o *Results) GetStatus503() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status503
+}
+
+func (o *Results) GetStatus504() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status504
+}
+
+func (o *Results) GetStatus505() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status505
+}
+
+func (o *Results) GetStatus5xx() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status5xx
+}
+
+func (o *Results) GetSynth() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Synth
+}
+
+func (o *Results) GetTLS() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLS
+}
+
+func (o *Results) GetTLSHandshakeSentBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHandshakeSentBytes
+}
+
+func (o *Results) GetTLSV10() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV10
+}
+
+func (o *Results) GetTLSV11() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV11
+}
+
+func (o *Results) GetTLSV12() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV12
+}
+
+func (o *Results) GetTLSV13() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSV13
+}
+
+func (o *Results) GetUncacheable() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Uncacheable
+}
+
+func (o *Results) GetVideo() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Video
+}
+
+func (o *Results) GetWafBlocked() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WafBlocked
+}
+
+func (o *Results) GetWafLogged() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WafLogged
+}
+
+func (o *Results) GetWafPassed() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WafPassed
+}
+
+func (o *Results) GetWebsocketBereqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBereqBodyBytes
+}
+
+func (o *Results) GetWebsocketBereqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBereqHeaderBytes
+}
+
+func (o *Results) GetWebsocketBerespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBerespBodyBytes
+}
+
+func (o *Results) GetWebsocketBerespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketBerespHeaderBytes
+}
+
+func (o *Results) GetWebsocketConnTimeMs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketConnTimeMs
+}
+
+func (o *Results) GetWebsocketReqBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketReqBodyBytes
+}
+
+func (o *Results) GetWebsocketReqHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketReqHeaderBytes
+}
+
+func (o *Results) GetWebsocketRespBodyBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketRespBodyBytes
+}
+
+func (o *Results) GetWebsocketRespHeaderBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WebsocketRespHeaderBytes
+}

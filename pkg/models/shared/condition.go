@@ -55,3 +55,45 @@ type ConditionInput struct {
 	// A numeric string that represents the service version.
 	Version *string `form:"name=version"`
 }
+
+func (o *ConditionInput) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ConditionInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ConditionInput) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *ConditionInput) GetStatement() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Statement
+}
+
+func (o *ConditionInput) GetType() *ConditionType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *ConditionInput) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

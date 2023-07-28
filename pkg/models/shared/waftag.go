@@ -6,10 +6,38 @@ type WafTagAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *WafTagAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type WafTag struct {
 	Attributes *WafTagAttributes `json:"attributes,omitempty"`
 	// Alphanumeric string identifying a WAF tag.
 	ID *string `json:"id,omitempty"`
 	// Resource type.
 	Type *TypeWafTag `json:"type,omitempty"`
+}
+
+func (o *WafTag) GetAttributes() *WafTagAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafTag) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafTag) GetType() *TypeWafTag {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

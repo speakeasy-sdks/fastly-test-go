@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateDirectorSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Director.CreateDirector(ctx, operations.CreateDirectorRequest{
@@ -143,9 +146,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateDirectorSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -188,15 +189,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteDirectorSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Director.DeleteDirector(ctx, operations.DeleteDirectorRequest{
         DirectorName: "test-director",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteDirectorSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -239,15 +241,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetDirectorSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Director.GetDirector(ctx, operations.GetDirectorRequest{
         DirectorName: "test-director",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetDirectorSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -290,14 +293,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListDirectorsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Director.ListDirectors(ctx, operations.ListDirectorsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListDirectorsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

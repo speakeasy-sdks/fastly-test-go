@@ -82,3 +82,45 @@ type LoggingLoggly2 struct {
 	// The token to use for authentication ([https://www.loggly.com/docs/customer-token-authentication-token/](https://www.loggly.com/docs/customer-token-authentication-token/)).
 	Token *string `form:"name=token"`
 }
+
+func (o *LoggingLoggly2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingLoggly2) GetFormatVersion() *LoggingLogglyFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingLoggly2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingLoggly2) GetPlacement() *LoggingLogglyPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingLoggly2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingLoggly2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}

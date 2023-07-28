@@ -10,6 +10,13 @@ type ListUserGroupRolesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListUserGroupRolesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListUserGroupRolesRequest struct {
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
@@ -17,6 +24,27 @@ type ListUserGroupRolesRequest struct {
 	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
 	// Alphanumeric string identifying the user group.
 	UserGroupID string `pathParam:"style=simple,explode=false,name=user_group_id"`
+}
+
+func (o *ListUserGroupRolesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListUserGroupRolesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListUserGroupRolesRequest) GetUserGroupID() string {
+	if o == nil {
+		return ""
+	}
+	return o.UserGroupID
 }
 
 // ListUserGroupRoles200ApplicationJSON - OK
@@ -29,4 +57,32 @@ type ListUserGroupRolesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListUserGroupRoles200ApplicationJSONObject *ListUserGroupRoles200ApplicationJSON
+}
+
+func (o *ListUserGroupRolesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListUserGroupRolesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListUserGroupRolesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListUserGroupRolesResponse) GetListUserGroupRoles200ApplicationJSONObject() *ListUserGroupRoles200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListUserGroupRoles200ApplicationJSONObject
 }

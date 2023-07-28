@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogKafkaSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKafka.CreateLogKafka(ctx, operations.CreateLogKafkaRequest{
@@ -57,9 +60,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogKafkaSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -102,15 +103,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogKafkaSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKafka.DeleteLogKafka(ctx, operations.DeleteLogKafkaRequest{
         LoggingKafkaName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogKafkaSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogKafkaSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKafka.GetLogKafka(ctx, operations.GetLogKafkaRequest{
         LoggingKafkaName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogKafkaSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,14 +207,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogKafkaSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingKafka.ListLogKafka(ctx, operations.ListLogKafkaRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogKafkaSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

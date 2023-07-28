@@ -7,3 +7,17 @@ type TLSActivationDataInput struct {
 	// Resource type.
 	Type *TypeTLSActivation `json:"type,omitempty"`
 }
+
+func (o *TLSActivationDataInput) GetRelationships() *RelationshipsForTLSActivationInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSActivationDataInput) GetType() *TypeTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

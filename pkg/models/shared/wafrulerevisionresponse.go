@@ -7,3 +7,17 @@ type WafRuleRevisionResponse struct {
 	Data     *WafRuleRevisionResponseData `json:"data,omitempty"`
 	Included []WafRule                    `json:"included,omitempty"`
 }
+
+func (o *WafRuleRevisionResponse) GetData() *WafRuleRevisionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafRuleRevisionResponse) GetIncluded() []WafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}

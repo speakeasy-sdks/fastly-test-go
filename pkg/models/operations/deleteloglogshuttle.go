@@ -10,6 +10,13 @@ type DeleteLogLogshuttleSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteLogLogshuttleSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteLogLogshuttleRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingLogshuttleName string `pathParam:"style=simple,explode=false,name=logging_logshuttle_name"`
@@ -19,10 +26,38 @@ type DeleteLogLogshuttleRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogLogshuttleRequest) GetLoggingLogshuttleName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingLogshuttleName
+}
+
+func (o *DeleteLogLogshuttleRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogLogshuttleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogLogshuttle200ApplicationJSON - OK
 type DeleteLogLogshuttle200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogLogshuttle200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogLogshuttleResponse struct {
@@ -31,4 +66,32 @@ type DeleteLogLogshuttleResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogLogshuttle200ApplicationJSONObject *DeleteLogLogshuttle200ApplicationJSON
+}
+
+func (o *DeleteLogLogshuttleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogLogshuttleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogLogshuttleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogLogshuttleResponse) GetDeleteLogLogshuttle200ApplicationJSONObject() *DeleteLogLogshuttle200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogLogshuttle200ApplicationJSONObject
 }

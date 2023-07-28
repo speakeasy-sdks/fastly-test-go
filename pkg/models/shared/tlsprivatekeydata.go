@@ -9,8 +9,29 @@ type TLSPrivateKeyDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *TLSPrivateKeyDataAttributes) GetKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Key
+}
+
+func (o *TLSPrivateKeyDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type TLSPrivateKeyDataRelationships2TLSDomainsInput struct {
 	Data []RelationshipMemberTLSDomainInput `json:"data,omitempty"`
+}
+
+func (o *TLSPrivateKeyDataRelationships2TLSDomainsInput) GetData() []RelationshipMemberTLSDomainInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 // TLSPrivateKeyDataRelationships2Input - All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
@@ -18,9 +39,37 @@ type TLSPrivateKeyDataRelationships2Input struct {
 	TLSDomains *TLSPrivateKeyDataRelationships2TLSDomainsInput `json:"tls_domains,omitempty"`
 }
 
+func (o *TLSPrivateKeyDataRelationships2Input) GetTLSDomains() *TLSPrivateKeyDataRelationships2TLSDomainsInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomains
+}
+
 type TLSPrivateKeyDataInput struct {
 	Attributes    *TLSPrivateKeyDataAttributes `json:"attributes,omitempty"`
 	Relationships interface{}                  `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeTLSPrivateKey `json:"type,omitempty"`
+}
+
+func (o *TLSPrivateKeyDataInput) GetAttributes() *TLSPrivateKeyDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSPrivateKeyDataInput) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSPrivateKeyDataInput) GetType() *TypeTLSPrivateKey {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

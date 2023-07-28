@@ -84,3 +84,52 @@ type LoggingPapertrail2 struct {
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 }
+
+func (o *LoggingPapertrail2) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingPapertrail2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingPapertrail2) GetFormatVersion() *LoggingPapertrailFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingPapertrail2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingPapertrail2) GetPlacement() *LoggingPapertrailPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingPapertrail2) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingPapertrail2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}

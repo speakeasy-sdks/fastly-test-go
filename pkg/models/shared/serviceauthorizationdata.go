@@ -7,14 +7,35 @@ type ServiceAuthorizationDataAttributes struct {
 	Permission *Permission `json:"permission,omitempty"`
 }
 
+func (o *ServiceAuthorizationDataAttributes) GetPermission() *Permission {
+	if o == nil {
+		return nil
+	}
+	return o.Permission
+}
+
 type ServiceAuthorizationDataRelationshipsUserDataInput struct {
 	// Resource type
 	Type *TypeUser `json:"type,omitempty"`
 }
 
+func (o *ServiceAuthorizationDataRelationshipsUserDataInput) GetType() *TypeUser {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 // ServiceAuthorizationDataRelationshipsUserInput - The ID of the user being given access to the service.
 type ServiceAuthorizationDataRelationshipsUserInput struct {
 	Data *ServiceAuthorizationDataRelationshipsUserDataInput `json:"data,omitempty"`
+}
+
+func (o *ServiceAuthorizationDataRelationshipsUserInput) GetData() *ServiceAuthorizationDataRelationshipsUserDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 type ServiceAuthorizationDataRelationshipsInput struct {
@@ -23,9 +44,44 @@ type ServiceAuthorizationDataRelationshipsInput struct {
 	User *ServiceAuthorizationDataRelationshipsUserInput `json:"user,omitempty"`
 }
 
+func (o *ServiceAuthorizationDataRelationshipsInput) GetService() *RelationshipMemberServiceInput {
+	if o == nil {
+		return nil
+	}
+	return o.Service
+}
+
+func (o *ServiceAuthorizationDataRelationshipsInput) GetUser() *ServiceAuthorizationDataRelationshipsUserInput {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
 type ServiceAuthorizationDataInput struct {
 	Attributes    *ServiceAuthorizationDataAttributes         `json:"attributes,omitempty"`
 	Relationships *ServiceAuthorizationDataRelationshipsInput `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeServiceAuthorization `json:"type,omitempty"`
+}
+
+func (o *ServiceAuthorizationDataInput) GetAttributes() *ServiceAuthorizationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *ServiceAuthorizationDataInput) GetRelationships() *ServiceAuthorizationDataRelationshipsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *ServiceAuthorizationDataInput) GetType() *TypeServiceAuthorization {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

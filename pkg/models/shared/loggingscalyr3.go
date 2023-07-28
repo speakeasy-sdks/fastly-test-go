@@ -114,3 +114,59 @@ type LoggingScalyr3 struct {
 	// The token to use for authentication ([https://www.scalyr.com/keys](https://www.scalyr.com/keys)).
 	Token *string `form:"name=token"`
 }
+
+func (o *LoggingScalyr3) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingScalyr3) GetFormatVersion() *LoggingScalyrFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingScalyr3) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingScalyr3) GetPlacement() *LoggingScalyrPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingScalyr3) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingScalyr3) GetRegion() *LoggingScalyrRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingScalyr3) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingScalyr3) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}

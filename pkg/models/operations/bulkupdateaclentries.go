@@ -11,6 +11,13 @@ type BulkUpdateACLEntriesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *BulkUpdateACLEntriesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type BulkUpdateACLEntriesRequest struct {
 	// Alphanumeric string identifying a ACL.
 	ACLID                            string                                   `pathParam:"style=simple,explode=false,name=acl_id"`
@@ -19,10 +26,38 @@ type BulkUpdateACLEntriesRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *BulkUpdateACLEntriesRequest) GetACLID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLID
+}
+
+func (o *BulkUpdateACLEntriesRequest) GetBulkUpdateACLEntriesRequestInput() *shared.BulkUpdateACLEntriesRequestInput {
+	if o == nil {
+		return nil
+	}
+	return o.BulkUpdateACLEntriesRequestInput
+}
+
+func (o *BulkUpdateACLEntriesRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 // BulkUpdateACLEntries200ApplicationJSON - OK
 type BulkUpdateACLEntries200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *BulkUpdateACLEntries200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type BulkUpdateACLEntriesResponse struct {
@@ -31,4 +66,32 @@ type BulkUpdateACLEntriesResponse struct {
 	RawResponse *http.Response
 	// OK
 	BulkUpdateACLEntries200ApplicationJSONObject *BulkUpdateACLEntries200ApplicationJSON
+}
+
+func (o *BulkUpdateACLEntriesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *BulkUpdateACLEntriesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *BulkUpdateACLEntriesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *BulkUpdateACLEntriesResponse) GetBulkUpdateACLEntries200ApplicationJSONObject() *BulkUpdateACLEntries200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.BulkUpdateACLEntries200ApplicationJSONObject
 }

@@ -98,3 +98,101 @@ type LoggingSplunk2 struct {
 	// Whether to use TLS.
 	UseTLS *LoggingUseTLS `form:"name=use_tls"`
 }
+
+func (o *LoggingSplunk2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingSplunk2) GetFormatVersion() *LoggingSplunkFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingSplunk2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingSplunk2) GetPlacement() *LoggingSplunkPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingSplunk2) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingSplunk2) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingSplunk2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingSplunk2) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingSplunk2) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingSplunk2) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingSplunk2) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingSplunk2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingSplunk2) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}
+
+func (o *LoggingSplunk2) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}

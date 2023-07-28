@@ -30,6 +30,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PublishSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Publish.Publish(ctx, operations.PublishRequest{
@@ -143,9 +146,7 @@ func main() {
             },
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.PublishSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

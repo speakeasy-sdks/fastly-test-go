@@ -11,9 +11,51 @@ type MutualAuthenticationDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *MutualAuthenticationDataAttributes) GetCertBundle() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CertBundle
+}
+
+func (o *MutualAuthenticationDataAttributes) GetEnforced() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Enforced
+}
+
+func (o *MutualAuthenticationDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type MutualAuthenticationDataInput struct {
 	Attributes    *MutualAuthenticationDataAttributes `json:"attributes,omitempty"`
 	Relationships interface{}                         `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeMutualAuthentication `json:"type,omitempty"`
+}
+
+func (o *MutualAuthenticationDataInput) GetAttributes() *MutualAuthenticationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *MutualAuthenticationDataInput) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *MutualAuthenticationDataInput) GetType() *TypeMutualAuthentication {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

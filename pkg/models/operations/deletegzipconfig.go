@@ -10,6 +10,13 @@ type DeleteGzipConfigSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteGzipConfigSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteGzipConfigRequest struct {
 	// Name of the gzip configuration.
 	GzipName string `pathParam:"style=simple,explode=false,name=gzip_name"`
@@ -19,10 +26,38 @@ type DeleteGzipConfigRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteGzipConfigRequest) GetGzipName() string {
+	if o == nil {
+		return ""
+	}
+	return o.GzipName
+}
+
+func (o *DeleteGzipConfigRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteGzipConfigRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteGzipConfig200ApplicationJSON - OK
 type DeleteGzipConfig200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteGzipConfig200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteGzipConfigResponse struct {
@@ -31,4 +66,32 @@ type DeleteGzipConfigResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteGzipConfig200ApplicationJSONObject *DeleteGzipConfig200ApplicationJSON
+}
+
+func (o *DeleteGzipConfigResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteGzipConfigResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteGzipConfigResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteGzipConfigResponse) GetDeleteGzipConfig200ApplicationJSONObject() *DeleteGzipConfig200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteGzipConfig200ApplicationJSONObject
 }

@@ -20,8 +20,78 @@ type BillingEstimateResponseLinesLine struct {
 	Units           *float64 `json:"units,omitempty"`
 }
 
+func (o *BillingEstimateResponseLinesLine) GetAmount() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Amount
+}
+
+func (o *BillingEstimateResponseLinesLine) GetClientPlanID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientPlanID
+}
+
+func (o *BillingEstimateResponseLinesLine) GetClientServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientServiceID
+}
+
+func (o *BillingEstimateResponseLinesLine) GetDescription() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Description
+}
+
+func (o *BillingEstimateResponseLinesLine) GetPerUnitCost() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerUnitCost
+}
+
+func (o *BillingEstimateResponseLinesLine) GetPlanNo() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PlanNo
+}
+
+func (o *BillingEstimateResponseLinesLine) GetServiceNo() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceNo
+}
+
+func (o *BillingEstimateResponseLinesLine) GetServiceType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceType
+}
+
+func (o *BillingEstimateResponseLinesLine) GetUnits() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Units
+}
+
 type BillingEstimateResponseLines struct {
 	Line *BillingEstimateResponseLinesLine `json:"line,omitempty"`
+}
+
+func (o *BillingEstimateResponseLines) GetLine() *BillingEstimateResponseLinesLine {
+	if o == nil {
+		return nil
+	}
+	return o.Line
 }
 
 type BillingEstimateResponseRegionsTiers struct {
@@ -31,9 +101,51 @@ type BillingEstimateResponseRegionsTiers struct {
 	Units *float64 `json:"units,omitempty"`
 }
 
+func (o *BillingEstimateResponseRegionsTiers) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *BillingEstimateResponseRegionsTiers) GetPrice() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Price
+}
+
+func (o *BillingEstimateResponseRegionsTiers) GetTotal() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Total
+}
+
+func (o *BillingEstimateResponseRegionsTiers) GetUnits() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Units
+}
+
 type BillingEstimateResponseRegions struct {
 	Tiers []BillingEstimateResponseRegionsTiers `json:"tiers,omitempty"`
 	Total *float64                              `json:"total,omitempty"`
+}
+
+func (o *BillingEstimateResponseRegions) GetTiers() []BillingEstimateResponseRegionsTiers {
+	if o == nil {
+		return nil
+	}
+	return o.Tiers
+}
+
+func (o *BillingEstimateResponseRegions) GetTotal() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Total
 }
 
 // BillingEstimateResponseStatusStatus - What the current status of this invoice can be.
@@ -77,6 +189,20 @@ type BillingEstimateResponseStatus struct {
 	Status *BillingEstimateResponseStatusStatus `json:"status,omitempty"`
 }
 
+func (o *BillingEstimateResponseStatus) GetSentAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.SentAt
+}
+
+func (o *BillingEstimateResponseStatus) GetStatus() *BillingEstimateResponseStatusStatus {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type BillingEstimateResponseTotalExtras struct {
 	// The name of this extra cost.
 	Name *string `json:"name,omitempty"`
@@ -84,6 +210,27 @@ type BillingEstimateResponseTotalExtras struct {
 	Recurring *float64 `json:"recurring,omitempty"`
 	// Initial set up cost in USD. Not present if $0.0 or this is not the month the extra was added.
 	Setup *float64 `json:"setup,omitempty"`
+}
+
+func (o *BillingEstimateResponseTotalExtras) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *BillingEstimateResponseTotalExtras) GetRecurring() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Recurring
+}
+
+func (o *BillingEstimateResponseTotalExtras) GetSetup() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Setup
 }
 
 // BillingEstimateResponseTotal - Complete summary of the billing information.
@@ -122,6 +269,118 @@ type BillingEstimateResponseTotal struct {
 	Terms *string `json:"terms,omitempty"`
 }
 
+func (o *BillingEstimateResponseTotal) GetBandwidth() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Bandwidth
+}
+
+func (o *BillingEstimateResponseTotal) GetBandwidthCost() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.BandwidthCost
+}
+
+func (o *BillingEstimateResponseTotal) GetBandwidthUnits() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BandwidthUnits
+}
+
+func (o *BillingEstimateResponseTotal) GetCost() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Cost
+}
+
+func (o *BillingEstimateResponseTotal) GetCostBeforeDiscount() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.CostBeforeDiscount
+}
+
+func (o *BillingEstimateResponseTotal) GetDiscount() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Discount
+}
+
+func (o *BillingEstimateResponseTotal) GetExtras() []BillingEstimateResponseTotalExtras {
+	if o == nil {
+		return nil
+	}
+	return o.Extras
+}
+
+func (o *BillingEstimateResponseTotal) GetExtrasCost() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ExtrasCost
+}
+
+func (o *BillingEstimateResponseTotal) GetIncurredCost() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.IncurredCost
+}
+
+func (o *BillingEstimateResponseTotal) GetOverage() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Overage
+}
+
+func (o *BillingEstimateResponseTotal) GetPlanCode() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PlanCode
+}
+
+func (o *BillingEstimateResponseTotal) GetPlanMinimum() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.PlanMinimum
+}
+
+func (o *BillingEstimateResponseTotal) GetPlanName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PlanName
+}
+
+func (o *BillingEstimateResponseTotal) GetRequests() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.Requests
+}
+
+func (o *BillingEstimateResponseTotal) GetRequestsCost() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestsCost
+}
+
+func (o *BillingEstimateResponseTotal) GetTerms() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Terms
+}
+
 // BillingEstimateResponse - OK
 type BillingEstimateResponse struct {
 	CustomerID *string `json:"customer_id,omitempty"`
@@ -138,4 +397,67 @@ type BillingEstimateResponse struct {
 	Total *BillingEstimateResponseTotal `json:"total,omitempty"`
 	// The current state of our third-party billing vendor. One of `up` or `down`.
 	VendorState *string `json:"vendor_state,omitempty"`
+}
+
+func (o *BillingEstimateResponse) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *BillingEstimateResponse) GetEndTime() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.EndTime
+}
+
+func (o *BillingEstimateResponse) GetInvoiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.InvoiceID
+}
+
+func (o *BillingEstimateResponse) GetLines() []BillingEstimateResponseLines {
+	if o == nil {
+		return nil
+	}
+	return o.Lines
+}
+
+func (o *BillingEstimateResponse) GetRegions() map[string]map[string]BillingEstimateResponseRegions {
+	if o == nil {
+		return nil
+	}
+	return o.Regions
+}
+
+func (o *BillingEstimateResponse) GetStartTime() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.StartTime
+}
+
+func (o *BillingEstimateResponse) GetStatus() *BillingEstimateResponseStatus {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
+func (o *BillingEstimateResponse) GetTotal() *BillingEstimateResponseTotal {
+	if o == nil {
+		return nil
+	}
+	return o.Total
+}
+
+func (o *BillingEstimateResponse) GetVendorState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.VendorState
 }

@@ -11,6 +11,13 @@ type GetLogSumologicSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetLogSumologicSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetLogSumologicRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingSumologicName string `pathParam:"style=simple,explode=false,name=logging_sumologic_name"`
@@ -20,10 +27,59 @@ type GetLogSumologicRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogSumologicRequest) GetLoggingSumologicName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSumologicName
+}
+
+func (o *GetLogSumologicRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogSumologicRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogSumologicResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingSumologicResponse *shared.LoggingSumologicResponse
+}
+
+func (o *GetLogSumologicResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogSumologicResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogSumologicResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogSumologicResponse) GetLoggingSumologicResponse() *shared.LoggingSumologicResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSumologicResponse
 }

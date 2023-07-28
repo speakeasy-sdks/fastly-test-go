@@ -11,10 +11,45 @@ type CreateMutualTLSAuthenticationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateMutualTLSAuthenticationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateMutualTLSAuthenticationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Created
 	MutualAuthenticationResponse *shared.MutualAuthenticationResponse
+}
+
+func (o *CreateMutualTLSAuthenticationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateMutualTLSAuthenticationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateMutualTLSAuthenticationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateMutualTLSAuthenticationResponse) GetMutualAuthenticationResponse() *shared.MutualAuthenticationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.MutualAuthenticationResponse
 }

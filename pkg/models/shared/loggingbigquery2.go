@@ -94,3 +94,87 @@ type LoggingBigquery2 struct {
 	// Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.
 	User *string `form:"name=user"`
 }
+
+func (o *LoggingBigquery2) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingBigquery2) GetDataset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dataset
+}
+
+func (o *LoggingBigquery2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingBigquery2) GetFormatVersion() *LoggingBigqueryFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingBigquery2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingBigquery2) GetPlacement() *LoggingBigqueryPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingBigquery2) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingBigquery2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingBigquery2) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingBigquery2) GetTable() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Table
+}
+
+func (o *LoggingBigquery2) GetTemplateSuffix() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TemplateSuffix
+}
+
+func (o *LoggingBigquery2) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}

@@ -11,10 +11,31 @@ type UpdateCustomerSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateCustomerSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateCustomerRequest struct {
 	CustomerInput *shared.CustomerInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *UpdateCustomerRequest) GetCustomerInput() *shared.CustomerInput {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerInput
+}
+
+func (o *UpdateCustomerRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 type UpdateCustomerResponse struct {
@@ -23,4 +44,32 @@ type UpdateCustomerResponse struct {
 	RawResponse *http.Response
 	// OK
 	CustomerResponse *shared.CustomerResponse
+}
+
+func (o *UpdateCustomerResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateCustomerResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateCustomerResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateCustomerResponse) GetCustomerResponse() *shared.CustomerResponse {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerResponse
 }

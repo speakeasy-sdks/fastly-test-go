@@ -33,6 +33,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateSnippetSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Snippet.CreateSnippet(ctx, operations.CreateSnippetRequest{
@@ -45,9 +48,7 @@ func main() {
             Type: shared.SnippetTypeHit.ToPointer(),
         },
         VersionID: 1,
-    }, operations.CreateSnippetSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -90,15 +91,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteSnippetSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Snippet.DeleteSnippet(ctx, operations.DeleteSnippetRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         SnippetName: "test-snippet",
         VersionID: 1,
-    }, operations.DeleteSnippetSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -141,15 +143,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetSnippetSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Snippet.GetSnippet(ctx, operations.GetSnippetRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         SnippetName: "test-snippet",
         VersionID: 1,
-    }, operations.GetSnippetSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -192,14 +195,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetSnippetDynamicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Snippet.GetSnippetDynamic(ctx, operations.GetSnippetDynamicRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         SnippetID: "62Yd1WfiCBPENLloXfXmlO",
-    }, operations.GetSnippetDynamicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -242,14 +246,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListSnippetsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Snippet.ListSnippets(ctx, operations.ListSnippetsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListSnippetsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -293,6 +298,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateSnippetDynamicSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Snippet.UpdateSnippetDynamic(ctx, operations.UpdateSnippetDynamicRequest{
@@ -305,9 +313,7 @@ func main() {
             Type: shared.SnippetTypeHit.ToPointer(),
         },
         SnippetID: "62Yd1WfiCBPENLloXfXmlO",
-    }, operations.UpdateSnippetDynamicSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

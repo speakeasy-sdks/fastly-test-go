@@ -11,6 +11,13 @@ type CreateLogHerokuSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateLogHerokuSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateLogHerokuRequest struct {
 	LoggingHeroku2 *shared.LoggingHeroku2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateLogHerokuRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogHerokuRequest) GetLoggingHeroku2() *shared.LoggingHeroku2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHeroku2
+}
+
+func (o *CreateLogHerokuRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogHerokuRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogHerokuResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingHerokuResponse *shared.LoggingHerokuResponse
+}
+
+func (o *CreateLogHerokuResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogHerokuResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogHerokuResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogHerokuResponse) GetLoggingHerokuResponse() *shared.LoggingHerokuResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHerokuResponse
 }

@@ -35,6 +35,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateWafRuleExclusionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafExclusions.CreateWafRuleExclusion(ctx, operations.CreateWafRuleExclusionRequest{
@@ -65,9 +68,7 @@ func main() {
                 Type: shared.TypeWafExclusionWafExclusion.ToPointer(),
             },
         },
-    }, operations.CreateWafRuleExclusionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -112,15 +113,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteWafRuleExclusionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafExclusions.DeleteWafRuleExclusion(ctx, operations.DeleteWafRuleExclusionRequest{
         ExclusionNumber: 1,
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-    }, operations.DeleteWafRuleExclusionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -165,15 +167,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetWafRuleExclusionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafExclusions.GetWafRuleExclusion(ctx, operations.GetWafRuleExclusionRequest{
         ExclusionNumber: 1,
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-    }, operations.GetWafRuleExclusionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -218,6 +221,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListWafRuleExclusionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafExclusions.ListWafRuleExclusions(ctx, operations.ListWafRuleExclusionsRequest{
@@ -229,9 +235,7 @@ func main() {
         Include: sdk.String("waf_rules"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListWafRuleExclusionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -277,6 +281,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateWafRuleExclusionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafExclusions.UpdateWafRuleExclusion(ctx, operations.UpdateWafRuleExclusionRequest{
@@ -311,9 +318,7 @@ func main() {
                 Type: shared.TypeWafExclusionWafExclusion.ToPointer(),
             },
         },
-    }, operations.UpdateWafRuleExclusionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

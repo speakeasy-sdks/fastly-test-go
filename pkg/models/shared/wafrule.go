@@ -78,9 +78,51 @@ type WafRuleAttributes struct {
 	Type *WafRuleAttributesType `json:"type,omitempty"`
 }
 
+func (o *WafRuleAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *WafRuleAttributes) GetPublisher() *WafRuleAttributesPublisher {
+	if o == nil {
+		return nil
+	}
+	return o.Publisher
+}
+
+func (o *WafRuleAttributes) GetType() *WafRuleAttributesType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type WafRule struct {
 	Attributes *WafRuleAttributes `json:"attributes,omitempty"`
 	ID         *string            `json:"id,omitempty"`
 	// Resource type.
 	Type *TypeWafRule `json:"type,omitempty"`
+}
+
+func (o *WafRule) GetAttributes() *WafRuleAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafRule) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafRule) GetType() *TypeWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

@@ -34,13 +34,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateConfigStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStore.CreateConfigStore(ctx, shared.ConfigStore{
         Name: sdk.String("test-config-store"),
-    }, operations.CreateConfigStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -83,13 +84,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteConfigStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStore.DeleteConfigStore(ctx, operations.DeleteConfigStoreRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.DeleteConfigStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -132,13 +134,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetConfigStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStore.GetConfigStore(ctx, operations.GetConfigStoreRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.GetConfigStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -181,13 +184,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetConfigStoreInfoSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStore.GetConfigStoreInfo(ctx, operations.GetConfigStoreInfoRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.GetConfigStoreInfoSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -230,13 +234,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListConfigStoreServicesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStore.ListConfigStoreServices(ctx, operations.ListConfigStoreServicesRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.ListConfigStoreServicesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -279,11 +284,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListConfigStoresSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.ConfigStore.ListConfigStores(ctx, operations.ListConfigStoresSecurity{
-        Token: "",
-    })
+    res, err := s.ConfigStore.ListConfigStores(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -326,6 +332,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateConfigStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStore.UpdateConfigStore(ctx, operations.UpdateConfigStoreRequest{
@@ -333,9 +342,7 @@ func main() {
             Name: sdk.String("test-config-store"),
         },
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.UpdateConfigStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

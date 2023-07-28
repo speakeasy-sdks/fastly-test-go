@@ -11,6 +11,13 @@ type CreateACLEntrySecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateACLEntrySecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateACLEntryRequest struct {
 	ACLEntry *shared.ACLEntry `request:"mediaType=application/json"`
 	// Alphanumeric string identifying a ACL.
@@ -19,10 +26,59 @@ type CreateACLEntryRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *CreateACLEntryRequest) GetACLEntry() *shared.ACLEntry {
+	if o == nil {
+		return nil
+	}
+	return o.ACLEntry
+}
+
+func (o *CreateACLEntryRequest) GetACLID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLID
+}
+
+func (o *CreateACLEntryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 type CreateACLEntryResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	ACLEntryResponse *shared.ACLEntryResponse
+}
+
+func (o *CreateACLEntryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateACLEntryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateACLEntryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateACLEntryResponse) GetACLEntryResponse() *shared.ACLEntryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ACLEntryResponse
 }

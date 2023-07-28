@@ -34,6 +34,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.BulkUpdateConfigStoreItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.BulkUpdateConfigStoreItem(ctx, operations.BulkUpdateConfigStoreItemRequest{
@@ -57,9 +60,7 @@ func main() {
             },
         },
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.BulkUpdateConfigStoreItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -103,6 +104,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateConfigStoreItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.CreateConfigStoreItem(ctx, operations.CreateConfigStoreItemRequest{
@@ -111,9 +115,7 @@ func main() {
             ItemKey: sdk.String("test-key"),
             ItemValue: sdk.String("test-value"),
         },
-    }, operations.CreateConfigStoreItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -156,14 +158,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteConfigStoreItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.DeleteConfigStoreItem(ctx, operations.DeleteConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
         ConfigStoreItemKey: "test-key",
-    }, operations.DeleteConfigStoreItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -206,14 +209,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetConfigStoreItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.GetConfigStoreItem(ctx, operations.GetConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
         ConfigStoreItemKey: "test-key",
-    }, operations.GetConfigStoreItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -256,13 +260,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListConfigStoreItemsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.ListConfigStoreItems(ctx, operations.ListConfigStoreItemsRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-    }, operations.ListConfigStoreItemsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -306,6 +311,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateConfigStoreItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.UpdateConfigStoreItem(ctx, operations.UpdateConfigStoreItemRequest{
@@ -315,9 +323,7 @@ func main() {
             ItemValue: sdk.String("test-value"),
         },
         ConfigStoreItemKey: "test-key",
-    }, operations.UpdateConfigStoreItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -361,6 +367,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpsertConfigStoreItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.UpsertConfigStoreItem(ctx, operations.UpsertConfigStoreItemRequest{
@@ -370,9 +379,7 @@ func main() {
             ItemValue: sdk.String("test-value"),
         },
         ConfigStoreItemKey: "test-key",
-    }, operations.UpsertConfigStoreItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

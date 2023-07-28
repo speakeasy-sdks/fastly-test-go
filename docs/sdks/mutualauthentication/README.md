@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateMutualTLSAuthenticationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.CreateMutualTLSAuthentication(ctx, shared.MutualAuthenticationInput{
@@ -52,9 +55,7 @@ func main() {
             },
             Type: shared.TypeMutualAuthenticationMutualAuthentication.ToPointer(),
         },
-    }, operations.CreateMutualTLSAuthenticationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -97,13 +98,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteMutualTLSSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.DeleteMutualTLS(ctx, operations.DeleteMutualTLSRequest{
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
-    }, operations.DeleteMutualTLSSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -146,14 +148,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetMutualAuthenticationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.GetMutualAuthentication(ctx, operations.GetMutualAuthenticationRequest{
         Include: sdk.String("cum"),
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
-    }, operations.GetMutualAuthenticationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -196,15 +199,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListMutualAuthenticationsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.ListMutualAuthentications(ctx, operations.ListMutualAuthenticationsRequest{
         Include: sdk.String("blanditiis"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListMutualAuthenticationsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -248,6 +252,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PatchMutualAuthenticationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.PatchMutualAuthentication(ctx, operations.PatchMutualAuthenticationRequest{
@@ -277,9 +284,7 @@ func main() {
             },
         },
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
-    }, operations.PatchMutualAuthenticationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

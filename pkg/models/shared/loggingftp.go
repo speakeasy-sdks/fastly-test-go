@@ -169,3 +169,122 @@ type LoggingFtpInput struct {
 	// The username for the server. Can be anonymous.
 	User *string `form:"name=user"`
 }
+
+func (o *LoggingFtpInput) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingFtpInput) GetCompressionCodec() *LoggingFtpCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingFtpInput) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingFtpInput) GetFormatVersion() *LoggingFtpFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingFtpInput) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingFtpInput) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *LoggingFtpInput) GetIpv4() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv4
+}
+
+func (o *LoggingFtpInput) GetMessageType() *LoggingFtpMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingFtpInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingFtpInput) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingFtpInput) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingFtpInput) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingFtpInput) GetPlacement() *LoggingFtpPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingFtpInput) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingFtpInput) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingFtpInput) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingFtpInput) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}

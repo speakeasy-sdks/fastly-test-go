@@ -35,6 +35,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateWafFirewallSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewalls.CreateWafFirewall(ctx, shared.WafFirewallInput{
@@ -46,9 +49,7 @@ func main() {
             },
             Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
         },
-    }, operations.CreateWafFirewallSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -95,6 +96,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteWafFirewallSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewalls.DeleteWafFirewall(ctx, operations.DeleteWafFirewallRequest{
@@ -109,9 +113,7 @@ func main() {
                 Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
             },
         },
-    }, operations.DeleteWafFirewallSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -157,15 +159,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetWafFirewallSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewalls.GetWafFirewall(ctx, operations.GetWafFirewallRequest{
         FilterServiceVersionNumber: sdk.String("vel"),
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         Include: shared.FirewallIncludeWafFirewallVersions.ToPointer(),
-    }, operations.GetWafFirewallSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -211,6 +214,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListWafFirewallsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewalls.ListWafFirewalls(ctx, operations.ListWafFirewallsRequest{
@@ -219,9 +225,7 @@ func main() {
         Include: shared.FirewallIncludeWafFirewallVersions.ToPointer(),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListWafFirewallsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -268,6 +272,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateWafFirewallSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafFirewalls.UpdateWafFirewall(ctx, operations.UpdateWafFirewallRequest{
@@ -282,9 +289,7 @@ func main() {
                 Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
             },
         },
-    }, operations.UpdateWafFirewallSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

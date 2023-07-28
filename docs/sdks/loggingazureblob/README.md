@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogAzureSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.CreateLogAzure(ctx, operations.CreateLogAzureRequest{
@@ -57,9 +60,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogAzureSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -102,15 +103,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogAzureSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.DeleteLogAzure(ctx, operations.DeleteLogAzureRequest{
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogAzureSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogAzureSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.GetLogAzure(ctx, operations.GetLogAzureRequest{
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogAzureSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,14 +207,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogAzureSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.ListLogAzure(ctx, operations.ListLogAzureRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogAzureSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,6 +259,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogAzureSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.UpdateLogAzure(ctx, operations.UpdateLogAzureRequest{
@@ -281,9 +288,7 @@ func main() {
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogAzureSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

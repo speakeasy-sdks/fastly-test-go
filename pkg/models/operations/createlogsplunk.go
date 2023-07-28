@@ -11,6 +11,13 @@ type CreateLogSplunkSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateLogSplunkSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateLogSplunkRequest struct {
 	LoggingSplunk2 *shared.LoggingSplunk2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateLogSplunkRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogSplunkRequest) GetLoggingSplunk2() *shared.LoggingSplunk2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSplunk2
+}
+
+func (o *CreateLogSplunkRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogSplunkRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogSplunkResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingSplunkResponse *shared.LoggingSplunkResponse
+}
+
+func (o *CreateLogSplunkResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogSplunkResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogSplunkResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogSplunkResponse) GetLoggingSplunkResponse() *shared.LoggingSplunkResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSplunkResponse
 }

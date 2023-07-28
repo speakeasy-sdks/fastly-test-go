@@ -11,9 +11,23 @@ type GetEventSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetEventSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetEventRequest struct {
 	// Alphanumeric string identifying an event.
 	EventID string `pathParam:"style=simple,explode=false,name=event_id"`
+}
+
+func (o *GetEventRequest) GetEventID() string {
+	if o == nil {
+		return ""
+	}
+	return o.EventID
 }
 
 type GetEventResponse struct {
@@ -22,4 +36,32 @@ type GetEventResponse struct {
 	RawResponse *http.Response
 	// OK
 	EventResponse *shared.EventResponse
+}
+
+func (o *GetEventResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetEventResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetEventResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetEventResponse) GetEventResponse() *shared.EventResponse {
+	if o == nil {
+		return nil
+	}
+	return o.EventResponse
 }

@@ -29,14 +29,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetPackageSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Package.GetPackage(ctx, operations.GetPackageRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetPackageSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -80,6 +81,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PutPackageSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Package.PutPackage(ctx, operations.PutPackageRequest{
@@ -92,9 +96,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.PutPackageSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -27,11 +27,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListPermissionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.IamPermissions.ListPermissions(ctx, operations.ListPermissionsSecurity{
-        Token: "",
-    })
+    res, err := s.IamPermissions.ListPermissions(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

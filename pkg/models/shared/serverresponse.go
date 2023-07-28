@@ -32,3 +32,94 @@ type ServerResponse struct {
 	// Weight (`1-100`) used to load balance this server against others.
 	Weight *int64 `json:"weight,omitempty"`
 }
+
+func (o *ServerResponse) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *ServerResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ServerResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ServerResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ServerResponse) GetDisabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Disabled
+}
+
+func (o *ServerResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ServerResponse) GetMaxConn() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConn
+}
+
+func (o *ServerResponse) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *ServerResponse) GetPoolID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PoolID
+}
+
+func (o *ServerResponse) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *ServerResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ServerResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ServerResponse) GetWeight() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Weight
+}

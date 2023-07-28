@@ -5,3 +5,10 @@ package shared
 type TLSConfigurationInput struct {
 	Data *TLSConfigurationDataInput `json:"data,omitempty"`
 }
+
+func (o *TLSConfigurationInput) GetData() *TLSConfigurationDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

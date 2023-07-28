@@ -10,6 +10,13 @@ type ListServiceGroupServicesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListServiceGroupServicesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListServiceGroupServicesRequest struct {
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
@@ -17,6 +24,27 @@ type ListServiceGroupServicesRequest struct {
 	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
 	// Alphanumeric string identifying the service group.
 	ServiceGroupID string `pathParam:"style=simple,explode=false,name=service_group_id"`
+}
+
+func (o *ListServiceGroupServicesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListServiceGroupServicesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListServiceGroupServicesRequest) GetServiceGroupID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceGroupID
 }
 
 // ListServiceGroupServices200ApplicationJSON - OK
@@ -29,4 +57,32 @@ type ListServiceGroupServicesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListServiceGroupServices200ApplicationJSONObject *ListServiceGroupServices200ApplicationJSON
+}
+
+func (o *ListServiceGroupServicesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListServiceGroupServicesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListServiceGroupServicesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListServiceGroupServicesResponse) GetListServiceGroupServices200ApplicationJSONObject() *ListServiceGroupServices200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListServiceGroupServices200ApplicationJSONObject
 }

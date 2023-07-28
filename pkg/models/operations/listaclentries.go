@@ -11,6 +11,13 @@ type ListACLEntriesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListACLEntriesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListACLEntriesRequest struct {
 	// Alphanumeric string identifying a ACL.
 	ACLID string `pathParam:"style=simple,explode=false,name=acl_id"`
@@ -26,6 +33,48 @@ type ListACLEntriesRequest struct {
 	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListACLEntriesRequest) GetACLID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLID
+}
+
+func (o *ListACLEntriesRequest) GetDirection() *shared.Direction {
+	if o == nil {
+		return nil
+	}
+	return o.Direction
+}
+
+func (o *ListACLEntriesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListACLEntriesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListACLEntriesRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListACLEntriesRequest) GetSort() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListACLEntriesResponse struct {
 	ContentType string
 	Headers     map[string][]string
@@ -33,4 +82,39 @@ type ListACLEntriesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ACLEntryResponses []shared.ACLEntryResponse
+}
+
+func (o *ListACLEntriesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListACLEntriesResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *ListACLEntriesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListACLEntriesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListACLEntriesResponse) GetACLEntryResponses() []shared.ACLEntryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ACLEntryResponses
 }

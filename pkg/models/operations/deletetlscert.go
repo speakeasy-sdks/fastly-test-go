@@ -10,13 +10,48 @@ type DeleteTLSCertSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteTLSCertSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteTLSCertRequest struct {
 	// Alphanumeric string identifying a TLS certificate.
 	TLSCertificateID string `pathParam:"style=simple,explode=false,name=tls_certificate_id"`
+}
+
+func (o *DeleteTLSCertRequest) GetTLSCertificateID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSCertificateID
 }
 
 type DeleteTLSCertResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteTLSCertResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteTLSCertResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteTLSCertResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

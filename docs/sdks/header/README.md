@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateHeaderObjectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Header.CreateHeaderObject(ctx, operations.CreateHeaderObjectRequest{
@@ -51,9 +54,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateHeaderObjectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -96,15 +97,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteHeaderObjectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Header.DeleteHeaderObject(ctx, operations.DeleteHeaderObjectRequest{
         HeaderName: "test-header",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteHeaderObjectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -147,15 +149,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHeaderObjectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Header.GetHeaderObject(ctx, operations.GetHeaderObjectRequest{
         HeaderName: "test-header",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetHeaderObjectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -198,14 +201,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListHeaderObjectsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Header.ListHeaderObjects(ctx, operations.ListHeaderObjectsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListHeaderObjectsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -249,6 +253,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateHeaderObjectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Header.UpdateHeaderObject(ctx, operations.UpdateHeaderObjectRequest{
@@ -269,9 +276,7 @@ func main() {
         HeaderName: "test-header",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateHeaderObjectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

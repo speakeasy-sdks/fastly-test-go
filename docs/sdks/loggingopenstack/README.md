@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogOpenstackSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.CreateLogOpenstack(ctx, operations.CreateLogOpenstackRequest{
@@ -57,9 +60,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogOpenstackSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -102,15 +103,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogOpenstackSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.DeleteLogOpenstack(ctx, operations.DeleteLogOpenstackRequest{
         LoggingOpenstackName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogOpenstackSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogOpenstackSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.GetLogOpenstack(ctx, operations.GetLogOpenstackRequest{
         LoggingOpenstackName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogOpenstackSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,14 +207,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogOpenstackSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.ListLogOpenstack(ctx, operations.ListLogOpenstackRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogOpenstackSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,6 +259,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogOpenstackSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.UpdateLogOpenstack(ctx, operations.UpdateLogOpenstackRequest{
@@ -281,9 +288,7 @@ func main() {
         LoggingOpenstackName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogOpenstackSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

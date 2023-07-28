@@ -10,9 +10,23 @@ type GetAUserGroupSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetAUserGroupSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetAUserGroupRequest struct {
 	// Alphanumeric string identifying the user group.
 	UserGroupID string `pathParam:"style=simple,explode=false,name=user_group_id"`
+}
+
+func (o *GetAUserGroupRequest) GetUserGroupID() string {
+	if o == nil {
+		return ""
+	}
+	return o.UserGroupID
 }
 
 // GetAUserGroup200ApplicationJSON - OK
@@ -25,4 +39,32 @@ type GetAUserGroupResponse struct {
 	RawResponse *http.Response
 	// OK
 	GetAUserGroup200ApplicationJSONObject *GetAUserGroup200ApplicationJSON
+}
+
+func (o *GetAUserGroupResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetAUserGroupResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetAUserGroupResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetAUserGroupResponse) GetGetAUserGroup200ApplicationJSONObject() *GetAUserGroup200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.GetAUserGroup200ApplicationJSONObject
 }

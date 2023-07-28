@@ -34,6 +34,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.BulkUpdateDictionaryItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.BulkUpdateDictionaryItem(ctx, operations.BulkUpdateDictionaryItemRequest{
@@ -53,9 +56,7 @@ func main() {
         },
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.BulkUpdateDictionaryItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -99,6 +100,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateDictionaryItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.CreateDictionaryItem(ctx, operations.CreateDictionaryItemRequest{
@@ -108,9 +112,7 @@ func main() {
             ItemValue: sdk.String("test-value"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.CreateDictionaryItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteDictionaryItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.DeleteDictionaryItem(ctx, operations.DeleteDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DeleteDictionaryItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,15 +207,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetDictionaryItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.GetDictionaryItem(ctx, operations.GetDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetDictionaryItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -256,6 +260,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListDictionaryItemsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.ListDictionaryItems(ctx, operations.ListDictionaryItemsRequest{
@@ -265,9 +272,7 @@ func main() {
         PerPage: sdk.Int64(20),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Sort: sdk.String("created"),
-    }, operations.ListDictionaryItemsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -311,6 +316,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateDictionaryItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.UpdateDictionaryItem(ctx, operations.UpdateDictionaryItemRequest{
@@ -321,9 +329,7 @@ func main() {
         },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpdateDictionaryItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -367,6 +373,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpsertDictionaryItemSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DictionaryItem.UpsertDictionaryItem(ctx, operations.UpsertDictionaryItemRequest{
@@ -377,9 +386,7 @@ func main() {
         },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpsertDictionaryItemSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

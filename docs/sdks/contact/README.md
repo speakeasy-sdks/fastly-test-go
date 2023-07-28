@@ -28,14 +28,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteContactSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Contact.DeleteContact(ctx, operations.DeleteContactRequest{
         ContactID: "x4xCwxxJxGCx123Rx5xTx",
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.DeleteContactSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -78,13 +79,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListContactsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Contact.ListContacts(ctx, operations.ListContactsRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.ListContactsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

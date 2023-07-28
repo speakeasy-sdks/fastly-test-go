@@ -30,15 +30,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteKeyFromStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStoreItem.DeleteKeyFromStore(ctx, operations.DeleteKeyFromStoreRequest{
         Force: sdk.Bool(false),
         KeyName: "veritatis",
         StoreID: "nobis",
-    }, operations.DeleteKeyFromStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -81,6 +82,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetKeysSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetKeys(ctx, operations.GetKeysRequest{
@@ -88,9 +92,7 @@ func main() {
         Limit: sdk.Int64(731694),
         Prefix: sdk.String("cupiditate"),
         StoreID: "aperiam",
-    }, operations.GetKeysSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -133,14 +135,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetValueForKeySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetValueForKey(ctx, operations.GetValueForKeyRequest{
         KeyName: "delectus",
         StoreID: "dolorem",
-    }, operations.GetValueForKeySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -183,6 +186,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.SetValueForKeySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStoreItem.SetValueForKey(ctx, operations.SetValueForKeyRequest{
@@ -196,9 +202,7 @@ func main() {
         Prepend: sdk.Bool(false),
         StoreID: "architecto",
         TimeToLiveSec: sdk.Int64(63038),
-    }, operations.SetValueForKeySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

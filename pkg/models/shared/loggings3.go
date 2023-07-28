@@ -175,3 +175,143 @@ type LoggingS3Input struct {
 	// Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`.
 	ServerSideEncryptionKmsKeyID *string `form:"name=server_side_encryption_kms_key_id"`
 }
+
+func (o *LoggingS3Input) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingS3Input) GetACL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ACL
+}
+
+func (o *LoggingS3Input) GetBucketName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BucketName
+}
+
+func (o *LoggingS3Input) GetCompressionCodec() *LoggingS3CompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingS3Input) GetDomain() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Domain
+}
+
+func (o *LoggingS3Input) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingS3Input) GetFormatVersion() *LoggingS3FormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingS3Input) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingS3Input) GetIamRole() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IamRole
+}
+
+func (o *LoggingS3Input) GetMessageType() *LoggingS3MessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingS3Input) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingS3Input) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingS3Input) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingS3Input) GetPlacement() *LoggingS3Placement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingS3Input) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingS3Input) GetRedundancy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Redundancy
+}
+
+func (o *LoggingS3Input) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingS3Input) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingS3Input) GetServerSideEncryption() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerSideEncryption
+}
+
+func (o *LoggingS3Input) GetServerSideEncryptionKmsKeyID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerSideEncryptionKmsKeyID
+}

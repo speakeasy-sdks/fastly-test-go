@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogHerokuSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.CreateLogHeroku(ctx, operations.CreateLogHerokuRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogHerokuSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogHerokuSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.DeleteLogHeroku(ctx, operations.DeleteLogHerokuRequest{
         LoggingHerokuName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogHerokuSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogHerokuSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.GetLogHeroku(ctx, operations.GetLogHerokuRequest{
         LoggingHerokuName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogHerokuSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogHerokuSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.ListLogHeroku(ctx, operations.ListLogHerokuRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogHerokuSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogHerokuSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.UpdateLogHeroku(ctx, operations.UpdateLogHerokuRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingHerokuName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogHerokuSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

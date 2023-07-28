@@ -11,6 +11,13 @@ type ListWafActiveRulesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListWafActiveRulesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListWafActiveRulesRequest struct {
 	// Limit results to active rules referencing an outdated rule revision.
 	FilterOutdated *string `queryParam:"style=form,explode=true,name=filter[outdated]"`
@@ -33,10 +40,101 @@ type ListWafActiveRulesRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *ListWafActiveRulesRequest) GetFilterOutdated() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterOutdated
+}
+
+func (o *ListWafActiveRulesRequest) GetFilterStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterStatus
+}
+
+func (o *ListWafActiveRulesRequest) GetFilterWafRuleRevisionMessage() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafRuleRevisionMessage
+}
+
+func (o *ListWafActiveRulesRequest) GetFilterWafRuleRevisionModsecRuleID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafRuleRevisionModsecRuleID
+}
+
+func (o *ListWafActiveRulesRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *ListWafActiveRulesRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafActiveRulesRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafActiveRulesRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListWafActiveRulesRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type ListWafActiveRulesResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafActiveRulesResponse *shared.WafActiveRulesResponse
+}
+
+func (o *ListWafActiveRulesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafActiveRulesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafActiveRulesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafActiveRulesResponse) GetWafActiveRulesResponse() *shared.WafActiveRulesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafActiveRulesResponse
 }

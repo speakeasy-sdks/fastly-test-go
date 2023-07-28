@@ -34,6 +34,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateGlobalsignEmailChallengeSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.CreateGlobalsignEmailChallenge(ctx, operations.CreateGlobalsignEmailChallengeRequest{
@@ -45,9 +48,7 @@ func main() {
         },
         TLSAuthorizationID: "aU3guUGZzb2W9Euo4Mo0r",
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
-    }, operations.CreateGlobalsignEmailChallengeSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,6 +92,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateTLSSubSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.CreateTLSSub(ctx, operations.CreateTLSSubRequest{
@@ -110,9 +114,7 @@ func main() {
                 Type: shared.TypeTLSSubscriptionTLSSubscription.ToPointer(),
             },
         },
-    }, operations.CreateTLSSubSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -155,15 +157,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteGlobalsignEmailChallengeSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.DeleteGlobalsignEmailChallenge(ctx, operations.DeleteGlobalsignEmailChallengeRequest{
         GlobalsignEmailChallengeID: "quasi",
         TLSAuthorizationID: "et",
         TLSSubscriptionID: "ducimus",
-    }, operations.DeleteGlobalsignEmailChallengeSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -206,13 +209,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteTLSSubSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.DeleteTLSSub(ctx, operations.DeleteTLSSubRequest{
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
-    }, operations.DeleteTLSSubSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,14 +259,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTLSSubSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.GetTLSSub(ctx, operations.GetTLSSubRequest{
         Include: sdk.String("tls_authorizations"),
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
-    }, operations.GetTLSSubSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -306,6 +311,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSSubsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.ListTLSSubs(ctx, operations.ListTLSSubsRequest{
@@ -316,9 +324,7 @@ func main() {
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),
-    }, operations.ListTLSSubsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -362,6 +368,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PatchTLSSubSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.PatchTLSSub(ctx, operations.PatchTLSSubRequest{
@@ -382,9 +391,7 @@ func main() {
             },
         },
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
-    }, operations.PatchTLSSubSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

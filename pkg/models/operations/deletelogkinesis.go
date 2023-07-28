@@ -10,6 +10,13 @@ type DeleteLogKinesisSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteLogKinesisSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteLogKinesisRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingKinesisName string `pathParam:"style=simple,explode=false,name=logging_kinesis_name"`
@@ -19,10 +26,38 @@ type DeleteLogKinesisRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogKinesisRequest) GetLoggingKinesisName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingKinesisName
+}
+
+func (o *DeleteLogKinesisRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogKinesisRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogKinesis200ApplicationJSON - OK
 type DeleteLogKinesis200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogKinesis200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogKinesisResponse struct {
@@ -31,4 +66,32 @@ type DeleteLogKinesisResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogKinesis200ApplicationJSONObject *DeleteLogKinesis200ApplicationJSON
+}
+
+func (o *DeleteLogKinesisResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogKinesisResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogKinesisResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogKinesisResponse) GetDeleteLogKinesis200ApplicationJSONObject() *DeleteLogKinesis200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogKinesis200ApplicationJSONObject
 }

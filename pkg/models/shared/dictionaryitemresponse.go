@@ -21,3 +21,52 @@ type DictionaryItemResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *DictionaryItemResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *DictionaryItemResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *DictionaryItemResponse) GetDictionaryID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryID
+}
+
+func (o *DictionaryItemResponse) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *DictionaryItemResponse) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}
+
+func (o *DictionaryItemResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *DictionaryItemResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

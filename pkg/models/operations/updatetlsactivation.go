@@ -11,10 +11,31 @@ type UpdateTLSActivationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateTLSActivationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateTLSActivationRequest struct {
 	TLSActivationInput *shared.TLSActivationInput `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a TLS activation.
 	TLSActivationID string `pathParam:"style=simple,explode=false,name=tls_activation_id"`
+}
+
+func (o *UpdateTLSActivationRequest) GetTLSActivationInput() *shared.TLSActivationInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSActivationInput
+}
+
+func (o *UpdateTLSActivationRequest) GetTLSActivationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSActivationID
 }
 
 type UpdateTLSActivationResponse struct {
@@ -23,4 +44,32 @@ type UpdateTLSActivationResponse struct {
 	RawResponse *http.Response
 	// OK
 	TLSActivationResponse *shared.TLSActivationResponse
+}
+
+func (o *UpdateTLSActivationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateTLSActivationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateTLSActivationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateTLSActivationResponse) GetTLSActivationResponse() *shared.TLSActivationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSActivationResponse
 }

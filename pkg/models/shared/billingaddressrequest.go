@@ -8,9 +8,37 @@ type BillingAddressRequestDataInput struct {
 	Type *TypeBillingAddress `json:"type,omitempty"`
 }
 
+func (o *BillingAddressRequestDataInput) GetAttributes() *BillingAddressAttributesInput {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *BillingAddressRequestDataInput) GetType() *TypeBillingAddress {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 // BillingAddressRequestInput - Billing address
 type BillingAddressRequestInput struct {
 	Data *BillingAddressRequestDataInput `json:"data,omitempty"`
 	// When set to true, the address will be saved without verification
 	SkipVerification *bool `json:"skip_verification,omitempty"`
+}
+
+func (o *BillingAddressRequestInput) GetData() *BillingAddressRequestDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *BillingAddressRequestInput) GetSkipVerification() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.SkipVerification
 }

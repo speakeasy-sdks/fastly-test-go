@@ -11,6 +11,13 @@ type GetWafFirewallSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetWafFirewallSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetWafFirewallRequest struct {
 	// Limit the results returned to a specific service version.
 	FilterServiceVersionNumber *string `queryParam:"style=form,explode=true,name=filter[service_version_number]"`
@@ -20,10 +27,59 @@ type GetWafFirewallRequest struct {
 	Include *shared.FirewallInclude `queryParam:"style=form,explode=true,name=include"`
 }
 
+func (o *GetWafFirewallRequest) GetFilterServiceVersionNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterServiceVersionNumber
+}
+
+func (o *GetWafFirewallRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *GetWafFirewallRequest) GetInclude() *shared.FirewallInclude {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
 type GetWafFirewallResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafFirewallResponse *shared.WafFirewallResponse
+}
+
+func (o *GetWafFirewallResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetWafFirewallResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetWafFirewallResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetWafFirewallResponse) GetWafFirewallResponse() *shared.WafFirewallResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafFirewallResponse
 }

@@ -112,3 +112,52 @@ type LoggingNewrelic3 struct {
 	// The Insert API key from the Account page of your New Relic account. Required.
 	Token *string `form:"name=token"`
 }
+
+func (o *LoggingNewrelic3) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingNewrelic3) GetFormatVersion() *LoggingNewrelicFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingNewrelic3) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingNewrelic3) GetPlacement() *LoggingNewrelicPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingNewrelic3) GetRegion() *LoggingNewrelicRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingNewrelic3) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingNewrelic3) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}

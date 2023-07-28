@@ -11,6 +11,13 @@ type UpdateWafRuleExclusionSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateWafRuleExclusionSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateWafRuleExclusionRequest struct {
 	// A numeric ID identifying a WAF exclusion.
 	ExclusionNumber int64 `pathParam:"style=simple,explode=false,name=exclusion_number"`
@@ -21,10 +28,66 @@ type UpdateWafRuleExclusionRequest struct {
 	WafExclusionInput     *shared.WafExclusionInput `request:"mediaType=application/vnd.api+json"`
 }
 
+func (o *UpdateWafRuleExclusionRequest) GetExclusionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.ExclusionNumber
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetWafExclusionInput() *shared.WafExclusionInput {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusionInput
+}
+
 type UpdateWafRuleExclusionResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Created
 	WafExclusionResponse *shared.WafExclusionResponse
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetWafExclusionResponse() *shared.WafExclusionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusionResponse
 }

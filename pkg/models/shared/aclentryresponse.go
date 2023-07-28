@@ -56,3 +56,73 @@ type ACLEntryResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *ACLEntryResponse) GetACLID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ACLID
+}
+
+func (o *ACLEntryResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ACLEntryResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ACLEntryResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ACLEntryResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ACLEntryResponse) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *ACLEntryResponse) GetNegated() *ACLEntryResponseNegated {
+	if o == nil {
+		return nil
+	}
+	return o.Negated
+}
+
+func (o *ACLEntryResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ACLEntryResponse) GetSubnet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Subnet
+}
+
+func (o *ACLEntryResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

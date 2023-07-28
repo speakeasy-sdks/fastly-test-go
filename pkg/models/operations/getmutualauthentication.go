@@ -11,6 +11,13 @@ type GetMutualAuthenticationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetMutualAuthenticationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetMutualAuthenticationRequest struct {
 	// Comma-separated list of related objects to include (optional). Permitted values: `tls_activations`. Including TLS activations will provide you with the TLS domain names that are related to your Mutual TLS authentication.
 	//
@@ -19,10 +26,52 @@ type GetMutualAuthenticationRequest struct {
 	MutualAuthenticationID string `pathParam:"style=simple,explode=false,name=mutual_authentication_id"`
 }
 
+func (o *GetMutualAuthenticationRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *GetMutualAuthenticationRequest) GetMutualAuthenticationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.MutualAuthenticationID
+}
+
 type GetMutualAuthenticationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	MutualAuthenticationResponse *shared.MutualAuthenticationResponse
+}
+
+func (o *GetMutualAuthenticationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetMutualAuthenticationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetMutualAuthenticationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetMutualAuthenticationResponse) GetMutualAuthenticationResponse() *shared.MutualAuthenticationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.MutualAuthenticationResponse
 }

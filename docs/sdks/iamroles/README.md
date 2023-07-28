@@ -30,13 +30,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteARoleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamRoles.DeleteARole(ctx, operations.DeleteARoleRequest{
         RoleID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.DeleteARoleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,13 +80,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetARoleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamRoles.GetARole(ctx, operations.GetARoleRequest{
         RoleID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.GetARoleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -128,13 +130,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListRolePermissionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamRoles.ListRolePermissions(ctx, operations.ListRolePermissionsRequest{
         RoleID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.ListRolePermissionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -177,14 +180,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListRolesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamRoles.ListRoles(ctx, operations.ListRolesRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
-    }, operations.ListRolesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

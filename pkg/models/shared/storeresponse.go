@@ -9,3 +9,17 @@ type StoreResponse struct {
 	// A human-readable name for the store.
 	Name *string `json:"name,omitempty"`
 }
+
+func (o *StoreResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *StoreResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

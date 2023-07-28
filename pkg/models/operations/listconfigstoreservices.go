@@ -10,9 +10,23 @@ type ListConfigStoreServicesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListConfigStoreServicesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListConfigStoreServicesRequest struct {
 	// An alphanumeric string identifying the config store.
 	ConfigStoreID string `pathParam:"style=simple,explode=false,name=config_store_id"`
+}
+
+func (o *ListConfigStoreServicesRequest) GetConfigStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreID
 }
 
 // ListConfigStoreServices200ApplicationJSON - OK
@@ -25,4 +39,32 @@ type ListConfigStoreServicesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListConfigStoreServices200ApplicationJSONObject *ListConfigStoreServices200ApplicationJSON
+}
+
+func (o *ListConfigStoreServicesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListConfigStoreServicesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListConfigStoreServicesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListConfigStoreServicesResponse) GetListConfigStoreServices200ApplicationJSONObject() *ListConfigStoreServices200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListConfigStoreServices200ApplicationJSONObject
 }

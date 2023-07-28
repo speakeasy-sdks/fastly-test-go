@@ -7,9 +7,30 @@ type RelationshipMemberTLSDomainInput struct {
 	Type *TypeTLSDomain `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberTLSDomainInput) GetType() *TypeTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberTLSDomain struct {
 	// The domain name.
 	ID *string `json:"id,omitempty"`
 	// Resource type
 	Type *TypeTLSDomain `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberTLSDomain) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSDomain) GetType() *TypeTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

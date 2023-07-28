@@ -9,7 +9,28 @@ type RelationshipMemberWafRuleRevision struct {
 	Type *TypeWafRuleRevision `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberWafRuleRevision) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafRuleRevision) GetType() *TypeWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberWafRuleRevisionInput struct {
 	// Resource type.
 	Type *TypeWafRuleRevision `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberWafRuleRevisionInput) GetType() *TypeWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

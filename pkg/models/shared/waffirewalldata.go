@@ -11,8 +11,43 @@ type WafFirewallDataAttributesInput struct {
 	Response *string `json:"response,omitempty"`
 }
 
+func (o *WafFirewallDataAttributesInput) GetDisabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Disabled
+}
+
+func (o *WafFirewallDataAttributesInput) GetPrefetchCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PrefetchCondition
+}
+
+func (o *WafFirewallDataAttributesInput) GetResponse() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Response
+}
+
 type WafFirewallDataInput struct {
 	Attributes *WafFirewallDataAttributesInput `json:"attributes,omitempty"`
 	// Resource type.
 	Type *TypeWafFirewall `json:"type,omitempty"`
+}
+
+func (o *WafFirewallDataInput) GetAttributes() *WafFirewallDataAttributesInput {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafFirewallDataInput) GetType() *TypeWafFirewall {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

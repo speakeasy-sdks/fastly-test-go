@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStore.CreateStore(ctx, operations.CreateStoreRequest{
@@ -38,9 +41,7 @@ func main() {
         Store: &shared.Store{
             Name: sdk.String("Miss Candice Weimann"),
         },
-    }, operations.CreateStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -83,14 +84,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStore.DeleteStore(ctx, operations.DeleteStoreRequest{
         Force: sdk.Bool(false),
         StoreID: "nobis",
-    }, operations.DeleteStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -133,13 +135,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetStoreSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStore.GetStore(ctx, operations.GetStoreRequest{
         StoreID: "et",
-    }, operations.GetStoreSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -182,14 +185,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetStoresSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.KvStore.GetStores(ctx, operations.GetStoresRequest{
         Cursor: sdk.String("saepe"),
         Limit: sdk.Int64(217450),
-    }, operations.GetStoresSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

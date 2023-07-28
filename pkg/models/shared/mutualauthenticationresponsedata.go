@@ -9,3 +9,31 @@ type MutualAuthenticationResponseData struct {
 	// Resource type
 	Type *TypeMutualAuthentication `json:"type,omitempty"`
 }
+
+func (o *MutualAuthenticationResponseData) GetAttributes() *MutualAuthenticationResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *MutualAuthenticationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *MutualAuthenticationResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *MutualAuthenticationResponseData) GetType() *TypeMutualAuthentication {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

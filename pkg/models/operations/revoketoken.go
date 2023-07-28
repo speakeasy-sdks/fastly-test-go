@@ -11,9 +11,23 @@ type RevokeTokenSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *RevokeTokenSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type RevokeTokenRequest struct {
 	// Alphanumeric string identifying a token.
 	TokenID string `pathParam:"style=simple,explode=false,name=token_id"`
+}
+
+func (o *RevokeTokenRequest) GetTokenID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TokenID
 }
 
 type RevokeTokenResponse struct {
@@ -22,4 +36,32 @@ type RevokeTokenResponse struct {
 	RawResponse *http.Response
 	// Token revocation error.
 	GenericTokenError *shared.GenericTokenError
+}
+
+func (o *RevokeTokenResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *RevokeTokenResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *RevokeTokenResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *RevokeTokenResponse) GetGenericTokenError() *shared.GenericTokenError {
+	if o == nil {
+		return nil
+	}
+	return o.GenericTokenError
 }

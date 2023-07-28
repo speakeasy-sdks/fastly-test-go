@@ -8,3 +8,24 @@ type TLSPrivateKeyResponseData struct {
 	// Resource type
 	Type *TypeTLSPrivateKey `json:"type,omitempty"`
 }
+
+func (o *TLSPrivateKeyResponseData) GetAttributes() *TLSPrivateKeyResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSPrivateKeyResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSPrivateKeyResponseData) GetType() *TypeTLSPrivateKey {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

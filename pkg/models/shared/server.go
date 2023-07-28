@@ -18,3 +18,52 @@ type Server struct {
 	// Weight (`1-100`) used to load balance this server against others.
 	Weight *int64 `form:"name=weight"`
 }
+
+func (o *Server) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *Server) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Server) GetDisabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Disabled
+}
+
+func (o *Server) GetMaxConn() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConn
+}
+
+func (o *Server) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *Server) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *Server) GetWeight() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Weight
+}

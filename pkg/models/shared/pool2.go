@@ -110,3 +110,150 @@ type Pool2 struct {
 	// Whether to use TLS.
 	UseTLS *PoolUseTLS `form:"name=use_tls"`
 }
+
+func (o *Pool2) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Pool2) GetConnectTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ConnectTimeout
+}
+
+func (o *Pool2) GetFirstByteTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FirstByteTimeout
+}
+
+func (o *Pool2) GetHealthcheck() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Healthcheck
+}
+
+func (o *Pool2) GetMaxConnDefault() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConnDefault
+}
+
+func (o *Pool2) GetMaxTLSVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxTLSVersion
+}
+
+func (o *Pool2) GetMinTLSVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MinTLSVersion
+}
+
+func (o *Pool2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Pool2) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *Pool2) GetQuorum() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Quorum
+}
+
+func (o *Pool2) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *Pool2) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Pool2) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *Pool2) GetTLSCertHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertHostname
+}
+
+func (o *Pool2) GetTLSCheckCert() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCheckCert
+}
+
+func (o *Pool2) GetTLSCiphers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCiphers
+}
+
+func (o *Pool2) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *Pool2) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *Pool2) GetTLSSniHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSniHostname
+}
+
+func (o *Pool2) GetType() *PoolType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *Pool2) GetUseTLS() *PoolUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}

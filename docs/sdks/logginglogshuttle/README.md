@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogLogshuttleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.CreateLogLogshuttle(ctx, operations.CreateLogLogshuttleRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogLogshuttleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogLogshuttleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.DeleteLogLogshuttle(ctx, operations.DeleteLogLogshuttleRequest{
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogLogshuttleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogLogshuttleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.GetLogLogshuttle(ctx, operations.GetLogLogshuttleRequest{
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogLogshuttleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogLogshuttleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.ListLogLogshuttle(ctx, operations.ListLogLogshuttleRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogLogshuttleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogLogshuttleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.UpdateLogLogshuttle(ctx, operations.UpdateLogLogshuttleRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogLogshuttleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

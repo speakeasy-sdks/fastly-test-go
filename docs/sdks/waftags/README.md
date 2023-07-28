@@ -30,6 +30,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListWafTagsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafTags.ListWafTags(ctx, operations.ListWafTagsRequest{
@@ -37,9 +40,7 @@ func main() {
         Include: shared.WafTagIncludeWafRules.ToPointer(),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListWafTagsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

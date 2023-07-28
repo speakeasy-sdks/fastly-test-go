@@ -10,6 +10,13 @@ type DeleteServerPoolSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteServerPoolSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteServerPoolRequest struct {
 	// Name for the Pool.
 	PoolName string `pathParam:"style=simple,explode=false,name=pool_name"`
@@ -19,10 +26,38 @@ type DeleteServerPoolRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteServerPoolRequest) GetPoolName() string {
+	if o == nil {
+		return ""
+	}
+	return o.PoolName
+}
+
+func (o *DeleteServerPoolRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteServerPoolRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteServerPool200ApplicationJSON - OK
 type DeleteServerPool200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteServerPool200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteServerPoolResponse struct {
@@ -31,4 +66,32 @@ type DeleteServerPoolResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteServerPool200ApplicationJSONObject *DeleteServerPool200ApplicationJSON
+}
+
+func (o *DeleteServerPoolResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteServerPoolResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteServerPoolResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteServerPoolResponse) GetDeleteServerPool200ApplicationJSONObject() *DeleteServerPool200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteServerPool200ApplicationJSONObject
 }

@@ -36,6 +36,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHistStatsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStats(ctx, operations.GetHistStatsRequest{
@@ -43,9 +46,7 @@ func main() {
         From: sdk.String("incidunt"),
         Region: shared.RegionUsa.ToPointer(),
         To: sdk.String("qui"),
-    }, operations.GetHistStatsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -89,6 +90,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHistStatsAggregatedSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsAggregated(ctx, operations.GetHistStatsAggregatedRequest{
@@ -96,9 +100,7 @@ func main() {
         From: sdk.String("cupiditate"),
         Region: shared.RegionUsa.ToPointer(),
         To: sdk.String("maxime"),
-    }, operations.GetHistStatsAggregatedSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,6 +144,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHistStatsFieldSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsField(ctx, operations.GetHistStatsFieldRequest{
@@ -150,9 +155,7 @@ func main() {
         From: sdk.String("pariatur"),
         Region: shared.RegionUsa.ToPointer(),
         To: sdk.String("soluta"),
-    }, operations.GetHistStatsFieldSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -196,6 +199,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHistStatsServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsService(ctx, operations.GetHistStatsServiceRequest{
@@ -204,9 +210,7 @@ func main() {
         Region: shared.RegionUsa.ToPointer(),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         To: sdk.String("laborum"),
-    }, operations.GetHistStatsServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -250,6 +254,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHistStatsServiceFieldSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsServiceField(ctx, operations.GetHistStatsServiceFieldRequest{
@@ -259,9 +266,7 @@ func main() {
         Region: shared.RegionUsa.ToPointer(),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         To: sdk.String("incidunt"),
-    }, operations.GetHistStatsServiceFieldSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -304,11 +309,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetRegionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Historical.GetRegions(ctx, operations.GetRegionsSecurity{
-        Token: "",
-    })
+    res, err := s.Historical.GetRegions(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -350,14 +356,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetUsageSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetUsage(ctx, operations.GetUsageRequest{
         From: sdk.String("aspernatur"),
         To: sdk.String("dolores"),
-    }, operations.GetUsageSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -400,15 +407,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetUsageMonthSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetUsageMonth(ctx, operations.GetUsageMonthRequest{
         BillableUnits: sdk.Bool(true),
         Month: sdk.String("05"),
         Year: sdk.String("2020"),
-    }, operations.GetUsageMonthSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -451,14 +459,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetUsageServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Historical.GetUsageService(ctx, operations.GetUsageServiceRequest{
         From: sdk.String("distinctio"),
         To: sdk.String("facilis"),
-    }, operations.GetUsageServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

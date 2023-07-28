@@ -9,3 +9,31 @@ type TLSCertificateResponseData struct {
 	// Resource type
 	Type *TypeTLSCertificate `json:"type,omitempty"`
 }
+
+func (o *TLSCertificateResponseData) GetAttributes() *TLSCertificateResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSCertificateResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSCertificateResponseData) GetRelationships() *RelationshipTLSDomains {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSCertificateResponseData) GetType() *TypeTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

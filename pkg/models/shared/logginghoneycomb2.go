@@ -85,3 +85,52 @@ type LoggingHoneycomb2 struct {
 	// The Write Key from the Account page of your Honeycomb account.
 	Token *string `form:"name=token" json:"token,omitempty"`
 }
+
+func (o *LoggingHoneycomb2) GetDataset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dataset
+}
+
+func (o *LoggingHoneycomb2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingHoneycomb2) GetFormatVersion() *LoggingHoneycombFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingHoneycomb2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingHoneycomb2) GetPlacement() *LoggingHoneycombPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingHoneycomb2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingHoneycomb2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}

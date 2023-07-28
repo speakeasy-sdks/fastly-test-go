@@ -24,3 +24,59 @@ type TLSPrivateKeyResponseAttributes struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *TLSPrivateKeyResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetKeyLength() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.KeyLength
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetKeyType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.KeyType
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetPublicKeySha1() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKeySha1
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetReplace() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Replace
+}
+
+func (o *TLSPrivateKeyResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

@@ -111,3 +111,122 @@ type HeaderResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
 }
+
+func (o *HeaderResponse) GetAction() *HeaderResponseAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *HeaderResponse) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *HeaderResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *HeaderResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *HeaderResponse) GetDst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dst
+}
+
+func (o *HeaderResponse) GetIgnoreIfSet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.IgnoreIfSet
+}
+
+func (o *HeaderResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *HeaderResponse) GetPriority() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *HeaderResponse) GetRegex() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Regex
+}
+
+func (o *HeaderResponse) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *HeaderResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *HeaderResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *HeaderResponse) GetSrc() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Src
+}
+
+func (o *HeaderResponse) GetSubstitution() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Substitution
+}
+
+func (o *HeaderResponse) GetType() *HeaderResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *HeaderResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *HeaderResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

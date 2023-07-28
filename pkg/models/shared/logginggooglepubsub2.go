@@ -90,3 +90,73 @@ type LoggingGooglePubsub2 struct {
 	// Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.
 	User *string `form:"name=user"`
 }
+
+func (o *LoggingGooglePubsub2) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingGooglePubsub2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingGooglePubsub2) GetFormatVersion() *LoggingGooglePubsubFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingGooglePubsub2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingGooglePubsub2) GetPlacement() *LoggingGooglePubsubPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingGooglePubsub2) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingGooglePubsub2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingGooglePubsub2) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingGooglePubsub2) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}
+
+func (o *LoggingGooglePubsub2) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}

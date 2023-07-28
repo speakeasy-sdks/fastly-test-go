@@ -29,6 +29,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateDirectorBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DirectorBackend.CreateDirectorBackend(ctx, operations.CreateDirectorBackendRequest{
@@ -36,9 +39,7 @@ func main() {
         DirectorName: "test-director",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateDirectorBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -81,6 +82,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteDirectorBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DirectorBackend.DeleteDirectorBackend(ctx, operations.DeleteDirectorBackendRequest{
@@ -88,9 +92,7 @@ func main() {
         DirectorName: "test-director",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteDirectorBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -133,6 +135,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetDirectorBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.DirectorBackend.GetDirectorBackend(ctx, operations.GetDirectorBackendRequest{
@@ -140,9 +145,7 @@ func main() {
         DirectorName: "test-director",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetDirectorBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

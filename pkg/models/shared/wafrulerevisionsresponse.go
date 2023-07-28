@@ -13,6 +13,34 @@ type WafRuleRevisionsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *WafRuleRevisionsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *WafRuleRevisionsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *WafRuleRevisionsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *WafRuleRevisionsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type WafRuleRevisionsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,10 +52,66 @@ type WafRuleRevisionsResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *WafRuleRevisionsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *WafRuleRevisionsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *WafRuleRevisionsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *WafRuleRevisionsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // WafRuleRevisionsResponse - OK
 type WafRuleRevisionsResponse struct {
 	Data     []WafRuleRevisionResponseData  `json:"data,omitempty"`
 	Included []WafRule                      `json:"included,omitempty"`
 	Links    *WafRuleRevisionsResponseLinks `json:"links,omitempty"`
 	Meta     *WafRuleRevisionsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *WafRuleRevisionsResponse) GetData() []WafRuleRevisionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafRuleRevisionsResponse) GetIncluded() []WafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}
+
+func (o *WafRuleRevisionsResponse) GetLinks() *WafRuleRevisionsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *WafRuleRevisionsResponse) GetMeta() *WafRuleRevisionsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

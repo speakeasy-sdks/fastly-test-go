@@ -7,3 +7,17 @@ type RelationshipMemberTLSSubscription struct {
 	// Resource type
 	Type *TypeTLSSubscription `json:"type,omitempty"`
 }
+
+func (o *RelationshipMemberTLSSubscription) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSSubscription) GetType() *TypeTLSSubscription {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

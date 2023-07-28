@@ -214,3 +214,171 @@ type LoggingKafkaResponse struct {
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
 }
+
+func (o *LoggingKafkaResponse) GetAuthMethod() *LoggingKafkaResponseAuthMethod {
+	if o == nil {
+		return nil
+	}
+	return o.AuthMethod
+}
+
+func (o *LoggingKafkaResponse) GetBrokers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Brokers
+}
+
+func (o *LoggingKafkaResponse) GetCompressionCodec() *LoggingKafkaResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingKafkaResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingKafkaResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingKafkaResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingKafkaResponse) GetFormatVersion() *LoggingKafkaResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingKafkaResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingKafkaResponse) GetParseLogKeyvals() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.ParseLogKeyvals
+}
+
+func (o *LoggingKafkaResponse) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingKafkaResponse) GetPlacement() *LoggingKafkaResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingKafkaResponse) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingKafkaResponse) GetRequiredAcks() *LoggingKafkaResponseRequiredAcks {
+	if o == nil {
+		return nil
+	}
+	return o.RequiredAcks
+}
+
+func (o *LoggingKafkaResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingKafkaResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingKafkaResponse) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingKafkaResponse) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingKafkaResponse) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingKafkaResponse) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingKafkaResponse) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}
+
+func (o *LoggingKafkaResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingKafkaResponse) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}
+
+func (o *LoggingKafkaResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingKafkaResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

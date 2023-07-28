@@ -8,3 +8,17 @@ type Dictionary struct {
 	// Determines if items in the dictionary are readable or not.
 	WriteOnly *bool `form:"name=write_only"`
 }
+
+func (o *Dictionary) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Dictionary) GetWriteOnly() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.WriteOnly
+}

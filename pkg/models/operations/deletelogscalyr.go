@@ -10,6 +10,13 @@ type DeleteLogScalyrSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteLogScalyrSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteLogScalyrRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingScalyrName string `pathParam:"style=simple,explode=false,name=logging_scalyr_name"`
@@ -19,10 +26,38 @@ type DeleteLogScalyrRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogScalyrRequest) GetLoggingScalyrName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingScalyrName
+}
+
+func (o *DeleteLogScalyrRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogScalyrRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogScalyr200ApplicationJSON - OK
 type DeleteLogScalyr200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogScalyr200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogScalyrResponse struct {
@@ -31,4 +66,32 @@ type DeleteLogScalyrResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogScalyr200ApplicationJSONObject *DeleteLogScalyr200ApplicationJSON
+}
+
+func (o *DeleteLogScalyrResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogScalyrResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogScalyrResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogScalyrResponse) GetDeleteLogScalyr200ApplicationJSONObject() *DeleteLogScalyr200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogScalyr200ApplicationJSONObject
 }

@@ -32,13 +32,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteAUserGroupSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamUserGroups.DeleteAUserGroup(ctx, operations.DeleteAUserGroupRequest{
         UserGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.DeleteAUserGroupSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -81,13 +82,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetAUserGroupSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamUserGroups.GetAUserGroup(ctx, operations.GetAUserGroupRequest{
         UserGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.GetAUserGroupSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -130,15 +132,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListUserGroupMembersSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamUserGroups.ListUserGroupMembers(ctx, operations.ListUserGroupMembersRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
         UserGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.ListUserGroupMembersSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -181,15 +184,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListUserGroupRolesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamUserGroups.ListUserGroupRoles(ctx, operations.ListUserGroupRolesRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
         UserGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.ListUserGroupRolesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -232,15 +236,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListUserGroupServiceGroupsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamUserGroups.ListUserGroupServiceGroups(ctx, operations.ListUserGroupServiceGroupsRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
         UserGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.ListUserGroupServiceGroupsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -283,14 +288,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListUserGroupsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamUserGroups.ListUserGroups(ctx, operations.ListUserGroupsRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
-    }, operations.ListUserGroupsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

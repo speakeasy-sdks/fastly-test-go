@@ -9,3 +9,31 @@ type WafActiveRuleResponseData struct {
 	// Resource type.
 	Type *TypeWafActiveRule `json:"type,omitempty"`
 }
+
+func (o *WafActiveRuleResponseData) GetAttributes() *WafActiveRuleResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafActiveRuleResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafActiveRuleResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafActiveRuleResponseData) GetType() *TypeWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

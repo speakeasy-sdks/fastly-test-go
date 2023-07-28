@@ -6,3 +6,10 @@ package shared
 type WafActiveRuleResponse struct {
 	Data *WafActiveRuleResponseData `json:"data,omitempty"`
 }
+
+func (o *WafActiveRuleResponse) GetData() *WafActiveRuleResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

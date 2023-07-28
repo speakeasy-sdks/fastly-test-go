@@ -11,3 +11,24 @@ type Realtime struct {
 	// Value to use for subsequent requests.
 	Timestamp *int64 `json:"Timestamp,omitempty"`
 }
+
+func (o *Realtime) GetAggregateDelay() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.AggregateDelay
+}
+
+func (o *Realtime) GetData() []RealtimeEntry {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *Realtime) GetTimestamp() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Timestamp
+}

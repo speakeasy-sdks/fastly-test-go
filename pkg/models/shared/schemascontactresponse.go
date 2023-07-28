@@ -69,3 +69,73 @@ type SchemasContactResponse struct {
 	// The alphanumeric string representing the user for this customer contact.
 	UserID *string `json:"user_id,omitempty"`
 }
+
+func (o *SchemasContactResponse) GetContactType() *SchemasContactResponseContactType {
+	if o == nil {
+		return nil
+	}
+	return o.ContactType
+}
+
+func (o *SchemasContactResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *SchemasContactResponse) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *SchemasContactResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *SchemasContactResponse) GetEmail() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Email
+}
+
+func (o *SchemasContactResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *SchemasContactResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *SchemasContactResponse) GetPhone() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Phone
+}
+
+func (o *SchemasContactResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *SchemasContactResponse) GetUserID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserID
+}

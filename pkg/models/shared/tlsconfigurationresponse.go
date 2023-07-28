@@ -6,3 +6,10 @@ package shared
 type TLSConfigurationResponse struct {
 	Data *TLSConfigurationResponseData `json:"data,omitempty"`
 }
+
+func (o *TLSConfigurationResponse) GetData() *TLSConfigurationResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

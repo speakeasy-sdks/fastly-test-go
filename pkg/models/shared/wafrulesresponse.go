@@ -13,6 +13,34 @@ type WafRulesResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *WafRulesResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *WafRulesResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *WafRulesResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *WafRulesResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type WafRulesResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,10 +52,66 @@ type WafRulesResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *WafRulesResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *WafRulesResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *WafRulesResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *WafRulesResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // WafRulesResponse - OK
 type WafRulesResponse struct {
 	Data     []WafRuleResponseData  `json:"data,omitempty"`
 	Included []interface{}          `json:"included,omitempty"`
 	Links    *WafRulesResponseLinks `json:"links,omitempty"`
 	Meta     *WafRulesResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *WafRulesResponse) GetData() []WafRuleResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafRulesResponse) GetIncluded() []interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}
+
+func (o *WafRulesResponse) GetLinks() *WafRulesResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *WafRulesResponse) GetMeta() *WafRulesResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

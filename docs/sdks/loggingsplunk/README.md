@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogSplunkSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.CreateLogSplunk(ctx, operations.CreateLogSplunkRequest{
@@ -53,9 +56,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogSplunkSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -98,15 +99,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogSplunkSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.DeleteLogSplunk(ctx, operations.DeleteLogSplunkRequest{
         LoggingSplunkName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogSplunkSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -149,15 +151,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogSplunkSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.GetLogSplunk(ctx, operations.GetLogSplunkRequest{
         LoggingSplunkName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogSplunkSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -200,14 +203,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogSplunkSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.ListLogSplunk(ctx, operations.ListLogSplunkRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogSplunkSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -251,6 +255,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogSplunkSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.UpdateLogSplunk(ctx, operations.UpdateLogSplunkRequest{
@@ -273,9 +280,7 @@ func main() {
         LoggingSplunkName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogSplunkSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

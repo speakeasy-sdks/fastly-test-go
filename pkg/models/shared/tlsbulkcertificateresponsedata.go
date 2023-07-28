@@ -6,9 +6,23 @@ type TLSBulkCertificateResponseDataRelationships2TLSDomains struct {
 	Data []RelationshipMemberTLSDomain `json:"data,omitempty"`
 }
 
+func (o *TLSBulkCertificateResponseDataRelationships2TLSDomains) GetData() []RelationshipMemberTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 // TLSBulkCertificateResponseDataRelationships2 - All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
 type TLSBulkCertificateResponseDataRelationships2 struct {
 	TLSDomains *TLSBulkCertificateResponseDataRelationships2TLSDomains `json:"tls_domains,omitempty"`
+}
+
+func (o *TLSBulkCertificateResponseDataRelationships2) GetTLSDomains() *TLSBulkCertificateResponseDataRelationships2TLSDomains {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomains
 }
 
 type TLSBulkCertificateResponseData struct {
@@ -17,4 +31,32 @@ type TLSBulkCertificateResponseData struct {
 	Relationships interface{}                           `json:"relationships,omitempty"`
 	// Resource type
 	Type *TypeTLSBulkCertificate `json:"type,omitempty"`
+}
+
+func (o *TLSBulkCertificateResponseData) GetAttributes() *TLSBulkCertificateResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSBulkCertificateResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSBulkCertificateResponseData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSBulkCertificateResponseData) GetType() *TypeTLSBulkCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

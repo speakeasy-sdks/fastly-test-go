@@ -11,10 +11,31 @@ type PatchMutualAuthenticationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *PatchMutualAuthenticationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type PatchMutualAuthenticationRequest struct {
 	MutualAuthenticationInput *shared.MutualAuthenticationInput `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a mutual authentication.
 	MutualAuthenticationID string `pathParam:"style=simple,explode=false,name=mutual_authentication_id"`
+}
+
+func (o *PatchMutualAuthenticationRequest) GetMutualAuthenticationInput() *shared.MutualAuthenticationInput {
+	if o == nil {
+		return nil
+	}
+	return o.MutualAuthenticationInput
+}
+
+func (o *PatchMutualAuthenticationRequest) GetMutualAuthenticationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.MutualAuthenticationID
 }
 
 type PatchMutualAuthenticationResponse struct {
@@ -23,4 +44,32 @@ type PatchMutualAuthenticationResponse struct {
 	RawResponse *http.Response
 	// OK
 	MutualAuthenticationResponse *shared.MutualAuthenticationResponse
+}
+
+func (o *PatchMutualAuthenticationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *PatchMutualAuthenticationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *PatchMutualAuthenticationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *PatchMutualAuthenticationResponse) GetMutualAuthenticationResponse() *shared.MutualAuthenticationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.MutualAuthenticationResponse
 }

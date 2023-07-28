@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogCloudfilesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.CreateLogCloudfiles(ctx, operations.CreateLogCloudfilesRequest{
@@ -57,9 +60,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogCloudfilesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -102,15 +103,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogCloudfilesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.DeleteLogCloudfiles(ctx, operations.DeleteLogCloudfilesRequest{
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogCloudfilesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogCloudfilesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.GetLogCloudfiles(ctx, operations.GetLogCloudfilesRequest{
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogCloudfilesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,14 +207,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogCloudfilesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.ListLogCloudfiles(ctx, operations.ListLogCloudfilesRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogCloudfilesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,6 +259,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogCloudfilesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.UpdateLogCloudfiles(ctx, operations.UpdateLogCloudfilesRequest{
@@ -281,9 +288,7 @@ func main() {
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogCloudfilesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

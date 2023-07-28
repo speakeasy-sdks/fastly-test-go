@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogPapertrailSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.CreateLogPapertrail(ctx, operations.CreateLogPapertrailRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogPapertrailSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogPapertrailSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.DeleteLogPapertrail(ctx, operations.DeleteLogPapertrailRequest{
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogPapertrailSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogPapertrailSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.GetLogPapertrail(ctx, operations.GetLogPapertrailRequest{
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogPapertrailSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogPapertrailSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.ListLogPapertrail(ctx, operations.ListLogPapertrailRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogPapertrailSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogPapertrailSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.UpdateLogPapertrail(ctx, operations.UpdateLogPapertrailRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogPapertrailSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

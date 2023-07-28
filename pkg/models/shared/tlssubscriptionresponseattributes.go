@@ -55,3 +55,31 @@ type TLSSubscriptionResponseAttributes struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *TLSSubscriptionResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSSubscriptionResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSSubscriptionResponseAttributes) GetState() *TLSSubscriptionResponseAttributesState {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+func (o *TLSSubscriptionResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

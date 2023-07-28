@@ -84,3 +84,52 @@ type LoggingSumologic2 struct {
 	// The URL to post logs to.
 	URL *string `form:"name=url"`
 }
+
+func (o *LoggingSumologic2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingSumologic2) GetFormatVersion() *LoggingSumologicFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingSumologic2) GetMessageType() *LoggingMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingSumologic2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingSumologic2) GetPlacement() *LoggingSumologicPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingSumologic2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingSumologic2) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}

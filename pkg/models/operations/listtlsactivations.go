@@ -11,6 +11,13 @@ type ListTLSActivationsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSActivationsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSActivationsRequest struct {
 	// Limit the returned activations to a specific certificate.
 	FilterTLSCertificateID *string `queryParam:"style=form,explode=true,name=filter[tls_certificate.id]"`
@@ -27,10 +34,80 @@ type ListTLSActivationsRequest struct {
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
+func (o *ListTLSActivationsRequest) GetFilterTLSCertificateID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSCertificateID
+}
+
+func (o *ListTLSActivationsRequest) GetFilterTLSConfigurationID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSConfigurationID
+}
+
+func (o *ListTLSActivationsRequest) GetFilterTLSDomainID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSDomainID
+}
+
+func (o *ListTLSActivationsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSActivationsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSActivationsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
 type ListTLSActivationsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSActivationsResponse *shared.TLSActivationsResponse
+}
+
+func (o *ListTLSActivationsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSActivationsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSActivationsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSActivationsResponse) GetTLSActivationsResponse() *shared.TLSActivationsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSActivationsResponse
 }

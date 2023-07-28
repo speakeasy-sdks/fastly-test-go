@@ -28,6 +28,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DiffServiceVersionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Diff.DiffServiceVersions(ctx, operations.DiffServiceVersionsRequest{
@@ -35,9 +38,7 @@ func main() {
         FromVersionID: 1,
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         ToVersionID: 2,
-    }, operations.DiffServiceVersionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

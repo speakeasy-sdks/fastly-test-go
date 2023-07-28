@@ -22,3 +22,52 @@ type TLSConfigurationResponseAttributes struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *TLSConfigurationResponseAttributes) GetBulk() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Bulk
+}
+
+func (o *TLSConfigurationResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSConfigurationResponseAttributes) GetDefault() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Default
+}
+
+func (o *TLSConfigurationResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSConfigurationResponseAttributes) GetHTTPProtocols() []string {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPProtocols
+}
+
+func (o *TLSConfigurationResponseAttributes) GetTLSProtocols() []float64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSProtocols
+}
+
+func (o *TLSConfigurationResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

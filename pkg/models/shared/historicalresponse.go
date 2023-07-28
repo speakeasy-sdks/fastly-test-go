@@ -10,6 +10,34 @@ type HistoricalResponseMeta struct {
 	To     *string `json:"to,omitempty"`
 }
 
+func (o *HistoricalResponseMeta) GetBy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *HistoricalResponseMeta) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *HistoricalResponseMeta) GetRegion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *HistoricalResponseMeta) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 // HistoricalResponse - OK
 type HistoricalResponse struct {
 	// Contains the results of the query, organized by *service ID*, into arrays where each element describes one service over a *time span*.
@@ -20,4 +48,32 @@ type HistoricalResponse struct {
 	Msg *string `json:"msg,omitempty"`
 	// Whether or not we were able to successfully execute the query.
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *HistoricalResponse) GetData() map[string][]Results {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *HistoricalResponse) GetMeta() *HistoricalResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
+func (o *HistoricalResponse) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
+}
+
+func (o *HistoricalResponse) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }

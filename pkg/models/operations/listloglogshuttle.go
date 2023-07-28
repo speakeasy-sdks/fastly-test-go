@@ -11,11 +11,32 @@ type ListLogLogshuttleSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListLogLogshuttleSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListLogLogshuttleRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListLogLogshuttleRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListLogLogshuttleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListLogLogshuttleResponse struct {
@@ -24,4 +45,32 @@ type ListLogLogshuttleResponse struct {
 	RawResponse *http.Response
 	// OK
 	LoggingLogshuttleResponses []shared.LoggingLogshuttleResponse
+}
+
+func (o *ListLogLogshuttleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListLogLogshuttleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListLogLogshuttleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListLogLogshuttleResponse) GetLoggingLogshuttleResponses() []shared.LoggingLogshuttleResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogshuttleResponses
 }

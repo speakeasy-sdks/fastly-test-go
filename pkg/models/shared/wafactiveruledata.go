@@ -46,6 +46,27 @@ type WafActiveRuleDataAttributes struct {
 	Status *WafActiveRuleDataAttributesStatus `json:"status,omitempty"`
 }
 
+func (o *WafActiveRuleDataAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *WafActiveRuleDataAttributes) GetRevision() *WafRuleRevisionOrLatest {
+	if o == nil {
+		return nil
+	}
+	return o.Revision
+}
+
+func (o *WafActiveRuleDataAttributes) GetStatus() *WafActiveRuleDataAttributesStatus {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type WafActiveRuleData struct {
 	Attributes    *WafActiveRuleDataAttributes `json:"attributes,omitempty"`
 	Relationships interface{}                  `json:"relationships,omitempty"`
@@ -53,9 +74,51 @@ type WafActiveRuleData struct {
 	Type *TypeWafActiveRule `json:"type,omitempty"`
 }
 
+func (o *WafActiveRuleData) GetAttributes() *WafActiveRuleDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafActiveRuleData) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafActiveRuleData) GetType() *TypeWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type WafActiveRuleDataInput struct {
 	Attributes    *WafActiveRuleDataAttributes `json:"attributes,omitempty"`
 	Relationships interface{}                  `json:"relationships,omitempty"`
 	// Resource type.
 	Type *TypeWafActiveRule `json:"type,omitempty"`
+}
+
+func (o *WafActiveRuleDataInput) GetAttributes() *WafActiveRuleDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafActiveRuleDataInput) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafActiveRuleDataInput) GetType() *TypeWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

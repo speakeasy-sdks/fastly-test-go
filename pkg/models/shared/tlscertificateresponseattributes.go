@@ -28,3 +28,73 @@ type TLSCertificateResponseAttributes struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *TLSCertificateResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSCertificateResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSCertificateResponseAttributes) GetIssuedTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IssuedTo
+}
+
+func (o *TLSCertificateResponseAttributes) GetIssuer() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Issuer
+}
+
+func (o *TLSCertificateResponseAttributes) GetNotAfter() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.NotAfter
+}
+
+func (o *TLSCertificateResponseAttributes) GetNotBefore() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.NotBefore
+}
+
+func (o *TLSCertificateResponseAttributes) GetReplace() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Replace
+}
+
+func (o *TLSCertificateResponseAttributes) GetSerialNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SerialNumber
+}
+
+func (o *TLSCertificateResponseAttributes) GetSignatureAlgorithm() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SignatureAlgorithm
+}
+
+func (o *TLSCertificateResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

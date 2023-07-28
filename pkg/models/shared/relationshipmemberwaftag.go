@@ -8,3 +8,17 @@ type RelationshipMemberWafTag struct {
 	// Resource type.
 	Type *TypeWafTag `json:"type,omitempty"`
 }
+
+func (o *RelationshipMemberWafTag) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafTag) GetType() *TypeWafTag {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

@@ -11,6 +11,13 @@ type ListTLSCertsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSCertsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSCertsRequest struct {
 	// Optional. Limit the returned certificates to those currently using Fastly to terminate TLS (that is, certificates associated with an activation). Permitted values: true, false.
 	FilterInUse *string `queryParam:"style=form,explode=true,name=filter[in_use]"`
@@ -30,10 +37,87 @@ type ListTLSCertsRequest struct {
 	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListTLSCertsRequest) GetFilterInUse() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterInUse
+}
+
+func (o *ListTLSCertsRequest) GetFilterNotAfter() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterNotAfter
+}
+
+func (o *ListTLSCertsRequest) GetFilterTLSDomainsID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSDomainsID
+}
+
+func (o *ListTLSCertsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSCertsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSCertsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListTLSCertsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListTLSCertsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSCertificatesResponse *shared.TLSCertificatesResponse
+}
+
+func (o *ListTLSCertsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSCertsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSCertsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSCertsResponse) GetTLSCertificatesResponse() *shared.TLSCertificatesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertificatesResponse
 }

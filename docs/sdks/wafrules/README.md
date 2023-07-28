@@ -30,14 +30,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetWafRuleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafRules.GetWafRule(ctx, operations.GetWafRuleRequest{
         Include: sdk.String("waf_tags,waf_rule_revisions"),
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
-    }, operations.GetWafRuleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -82,6 +83,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListWafRulesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafRules.ListWafRules(ctx, operations.ListWafRulesRequest{
@@ -92,9 +96,7 @@ func main() {
         Include: sdk.String("waf_tags,waf_rule_revisions"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListWafRulesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

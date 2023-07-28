@@ -11,11 +11,32 @@ type ListLogLogglySecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListLogLogglySecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListLogLogglyRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListLogLogglyRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListLogLogglyRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListLogLogglyResponse struct {
@@ -24,4 +45,32 @@ type ListLogLogglyResponse struct {
 	RawResponse *http.Response
 	// OK
 	LoggingLogglyResponses []shared.LoggingLogglyResponse
+}
+
+func (o *ListLogLogglyResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListLogLogglyResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListLogLogglyResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListLogLogglyResponse) GetLoggingLogglyResponses() []shared.LoggingLogglyResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogglyResponses
 }

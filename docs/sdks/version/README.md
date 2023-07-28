@@ -35,14 +35,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ActivateServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.ActivateServiceVersion(ctx, operations.ActivateServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ActivateServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -85,14 +86,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CloneServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.CloneServiceVersion(ctx, operations.CloneServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CloneServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -135,13 +137,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.CreateServiceVersion(ctx, operations.CreateServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.CreateServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -184,14 +187,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeactivateServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.DeactivateServiceVersion(ctx, operations.DeactivateServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeactivateServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -234,14 +238,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.GetServiceVersion(ctx, operations.GetServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -284,13 +289,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServiceVersionsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.ListServiceVersions(ctx, operations.ListServiceVersionsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.ListServiceVersionsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -333,14 +339,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.LockServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.LockServiceVersion(ctx, operations.LockServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.LockServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -384,6 +391,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.UpdateServiceVersion(ctx, operations.UpdateServiceVersionRequest{
@@ -397,9 +407,7 @@ func main() {
             Testing: sdk.Bool(false),
         },
         VersionID: 1,
-    }, operations.UpdateServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -442,14 +450,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ValidateServiceVersionSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Version.ValidateServiceVersion(ctx, operations.ValidateServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ValidateServiceVersionSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -27,11 +27,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListDomainOwnershipsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.DomainOwnerships.ListDomainOwnerships(ctx, operations.ListDomainOwnershipsSecurity{
-        Token: "",
-    })
+    res, err := s.DomainOwnerships.ListDomainOwnerships(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

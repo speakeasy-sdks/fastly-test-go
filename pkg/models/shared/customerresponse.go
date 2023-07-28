@@ -94,3 +94,199 @@ type CustomerResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 }
+
+func (o *CustomerResponse) GetBillingContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BillingContactID
+}
+
+func (o *CustomerResponse) GetBillingNetworkType() *CustomerResponseBillingNetworkType {
+	if o == nil {
+		return nil
+	}
+	return o.BillingNetworkType
+}
+
+func (o *CustomerResponse) GetBillingRef() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BillingRef
+}
+
+func (o *CustomerResponse) GetCanConfigureWordpress() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.CanConfigureWordpress
+}
+
+func (o *CustomerResponse) GetCanResetPasswords() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.CanResetPasswords
+}
+
+func (o *CustomerResponse) GetCanUploadVcl() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.CanUploadVcl
+}
+
+func (o *CustomerResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *CustomerResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *CustomerResponse) GetForce2fa() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Force2fa
+}
+
+func (o *CustomerResponse) GetForceSso() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.ForceSso
+}
+
+func (o *CustomerResponse) GetHasAccountPanel() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasAccountPanel
+}
+
+func (o *CustomerResponse) GetHasImprovedEvents() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasImprovedEvents
+}
+
+func (o *CustomerResponse) GetHasImprovedSslConfig() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasImprovedSslConfig
+}
+
+func (o *CustomerResponse) GetHasOpenstackLogging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasOpenstackLogging
+}
+
+func (o *CustomerResponse) GetHasPci() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasPci
+}
+
+func (o *CustomerResponse) GetHasPciPasswords() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasPciPasswords
+}
+
+func (o *CustomerResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *CustomerResponse) GetIPWhitelist() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IPWhitelist
+}
+
+func (o *CustomerResponse) GetLegalContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.LegalContactID
+}
+
+func (o *CustomerResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *CustomerResponse) GetOwnerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OwnerID
+}
+
+func (o *CustomerResponse) GetPhoneNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PhoneNumber
+}
+
+func (o *CustomerResponse) GetPostalAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PostalAddress
+}
+
+func (o *CustomerResponse) GetPricingPlan() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PricingPlan
+}
+
+func (o *CustomerResponse) GetPricingPlanID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PricingPlanID
+}
+
+func (o *CustomerResponse) GetSecurityContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecurityContactID
+}
+
+func (o *CustomerResponse) GetTechnicalContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TechnicalContactID
+}
+
+func (o *CustomerResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}

@@ -25,6 +25,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateACLSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
@@ -33,9 +36,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateACLSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

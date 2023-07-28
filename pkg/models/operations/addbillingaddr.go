@@ -11,11 +11,32 @@ type AddBillingAddrSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *AddBillingAddrSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type AddBillingAddrRequest struct {
 	// Billing address
 	BillingAddressRequestInput *shared.BillingAddressRequestInput `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *AddBillingAddrRequest) GetBillingAddressRequestInput() *shared.BillingAddressRequestInput {
+	if o == nil {
+		return nil
+	}
+	return o.BillingAddressRequestInput
+}
+
+func (o *AddBillingAddrRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 type AddBillingAddrResponse struct {
@@ -26,4 +47,39 @@ type AddBillingAddrResponse struct {
 	BillingAddressResponse *shared.BillingAddressResponse
 	// Could not validate address
 	BillingAddressVerificationErrorResponse *shared.BillingAddressVerificationErrorResponse
+}
+
+func (o *AddBillingAddrResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *AddBillingAddrResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *AddBillingAddrResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *AddBillingAddrResponse) GetBillingAddressResponse() *shared.BillingAddressResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BillingAddressResponse
+}
+
+func (o *AddBillingAddrResponse) GetBillingAddressVerificationErrorResponse() *shared.BillingAddressVerificationErrorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BillingAddressVerificationErrorResponse
 }

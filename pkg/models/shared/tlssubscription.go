@@ -5,3 +5,10 @@ package shared
 type TLSSubscriptionInput struct {
 	Data *TLSSubscriptionDataInput `json:"data,omitempty"`
 }
+
+func (o *TLSSubscriptionInput) GetData() *TLSSubscriptionDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

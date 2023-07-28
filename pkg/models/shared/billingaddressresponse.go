@@ -11,7 +11,42 @@ type BillingAddressResponseData struct {
 	Type *TypeBillingAddress `json:"type,omitempty"`
 }
 
+func (o *BillingAddressResponseData) GetAttributes() *BillingAddressAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *BillingAddressResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *BillingAddressResponseData) GetRelationships() *RelationshipCustomer {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *BillingAddressResponseData) GetType() *TypeBillingAddress {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 // BillingAddressResponse - OK
 type BillingAddressResponse struct {
 	Data *BillingAddressResponseData `json:"data,omitempty"`
+}
+
+func (o *BillingAddressResponse) GetData() *BillingAddressResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

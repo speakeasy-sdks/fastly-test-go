@@ -11,9 +11,23 @@ type GetBillingAddrSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetBillingAddrSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetBillingAddrRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *GetBillingAddrRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 type GetBillingAddrResponse struct {
@@ -22,4 +36,32 @@ type GetBillingAddrResponse struct {
 	RawResponse *http.Response
 	// OK
 	BillingAddressResponse *shared.BillingAddressResponse
+}
+
+func (o *GetBillingAddrResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetBillingAddrResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetBillingAddrResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetBillingAddrResponse) GetBillingAddressResponse() *shared.BillingAddressResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BillingAddressResponse
 }

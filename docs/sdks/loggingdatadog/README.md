@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogDatadogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.CreateLogDatadog(ctx, operations.CreateLogDatadogRequest{
@@ -46,9 +49,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogDatadogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -91,15 +92,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogDatadogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.DeleteLogDatadog(ctx, operations.DeleteLogDatadogRequest{
         LoggingDatadogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogDatadogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -142,15 +144,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogDatadogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.GetLogDatadog(ctx, operations.GetLogDatadogRequest{
         LoggingDatadogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogDatadogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -193,14 +196,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogDatadogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.ListLogDatadog(ctx, operations.ListLogDatadogRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogDatadogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -244,6 +248,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogDatadogSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.UpdateLogDatadog(ctx, operations.UpdateLogDatadogRequest{
@@ -259,9 +266,7 @@ func main() {
         LoggingDatadogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogDatadogSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

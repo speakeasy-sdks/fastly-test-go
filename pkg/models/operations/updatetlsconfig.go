@@ -11,10 +11,31 @@ type UpdateTLSConfigSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateTLSConfigSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateTLSConfigRequest struct {
 	TLSConfigurationInput *shared.TLSConfigurationInput `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a TLS configuration.
 	TLSConfigurationID string `pathParam:"style=simple,explode=false,name=tls_configuration_id"`
+}
+
+func (o *UpdateTLSConfigRequest) GetTLSConfigurationInput() *shared.TLSConfigurationInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSConfigurationInput
+}
+
+func (o *UpdateTLSConfigRequest) GetTLSConfigurationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSConfigurationID
 }
 
 type UpdateTLSConfigResponse struct {
@@ -23,4 +44,32 @@ type UpdateTLSConfigResponse struct {
 	RawResponse *http.Response
 	// OK
 	TLSConfigurationResponse *shared.TLSConfigurationResponse
+}
+
+func (o *UpdateTLSConfigResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateTLSConfigResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateTLSConfigResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateTLSConfigResponse) GetTLSConfigurationResponse() *shared.TLSConfigurationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSConfigurationResponse
 }

@@ -8,3 +8,17 @@ type RelationshipMemberServiceInvitation struct {
 	// Resource type
 	Type *TypeServiceInvitation `json:"type,omitempty"`
 }
+
+func (o *RelationshipMemberServiceInvitation) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberServiceInvitation) GetType() *TypeServiceInvitation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

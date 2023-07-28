@@ -10,6 +10,13 @@ type DeleteWafRuleExclusionSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteWafRuleExclusionSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteWafRuleExclusionRequest struct {
 	// A numeric ID identifying a WAF exclusion.
 	ExclusionNumber int64 `pathParam:"style=simple,explode=false,name=exclusion_number"`
@@ -19,8 +26,50 @@ type DeleteWafRuleExclusionRequest struct {
 	FirewallVersionNumber int64 `pathParam:"style=simple,explode=false,name=firewall_version_number"`
 }
 
+func (o *DeleteWafRuleExclusionRequest) GetExclusionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.ExclusionNumber
+}
+
+func (o *DeleteWafRuleExclusionRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *DeleteWafRuleExclusionRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
 type DeleteWafRuleExclusionResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteWafRuleExclusionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteWafRuleExclusionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteWafRuleExclusionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

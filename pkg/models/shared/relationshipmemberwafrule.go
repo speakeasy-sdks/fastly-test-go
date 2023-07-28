@@ -8,7 +8,28 @@ type RelationshipMemberWafRule struct {
 	Type *TypeWafRule `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberWafRule) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafRule) GetType() *TypeWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberWafRuleInput struct {
 	// Resource type.
 	Type *TypeWafRule `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberWafRuleInput) GetType() *TypeWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

@@ -7,8 +7,29 @@ type RelationshipMemberTLSActivationInput struct {
 	Type *TypeTLSActivation `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberTLSActivationInput) GetType() *TypeTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberTLSActivation struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type.
 	Type *TypeTLSActivation `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberTLSActivation) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSActivation) GetType() *TypeTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

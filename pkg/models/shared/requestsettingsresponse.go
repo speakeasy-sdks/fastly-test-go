@@ -108,3 +108,122 @@ type RequestSettingsResponse struct {
 	// Short for X-Forwarded-For.
 	Xff *RequestSettingsResponseXff `json:"xff,omitempty"`
 }
+
+func (o *RequestSettingsResponse) GetAction() *RequestSettingsResponseAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *RequestSettingsResponse) GetBypassBusyWait() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BypassBusyWait
+}
+
+func (o *RequestSettingsResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *RequestSettingsResponse) GetDefaultHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.DefaultHost
+}
+
+func (o *RequestSettingsResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *RequestSettingsResponse) GetForceMiss() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ForceMiss
+}
+
+func (o *RequestSettingsResponse) GetForceSsl() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ForceSsl
+}
+
+func (o *RequestSettingsResponse) GetGeoHeaders() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeoHeaders
+}
+
+func (o *RequestSettingsResponse) GetHashKeys() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HashKeys
+}
+
+func (o *RequestSettingsResponse) GetMaxStaleAge() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxStaleAge
+}
+
+func (o *RequestSettingsResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *RequestSettingsResponse) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *RequestSettingsResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *RequestSettingsResponse) GetTimerSupport() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TimerSupport
+}
+
+func (o *RequestSettingsResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *RequestSettingsResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *RequestSettingsResponse) GetXff() *RequestSettingsResponseXff {
+	if o == nil {
+		return nil
+	}
+	return o.Xff
+}

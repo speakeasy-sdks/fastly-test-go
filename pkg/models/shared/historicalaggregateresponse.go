@@ -10,6 +10,34 @@ type HistoricalAggregateResponseMeta struct {
 	To     *string `json:"to,omitempty"`
 }
 
+func (o *HistoricalAggregateResponseMeta) GetBy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *HistoricalAggregateResponseMeta) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *HistoricalAggregateResponseMeta) GetRegion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *HistoricalAggregateResponseMeta) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 // HistoricalAggregateResponse - OK
 type HistoricalAggregateResponse struct {
 	Data []Results `json:"data,omitempty"`
@@ -19,4 +47,32 @@ type HistoricalAggregateResponse struct {
 	Msg *string `json:"msg,omitempty"`
 	// Whether or not we were able to successfully execute the query.
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *HistoricalAggregateResponse) GetData() []Results {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *HistoricalAggregateResponse) GetMeta() *HistoricalAggregateResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
+func (o *HistoricalAggregateResponse) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
+}
+
+func (o *HistoricalAggregateResponse) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }

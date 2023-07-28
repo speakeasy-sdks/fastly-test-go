@@ -7,8 +7,29 @@ type RelationshipMemberTLSDNSRecordInput struct {
 	Type *TypeTLSDNSRecord `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberTLSDNSRecordInput) GetType() *TypeTLSDNSRecord {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberTLSDNSRecord struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
 	Type *TypeTLSDNSRecord `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberTLSDNSRecord) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSDNSRecord) GetType() *TypeTLSDNSRecord {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

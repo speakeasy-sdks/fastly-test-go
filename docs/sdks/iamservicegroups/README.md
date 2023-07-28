@@ -30,13 +30,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteAServiceGroupSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamServiceGroups.DeleteAServiceGroup(ctx, operations.DeleteAServiceGroupRequest{
         ServiceGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.DeleteAServiceGroupSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,13 +80,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetAServiceGroupSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamServiceGroups.GetAServiceGroup(ctx, operations.GetAServiceGroupRequest{
         ServiceGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.GetAServiceGroupSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -128,15 +130,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServiceGroupServicesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamServiceGroups.ListServiceGroupServices(ctx, operations.ListServiceGroupServicesRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
         ServiceGroupID: "t4Gg2uUGZzb2W9Euo4mo0R",
-    }, operations.ListServiceGroupServicesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -179,14 +182,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServiceGroupsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.IamServiceGroups.ListServiceGroups(ctx, operations.ListServiceGroupsRequest{
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
-    }, operations.ListServiceGroupsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

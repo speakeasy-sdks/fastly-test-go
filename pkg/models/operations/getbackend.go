@@ -11,6 +11,13 @@ type GetBackendSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetBackendSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetBackendRequest struct {
 	// The name of the backend.
 	BackendName string `pathParam:"style=simple,explode=false,name=backend_name"`
@@ -20,10 +27,59 @@ type GetBackendRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetBackendRequest) GetBackendName() string {
+	if o == nil {
+		return ""
+	}
+	return o.BackendName
+}
+
+func (o *GetBackendRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetBackendRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetBackendResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	BackendResponse *shared.BackendResponse
+}
+
+func (o *GetBackendResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetBackendResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetBackendResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetBackendResponse) GetBackendResponse() *shared.BackendResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BackendResponse
 }

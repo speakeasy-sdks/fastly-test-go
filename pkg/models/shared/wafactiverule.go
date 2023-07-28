@@ -6,6 +6,20 @@ type WafActiveRule struct {
 	Data *WafActiveRuleData `json:"data,omitempty"`
 }
 
+func (o *WafActiveRule) GetData() *WafActiveRuleData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type WafActiveRuleInput struct {
 	Data *WafActiveRuleDataInput `json:"data,omitempty"`
+}
+
+func (o *WafActiveRuleInput) GetData() *WafActiveRuleDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateHealthcheckSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Healthcheck.CreateHealthcheck(ctx, operations.CreateHealthcheckRequest{
@@ -56,9 +59,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateHealthcheckSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -101,15 +102,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteHealthcheckSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Healthcheck.DeleteHealthcheck(ctx, operations.DeleteHealthcheckRequest{
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteHealthcheckSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -152,15 +154,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHealthcheckSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Healthcheck.GetHealthcheck(ctx, operations.GetHealthcheckRequest{
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetHealthcheckSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -203,14 +206,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListHealthchecksSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Healthcheck.ListHealthchecks(ctx, operations.ListHealthchecksRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListHealthchecksSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -254,6 +258,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateHealthcheckSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Healthcheck.UpdateHealthcheck(ctx, operations.UpdateHealthcheckRequest{
@@ -279,9 +286,7 @@ func main() {
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateHealthcheckSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

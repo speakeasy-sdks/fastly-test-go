@@ -84,3 +84,52 @@ type LoggingLogshuttle2 struct {
 	// The URL to stream logs to.
 	URL *string `form:"name=url"`
 }
+
+func (o *LoggingLogshuttle2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingLogshuttle2) GetFormatVersion() *LoggingLogshuttleFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingLogshuttle2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingLogshuttle2) GetPlacement() *LoggingLogshuttlePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingLogshuttle2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingLogshuttle2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingLogshuttle2) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}

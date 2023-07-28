@@ -27,11 +27,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListPopsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Pop.ListPops(ctx, operations.ListPopsSecurity{
-        Token: "",
-    })
+    res, err := s.Pop.ListPops(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

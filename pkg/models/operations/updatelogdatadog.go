@@ -11,6 +11,13 @@ type UpdateLogDatadogSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateLogDatadogSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateLogDatadogRequest struct {
 	LoggingDatadog3 *shared.LoggingDatadog3 `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +28,66 @@ type UpdateLogDatadogRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogDatadogRequest) GetLoggingDatadog3() *shared.LoggingDatadog3 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingDatadog3
+}
+
+func (o *UpdateLogDatadogRequest) GetLoggingDatadogName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingDatadogName
+}
+
+func (o *UpdateLogDatadogRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogDatadogRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogDatadogResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingDatadogResponse *shared.LoggingDatadogResponse
+}
+
+func (o *UpdateLogDatadogResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogDatadogResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogDatadogResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogDatadogResponse) GetLoggingDatadogResponse() *shared.LoggingDatadogResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingDatadogResponse
 }

@@ -11,9 +11,23 @@ type ShowServiceAuthorizationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ShowServiceAuthorizationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ShowServiceAuthorizationRequest struct {
 	// Alphanumeric string identifying a service authorization.
 	ServiceAuthorizationID string `pathParam:"style=simple,explode=false,name=service_authorization_id"`
+}
+
+func (o *ShowServiceAuthorizationRequest) GetServiceAuthorizationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceAuthorizationID
 }
 
 type ShowServiceAuthorizationResponse struct {
@@ -22,4 +36,32 @@ type ShowServiceAuthorizationResponse struct {
 	RawResponse *http.Response
 	// OK
 	ServiceAuthorizationResponse *shared.ServiceAuthorizationResponse
+}
+
+func (o *ShowServiceAuthorizationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ShowServiceAuthorizationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ShowServiceAuthorizationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ShowServiceAuthorizationResponse) GetServiceAuthorizationResponse() *shared.ServiceAuthorizationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceAuthorizationResponse
 }

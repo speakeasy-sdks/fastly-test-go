@@ -11,9 +11,23 @@ type ListConfigStoreItemsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListConfigStoreItemsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListConfigStoreItemsRequest struct {
 	// An alphanumeric string identifying the config store.
 	ConfigStoreID string `pathParam:"style=simple,explode=false,name=config_store_id"`
+}
+
+func (o *ListConfigStoreItemsRequest) GetConfigStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreID
 }
 
 type ListConfigStoreItemsResponse struct {
@@ -22,4 +36,32 @@ type ListConfigStoreItemsResponse struct {
 	RawResponse *http.Response
 	// OK
 	ConfigStoreItemResponses []shared.ConfigStoreItemResponse
+}
+
+func (o *ListConfigStoreItemsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListConfigStoreItemsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListConfigStoreItemsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListConfigStoreItemsResponse) GetConfigStoreItemResponses() []shared.ConfigStoreItemResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConfigStoreItemResponses
 }

@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateACLSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
@@ -40,9 +43,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateACLSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -85,15 +86,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteACLSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACL.DeleteACL(ctx, operations.DeleteACLRequest{
         ACLName: "test-acl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteACLSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -136,15 +138,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetACLSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACL.GetACL(ctx, operations.GetACLRequest{
         ACLName: "test-acl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetACLSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -187,14 +190,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListAclsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACL.ListAcls(ctx, operations.ListAclsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListAclsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -238,6 +242,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateACLSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ACL.UpdateACL(ctx, operations.UpdateACLRequest{
@@ -247,9 +254,7 @@ func main() {
         ACLName: "test-acl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateACLSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

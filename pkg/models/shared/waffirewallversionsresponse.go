@@ -13,6 +13,34 @@ type WafFirewallVersionsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *WafFirewallVersionsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *WafFirewallVersionsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *WafFirewallVersionsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *WafFirewallVersionsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type WafFirewallVersionsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,10 +52,66 @@ type WafFirewallVersionsResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *WafFirewallVersionsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *WafFirewallVersionsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *WafFirewallVersionsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *WafFirewallVersionsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // WafFirewallVersionsResponse - OK
 type WafFirewallVersionsResponse struct {
 	Data     []WafFirewallVersionResponseData  `json:"data,omitempty"`
 	Included []interface{}                     `json:"included,omitempty"`
 	Links    *WafFirewallVersionsResponseLinks `json:"links,omitempty"`
 	Meta     *WafFirewallVersionsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *WafFirewallVersionsResponse) GetData() []WafFirewallVersionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafFirewallVersionsResponse) GetIncluded() []interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}
+
+func (o *WafFirewallVersionsResponse) GetLinks() *WafFirewallVersionsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *WafFirewallVersionsResponse) GetMeta() *WafFirewallVersionsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

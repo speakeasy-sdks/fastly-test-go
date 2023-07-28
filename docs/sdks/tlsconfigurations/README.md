@@ -29,14 +29,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTLSConfigSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.GetTLSConfig(ctx, operations.GetTLSConfigRequest{
         Include: sdk.String("dns_records"),
         TLSConfigurationID: "t7CguUGZzb2W9Euo5FoKa",
-    }, operations.GetTLSConfigSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,6 +80,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSConfigsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.ListTLSConfigs(ctx, operations.ListTLSConfigsRequest{
@@ -86,9 +90,7 @@ func main() {
         Include: sdk.String("dns_records"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListTLSConfigsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -132,6 +134,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateTLSConfigSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.UpdateTLSConfig(ctx, operations.UpdateTLSConfigRequest{
@@ -156,9 +161,7 @@ func main() {
             },
         },
         TLSConfigurationID: "t7CguUGZzb2W9Euo5FoKa",
-    }, operations.UpdateTLSConfigSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -11,6 +11,13 @@ type BulkUpdateWafActiveRulesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *BulkUpdateWafActiveRulesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type BulkUpdateWafActiveRulesRequest struct {
 	BulkWafActiveRuleInput *shared.BulkWafActiveRuleInput `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a WAF Firewall.
@@ -19,8 +26,50 @@ type BulkUpdateWafActiveRulesRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *BulkUpdateWafActiveRulesRequest) GetBulkWafActiveRuleInput() *shared.BulkWafActiveRuleInput {
+	if o == nil {
+		return nil
+	}
+	return o.BulkWafActiveRuleInput
+}
+
+func (o *BulkUpdateWafActiveRulesRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *BulkUpdateWafActiveRulesRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type BulkUpdateWafActiveRulesResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *BulkUpdateWafActiveRulesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *BulkUpdateWafActiveRulesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *BulkUpdateWafActiveRulesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

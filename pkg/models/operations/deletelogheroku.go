@@ -10,6 +10,13 @@ type DeleteLogHerokuSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteLogHerokuSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteLogHerokuRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingHerokuName string `pathParam:"style=simple,explode=false,name=logging_heroku_name"`
@@ -19,10 +26,38 @@ type DeleteLogHerokuRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogHerokuRequest) GetLoggingHerokuName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingHerokuName
+}
+
+func (o *DeleteLogHerokuRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogHerokuRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogHeroku200ApplicationJSON - OK
 type DeleteLogHeroku200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogHeroku200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogHerokuResponse struct {
@@ -31,4 +66,32 @@ type DeleteLogHerokuResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogHeroku200ApplicationJSONObject *DeleteLogHeroku200ApplicationJSON
+}
+
+func (o *DeleteLogHerokuResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogHerokuResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogHerokuResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogHerokuResponse) GetDeleteLogHeroku200ApplicationJSONObject() *DeleteLogHeroku200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogHeroku200ApplicationJSONObject
 }

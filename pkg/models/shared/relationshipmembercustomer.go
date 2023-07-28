@@ -7,3 +7,17 @@ type RelationshipMemberCustomer struct {
 	// Resource type
 	Type *TypeCustomer `json:"type,omitempty"`
 }
+
+func (o *RelationshipMemberCustomer) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberCustomer) GetType() *TypeCustomer {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

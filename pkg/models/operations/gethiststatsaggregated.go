@@ -11,6 +11,13 @@ type GetHistStatsAggregatedSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetHistStatsAggregatedSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetHistStatsAggregatedRequest struct {
 	// Duration of sample windows. One of:
 	//   * `hour` - Group data by hour.
@@ -37,10 +44,66 @@ type GetHistStatsAggregatedRequest struct {
 	To *string `queryParam:"style=form,explode=true,name=to"`
 }
 
+func (o *GetHistStatsAggregatedRequest) GetBy() *shared.By {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *GetHistStatsAggregatedRequest) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *GetHistStatsAggregatedRequest) GetRegion() *shared.Region {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *GetHistStatsAggregatedRequest) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 type GetHistStatsAggregatedResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	HistoricalAggregateResponse *shared.HistoricalAggregateResponse
+}
+
+func (o *GetHistStatsAggregatedResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetHistStatsAggregatedResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetHistStatsAggregatedResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetHistStatsAggregatedResponse) GetHistoricalAggregateResponse() *shared.HistoricalAggregateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HistoricalAggregateResponse
 }

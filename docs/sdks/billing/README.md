@@ -29,14 +29,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetInvoiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoice(ctx, operations.GetInvoiceRequest{
         Month: "05",
         Year: "2020",
-    }, operations.GetInvoiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,14 +80,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetInvoiceByIDSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoiceByID(ctx, operations.GetInvoiceByIDRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
         InvoiceID: "7SlAESxcJ2zxHOV4gQ9y9X",
-    }, operations.GetInvoiceByIDSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -129,15 +131,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetInvoiceMtdSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoiceMtd(ctx, operations.GetInvoiceMtdRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
         Month: sdk.String("05"),
         Year: sdk.String("2020"),
-    }, operations.GetInvoiceMtdSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

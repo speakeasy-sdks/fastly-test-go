@@ -6,3 +6,10 @@ package shared
 type ServiceAuthorizationResponse struct {
 	Data *ServiceAuthorizationResponseData `json:"data,omitempty"`
 }
+
+func (o *ServiceAuthorizationResponse) GetData() *ServiceAuthorizationResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

@@ -35,6 +35,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.CreateService(ctx, shared.ServiceCreate1{
@@ -42,9 +45,7 @@ func main() {
         CustomerID: sdk.String("x4xCwxxJxGCx123Rx5xTx"),
         Name: sdk.String("test-service"),
         Type: shared.ServiceCreateTypeVcl.ToPointer(),
-    }, operations.CreateServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -87,13 +88,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.DeleteService(ctx, operations.DeleteServiceRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DeleteServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -136,13 +138,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.GetService(ctx, operations.GetServiceRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -185,14 +188,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServiceDetailSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.GetServiceDetail(ctx, operations.GetServiceDetailRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Version: sdk.Int64(1),
-    }, operations.GetServiceDetailSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -235,13 +239,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServiceDomainsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.ListServiceDomains(ctx, operations.ListServiceDomainsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.ListServiceDomainsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -285,6 +290,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListServicesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.ListServices(ctx, operations.ListServicesRequest{
@@ -292,9 +300,7 @@ func main() {
         Page: sdk.Int64(1),
         PerPage: sdk.Int64(20),
         Sort: sdk.String("created"),
-    }, operations.ListServicesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -337,13 +343,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.SearchServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.SearchService(ctx, operations.SearchServiceRequest{
         Name: "test-service",
-    }, operations.SearchServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -387,6 +394,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateServiceSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Service.UpdateService(ctx, operations.UpdateServiceRequest{
@@ -396,9 +406,7 @@ func main() {
             Name: sdk.String("test-service"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpdateServiceSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

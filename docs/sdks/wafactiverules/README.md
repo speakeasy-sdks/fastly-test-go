@@ -36,6 +36,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.BulkUpdateWafActiveRulesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.BulkUpdateWafActiveRules(ctx, operations.BulkUpdateWafActiveRulesRequest{
@@ -61,9 +64,7 @@ func main() {
         },
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
-    }, operations.BulkUpdateWafActiveRulesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -109,6 +110,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateWafActiveRuleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.CreateWafActiveRule(ctx, operations.CreateWafActiveRuleRequest{
@@ -164,9 +168,7 @@ func main() {
         },
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
-    }, operations.CreateWafActiveRuleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -212,6 +214,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateWafActiveRulesTagSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.CreateWafActiveRulesTag(ctx, operations.CreateWafActiveRulesTagRequest{
@@ -240,9 +245,7 @@ func main() {
             },
         },
         WafTagName: "test-waf-tag",
-    }, operations.CreateWafActiveRulesTagSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -287,15 +290,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteWafActiveRuleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.DeleteWafActiveRule(ctx, operations.DeleteWafActiveRuleRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
-    }, operations.DeleteWafActiveRuleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -340,6 +344,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetWafActiveRuleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.GetWafActiveRule(ctx, operations.GetWafActiveRuleRequest{
@@ -347,9 +354,7 @@ func main() {
         Include: sdk.String("waf_rule_revision,waf_firewall_version"),
         VersionID: 1,
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
-    }, operations.GetWafActiveRuleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -394,6 +399,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListWafActiveRulesSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.ListWafActiveRules(ctx, operations.ListWafActiveRulesRequest{
@@ -406,9 +414,7 @@ func main() {
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         VersionID: 1,
-    }, operations.ListWafActiveRulesSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -454,6 +460,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateWafActiveRuleSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.WafActiveRules.UpdateWafActiveRule(ctx, operations.UpdateWafActiveRuleRequest{
@@ -488,9 +497,7 @@ func main() {
             },
         },
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
-    }, operations.UpdateWafActiveRuleSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

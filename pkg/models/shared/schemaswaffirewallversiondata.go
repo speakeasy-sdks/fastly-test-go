@@ -66,8 +66,239 @@ type SchemasWafFirewallVersionDataAttributes struct {
 	XSSScoreThreshold *int64 `json:"xss_score_threshold,omitempty"`
 }
 
+func (o *SchemasWafFirewallVersionDataAttributes) GetAllowedHTTPVersions() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AllowedHTTPVersions
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetAllowedMethods() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AllowedMethods
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetAllowedRequestContentType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AllowedRequestContentType
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetAllowedRequestContentTypeCharset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AllowedRequestContentTypeCharset
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetArgLength() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ArgLength
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetArgNameLength() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ArgNameLength
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetCombinedFileSizes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CombinedFileSizes
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetCriticalAnomalyScore() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CriticalAnomalyScore
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetCrsValidateUTF8Encoding() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.CrsValidateUTF8Encoding
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetErrorAnomalyScore() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ErrorAnomalyScore
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetHighRiskCountryCodes() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HighRiskCountryCodes
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetHTTPViolationScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPViolationScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetInboundAnomalyScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.InboundAnomalyScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetLfiScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.LfiScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetMaxFileSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxFileSize
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetMaxNumArgs() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxNumArgs
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetNoticeAnomalyScore() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.NoticeAnomalyScore
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetParanoiaLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ParanoiaLevel
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetPhpInjectionScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PhpInjectionScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetRceScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RceScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetRestrictedExtensions() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RestrictedExtensions
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetRestrictedHeaders() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RestrictedHeaders
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetRfiScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RfiScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetSessionFixationScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.SessionFixationScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetSQLInjectionScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.SQLInjectionScoreThreshold
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetTotalArgLength() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalArgLength
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetWarningAnomalyScore() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.WarningAnomalyScore
+}
+
+func (o *SchemasWafFirewallVersionDataAttributes) GetXSSScoreThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.XSSScoreThreshold
+}
+
 type SchemasWafFirewallVersionData struct {
 	Attributes *SchemasWafFirewallVersionDataAttributes `json:"attributes,omitempty"`
 	// Resource type.
 	Type *TypeWafFirewallVersion `json:"type,omitempty"`
+}
+
+func (o *SchemasWafFirewallVersionData) GetAttributes() *SchemasWafFirewallVersionDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *SchemasWafFirewallVersionData) GetType() *TypeWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

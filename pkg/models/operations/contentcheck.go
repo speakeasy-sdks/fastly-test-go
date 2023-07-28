@@ -11,9 +11,23 @@ type ContentCheckSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ContentCheckSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ContentCheckRequest struct {
 	// Full URL (host and path) to check on all nodes. if protocol is omitted, http will be assumed.
 	URL *string `queryParam:"style=form,explode=true,name=url"`
+}
+
+func (o *ContentCheckRequest) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
 }
 
 type ContentCheckResponse struct {
@@ -22,4 +36,32 @@ type ContentCheckResponse struct {
 	RawResponse *http.Response
 	// OK
 	Contents []shared.Content
+}
+
+func (o *ContentCheckResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ContentCheckResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ContentCheckResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ContentCheckResponse) GetContents() []shared.Content {
+	if o == nil {
+		return nil
+	}
+	return o.Contents
 }

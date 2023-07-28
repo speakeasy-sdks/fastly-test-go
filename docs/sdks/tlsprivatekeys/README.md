@@ -31,6 +31,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateTLSKeySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSPrivateKeys.CreateTLSKey(ctx, shared.TLSPrivateKeyInput{
@@ -59,9 +62,7 @@ func main() {
             },
             Type: shared.TypeTLSPrivateKeyTLSPrivateKey.ToPointer(),
         },
-    }, operations.CreateTLSKeySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -104,13 +105,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteTLSKeySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSPrivateKeys.DeleteTLSKey(ctx, operations.DeleteTLSKeyRequest{
         TLSPrivateKeyID: "KeYguUGZzb2W9Euo4moOR",
-    }, operations.DeleteTLSKeySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,13 +155,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTLSKeySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSPrivateKeys.GetTLSKey(ctx, operations.GetTLSKeyRequest{
         TLSPrivateKeyID: "KeYguUGZzb2W9Euo4moOR",
-    }, operations.GetTLSKeySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -202,15 +205,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSKeysSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSPrivateKeys.ListTLSKeys(ctx, operations.ListTLSKeysRequest{
         FilterInUse: sdk.String("aliquid"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListTLSKeysSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

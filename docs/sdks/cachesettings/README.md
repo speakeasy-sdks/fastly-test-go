@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateCacheSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.CacheSettings.CreateCacheSettings(ctx, operations.CreateCacheSettingsRequest{
@@ -44,9 +47,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateCacheSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -89,15 +90,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteCacheSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.CacheSettings.DeleteCacheSettings(ctx, operations.DeleteCacheSettingsRequest{
         CacheSettingsName: "test-cache-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteCacheSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -140,15 +142,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCacheSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.CacheSettings.GetCacheSettings(ctx, operations.GetCacheSettingsRequest{
         CacheSettingsName: "test-cache-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetCacheSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -191,14 +194,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListCacheSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.CacheSettings.ListCacheSettings(ctx, operations.ListCacheSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListCacheSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -242,6 +246,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateCacheSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.CacheSettings.UpdateCacheSettings(ctx, operations.UpdateCacheSettingsRequest{
@@ -255,9 +262,7 @@ func main() {
         CacheSettingsName: "test-cache-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateCacheSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

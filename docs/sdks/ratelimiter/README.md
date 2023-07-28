@@ -29,13 +29,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteRateLimiterSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RateLimiter.DeleteRateLimiter(ctx, operations.DeleteRateLimiterRequest{
         RateLimiterID: "s7aqgcJjqqKhwiTRMaP11",
-    }, operations.DeleteRateLimiterSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -78,13 +79,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetRateLimiterSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RateLimiter.GetRateLimiter(ctx, operations.GetRateLimiterRequest{
         RateLimiterID: "s7aqgcJjqqKhwiTRMaP11",
-    }, operations.GetRateLimiterSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -127,14 +129,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListRateLimitersSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.RateLimiter.ListRateLimiters(ctx, operations.ListRateLimitersRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListRateLimitersSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

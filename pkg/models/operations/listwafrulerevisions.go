@@ -11,6 +11,13 @@ type ListWafRuleRevisionsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListWafRuleRevisionsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListWafRuleRevisionsRequest struct {
 	// Include relationships. Optional.
 	Include *shared.WafRuleRevisionInclude `queryParam:"style=form,explode=true,name=include"`
@@ -22,10 +29,66 @@ type ListWafRuleRevisionsRequest struct {
 	WafRuleID string `pathParam:"style=simple,explode=false,name=waf_rule_id"`
 }
 
+func (o *ListWafRuleRevisionsRequest) GetInclude() *shared.WafRuleRevisionInclude {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafRuleRevisionsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafRuleRevisionsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListWafRuleRevisionsRequest) GetWafRuleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WafRuleID
+}
+
 type ListWafRuleRevisionsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafRuleRevisionsResponse *shared.WafRuleRevisionsResponse
+}
+
+func (o *ListWafRuleRevisionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafRuleRevisionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafRuleRevisionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafRuleRevisionsResponse) GetWafRuleRevisionsResponse() *shared.WafRuleRevisionsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafRuleRevisionsResponse
 }

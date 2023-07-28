@@ -8,6 +8,27 @@ type StarDataInput struct {
 	Type *TypeStar `json:"type,omitempty"`
 }
 
+func (o *StarDataInput) GetRelationships() *RelationshipsForStarInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *StarDataInput) GetType() *TypeStar {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type StarInput struct {
 	Data *StarDataInput `json:"data,omitempty"`
+}
+
+func (o *StarInput) GetData() *StarDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

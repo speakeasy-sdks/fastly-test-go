@@ -5,3 +5,10 @@ package shared
 type WafExclusionInput struct {
 	Data *WafExclusionDataInput `json:"data,omitempty"`
 }
+
+func (o *WafExclusionInput) GetData() *WafExclusionDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

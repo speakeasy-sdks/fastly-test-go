@@ -29,15 +29,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteResponseObjectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ResponseObject.DeleteResponseObject(ctx, operations.DeleteResponseObjectRequest{
         ResponseObjectName: "test-response",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteResponseObjectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -80,15 +81,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetResponseObjectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ResponseObject.GetResponseObject(ctx, operations.GetResponseObjectRequest{
         ResponseObjectName: "test-response",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetResponseObjectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -131,14 +133,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListResponseObjectsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ResponseObject.ListResponseObjects(ctx, operations.ListResponseObjectsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListResponseObjectsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

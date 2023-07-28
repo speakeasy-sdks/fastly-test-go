@@ -11,6 +11,13 @@ type CreateLogOpenstackSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateLogOpenstackSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateLogOpenstackRequest struct {
 	LoggingOpenstackInput *shared.LoggingOpenstackInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateLogOpenstackRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogOpenstackRequest) GetLoggingOpenstackInput() *shared.LoggingOpenstackInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingOpenstackInput
+}
+
+func (o *CreateLogOpenstackRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogOpenstackRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogOpenstackResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingOpenstackResponse *shared.LoggingOpenstackResponse
+}
+
+func (o *CreateLogOpenstackResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogOpenstackResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogOpenstackResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogOpenstackResponse) GetLoggingOpenstackResponse() *shared.LoggingOpenstackResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingOpenstackResponse
 }

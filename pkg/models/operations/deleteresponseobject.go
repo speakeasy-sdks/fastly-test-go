@@ -10,6 +10,13 @@ type DeleteResponseObjectSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteResponseObjectSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteResponseObjectRequest struct {
 	// Name for the request settings.
 	ResponseObjectName string `pathParam:"style=simple,explode=false,name=response_object_name"`
@@ -19,10 +26,38 @@ type DeleteResponseObjectRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteResponseObjectRequest) GetResponseObjectName() string {
+	if o == nil {
+		return ""
+	}
+	return o.ResponseObjectName
+}
+
+func (o *DeleteResponseObjectRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteResponseObjectRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteResponseObject200ApplicationJSON - OK
 type DeleteResponseObject200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteResponseObject200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteResponseObjectResponse struct {
@@ -31,4 +66,32 @@ type DeleteResponseObjectResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteResponseObject200ApplicationJSONObject *DeleteResponseObject200ApplicationJSON
+}
+
+func (o *DeleteResponseObjectResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteResponseObjectResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteResponseObjectResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteResponseObjectResponse) GetDeleteResponseObject200ApplicationJSONObject() *DeleteResponseObject200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteResponseObject200ApplicationJSONObject
 }

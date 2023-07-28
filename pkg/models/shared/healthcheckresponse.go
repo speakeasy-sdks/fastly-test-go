@@ -43,3 +43,129 @@ type HealthcheckResponse struct {
 	// The number of most recent health check queries to keep for this health check.
 	Window *int64 `json:"window,omitempty"`
 }
+
+func (o *HealthcheckResponse) GetCheckInterval() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CheckInterval
+}
+
+func (o *HealthcheckResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *HealthcheckResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *HealthcheckResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *HealthcheckResponse) GetExpectedResponse() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ExpectedResponse
+}
+
+func (o *HealthcheckResponse) GetHeaders() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *HealthcheckResponse) GetHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Host
+}
+
+func (o *HealthcheckResponse) GetHTTPVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPVersion
+}
+
+func (o *HealthcheckResponse) GetInitial() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Initial
+}
+
+func (o *HealthcheckResponse) GetMethod() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Method
+}
+
+func (o *HealthcheckResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *HealthcheckResponse) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *HealthcheckResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *HealthcheckResponse) GetThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Threshold
+}
+
+func (o *HealthcheckResponse) GetTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Timeout
+}
+
+func (o *HealthcheckResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *HealthcheckResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *HealthcheckResponse) GetWindow() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Window
+}

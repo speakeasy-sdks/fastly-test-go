@@ -31,13 +31,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteCustomerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Customer.DeleteCustomer(ctx, operations.DeleteCustomerRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.DeleteCustomerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -80,13 +81,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetCustomerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Customer.GetCustomer(ctx, operations.GetCustomerRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.GetCustomerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -129,11 +131,12 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLoggedInCustomerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
-    res, err := s.Customer.GetLoggedInCustomer(ctx, operations.GetLoggedInCustomerSecurity{
-        Token: "",
-    })
+    res, err := s.Customer.GetLoggedInCustomer(ctx, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -175,13 +178,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListUsersSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Customer.ListUsers(ctx, operations.ListUsersRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.ListUsersSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -225,6 +229,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateCustomerSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Customer.UpdateCustomer(ctx, operations.UpdateCustomerRequest{
@@ -250,9 +257,7 @@ func main() {
             TechnicalContactID: sdk.String("assumenda"),
         },
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.UpdateCustomerSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

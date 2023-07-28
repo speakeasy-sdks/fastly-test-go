@@ -11,6 +11,13 @@ type GetHistStatsServiceFieldSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetHistStatsServiceFieldSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetHistStatsServiceFieldRequest struct {
 	// Duration of sample windows. One of:
 	//   * `hour` - Group data by hour.
@@ -41,10 +48,80 @@ type GetHistStatsServiceFieldRequest struct {
 	To *string `queryParam:"style=form,explode=true,name=to"`
 }
 
+func (o *GetHistStatsServiceFieldRequest) GetBy() *shared.By {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *GetHistStatsServiceFieldRequest) GetField() string {
+	if o == nil {
+		return ""
+	}
+	return o.Field
+}
+
+func (o *GetHistStatsServiceFieldRequest) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *GetHistStatsServiceFieldRequest) GetRegion() *shared.Region {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *GetHistStatsServiceFieldRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetHistStatsServiceFieldRequest) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 type GetHistStatsServiceFieldResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	HistoricalFieldAggregateResponse *shared.HistoricalFieldAggregateResponse
+}
+
+func (o *GetHistStatsServiceFieldResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetHistStatsServiceFieldResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetHistStatsServiceFieldResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetHistStatsServiceFieldResponse) GetHistoricalFieldAggregateResponse() *shared.HistoricalFieldAggregateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HistoricalFieldAggregateResponse
 }

@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Backend.CreateBackend(ctx, operations.CreateBackendRequest{
@@ -69,9 +72,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -114,15 +115,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Backend.DeleteBackend(ctx, operations.DeleteBackendRequest{
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -165,15 +167,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Backend.GetBackend(ctx, operations.GetBackendRequest{
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -216,14 +219,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListBackendsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Backend.ListBackends(ctx, operations.ListBackendsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListBackendsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -267,6 +271,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateBackendSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Backend.UpdateBackend(ctx, operations.UpdateBackendRequest{
@@ -305,9 +312,7 @@ func main() {
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateBackendSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

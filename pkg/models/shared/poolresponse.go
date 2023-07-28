@@ -121,3 +121,192 @@ type PoolResponse struct {
 	UseTLS  *PoolResponseUseTLS `json:"use_tls,omitempty"`
 	Version *int64              `json:"version,omitempty"`
 }
+
+func (o *PoolResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *PoolResponse) GetConnectTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ConnectTimeout
+}
+
+func (o *PoolResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *PoolResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *PoolResponse) GetFirstByteTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FirstByteTimeout
+}
+
+func (o *PoolResponse) GetHealthcheck() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Healthcheck
+}
+
+func (o *PoolResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *PoolResponse) GetMaxConnDefault() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConnDefault
+}
+
+func (o *PoolResponse) GetMaxTLSVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxTLSVersion
+}
+
+func (o *PoolResponse) GetMinTLSVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MinTLSVersion
+}
+
+func (o *PoolResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *PoolResponse) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *PoolResponse) GetQuorum() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Quorum
+}
+
+func (o *PoolResponse) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *PoolResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *PoolResponse) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *PoolResponse) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *PoolResponse) GetTLSCertHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertHostname
+}
+
+func (o *PoolResponse) GetTLSCheckCert() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCheckCert
+}
+
+func (o *PoolResponse) GetTLSCiphers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCiphers
+}
+
+func (o *PoolResponse) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *PoolResponse) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *PoolResponse) GetTLSSniHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSniHostname
+}
+
+func (o *PoolResponse) GetType() *PoolResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *PoolResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *PoolResponse) GetUseTLS() *PoolResponseUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}
+
+func (o *PoolResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

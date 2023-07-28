@@ -62,3 +62,94 @@ type ServiceDetail struct {
 	// A list of [versions](/reference/api/services/version/) associated with the service.
 	Versions []SchemasVersionResponse `json:"versions,omitempty"`
 }
+
+func (o *ServiceDetail) GetActiveVersion() *ServiceVersionDetailOrNull {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveVersion
+}
+
+func (o *ServiceDetail) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ServiceDetail) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ServiceDetail) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *ServiceDetail) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ServiceDetail) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ServiceDetail) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ServiceDetail) GetPaused() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Paused
+}
+
+func (o *ServiceDetail) GetPublishKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublishKey
+}
+
+func (o *ServiceDetail) GetType() *ServiceDetailType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *ServiceDetail) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ServiceDetail) GetVersion() *ServiceVersionDetail {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *ServiceDetail) GetVersions() []SchemasVersionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Versions
+}

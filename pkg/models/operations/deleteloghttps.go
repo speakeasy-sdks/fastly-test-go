@@ -10,6 +10,13 @@ type DeleteLogHTTPSSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *DeleteLogHTTPSSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type DeleteLogHTTPSRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingHTTPSName string `pathParam:"style=simple,explode=false,name=logging_https_name"`
@@ -19,10 +26,38 @@ type DeleteLogHTTPSRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogHTTPSRequest) GetLoggingHTTPSName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingHTTPSName
+}
+
+func (o *DeleteLogHTTPSRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogHTTPSRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogHTTPS200ApplicationJSON - OK
 type DeleteLogHTTPS200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogHTTPS200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogHTTPSResponse struct {
@@ -31,4 +66,32 @@ type DeleteLogHTTPSResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogHTTPS200ApplicationJSONObject *DeleteLogHTTPS200ApplicationJSON
+}
+
+func (o *DeleteLogHTTPSResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogHTTPSResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogHTTPSResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogHTTPSResponse) GetDeleteLogHTTPS200ApplicationJSONObject() *DeleteLogHTTPS200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogHTTPS200ApplicationJSONObject
 }

@@ -93,9 +93,72 @@ type WafExclusionDataAttributes struct {
 	Variable *WafExclusionDataAttributesVariable `json:"variable,omitempty"`
 }
 
+func (o *WafExclusionDataAttributes) GetCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Condition
+}
+
+func (o *WafExclusionDataAttributes) GetExclusionType() *WafExclusionDataAttributesExclusionType {
+	if o == nil {
+		return nil
+	}
+	return o.ExclusionType
+}
+
+func (o *WafExclusionDataAttributes) GetLogging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Logging
+}
+
+func (o *WafExclusionDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *WafExclusionDataAttributes) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *WafExclusionDataAttributes) GetVariable() *WafExclusionDataAttributesVariable {
+	if o == nil {
+		return nil
+	}
+	return o.Variable
+}
+
 type WafExclusionDataInput struct {
 	Attributes    *WafExclusionDataAttributes `json:"attributes,omitempty"`
 	Relationships interface{}                 `json:"relationships,omitempty"`
 	// Resource type.
 	Type *TypeWafExclusion `json:"type,omitempty"`
+}
+
+func (o *WafExclusionDataInput) GetAttributes() *WafExclusionDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafExclusionDataInput) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafExclusionDataInput) GetType() *TypeWafExclusion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

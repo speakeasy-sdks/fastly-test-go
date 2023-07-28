@@ -102,3 +102,38 @@ type Snippet2 struct {
 	// The location in generated VCL where the snippet should be placed.
 	Type *SnippetType `form:"name=type"`
 }
+
+func (o *Snippet2) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *Snippet2) GetDynamic() *SnippetDynamic {
+	if o == nil {
+		return nil
+	}
+	return o.Dynamic
+}
+
+func (o *Snippet2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Snippet2) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *Snippet2) GetType() *SnippetType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

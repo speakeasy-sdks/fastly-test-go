@@ -11,11 +11,32 @@ type ListResponseObjectsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListResponseObjectsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListResponseObjectsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListResponseObjectsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListResponseObjectsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListResponseObjectsResponse struct {
@@ -24,4 +45,32 @@ type ListResponseObjectsResponse struct {
 	RawResponse *http.Response
 	// OK
 	ResponseObjectResponses []shared.ResponseObjectResponse
+}
+
+func (o *ListResponseObjectsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListResponseObjectsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListResponseObjectsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListResponseObjectsResponse) GetResponseObjectResponses() []shared.ResponseObjectResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseObjectResponses
 }

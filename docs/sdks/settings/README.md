@@ -28,14 +28,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetServiceSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Settings.GetServiceSettings(ctx, operations.GetServiceSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetServiceSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -80,6 +81,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateServiceSettingsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Settings.UpdateServiceSettings(ctx, operations.UpdateServiceSettingsRequest{
@@ -91,9 +95,7 @@ func main() {
             GeneralStaleIfErrorTTL: sdk.Int64(970494),
         },
         VersionID: 1,
-    }, operations.UpdateServiceSettingsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

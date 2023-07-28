@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogBigquerySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.CreateLogBigquery(ctx, operations.CreateLogBigqueryRequest{
@@ -54,9 +57,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogBigquerySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -99,15 +100,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogBigquerySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.DeleteLogBigquery(ctx, operations.DeleteLogBigqueryRequest{
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogBigquerySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -150,15 +152,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogBigquerySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.GetLogBigquery(ctx, operations.GetLogBigqueryRequest{
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogBigquerySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -201,14 +204,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogBigquerySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.ListLogBigquery(ctx, operations.ListLogBigqueryRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogBigquerySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -252,6 +256,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogBigquerySecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.UpdateLogBigquery(ctx, operations.UpdateLogBigqueryRequest{
@@ -275,9 +282,7 @@ func main() {
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogBigquerySecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

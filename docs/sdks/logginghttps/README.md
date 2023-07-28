@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogHTTPSSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.CreateLogHTTPS(ctx, operations.CreateLogHTTPSRequest{
@@ -57,9 +60,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogHTTPSSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -102,15 +103,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogHTTPSSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.DeleteLogHTTPS(ctx, operations.DeleteLogHTTPSRequest{
         LoggingHTTPSName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogHTTPSSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -153,15 +155,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogHTTPSSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.GetLogHTTPS(ctx, operations.GetLogHTTPSRequest{
         LoggingHTTPSName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogHTTPSSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -204,14 +207,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogHTTPSSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.ListLogHTTPS(ctx, operations.ListLogHTTPSRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogHTTPSSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -255,6 +259,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogHTTPSSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.UpdateLogHTTPS(ctx, operations.UpdateLogHTTPSRequest{
@@ -281,9 +288,7 @@ func main() {
         LoggingHTTPSName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogHTTPSSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

@@ -11,9 +11,23 @@ type ListUsersSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListUsersSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListUsersRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *ListUsersRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 type ListUsersResponse struct {
@@ -22,4 +36,32 @@ type ListUsersResponse struct {
 	RawResponse *http.Response
 	// OK
 	SchemasUserResponses []shared.SchemasUserResponse
+}
+
+func (o *ListUsersResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListUsersResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListUsersResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListUsersResponse) GetSchemasUserResponses() []shared.SchemasUserResponse {
+	if o == nil {
+		return nil
+	}
+	return o.SchemasUserResponses
 }

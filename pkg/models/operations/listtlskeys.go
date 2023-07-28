@@ -11,6 +11,13 @@ type ListTLSKeysSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSKeysSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSKeysRequest struct {
 	// Limit the returned keys to those without any matching TLS certificates. The only valid value is false.
 	FilterInUse *string `queryParam:"style=form,explode=true,name=filter[in_use]"`
@@ -20,10 +27,59 @@ type ListTLSKeysRequest struct {
 	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
 }
 
+func (o *ListTLSKeysRequest) GetFilterInUse() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterInUse
+}
+
+func (o *ListTLSKeysRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSKeysRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
 type ListTLSKeysResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSPrivateKeysResponse *shared.TLSPrivateKeysResponse
+}
+
+func (o *ListTLSKeysResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSKeysResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSKeysResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSKeysResponse) GetTLSPrivateKeysResponse() *shared.TLSPrivateKeysResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSPrivateKeysResponse
 }

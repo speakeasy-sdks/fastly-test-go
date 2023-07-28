@@ -11,6 +11,13 @@ type CreateHttp3Security struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateHttp3Security) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateHttp3Request struct {
 	Http3Input *shared.Http3Input `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +26,59 @@ type CreateHttp3Request struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateHttp3Request) GetHttp3Input() *shared.Http3Input {
+	if o == nil {
+		return nil
+	}
+	return o.Http3Input
+}
+
+func (o *CreateHttp3Request) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateHttp3Request) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateHttp3Response struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	Http3 *shared.Http3
+}
+
+func (o *CreateHttp3Response) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateHttp3Response) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateHttp3Response) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateHttp3Response) GetHttp3() *shared.Http3 {
+	if o == nil {
+		return nil
+	}
+	return o.Http3
 }

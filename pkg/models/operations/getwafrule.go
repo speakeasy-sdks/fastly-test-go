@@ -11,6 +11,13 @@ type GetWafRuleSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetWafRuleSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetWafRuleRequest struct {
 	// Include relationships. Optional, comma-separated values. Permitted values: `waf_tags` and `waf_rule_revisions`.
 	//
@@ -19,10 +26,52 @@ type GetWafRuleRequest struct {
 	WafRuleID string `pathParam:"style=simple,explode=false,name=waf_rule_id"`
 }
 
+func (o *GetWafRuleRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *GetWafRuleRequest) GetWafRuleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WafRuleID
+}
+
 type GetWafRuleResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	WafRuleResponse *shared.WafRuleResponse
+}
+
+func (o *GetWafRuleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetWafRuleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetWafRuleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetWafRuleResponse) GetWafRuleResponse() *shared.WafRuleResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafRuleResponse
 }

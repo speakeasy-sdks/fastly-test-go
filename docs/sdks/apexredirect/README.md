@@ -30,13 +30,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteApexRedirectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
         ApexRedirectID: "debitis",
-    }, operations.DeleteApexRedirectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,13 +80,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetApexRedirectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ApexRedirect.GetApexRedirect(ctx, operations.GetApexRedirectRequest{
         ApexRedirectID: "ipsa",
-    }, operations.GetApexRedirectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -128,14 +130,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListApexRedirectsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ApexRedirect.ListApexRedirects(ctx, operations.ListApexRedirectsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListApexRedirectsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -179,6 +182,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateApexRedirectSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.ApexRedirect.UpdateApexRedirect(ctx, operations.UpdateApexRedirectRequest{
@@ -193,9 +199,7 @@ func main() {
             StatusCode: shared.ApexRedirectStatusCodeThreeHundredAndSeven.ToPointer(),
         },
         ApexRedirectID: "iusto",
-    }, operations.UpdateApexRedirectSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

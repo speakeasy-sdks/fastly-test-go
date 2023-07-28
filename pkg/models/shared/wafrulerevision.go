@@ -54,10 +54,87 @@ type WafRuleRevisionAttributes struct {
 	Vcl *string `json:"vcl,omitempty"`
 }
 
+func (o *WafRuleRevisionAttributes) GetMessage() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Message
+}
+
+func (o *WafRuleRevisionAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *WafRuleRevisionAttributes) GetParanoiaLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ParanoiaLevel
+}
+
+func (o *WafRuleRevisionAttributes) GetRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Revision
+}
+
+func (o *WafRuleRevisionAttributes) GetSeverity() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Severity
+}
+
+func (o *WafRuleRevisionAttributes) GetSource() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Source
+}
+
+func (o *WafRuleRevisionAttributes) GetState() *WafRuleRevisionAttributesState {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+func (o *WafRuleRevisionAttributes) GetVcl() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Vcl
+}
+
 type WafRuleRevision struct {
 	Attributes *WafRuleRevisionAttributes `json:"attributes,omitempty"`
 	// Alphanumeric string identifying a WAF rule revision.
 	ID *string `json:"id,omitempty"`
 	// Resource type.
 	Type *TypeWafRuleRevision `json:"type,omitempty"`
+}
+
+func (o *WafRuleRevision) GetAttributes() *WafRuleRevisionAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafRuleRevision) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafRuleRevision) GetType() *TypeWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

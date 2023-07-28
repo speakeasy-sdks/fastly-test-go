@@ -13,6 +13,34 @@ type EventsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *EventsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *EventsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *EventsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *EventsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type EventsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
@@ -24,9 +52,58 @@ type EventsResponseMeta struct {
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
+func (o *EventsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *EventsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *EventsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *EventsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 // EventsResponse - OK
 type EventsResponse struct {
 	Data  []Event              `json:"data,omitempty"`
 	Links *EventsResponseLinks `json:"links,omitempty"`
 	Meta  *EventsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *EventsResponse) GetData() []Event {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *EventsResponse) GetLinks() *EventsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *EventsResponse) GetMeta() *EventsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

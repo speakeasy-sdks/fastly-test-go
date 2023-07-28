@@ -11,6 +11,13 @@ type CreateCustomVclSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateCustomVclSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateCustomVclRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string      `pathParam:"style=simple,explode=false,name=service_id"`
@@ -19,10 +26,59 @@ type CreateCustomVclRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateCustomVclRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateCustomVclRequest) GetVcl() *shared.Vcl {
+	if o == nil {
+		return nil
+	}
+	return o.Vcl
+}
+
+func (o *CreateCustomVclRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateCustomVclResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	VclResponse *shared.VclResponse
+}
+
+func (o *CreateCustomVclResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateCustomVclResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateCustomVclResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateCustomVclResponse) GetVclResponse() *shared.VclResponse {
+	if o == nil {
+		return nil
+	}
+	return o.VclResponse
 }

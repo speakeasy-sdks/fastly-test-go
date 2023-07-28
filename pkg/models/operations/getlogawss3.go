@@ -11,6 +11,13 @@ type GetLogAwsS3Security struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetLogAwsS3Security) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetLogAwsS3Request struct {
 	// The name for the real-time logging configuration.
 	LoggingS3Name string `pathParam:"style=simple,explode=false,name=logging_s3_name"`
@@ -20,10 +27,59 @@ type GetLogAwsS3Request struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogAwsS3Request) GetLoggingS3Name() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingS3Name
+}
+
+func (o *GetLogAwsS3Request) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogAwsS3Request) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogAwsS3Response struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingS3Response *shared.LoggingS3Response
+}
+
+func (o *GetLogAwsS3Response) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogAwsS3Response) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogAwsS3Response) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogAwsS3Response) GetLoggingS3Response() *shared.LoggingS3Response {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingS3Response
 }

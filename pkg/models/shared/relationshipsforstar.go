@@ -8,8 +8,29 @@ type RelationshipsForStarUserData struct {
 	Type *TypeUser `json:"type,omitempty"`
 }
 
+func (o *RelationshipsForStarUserData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipsForStarUserData) GetType() *TypeUser {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipsForStarUser struct {
 	Data *RelationshipsForStarUserData `json:"data,omitempty"`
+}
+
+func (o *RelationshipsForStarUser) GetData() *RelationshipsForStarUserData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 type RelationshipsForStar struct {
@@ -17,16 +38,58 @@ type RelationshipsForStar struct {
 	User    *RelationshipsForStarUser  `json:"user,omitempty"`
 }
 
+func (o *RelationshipsForStar) GetService() *RelationshipMemberService {
+	if o == nil {
+		return nil
+	}
+	return o.Service
+}
+
+func (o *RelationshipsForStar) GetUser() *RelationshipsForStarUser {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
 type RelationshipsForStarUserDataInput struct {
 	// Resource type
 	Type *TypeUser `json:"type,omitempty"`
+}
+
+func (o *RelationshipsForStarUserDataInput) GetType() *TypeUser {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 type RelationshipsForStarUserInput struct {
 	Data *RelationshipsForStarUserDataInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipsForStarUserInput) GetData() *RelationshipsForStarUserDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipsForStarInput struct {
 	Service *RelationshipMemberServiceInput `json:"service,omitempty"`
 	User    *RelationshipsForStarUserInput  `json:"user,omitempty"`
+}
+
+func (o *RelationshipsForStarInput) GetService() *RelationshipMemberServiceInput {
+	if o == nil {
+		return nil
+	}
+	return o.Service
+}
+
+func (o *RelationshipsForStarInput) GetUser() *RelationshipsForStarUserInput {
+	if o == nil {
+		return nil
+	}
+	return o.User
 }

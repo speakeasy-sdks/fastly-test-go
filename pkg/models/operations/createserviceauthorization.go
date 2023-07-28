@@ -11,10 +11,45 @@ type CreateServiceAuthorizationSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CreateServiceAuthorizationSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CreateServiceAuthorizationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	ServiceAuthorizationResponse *shared.ServiceAuthorizationResponse
+}
+
+func (o *CreateServiceAuthorizationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateServiceAuthorizationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateServiceAuthorizationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateServiceAuthorizationResponse) GetServiceAuthorizationResponse() *shared.ServiceAuthorizationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceAuthorizationResponse
 }

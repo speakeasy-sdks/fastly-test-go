@@ -7,8 +7,29 @@ type RelationshipMemberServiceInput struct {
 	Type *TypeService `json:"type,omitempty"`
 }
 
+func (o *RelationshipMemberServiceInput) GetType() *TypeService {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type RelationshipMemberService struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
 	Type *TypeService `json:"type,omitempty"`
+}
+
+func (o *RelationshipMemberService) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberService) GetType() *TypeService {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

@@ -30,6 +30,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateHttp3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Http3.CreateHttp3(ctx, operations.CreateHttp3Request{
@@ -38,9 +41,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateHttp3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -83,14 +84,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteHttp3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Http3.DeleteHttp3(ctx, operations.DeleteHttp3Request{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteHttp3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -133,14 +135,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetHttp3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Http3.GetHttp3(ctx, operations.GetHttp3Request{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetHttp3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

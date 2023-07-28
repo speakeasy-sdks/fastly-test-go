@@ -11,6 +11,13 @@ type UpdateLogPapertrailSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *UpdateLogPapertrailSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type UpdateLogPapertrailRequest struct {
 	LoggingPapertrail2 *shared.LoggingPapertrail2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +28,66 @@ type UpdateLogPapertrailRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogPapertrailRequest) GetLoggingPapertrail2() *shared.LoggingPapertrail2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingPapertrail2
+}
+
+func (o *UpdateLogPapertrailRequest) GetLoggingPapertrailName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingPapertrailName
+}
+
+func (o *UpdateLogPapertrailRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogPapertrailRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogPapertrailResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingPapertrailResponse *shared.LoggingPapertrailResponse
+}
+
+func (o *UpdateLogPapertrailResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogPapertrailResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogPapertrailResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogPapertrailResponse) GetLoggingPapertrailResponse() *shared.LoggingPapertrailResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingPapertrailResponse
 }

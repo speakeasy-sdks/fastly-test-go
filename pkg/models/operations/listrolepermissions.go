@@ -10,9 +10,23 @@ type ListRolePermissionsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListRolePermissionsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListRolePermissionsRequest struct {
 	// Alphanumeric string identifying the role.
 	RoleID string `pathParam:"style=simple,explode=false,name=role_id"`
+}
+
+func (o *ListRolePermissionsRequest) GetRoleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.RoleID
 }
 
 // ListRolePermissions200ApplicationJSON - OK
@@ -25,4 +39,32 @@ type ListRolePermissionsResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListRolePermissions200ApplicationJSONObject *ListRolePermissions200ApplicationJSON
+}
+
+func (o *ListRolePermissionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListRolePermissionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListRolePermissionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListRolePermissionsResponse) GetListRolePermissions200ApplicationJSONObject() *ListRolePermissions200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListRolePermissions200ApplicationJSONObject
 }

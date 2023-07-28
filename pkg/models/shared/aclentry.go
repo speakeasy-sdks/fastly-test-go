@@ -45,3 +45,31 @@ type ACLEntry struct {
 	// Number of bits for the subnet mask applied to the IP address. For IPv4 addresses, a value of 32 represents the smallest subnet mask (1 address), 24 represents a class C subnet mask (256 addresses), 16 represents a class B subnet mask (65k addresses), and 8 is class A subnet mask (16m addresses). If not provided, no mask is applied.
 	Subnet *int64 `json:"subnet,omitempty"`
 }
+
+func (o *ACLEntry) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ACLEntry) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *ACLEntry) GetNegated() *ACLEntryNegated {
+	if o == nil {
+		return nil
+	}
+	return o.Negated
+}
+
+func (o *ACLEntry) GetSubnet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Subnet
+}

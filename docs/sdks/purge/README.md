@@ -32,13 +32,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PurgeAllSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Purge.PurgeAll(ctx, operations.PurgeAllRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.PurgeAllSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -81,14 +82,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PurgeSingleURLSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Purge.PurgeSingleURL(ctx, operations.PurgeSingleURLRequest{
         CachedURL: "www.example.com/path/to/object-to-purge",
         FastlySoftPurge: sdk.Int64(1),
-    }, operations.PurgeSingleURLSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -131,15 +133,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.PurgeTagSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.Purge.PurgeTag(ctx, operations.PurgeTagRequest{
         FastlySoftPurge: sdk.Int64(1),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         SurrogateKey: "key_1",
-    }, operations.PurgeTagSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

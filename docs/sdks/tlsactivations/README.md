@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateTLSActivationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSActivations.CreateTLSActivation(ctx, shared.TLSActivationInput{
@@ -50,9 +53,7 @@ func main() {
             },
             Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
         },
-    }, operations.CreateTLSActivationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -95,13 +96,14 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteTLSActivationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSActivations.DeleteTLSActivation(ctx, operations.DeleteTLSActivationRequest{
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",
-    }, operations.DeleteTLSActivationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -144,14 +146,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetTLSActivationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSActivations.GetTLSActivation(ctx, operations.GetTLSActivationRequest{
         Include: sdk.String("tls_certificate,tls_configuration,tls_domain"),
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",
-    }, operations.GetTLSActivationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -194,6 +197,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListTLSActivationsSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSActivations.ListTLSActivations(ctx, operations.ListTLSActivationsRequest{
@@ -203,9 +209,7 @@ func main() {
         Include: sdk.String("tls_certificate,tls_configuration,tls_domain"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-    }, operations.ListTLSActivationsSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -249,6 +253,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateTLSActivationSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.TLSActivations.UpdateTLSActivation(ctx, operations.UpdateTLSActivationRequest{
@@ -270,9 +277,7 @@ func main() {
             },
         },
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",
-    }, operations.UpdateTLSActivationSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

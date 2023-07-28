@@ -46,9 +46,51 @@ type BulkWafActiveRuleAttributes struct {
 	Status *BulkWafActiveRuleAttributesStatus `json:"status,omitempty"`
 }
 
+func (o *BulkWafActiveRuleAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *BulkWafActiveRuleAttributes) GetRevision() *WafRuleRevisionOrLatest {
+	if o == nil {
+		return nil
+	}
+	return o.Revision
+}
+
+func (o *BulkWafActiveRuleAttributes) GetStatus() *BulkWafActiveRuleAttributesStatus {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type BulkWafActiveRuleInput struct {
 	Attributes    *BulkWafActiveRuleAttributes `json:"attributes,omitempty"`
 	Relationships interface{}                  `json:"relationships,omitempty"`
 	// Resource type.
 	Type *TypeWafActiveRule `json:"type,omitempty"`
+}
+
+func (o *BulkWafActiveRuleInput) GetAttributes() *BulkWafActiveRuleAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *BulkWafActiveRuleInput) GetRelationships() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *BulkWafActiveRuleInput) GetType() *TypeWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

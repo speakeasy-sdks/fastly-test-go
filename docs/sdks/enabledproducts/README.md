@@ -29,14 +29,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DisableProductSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.EnabledProducts.DisableProduct(ctx, operations.DisableProductRequest{
         ProductID: "origin_inspector",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DisableProductSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -79,14 +80,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.EnableProductSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.EnabledProducts.EnableProduct(ctx, operations.EnableProductRequest{
         ProductID: "origin_inspector",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.EnableProductSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -129,14 +131,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetEnabledProductSecurity{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.EnabledProducts.GetEnabledProduct(ctx, operations.GetEnabledProductRequest{
         ProductID: "origin_inspector",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetEnabledProductSecurity{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

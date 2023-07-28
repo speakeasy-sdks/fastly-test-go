@@ -10,6 +10,13 @@ type CheckDomainSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *CheckDomainSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type CheckDomainRequest struct {
 	// The name of the domain or domains associated with this service.
 	DomainName string `pathParam:"style=simple,explode=false,name=domain_name"`
@@ -17,6 +24,27 @@ type CheckDomainRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *CheckDomainRequest) GetDomainName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DomainName
+}
+
+func (o *CheckDomainRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CheckDomainRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 // CheckDomain200ApplicationJSON1 - Domain details.
@@ -27,10 +55,52 @@ type CheckDomain200ApplicationJSON1 struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *CheckDomain200ApplicationJSON1) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *CheckDomain200ApplicationJSON1) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type CheckDomainResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DomainCheckResponse []interface{}
+}
+
+func (o *CheckDomainResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CheckDomainResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CheckDomainResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CheckDomainResponse) GetDomainCheckResponse() []interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.DomainCheckResponse
 }

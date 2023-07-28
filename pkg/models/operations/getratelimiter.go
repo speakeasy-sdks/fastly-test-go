@@ -11,9 +11,23 @@ type GetRateLimiterSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *GetRateLimiterSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type GetRateLimiterRequest struct {
 	// Alphanumeric string identifying the rate limiter.
 	RateLimiterID string `pathParam:"style=simple,explode=false,name=rate_limiter_id"`
+}
+
+func (o *GetRateLimiterRequest) GetRateLimiterID() string {
+	if o == nil {
+		return ""
+	}
+	return o.RateLimiterID
 }
 
 type GetRateLimiterResponse struct {
@@ -22,4 +36,32 @@ type GetRateLimiterResponse struct {
 	RawResponse *http.Response
 	// OK
 	RateLimiterResponse *shared.RateLimiterResponse
+}
+
+func (o *GetRateLimiterResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetRateLimiterResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetRateLimiterResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetRateLimiterResponse) GetRateLimiterResponse() *shared.RateLimiterResponse {
+	if o == nil {
+		return nil
+	}
+	return o.RateLimiterResponse
 }

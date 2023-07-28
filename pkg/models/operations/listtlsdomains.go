@@ -11,6 +11,13 @@ type ListTLSDomainsSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListTLSDomainsSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListTLSDomainsRequest struct {
 	// Optional. Limit the returned domains to those currently using Fastly to terminate TLS with SNI (that is, domains considered "in use") Permitted values: true, false.
 	FilterInUse *string `queryParam:"style=form,explode=true,name=filter[in_use]"`
@@ -29,10 +36,87 @@ type ListTLSDomainsRequest struct {
 	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListTLSDomainsRequest) GetFilterInUse() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterInUse
+}
+
+func (o *ListTLSDomainsRequest) GetFilterTLSCertificatesID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSCertificatesID
+}
+
+func (o *ListTLSDomainsRequest) GetFilterTLSSubscriptionsID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSSubscriptionsID
+}
+
+func (o *ListTLSDomainsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSDomainsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSDomainsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListTLSDomainsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListTLSDomainsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	TLSDomainsResponse *shared.TLSDomainsResponse
+}
+
+func (o *ListTLSDomainsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSDomainsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSDomainsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSDomainsResponse) GetTLSDomainsResponse() *shared.TLSDomainsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomainsResponse
 }

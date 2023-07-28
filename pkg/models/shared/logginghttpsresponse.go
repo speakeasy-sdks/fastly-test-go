@@ -175,3 +175,164 @@ type LoggingHTTPSResponse struct {
 	URL     *string `json:"url,omitempty"`
 	Version *int64  `json:"version,omitempty"`
 }
+
+func (o *LoggingHTTPSResponse) GetContentType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentType
+}
+
+func (o *LoggingHTTPSResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingHTTPSResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingHTTPSResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingHTTPSResponse) GetFormatVersion() *LoggingHTTPSResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingHTTPSResponse) GetHeaderName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderName
+}
+
+func (o *LoggingHTTPSResponse) GetHeaderValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderValue
+}
+
+func (o *LoggingHTTPSResponse) GetJSONFormat() *LoggingHTTPSResponseJSONFormat {
+	if o == nil {
+		return nil
+	}
+	return o.JSONFormat
+}
+
+func (o *LoggingHTTPSResponse) GetMessageType() *LoggingMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingHTTPSResponse) GetMethod() *LoggingHTTPSResponseMethod {
+	if o == nil {
+		return nil
+	}
+	return o.Method
+}
+
+func (o *LoggingHTTPSResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingHTTPSResponse) GetPlacement() *LoggingHTTPSResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingHTTPSResponse) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingHTTPSResponse) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingHTTPSResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingHTTPSResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingHTTPSResponse) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingHTTPSResponse) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingHTTPSResponse) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingHTTPSResponse) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingHTTPSResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingHTTPSResponse) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}
+
+func (o *LoggingHTTPSResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}

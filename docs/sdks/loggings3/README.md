@@ -32,6 +32,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.CreateLogAwsS3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingS3.CreateLogAwsS3(ctx, operations.CreateLogAwsS3Request{
@@ -62,9 +65,7 @@ func main() {
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogAwsS3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -107,15 +108,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.DeleteLogAwsS3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingS3.DeleteLogAwsS3(ctx, operations.DeleteLogAwsS3Request{
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogAwsS3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -158,15 +160,16 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.GetLogAwsS3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingS3.GetLogAwsS3(ctx, operations.GetLogAwsS3Request{
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogAwsS3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -209,14 +212,15 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.ListLogAwsS3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingS3.ListLogAwsS3(ctx, operations.ListLogAwsS3Request{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogAwsS3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }
@@ -260,6 +264,9 @@ import(
 
 func main() {
     s := sdk.New()
+    operationSecurity := operations.UpdateLogAwsS3Security{
+            Token: "",
+        }
 
     ctx := context.Background()
     res, err := s.LoggingS3.UpdateLogAwsS3(ctx, operations.UpdateLogAwsS3Request{
@@ -291,9 +298,7 @@ func main() {
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogAwsS3Security{
-        Token: "",
-    })
+    }, operationSecurity)
     if err != nil {
         log.Fatal(err)
     }

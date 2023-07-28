@@ -11,6 +11,13 @@ type ListServicesSecurity struct {
 	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
 }
 
+func (o *ListServicesSecurity) GetToken() string {
+	if o == nil {
+		return ""
+	}
+	return o.Token
+}
+
 type ListServicesRequest struct {
 	// Direction in which to sort results.
 	Direction *shared.Direction `queryParam:"style=form,explode=true,name=direction"`
@@ -22,6 +29,34 @@ type ListServicesRequest struct {
 	Sort *string `queryParam:"style=form,explode=true,name=sort"`
 }
 
+func (o *ListServicesRequest) GetDirection() *shared.Direction {
+	if o == nil {
+		return nil
+	}
+	return o.Direction
+}
+
+func (o *ListServicesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListServicesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListServicesRequest) GetSort() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
+}
+
 type ListServicesResponse struct {
 	ContentType string
 	Headers     map[string][]string
@@ -29,4 +64,39 @@ type ListServicesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ServiceListResponses []shared.ServiceListResponse
+}
+
+func (o *ListServicesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListServicesResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *ListServicesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListServicesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListServicesResponse) GetServiceListResponses() []shared.ServiceListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceListResponses
 }
