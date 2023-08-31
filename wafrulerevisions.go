@@ -29,7 +29,7 @@ func newWafRuleRevisions(sdkConfig sdkConfiguration) *wafRuleRevisions {
 // GetWafRuleRevision - Get a revision of a rule
 // Get a specific rule revision.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafRuleRevisions) GetWafRuleRevision(ctx context.Context, request operations.GetWafRuleRevisionRequest, security operations.GetWafRuleRevisionSecurity) (*operations.GetWafRuleRevisionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/rules/{waf_rule_id}/revisions/{waf_rule_revision_number}", request, nil)
@@ -93,7 +93,7 @@ func (s *wafRuleRevisions) GetWafRuleRevision(ctx context.Context, request opera
 // ListWafRuleRevisions - List revisions for a rule
 // List all revisions for a specific rule. The `rule_id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafRuleRevisions) ListWafRuleRevisions(ctx context.Context, request operations.ListWafRuleRevisionsRequest, security operations.ListWafRuleRevisionsSecurity) (*operations.ListWafRuleRevisionsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/rules/{waf_rule_id}/revisions", request, nil)

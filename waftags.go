@@ -30,7 +30,7 @@ func newWafTags(sdkConfig sdkConfiguration) *wafTags {
 // ListWafTags - List tags
 // List all tags.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafTags) ListWafTags(ctx context.Context, request operations.ListWafTagsRequest, security operations.ListWafTagsSecurity) (*operations.ListWafTagsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/waf/tags"

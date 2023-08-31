@@ -29,7 +29,7 @@ func newLoggingLogentries(sdkConfig sdkConfiguration) *loggingLogentries {
 // CreateLogLogentries - Create a Logentries log endpoint
 // Create a Logentry for a particular service and version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *loggingLogentries) CreateLogLogentries(ctx context.Context, request operations.CreateLogLogentriesRequest, security operations.CreateLogLogentriesSecurity) (*operations.CreateLogLogentriesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/logentries", request, nil)
@@ -96,7 +96,7 @@ func (s *loggingLogentries) CreateLogLogentries(ctx context.Context, request ope
 // DeleteLogLogentries - Delete a Logentries log endpoint
 // Delete the Logentry for a particular service and version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *loggingLogentries) DeleteLogLogentries(ctx context.Context, request operations.DeleteLogLogentriesRequest, security operations.DeleteLogLogentriesSecurity) (*operations.DeleteLogLogentriesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/logentries/{logging_logentries_name}", request, nil)
@@ -156,7 +156,7 @@ func (s *loggingLogentries) DeleteLogLogentries(ctx context.Context, request ope
 // GetLogLogentries - Get a Logentries log endpoint
 // Get the Logentry for a particular service and version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *loggingLogentries) GetLogLogentries(ctx context.Context, request operations.GetLogLogentriesRequest, security operations.GetLogLogentriesSecurity) (*operations.GetLogLogentriesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/logentries/{logging_logentries_name}", request, nil)
@@ -216,7 +216,7 @@ func (s *loggingLogentries) GetLogLogentries(ctx context.Context, request operat
 // ListLogLogentries - List Logentries log endpoints
 // List all of the Logentries for a particular service and version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *loggingLogentries) ListLogLogentries(ctx context.Context, request operations.ListLogLogentriesRequest, security operations.ListLogLogentriesSecurity) (*operations.ListLogLogentriesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/logentries", request, nil)
@@ -276,7 +276,7 @@ func (s *loggingLogentries) ListLogLogentries(ctx context.Context, request opera
 // UpdateLogLogentries - Update a Logentries log endpoint
 // Update the Logentry for a particular service and version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *loggingLogentries) UpdateLogLogentries(ctx context.Context, request operations.UpdateLogLogentriesRequest, security operations.UpdateLogLogentriesSecurity) (*operations.UpdateLogLogentriesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/logentries/{logging_logentries_name}", request, nil)

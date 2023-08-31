@@ -29,7 +29,7 @@ func newWafActiveRules(sdkConfig sdkConfiguration) *wafActiveRules {
 // BulkUpdateWafActiveRules - Update multiple active rules
 // Bulk update all active rules on a [firewall version](https://developer.fastly.com/reference/api/waf/firewall-version/). This endpoint will not add new active rules, only update existing active rules.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) BulkUpdateWafActiveRules(ctx context.Context, request operations.BulkUpdateWafActiveRulesRequest, security operations.BulkUpdateWafActiveRulesSecurity) (*operations.BulkUpdateWafActiveRulesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/bulk", request, nil)
@@ -85,7 +85,7 @@ func (s *wafActiveRules) BulkUpdateWafActiveRules(ctx context.Context, request o
 // CreateWafActiveRule - Add a rule to a WAF as an active rule
 // Create an active rule for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) CreateWafActiveRule(ctx context.Context, request operations.CreateWafActiveRuleRequest, security operations.CreateWafActiveRuleSecurity) (*operations.CreateWafActiveRuleResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules", request, nil)
@@ -152,7 +152,7 @@ func (s *wafActiveRules) CreateWafActiveRule(ctx context.Context, request operat
 // CreateWafActiveRulesTag - Create active rules by tag
 // Create active rules by tag. This endpoint will create active rules using the latest revision available for each rule.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) CreateWafActiveRulesTag(ctx context.Context, request operations.CreateWafActiveRulesTagRequest, security operations.CreateWafActiveRulesTagSecurity) (*operations.CreateWafActiveRulesTagResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/tags/{waf_tag_name}/active-rules", request, nil)
@@ -208,7 +208,7 @@ func (s *wafActiveRules) CreateWafActiveRulesTag(ctx context.Context, request op
 // DeleteWafActiveRule - Delete an active rule
 // Delete an active rule for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) DeleteWafActiveRule(ctx context.Context, request operations.DeleteWafActiveRuleRequest, security operations.DeleteWafActiveRuleSecurity) (*operations.DeleteWafActiveRuleResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}", request, nil)
@@ -257,7 +257,7 @@ func (s *wafActiveRules) DeleteWafActiveRule(ctx context.Context, request operat
 // GetWafActiveRule - Get an active WAF rule object
 // Get a specific active rule object. Includes details of the rule revision associated with the active rule object by default.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) GetWafActiveRule(ctx context.Context, request operations.GetWafActiveRuleRequest, security operations.GetWafActiveRuleSecurity) (*operations.GetWafActiveRuleResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}", request, nil)
@@ -321,7 +321,7 @@ func (s *wafActiveRules) GetWafActiveRule(ctx context.Context, request operation
 // ListWafActiveRules - List active rules on a WAF
 // List all active rules for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) ListWafActiveRules(ctx context.Context, request operations.ListWafActiveRulesRequest, security operations.ListWafActiveRulesSecurity) (*operations.ListWafActiveRulesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules", request, nil)
@@ -385,7 +385,7 @@ func (s *wafActiveRules) ListWafActiveRules(ctx context.Context, request operati
 // UpdateWafActiveRule - Update an active rule
 // Update an active rule's status for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafActiveRules) UpdateWafActiveRule(ctx context.Context, request operations.UpdateWafActiveRuleRequest, security operations.UpdateWafActiveRuleSecurity) (*operations.UpdateWafActiveRuleResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{version_id}/active-rules/{waf_rule_id}", request, nil)

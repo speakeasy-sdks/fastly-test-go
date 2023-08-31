@@ -14,7 +14,7 @@ Rules are universally available for every firewall. Rules can have one or multip
 
 Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -67,7 +67,7 @@ func main() {
 
 List all available WAF rules.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

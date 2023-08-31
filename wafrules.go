@@ -30,7 +30,7 @@ func newWafRules(sdkConfig sdkConfiguration) *wafRules {
 // GetWafRule - Get a rule
 // Get a specific rule. The `id` provided can be the ModSecurity Rule ID or the Fastly generated rule ID.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafRules) GetWafRule(ctx context.Context, request operations.GetWafRuleRequest, security operations.GetWafRuleSecurity) (*operations.GetWafRuleResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/rules/{waf_rule_id}", request, nil)
@@ -94,7 +94,7 @@ func (s *wafRules) GetWafRule(ctx context.Context, request operations.GetWafRule
 // ListWafRules - List available WAF rules
 // List all available WAF rules.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafRules) ListWafRules(ctx context.Context, request operations.ListWafRulesRequest, security operations.ListWafRulesSecurity) (*operations.ListWafRulesResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/waf/rules"

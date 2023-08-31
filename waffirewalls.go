@@ -30,7 +30,7 @@ func newWafFirewalls(sdkConfig sdkConfiguration) *wafFirewalls {
 // CreateWafFirewall - Create a firewall
 // Create a firewall object for a particular service and service version using a defined `prefetch_condition` and `response`. If the `prefetch_condition` or the `response` is missing from the request body, Fastly will generate a default object on your service.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewalls) CreateWafFirewall(ctx context.Context, request shared.WafFirewallInput, security operations.CreateWafFirewallSecurity) (*operations.CreateWafFirewallResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/waf/firewalls"
@@ -94,7 +94,7 @@ func (s *wafFirewalls) CreateWafFirewall(ctx context.Context, request shared.Waf
 // DeleteWafFirewall - Delete a firewall
 // Delete the firewall object for a particular service and service version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewalls) DeleteWafFirewall(ctx context.Context, request operations.DeleteWafFirewallRequest, security operations.DeleteWafFirewallSecurity) (*operations.DeleteWafFirewallResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}", request, nil)
@@ -150,7 +150,7 @@ func (s *wafFirewalls) DeleteWafFirewall(ctx context.Context, request operations
 // GetWafFirewall - Get a firewall
 // Get a specific firewall object.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewalls) GetWafFirewall(ctx context.Context, request operations.GetWafFirewallRequest, security operations.GetWafFirewallSecurity) (*operations.GetWafFirewallResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}", request, nil)
@@ -214,7 +214,7 @@ func (s *wafFirewalls) GetWafFirewall(ctx context.Context, request operations.Ge
 // ListWafFirewalls - List firewalls
 // List all firewall objects.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewalls) ListWafFirewalls(ctx context.Context, request operations.ListWafFirewallsRequest, security operations.ListWafFirewallsSecurity) (*operations.ListWafFirewallsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/waf/firewalls"
@@ -275,7 +275,7 @@ func (s *wafFirewalls) ListWafFirewalls(ctx context.Context, request operations.
 // UpdateWafFirewall - Update a firewall
 // Update a firewall object for a particular service and service version. Specifying a `service_version_number` is required.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewalls) UpdateWafFirewall(ctx context.Context, request operations.UpdateWafFirewallRequest, security operations.UpdateWafFirewallSecurity) (*operations.UpdateWafFirewallResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}", request, nil)

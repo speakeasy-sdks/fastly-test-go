@@ -69,7 +69,7 @@ type BackendResponse struct {
 	SslClientKey *string `json:"ssl_client_key,omitempty"`
 	// Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	SslHostname *string `json:"ssl_hostname,omitempty"`
 	// Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.
 	SslSniHostname *string `json:"ssl_sni_hostname,omitempty"`

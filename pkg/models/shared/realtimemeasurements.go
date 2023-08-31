@@ -240,11 +240,11 @@ type RealtimeMeasurements struct {
 	ObjectStoreClassBOperations *int64 `json:"object_store_class_b_operations,omitempty"`
 	// Use object_store_class_b_operations.
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	ObjectStoreReadRequests *int64 `json:"object_store_read_requests,omitempty"`
 	// Use object_store_class_a_operations.
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	ObjectStoreWriteRequests *int64 `json:"object_store_write_requests,omitempty"`
 	// Body bytes received from origin for cacheable content.
 	OriginCacheFetchRespBodyBytes *int64 `json:"origin_cache_fetch_resp_body_bytes,omitempty"`

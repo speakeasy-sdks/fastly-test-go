@@ -30,7 +30,7 @@ func newWafExclusions(sdkConfig sdkConfiguration) *wafExclusions {
 // CreateWafRuleExclusion - Create a WAF rule exclusion
 // Create a WAF exclusion for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafExclusions) CreateWafRuleExclusion(ctx context.Context, request operations.CreateWafRuleExclusionRequest, security operations.CreateWafRuleExclusionSecurity) (*operations.CreateWafRuleExclusionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions", request, nil)
@@ -97,7 +97,7 @@ func (s *wafExclusions) CreateWafRuleExclusion(ctx context.Context, request oper
 // DeleteWafRuleExclusion - Delete a WAF rule exclusion
 // Delete a WAF exclusion for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafExclusions) DeleteWafRuleExclusion(ctx context.Context, request operations.DeleteWafRuleExclusionRequest, security operations.DeleteWafRuleExclusionSecurity) (*operations.DeleteWafRuleExclusionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}", request, nil)
@@ -146,7 +146,7 @@ func (s *wafExclusions) DeleteWafRuleExclusion(ctx context.Context, request oper
 // GetWafRuleExclusion - Get a WAF rule exclusion
 // Get a specific WAF exclusion object.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafExclusions) GetWafRuleExclusion(ctx context.Context, request operations.GetWafRuleExclusionRequest, security operations.GetWafRuleExclusionSecurity) (*operations.GetWafRuleExclusionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}", request, nil)
@@ -206,7 +206,7 @@ func (s *wafExclusions) GetWafRuleExclusion(ctx context.Context, request operati
 // ListWafRuleExclusions - List WAF rule exclusions
 // List all exclusions for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafExclusions) ListWafRuleExclusions(ctx context.Context, request operations.ListWafRuleExclusionsRequest, security operations.ListWafRuleExclusionsSecurity) (*operations.ListWafRuleExclusionsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions", request, nil)
@@ -270,7 +270,7 @@ func (s *wafExclusions) ListWafRuleExclusions(ctx context.Context, request opera
 // UpdateWafRuleExclusion - Update a WAF rule exclusion
 // Update a WAF exclusion for a particular firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafExclusions) UpdateWafRuleExclusion(ctx context.Context, request operations.UpdateWafRuleExclusionRequest, security operations.UpdateWafRuleExclusionSecurity) (*operations.UpdateWafRuleExclusionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}", request, nil)

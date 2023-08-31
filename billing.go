@@ -28,7 +28,7 @@ func newBilling(sdkConfig sdkConfiguration) *billing {
 
 // GetInvoice - Get an invoice
 // Get the invoice for a given year and month. Can be any month from when the Customer was created to the current month.
-func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceRequest, security operations.GetInvoiceSecurity) (*operations.GetInvoiceResponse, error) {
+func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceRequest, security operations.GetInvoiceSecurity, opts ...operations.Option) (*operations.GetInvoiceResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/billing/v2/year/{year}/month/{month}", request, nil)
 	if err != nil {
@@ -39,7 +39,12 @@ func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json;q=1, text/csv;q=0.7, application/pdf;q=0")
+	if o.AcceptHeaderOverride != nil {
+		req.Header.Set("Accept", string(*o.AcceptHeaderOverride))
+	} else {
+		req.Header.Set("Accept", "application/json;q=1, text/csv;q=0.7, application/pdf;q=0")
+	}
+
 	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
 
 	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, security)
@@ -91,7 +96,7 @@ func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 
 // GetInvoiceByID - Get an invoice
 // Get the invoice for the given invoice_id.
-func (s *billing) GetInvoiceByID(ctx context.Context, request operations.GetInvoiceByIDRequest, security operations.GetInvoiceByIDSecurity) (*operations.GetInvoiceByIDResponse, error) {
+func (s *billing) GetInvoiceByID(ctx context.Context, request operations.GetInvoiceByIDRequest, security operations.GetInvoiceByIDSecurity, opts ...operations.Option) (*operations.GetInvoiceByIDResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/billing/v2/account_customers/{customer_id}/invoices/{invoice_id}", request, nil)
 	if err != nil {
@@ -102,7 +107,12 @@ func (s *billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 	if err != nil {
 		return nil, fmt.Errorf("error creating request: %w", err)
 	}
-	req.Header.Set("Accept", "application/json;q=1, text/csv;q=0.7, application/pdf;q=0")
+	if o.AcceptHeaderOverride != nil {
+		req.Header.Set("Accept", string(*o.AcceptHeaderOverride))
+	} else {
+		req.Header.Set("Accept", "application/json;q=1, text/csv;q=0.7, application/pdf;q=0")
+	}
+
 	req.Header.Set("user-agent", fmt.Sprintf("speakeasy-sdk/%s %s %s %s", s.sdkConfiguration.Language, s.sdkConfiguration.SDKVersion, s.sdkConfiguration.GenVersion, s.sdkConfiguration.OpenAPIDocVersion))
 
 	client := utils.ConfigureSecurityClient(s.sdkConfiguration.DefaultClient, security)

@@ -29,7 +29,7 @@ func newWafFirewallVersions(sdkConfig sdkConfiguration) *wafFirewallVersions {
 // CloneWafFirewallVersion - Clone a firewall version
 // Clone a specific, existing firewall version into a new, draft firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, request operations.CloneWafFirewallVersionRequest, security operations.CloneWafFirewallVersionSecurity) (*operations.CloneWafFirewallVersionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/clone", request, nil)
@@ -89,7 +89,7 @@ func (s *wafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, reque
 // CreateWafFirewallVersion - Create a firewall version
 // Create a new, draft firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, request operations.CreateWafFirewallVersionRequest, security operations.CreateWafFirewallVersionSecurity) (*operations.CreateWafFirewallVersionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions", request, nil)
@@ -156,7 +156,7 @@ func (s *wafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, requ
 // DeployActivateWafFirewallVersion - Deploy or activate a firewall version
 // Deploy or activate a specific firewall version. If a firewall has been disabled, deploying a firewall version will automatically enable the firewall again.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Context, request operations.DeployActivateWafFirewallVersionRequest, security operations.DeployActivateWafFirewallVersionSecurity) (*operations.DeployActivateWafFirewallVersionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/activate", request, nil)
@@ -216,7 +216,7 @@ func (s *wafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Conte
 // GetWafFirewallVersion - Get a firewall version
 // Get details about a specific firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request operations.GetWafFirewallVersionRequest, security operations.GetWafFirewallVersionSecurity) (*operations.GetWafFirewallVersionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}", request, nil)
@@ -280,7 +280,7 @@ func (s *wafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request
 // ListWafFirewallVersions - List firewall versions
 // Get a list of firewall versions associated with a specific firewall.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewallVersions) ListWafFirewallVersions(ctx context.Context, request operations.ListWafFirewallVersionsRequest, security operations.ListWafFirewallVersionsSecurity) (*operations.ListWafFirewallVersionsResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions", request, nil)
@@ -344,7 +344,7 @@ func (s *wafFirewallVersions) ListWafFirewallVersions(ctx context.Context, reque
 // UpdateWafFirewallVersion - Update a firewall version
 // Update a specific firewall version.
 //
-// Deprecated: this method will be removed in a future release, please migrate away from it as soon as possible.
+// Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *wafFirewallVersions) UpdateWafFirewallVersion(ctx context.Context, request operations.UpdateWafFirewallVersionRequest, security operations.UpdateWafFirewallVersionSecurity) (*operations.UpdateWafFirewallVersionResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}", request, nil)

@@ -183,7 +183,7 @@ func (e *BillingEstimateResponseStatusStatus) UnmarshalJSON(data []byte) error {
 }
 
 type BillingEstimateResponseStatus struct {
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	SentAt *time.Time `json:"sent_at,omitempty"`
 	// What the current status of this invoice can be.
 	Status *BillingEstimateResponseStatusStatus `json:"status,omitempty"`
