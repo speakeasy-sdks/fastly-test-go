@@ -29,6 +29,16 @@ func newBilling(sdkConfig sdkConfiguration) *billing {
 // GetInvoice - Get an invoice
 // Get the invoice for a given year and month. Can be any month from when the Customer was created to the current month.
 func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceRequest, security operations.GetInvoiceSecurity, opts ...operations.Option) (*operations.GetInvoiceResponse, error) {
+	o := operations.Options{}
+	supportedOptions := []string{
+		operations.SupportedOptionAcceptHeaderOverride,
+	}
+
+	for _, opt := range opts {
+		if err := opt(&o, supportedOptions...); err != nil {
+			return nil, fmt.Errorf("error applying option: %w", err)
+		}
+	}
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/billing/v2/year/{year}/month/{month}", request, nil)
 	if err != nil {
@@ -97,6 +107,16 @@ func (s *billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 // GetInvoiceByID - Get an invoice
 // Get the invoice for the given invoice_id.
 func (s *billing) GetInvoiceByID(ctx context.Context, request operations.GetInvoiceByIDRequest, security operations.GetInvoiceByIDSecurity, opts ...operations.Option) (*operations.GetInvoiceByIDResponse, error) {
+	o := operations.Options{}
+	supportedOptions := []string{
+		operations.SupportedOptionAcceptHeaderOverride,
+	}
+
+	for _, opt := range opts {
+		if err := opt(&o, supportedOptions...); err != nil {
+			return nil, fmt.Errorf("error applying option: %w", err)
+		}
+	}
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url, err := utils.GenerateURL(ctx, baseURL, "/billing/v2/account_customers/{customer_id}/invoices/{invoice_id}", request, nil)
 	if err != nil {
