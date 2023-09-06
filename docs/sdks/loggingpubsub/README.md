@@ -43,14 +43,14 @@ func main() {
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingGooglePubsubFormatVersionOne.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingGooglePubsubPlacementNone.ToPointer(),
+            Placement: shared.LoggingGooglePubsubPlacementWafDebug.ToPointer(),
             ProjectID: sdk.String("test-project-id"),
             ResponseCondition: sdk.String("null"),
             SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Topic: sdk.String("consectetur"),
+            Topic: sdk.String("fuga"),
             User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -265,14 +265,14 @@ func main() {
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingGooglePubsubFormatVersionOne.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingGooglePubsubPlacementWafDebug.ToPointer(),
+            Placement: shared.LoggingGooglePubsubPlacementLessThanNilGreaterThan.ToPointer(),
             ProjectID: sdk.String("test-project-id"),
             ResponseCondition: sdk.String("null"),
             SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Topic: sdk.String("temporibus"),
+            Topic: sdk.String("fugiat"),
             User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         LoggingGooglePubsubName: "test-log-endpoint",

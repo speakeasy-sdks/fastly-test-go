@@ -39,16 +39,16 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.CreateLogDigocean(ctx, operations.CreateLogDigoceanRequest{
         LoggingDigitaloceanInput: &shared.LoggingDigitaloceanInput{
-            AccessKey: sdk.String("laudantium"),
-            BucketName: sdk.String("dicta"),
+            AccessKey: sdk.String("id"),
+            BucketName: sdk.String("saepe"),
             CompressionCodec: shared.LoggingDigitaloceanCompressionCodecZstd.ToPointer(),
-            Domain: sdk.String("maiores"),
+            Domain: sdk.String("aspernatur"),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingDigitaloceanFormatVersionOne.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingDigitaloceanMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("ex"),
+            Path: sdk.String("amet"),
             Period: sdk.Int64(3600),
             Placement: shared.LoggingDigitaloceanPlacementLessThanNilGreaterThan.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
@@ -56,7 +56,7 @@ func main() {
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("excepturi"),
+            SecretKey: sdk.String("accusamus"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -266,16 +266,16 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.UpdateLogDigocean(ctx, operations.UpdateLogDigoceanRequest{
         LoggingDigitaloceanInput: &shared.LoggingDigitaloceanInput{
-            AccessKey: sdk.String("voluptatibus"),
-            BucketName: sdk.String("nostrum"),
-            CompressionCodec: shared.LoggingDigitaloceanCompressionCodecGzip.ToPointer(),
-            Domain: sdk.String("quisquam"),
+            AccessKey: sdk.String("ad"),
+            BucketName: sdk.String("saepe"),
+            CompressionCodec: shared.LoggingDigitaloceanCompressionCodecSnappy.ToPointer(),
+            Domain: sdk.String("deserunt"),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingDigitaloceanFormatVersionTwo.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingDigitaloceanMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("ea"),
+            Path: sdk.String("minima"),
             Period: sdk.Int64(3600),
             Placement: shared.LoggingDigitaloceanPlacementLessThanNilGreaterThan.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
@@ -283,7 +283,7 @@ func main() {
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("corporis"),
+            SecretKey: sdk.String("totam"),
         },
         LoggingDigitaloceanName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

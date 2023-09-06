@@ -46,21 +46,18 @@ func main() {
         WafExclusionInput: &shared.WafExclusionInput{
             Data: &shared.WafExclusionDataInput{
                 Attributes: &shared.WafExclusionDataAttributes{
-                    Condition: sdk.String("voluptates"),
-                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeVariable.ToPointer(),
+                    Condition: sdk.String("recusandae"),
+                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeWaf.ToPointer(),
                     Logging: sdk.Bool(false),
-                    Name: sdk.String("Wm Hane"),
+                    Name: sdk.String("Martin Beatty"),
                     Number: sdk.Int64(1),
-                    Variable: shared.WafExclusionDataAttributesVariableReqCookies.ToPointer(),
+                    Variable: shared.WafExclusionDataAttributesVariableReqHeaders.ToPointer(),
                 },
-                Relationships: &shared.RelationshipWafRuleRevisionsInput{
-                    WafRuleRevisions: &shared.RelationshipWafRuleRevisionsWafRuleRevisionsInput{
-                        Data: []shared.RelationshipMemberWafRuleRevisionInput{
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
+                Relationships: &shared.RelationshipWafRulesInput{
+                    WafRules: &shared.RelationshipWafRulesWafRulesInput{
+                        Data: []shared.RelationshipMemberWafRuleInput{
+                            shared.RelationshipMemberWafRuleInput{
+                                Type: shared.TypeWafRuleWafRule.ToPointer(),
                             },
                         },
                     },
@@ -228,8 +225,8 @@ func main() {
     ctx := context.Background()
     res, err := s.WafExclusions.ListWafRuleExclusions(ctx, operations.ListWafRuleExclusionsRequest{
         FilterExclusionType: operations.ListWafRuleExclusionsFilterExclusionTypeWaf.ToPointer(),
-        FilterName: sdk.String("ex"),
-        FilterWafRulesModsecRuleID: sdk.Int64(281153),
+        FilterName: sdk.String("beatae"),
+        FilterWafRulesModsecRuleID: sdk.Int64(512452),
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
         Include: sdk.String("waf_rules"),
@@ -293,24 +290,18 @@ func main() {
         WafExclusionInput: &shared.WafExclusionInput{
             Data: &shared.WafExclusionDataInput{
                 Attributes: &shared.WafExclusionDataAttributes{
-                    Condition: sdk.String("ad"),
-                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeWaf.ToPointer(),
+                    Condition: sdk.String("exercitationem"),
+                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeVariable.ToPointer(),
                     Logging: sdk.Bool(false),
-                    Name: sdk.String("Leona Rippin IV"),
+                    Name: sdk.String("Lester Parisian"),
                     Number: sdk.Int64(1),
-                    Variable: shared.WafExclusionDataAttributesVariableReqPostFilename.ToPointer(),
+                    Variable: shared.WafExclusionDataAttributesVariableLessThanNilGreaterThan.ToPointer(),
                 },
-                Relationships: &shared.RelationshipWafRulesInput{
-                    WafRules: &shared.RelationshipWafRulesWafRulesInput{
-                        Data: []shared.RelationshipMemberWafRuleInput{
-                            shared.RelationshipMemberWafRuleInput{
-                                Type: shared.TypeWafRuleWafRule.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleInput{
-                                Type: shared.TypeWafRuleWafRule.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleInput{
-                                Type: shared.TypeWafRuleWafRule.ToPointer(),
+                Relationships: &shared.RelationshipWafRuleRevisionsInput{
+                    WafRuleRevisions: &shared.RelationshipWafRuleRevisionsWafRuleRevisionsInput{
+                        Data: []shared.RelationshipMemberWafRuleRevisionInput{
+                            shared.RelationshipMemberWafRuleRevisionInput{
+                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
                             },
                         },
                     },

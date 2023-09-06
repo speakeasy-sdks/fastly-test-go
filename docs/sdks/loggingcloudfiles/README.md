@@ -39,15 +39,15 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.CreateLogCloudfiles(ctx, operations.CreateLogCloudfilesRequest{
         LoggingCloudfilesInput: &shared.LoggingCloudfilesInput{
-            AccessKey: sdk.String("illum"),
-            BucketName: sdk.String("sequi"),
-            CompressionCodec: shared.LoggingCloudfilesCompressionCodecSnappy.ToPointer(),
+            AccessKey: sdk.String("iure"),
+            BucketName: sdk.String("odio"),
+            CompressionCodec: shared.LoggingCloudfilesCompressionCodecZstd.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingCloudfilesFormatVersionTwo.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingCloudfilesMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("aut"),
+            Path: sdk.String("quidem"),
             Period: sdk.Int64(3600),
             Placement: shared.LoggingCloudfilesPlacementLessThanNilGreaterThan.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
@@ -56,7 +56,7 @@ func main() {
         "),
             Region: shared.LoggingCloudfilesRegionIad.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            User: sdk.String("nulla"),
+            User: sdk.String("natus"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -266,24 +266,24 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.UpdateLogCloudfiles(ctx, operations.UpdateLogCloudfilesRequest{
         LoggingCloudfilesInput: &shared.LoggingCloudfilesInput{
-            AccessKey: sdk.String("fugit"),
-            BucketName: sdk.String("porro"),
-            CompressionCodec: shared.LoggingCloudfilesCompressionCodecGzip.ToPointer(),
+            AccessKey: sdk.String("eos"),
+            BucketName: sdk.String("atque"),
+            CompressionCodec: shared.LoggingCloudfilesCompressionCodecZstd.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingCloudfilesFormatVersionTwo.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingCloudfilesMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("iusto"),
+            Path: sdk.String("ab"),
             Period: sdk.Int64(3600),
             Placement: shared.LoggingCloudfilesPlacementLessThanNilGreaterThan.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Region: shared.LoggingCloudfilesRegionLon.ToPointer(),
+            Region: shared.LoggingCloudfilesRegionSyd.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            User: sdk.String("alias"),
+            User: sdk.String("iusto"),
         },
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

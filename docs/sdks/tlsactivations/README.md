@@ -26,8 +26,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -203,9 +203,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSActivations.ListTLSActivations(ctx, operations.ListTLSActivationsRequest{
-        FilterTLSCertificateID: sdk.String("mollitia"),
-        FilterTLSConfigurationID: sdk.String("provident"),
-        FilterTLSDomainID: sdk.String("possimus"),
+        FilterTLSCertificateID: sdk.String("libero"),
+        FilterTLSConfigurationID: sdk.String("vitae"),
+        FilterTLSDomainID: sdk.String("accusamus"),
         Include: sdk.String("tls_certificate,tls_configuration,tls_domain"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),

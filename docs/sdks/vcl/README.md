@@ -44,7 +44,7 @@ func main() {
     res, err := s.Vcl.CreateCustomVcl(ctx, operations.CreateCustomVclRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Vcl: &shared.Vcl{
-            Content: sdk.String("reiciendis"),
+            Content: sdk.String("voluptatibus"),
             Main: sdk.Bool(false),
             Name: sdk.String("test-vcl"),
         },
@@ -150,7 +150,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Vcl.GetCustomVcl(ctx, operations.GetCustomVclRequest{
-        NoContent: sdk.String("vel"),
+        NoContent: sdk.String("tempora"),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VclName: "test-vcl",
         VersionID: 1,
@@ -463,7 +463,7 @@ func main() {
     res, err := s.Vcl.UpdateCustomVcl(ctx, operations.UpdateCustomVclRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Vcl: &shared.Vcl{
-            Content: sdk.String("architecto"),
+            Content: sdk.String("tempora"),
             Main: sdk.Bool(false),
             Name: sdk.String("test-vcl"),
         },

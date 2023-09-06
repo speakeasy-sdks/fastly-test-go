@@ -43,9 +43,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Historical.GetHistStats(ctx, operations.GetHistStatsRequest{
         By: shared.ByDay.ToPointer(),
-        From: sdk.String("incidunt"),
+        From: sdk.String("excepturi"),
         Region: shared.RegionUsa.ToPointer(),
-        To: sdk.String("qui"),
+        To: sdk.String("odit"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -97,9 +97,9 @@ func main() {
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsAggregated(ctx, operations.GetHistStatsAggregatedRequest{
         By: shared.ByDay.ToPointer(),
-        From: sdk.String("cupiditate"),
+        From: sdk.String("ea"),
         Region: shared.RegionUsa.ToPointer(),
-        To: sdk.String("maxime"),
+        To: sdk.String("accusantium"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -152,9 +152,9 @@ func main() {
     res, err := s.Historical.GetHistStatsField(ctx, operations.GetHistStatsFieldRequest{
         By: shared.ByDay.ToPointer(),
         Field: "hit_ratio",
-        From: sdk.String("pariatur"),
+        From: sdk.String("ab"),
         Region: shared.RegionUsa.ToPointer(),
-        To: sdk.String("soluta"),
+        To: sdk.String("maiores"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -206,10 +206,10 @@ func main() {
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsService(ctx, operations.GetHistStatsServiceRequest{
         By: shared.ByDay.ToPointer(),
-        From: sdk.String("dicta"),
+        From: sdk.String("quidem"),
         Region: shared.RegionUsa.ToPointer(),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        To: sdk.String("laborum"),
+        To: sdk.String("ipsam"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -262,10 +262,10 @@ func main() {
     res, err := s.Historical.GetHistStatsServiceField(ctx, operations.GetHistStatsServiceFieldRequest{
         By: shared.ByDay.ToPointer(),
         Field: "hit_ratio",
-        From: sdk.String("totam"),
+        From: sdk.String("voluptate"),
         Region: shared.RegionUsa.ToPointer(),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        To: sdk.String("incidunt"),
+        To: sdk.String("autem"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -362,8 +362,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Historical.GetUsage(ctx, operations.GetUsageRequest{
-        From: sdk.String("aspernatur"),
-        To: sdk.String("dolores"),
+        From: sdk.String("nam"),
+        To: sdk.String("eaque"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -465,8 +465,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Historical.GetUsageService(ctx, operations.GetUsageServiceRequest{
-        From: sdk.String("distinctio"),
-        To: sdk.String("facilis"),
+        From: sdk.String("pariatur"),
+        To: sdk.String("nemo"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

@@ -41,11 +41,11 @@ func main() {
     res, err := s.Snippet.CreateSnippet(ctx, operations.CreateSnippetRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Snippet2: &shared.Snippet2{
-            Content: sdk.String("provident"),
+            Content: sdk.String("consectetur"),
             Dynamic: shared.SnippetDynamicZero.ToPointer(),
             Name: sdk.String("test-snippet"),
             Priority: sdk.String("10"),
-            Type: shared.SnippetTypeHit.ToPointer(),
+            Type: shared.SnippetTypeError.ToPointer(),
         },
         VersionID: 1,
     }, operationSecurity)
@@ -306,11 +306,11 @@ func main() {
     res, err := s.Snippet.UpdateSnippetDynamic(ctx, operations.UpdateSnippetDynamicRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Snippet2: &shared.Snippet2{
-            Content: sdk.String("quasi"),
-            Dynamic: shared.SnippetDynamicOne.ToPointer(),
+            Content: sdk.String("laboriosam"),
+            Dynamic: shared.SnippetDynamicZero.ToPointer(),
             Name: sdk.String("test-snippet"),
             Priority: sdk.String("10"),
-            Type: shared.SnippetTypeHit.ToPointer(),
+            Type: shared.SnippetTypeNone.ToPointer(),
         },
         SnippetID: "62Yd1WfiCBPENLloXfXmlO",
     }, operationSecurity)

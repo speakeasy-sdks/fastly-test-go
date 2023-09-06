@@ -34,7 +34,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.VclDiff.VclDiffServiceVersions(ctx, operations.VclDiffServiceVersionsRequest{
-        Format: shared.QueryFormatHTMLSimple.ToPointer(),
+        Format: shared.QueryFormatHTML.ToPointer(),
         FromVersionID: 1,
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         ToVersionID: 2,

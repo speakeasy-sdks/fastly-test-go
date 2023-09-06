@@ -29,8 +29,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -41,7 +41,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Service.CreateService(ctx, shared.ServiceCreate1{
-        Comment: sdk.String("recusandae"),
+        Comment: sdk.String("non"),
         CustomerID: sdk.String("x4xCwxxJxGCx123Rx5xTx"),
         Name: sdk.String("test-service"),
         Type: shared.ServiceCreateTypeVcl.ToPointer(),
@@ -401,7 +401,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Service.UpdateService(ctx, operations.UpdateServiceRequest{
         Service: &shared.Service{
-            Comment: sdk.String("provident"),
+            Comment: sdk.String("beatae"),
             CustomerID: sdk.String("x4xCwxxJxGCx123Rx5xTx"),
             Name: sdk.String("test-service"),
         },

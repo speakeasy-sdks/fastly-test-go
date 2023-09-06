@@ -41,10 +41,7 @@ func main() {
     ctx := context.Background()
     res, err := s.TLSSubscriptions.CreateGlobalsignEmailChallenge(ctx, operations.CreateGlobalsignEmailChallengeRequest{
         RequestBody: map[string]interface{}{
-            "suscipit": "dolorem",
-            "fugit": "cumque",
-            "fuga": "ratione",
-            "animi": "necessitatibus",
+            "in": "commodi",
         },
         TLSAuthorizationID: "aU3guUGZzb2W9Euo4Mo0r",
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
@@ -163,9 +160,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.DeleteGlobalsignEmailChallenge(ctx, operations.DeleteGlobalsignEmailChallengeRequest{
-        GlobalsignEmailChallengeID: "quasi",
-        TLSAuthorizationID: "et",
-        TLSSubscriptionID: "ducimus",
+        GlobalsignEmailChallengeID: "voluptas",
+        TLSAuthorizationID: "unde",
+        TLSSubscriptionID: "architecto",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -318,12 +315,12 @@ func main() {
     ctx := context.Background()
     res, err := s.TLSSubscriptions.ListTLSSubs(ctx, operations.ListTLSSubsRequest{
         FilterHasActiveOrder: sdk.Bool(false),
-        FilterState: sdk.String("natus"),
-        FilterTLSDomainsID: sdk.String("occaecati"),
+        FilterState: sdk.String("suscipit"),
+        FilterTLSDomainsID: sdk.String("sapiente"),
         Include: sdk.String("tls_authorizations"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-        Sort: shared.SortCreatedAt.ToPointer(),
+        Sort: shared.SortMinusCreatedAt.ToPointer(),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -380,10 +377,12 @@ func main() {
                 Attributes: &shared.TLSSubscriptionDataAttributes{
                     CertificateAuthority: shared.TLSSubscriptionDataAttributesCertificateAuthorityLetsEncrypt.ToPointer(),
                 },
-                Relationships: &shared.TLSSubscriptionDataRelationships1Input{
-                    TLSConfiguration: &shared.TLSSubscriptionDataRelationships1TLSConfigurationInput{
-                        Data: &shared.RelationshipMemberTLSConfigurationInput{
-                            Type: shared.TypeTLSConfigurationTLSConfiguration.ToPointer(),
+                Relationships: &shared.RelationshipTLSCertificatesInput{
+                    TLSCertificates: &shared.RelationshipTLSCertificatesTLSCertificatesInput{
+                        Data: []shared.RelationshipMemberTLSCertificateInput{
+                            shared.RelationshipMemberTLSCertificateInput{
+                                Type: shared.TypeTLSCertificateTLSCertificate.ToPointer(),
+                            },
                         },
                     },
                 },

@@ -25,8 +25,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {

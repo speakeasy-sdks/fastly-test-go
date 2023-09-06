@@ -39,24 +39,24 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingOpenstack.CreateLogOpenstack(ctx, operations.CreateLogOpenstackRequest{
         LoggingOpenstackInput: &shared.LoggingOpenstackInput{
-            AccessKey: sdk.String("sapiente"),
-            BucketName: sdk.String("dicta"),
-            CompressionCodec: shared.LoggingOpenstackCompressionCodecSnappy.ToPointer(),
+            AccessKey: sdk.String("laborum"),
+            BucketName: sdk.String("placeat"),
+            CompressionCodec: shared.LoggingOpenstackCompressionCodecZstd.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingOpenstackFormatVersionOne.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingOpenstackMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("ullam"),
+            Path: sdk.String("autem"),
             Period: sdk.Int64(3600),
-            Placement: shared.LoggingOpenstackPlacementWafDebug.ToPointer(),
+            Placement: shared.LoggingOpenstackPlacementLessThanNilGreaterThan.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            URL: sdk.String("aut"),
-            User: sdk.String("voluptatum"),
+            URL: sdk.String("quas"),
+            User: sdk.String("assumenda"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -266,24 +266,24 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingOpenstack.UpdateLogOpenstack(ctx, operations.UpdateLogOpenstackRequest{
         LoggingOpenstackInput: &shared.LoggingOpenstackInput{
-            AccessKey: sdk.String("qui"),
-            BucketName: sdk.String("quibusdam"),
-            CompressionCodec: shared.LoggingOpenstackCompressionCodecSnappy.ToPointer(),
+            AccessKey: sdk.String("nulla"),
+            BucketName: sdk.String("voluptas"),
+            CompressionCodec: shared.LoggingOpenstackCompressionCodecGzip.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingOpenstackFormatVersionTwo.ToPointer(),
+            FormatVersion: shared.LoggingOpenstackFormatVersionOne.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingOpenstackMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("itaque"),
+            Path: sdk.String("tempora"),
             Period: sdk.Int64(3600),
-            Placement: shared.LoggingOpenstackPlacementLessThanNilGreaterThan.ToPointer(),
+            Placement: shared.LoggingOpenstackPlacementNone.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            URL: sdk.String("architecto"),
-            User: sdk.String("omnis"),
+            URL: sdk.String("explicabo"),
+            User: sdk.String("provident"),
         },
         LoggingOpenstackName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

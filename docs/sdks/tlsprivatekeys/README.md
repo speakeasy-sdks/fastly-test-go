@@ -25,8 +25,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -39,21 +39,12 @@ func main() {
     res, err := s.TLSPrivateKeys.CreateTLSKey(ctx, shared.TLSPrivateKeyInput{
         Data: &shared.TLSPrivateKeyDataInput{
             Attributes: &shared.TLSPrivateKeyDataAttributes{
-                Key: sdk.String("earum"),
-                Name: sdk.String("Dr. Terrell Stanton"),
+                Key: sdk.String("asperiores"),
+                Name: sdk.String("Miss Jared Quitzon"),
             },
             Relationships: &shared.TLSPrivateKeyDataRelationships2Input{
                 TLSDomains: &shared.TLSPrivateKeyDataRelationships2TLSDomainsInput{
                     Data: []shared.RelationshipMemberTLSDomainInput{
-                        shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
-                        shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
-                        shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
                         shared.RelationshipMemberTLSDomainInput{
                             Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
                         },
@@ -211,7 +202,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSPrivateKeys.ListTLSKeys(ctx, operations.ListTLSKeysRequest{
-        FilterInUse: sdk.String("aliquid"),
+        FilterInUse: sdk.String("sed"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
     }, operationSecurity)

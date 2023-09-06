@@ -89,10 +89,10 @@ func main() {
     res, err := s.Settings.UpdateServiceSettings(ctx, operations.UpdateServiceSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         Settings: &shared.Settings{
-            GeneralDefaultHost: sdk.String("quis"),
-            GeneralDefaultTTL: sdk.Int64(431785),
+            GeneralDefaultHost: sdk.String("dignissimos"),
+            GeneralDefaultTTL: sdk.Int64(950953),
             GeneralStaleIfError: sdk.Bool(false),
-            GeneralStaleIfErrorTTL: sdk.Int64(970494),
+            GeneralStaleIfErrorTTL: sdk.Int64(891523),
         },
         VersionID: 1,
     }, operationSecurity)

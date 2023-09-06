@@ -36,7 +36,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafTags.ListWafTags(ctx, operations.ListWafTagsRequest{
-        FilterName: sdk.String("recusandae"),
+        FilterName: sdk.String("quisquam"),
         Include: shared.WafTagIncludeWafRules.ToPointer(),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),

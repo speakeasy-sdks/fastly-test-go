@@ -39,13 +39,13 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.CreateLogHoneycomb(ctx, operations.CreateLogHoneycombRequest{
         LoggingHoneycomb2: &shared.LoggingHoneycomb2{
-            Dataset: sdk.String("accusamus"),
-            Format: sdk.String("aliquam"),
-            FormatVersion: shared.LoggingHoneycombFormatVersionOne.ToPointer(),
+            Dataset: sdk.String("doloribus"),
+            Format: sdk.String("ut"),
+            FormatVersion: shared.LoggingHoneycombFormatVersionTwo.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
             Placement: shared.LoggingHoneycombPlacementWafDebug.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("commodi"),
+            Token: sdk.String("qui"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -255,13 +255,13 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.UpdateLogHoneycomb(ctx, operations.UpdateLogHoneycombRequest{
         LoggingHoneycomb2: &shared.LoggingHoneycomb2{
-            Dataset: sdk.String("sapiente"),
-            Format: sdk.String("dolores"),
-            FormatVersion: shared.LoggingHoneycombFormatVersionTwo.ToPointer(),
+            Dataset: sdk.String("quae"),
+            Format: sdk.String("laudantium"),
+            FormatVersion: shared.LoggingHoneycombFormatVersionOne.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
             Placement: shared.LoggingHoneycombPlacementWafDebug.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("accusantium"),
+            Token: sdk.String("voluptatibus"),
         },
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

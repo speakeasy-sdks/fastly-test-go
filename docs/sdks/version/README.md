@@ -400,7 +400,7 @@ func main() {
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionInput: &shared.VersionInput{
             Active: sdk.Bool(false),
-            Comment: sdk.String("doloremque"),
+            Comment: sdk.String("reiciendis"),
             Deployed: sdk.Bool(false),
             Locked: sdk.Bool(false),
             Staging: sdk.Bool(false),

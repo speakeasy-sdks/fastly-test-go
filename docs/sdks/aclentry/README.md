@@ -44,24 +44,10 @@ func main() {
         BulkUpdateACLEntriesRequestInput: &shared.BulkUpdateACLEntriesRequestInput{
             Entries: []shared.BulkUpdateACLEntryInput{
                 shared.BulkUpdateACLEntryInput{
-                    Comment: sdk.String("provident"),
+                    Comment: sdk.String("corrupti"),
                     IP: sdk.String("127.0.0.1"),
                     Negated: shared.BulkUpdateACLEntryNegatedOne.ToPointer(),
                     Op: shared.BulkUpdateACLEntryOpDelete.ToPointer(),
-                    Subnet: sdk.Int64(8),
-                },
-                shared.BulkUpdateACLEntryInput{
-                    Comment: sdk.String("unde"),
-                    IP: sdk.String("127.0.0.1"),
-                    Negated: shared.BulkUpdateACLEntryNegatedOne.ToPointer(),
-                    Op: shared.BulkUpdateACLEntryOpUpdate.ToPointer(),
-                    Subnet: sdk.Int64(8),
-                },
-                shared.BulkUpdateACLEntryInput{
-                    Comment: sdk.String("illum"),
-                    IP: sdk.String("127.0.0.1"),
-                    Negated: shared.BulkUpdateACLEntryNegatedZero.ToPointer(),
-                    Op: shared.BulkUpdateACLEntryOpUpdate.ToPointer(),
                     Subnet: sdk.Int64(8),
                 },
             },
@@ -118,9 +104,9 @@ func main() {
     ctx := context.Background()
     res, err := s.ACLEntry.CreateACLEntry(ctx, operations.CreateACLEntryRequest{
         ACLEntry: &shared.ACLEntry{
-            Comment: sdk.String("deserunt"),
+            Comment: sdk.String("quibusdam"),
             IP: sdk.String("127.0.0.1"),
-            Negated: shared.ACLEntryNegatedZero.ToPointer(),
+            Negated: shared.ACLEntryNegatedOne.ToPointer(),
             Subnet: sdk.Int64(8),
         },
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
@@ -336,9 +322,9 @@ func main() {
     ctx := context.Background()
     res, err := s.ACLEntry.UpdateACLEntry(ctx, operations.UpdateACLEntryRequest{
         ACLEntry: &shared.ACLEntry{
-            Comment: sdk.String("iure"),
+            Comment: sdk.String("nulla"),
             IP: sdk.String("127.0.0.1"),
-            Negated: shared.ACLEntryNegatedZero.ToPointer(),
+            Negated: shared.ACLEntryNegatedOne.ToPointer(),
             Subnet: sdk.Int64(8),
         },
         ACLEntryID: "6yxNzlOpW1V7JfSwvLGtOc",

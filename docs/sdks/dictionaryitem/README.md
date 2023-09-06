@@ -47,11 +47,6 @@ func main() {
                     ItemValue: sdk.String("test-value"),
                     Op: shared.BulkUpdateDictionaryItemOpCreate.ToPointer(),
                 },
-                shared.BulkUpdateDictionaryItem{
-                    ItemKey: sdk.String("test-key"),
-                    ItemValue: sdk.String("test-value"),
-                    Op: shared.BulkUpdateDictionaryItemOpCreate.ToPointer(),
-                },
             },
         },
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",

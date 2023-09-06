@@ -29,8 +29,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -44,8 +44,8 @@ func main() {
         Data: &shared.WafFirewallDataInput{
             Attributes: &shared.WafFirewallDataAttributesInput{
                 Disabled: sdk.Bool(false),
-                PrefetchCondition: sdk.String("veniam"),
-                Response: sdk.String("nesciunt"),
+                PrefetchCondition: sdk.String("repellendus"),
+                Response: sdk.String("delectus"),
             },
             Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
         },
@@ -107,8 +107,8 @@ func main() {
             Data: &shared.WafFirewallDataInput{
                 Attributes: &shared.WafFirewallDataAttributesInput{
                     Disabled: sdk.Bool(false),
-                    PrefetchCondition: sdk.String("expedita"),
-                    Response: sdk.String("eum"),
+                    PrefetchCondition: sdk.String("voluptates"),
+                    Response: sdk.String("perferendis"),
                 },
                 Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
             },
@@ -165,7 +165,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafFirewalls.GetWafFirewall(ctx, operations.GetWafFirewallRequest{
-        FilterServiceVersionNumber: sdk.String("vel"),
+        FilterServiceVersionNumber: sdk.String("est"),
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         Include: shared.FirewallIncludeWafFirewallVersions.ToPointer(),
     }, operationSecurity)
@@ -220,8 +220,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafFirewalls.ListWafFirewalls(ctx, operations.ListWafFirewallsRequest{
-        FilterServiceID: sdk.String("voluptatum"),
-        FilterServiceVersionNumber: sdk.String("magnam"),
+        FilterServiceID: sdk.String("quidem"),
+        FilterServiceVersionNumber: sdk.String("reprehenderit"),
         Include: shared.FirewallIncludeWafFirewallVersions.ToPointer(),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
@@ -283,8 +283,8 @@ func main() {
             Data: &shared.WafFirewallDataInput{
                 Attributes: &shared.WafFirewallDataAttributesInput{
                     Disabled: sdk.Bool(false),
-                    PrefetchCondition: sdk.String("exercitationem"),
-                    Response: sdk.String("ab"),
+                    PrefetchCondition: sdk.String("facere"),
+                    Response: sdk.String("fuga"),
                 },
                 Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
             },

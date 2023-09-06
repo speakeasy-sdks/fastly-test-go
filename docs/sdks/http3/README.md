@@ -37,7 +37,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Http3.CreateHttp3(ctx, operations.CreateHttp3Request{
         Http3Input: &shared.Http3Input{
-            FeatureRevision: sdk.Int64(396060),
+            FeatureRevision: sdk.Int64(975522),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

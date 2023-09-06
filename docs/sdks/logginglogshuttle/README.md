@@ -40,12 +40,12 @@ func main() {
     res, err := s.LoggingLogshuttle.CreateLogLogshuttle(ctx, operations.CreateLogLogshuttleRequest{
         LoggingLogshuttle2: &shared.LoggingLogshuttle2{
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingLogshuttleFormatVersionTwo.ToPointer(),
+            FormatVersion: shared.LoggingLogshuttleFormatVersionOne.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingLogshuttlePlacementNone.ToPointer(),
+            Placement: shared.LoggingLogshuttlePlacementLessThanNilGreaterThan.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("consequuntur"),
-            URL: sdk.String("quasi"),
+            Token: sdk.String("aspernatur"),
+            URL: sdk.String("minima"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -256,12 +256,12 @@ func main() {
     res, err := s.LoggingLogshuttle.UpdateLogLogshuttle(ctx, operations.UpdateLogLogshuttleRequest{
         LoggingLogshuttle2: &shared.LoggingLogshuttle2{
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingLogshuttleFormatVersionTwo.ToPointer(),
+            FormatVersion: shared.LoggingLogshuttleFormatVersionOne.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingLogshuttlePlacementWafDebug.ToPointer(),
+            Placement: shared.LoggingLogshuttlePlacementLessThanNilGreaterThan.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("aliquid"),
-            URL: sdk.String("tenetur"),
+            Token: sdk.String("libero"),
+            URL: sdk.String("aut"),
         },
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

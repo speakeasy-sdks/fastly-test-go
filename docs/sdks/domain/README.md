@@ -144,7 +144,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Domain.CreateDomain(ctx, operations.CreateDomainRequest{
         Domain: &shared.Domain{
-            Comment: sdk.String("deleniti"),
+            Comment: sdk.String("natus"),
             Name: sdk.String("www.example.com"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -355,7 +355,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Domain.UpdateDomain(ctx, operations.UpdateDomainRequest{
         Domain: &shared.Domain{
-            Comment: sdk.String("omnis"),
+            Comment: sdk.String("nobis"),
             Name: sdk.String("www.example.com"),
         },
         DomainName: "www.example.com",

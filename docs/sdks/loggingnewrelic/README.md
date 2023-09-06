@@ -39,13 +39,13 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingNewrelic.CreateLogNewrelic(ctx, operations.CreateLogNewrelicRequest{
         LoggingNewrelic3: &shared.LoggingNewrelic3{
-            Format: sdk.String("quae"),
+            Format: sdk.String("aut"),
             FormatVersion: shared.LoggingNewrelicFormatVersionTwo.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingNewrelicPlacementWafDebug.ToPointer(),
+            Placement: shared.LoggingNewrelicPlacementLessThanNilGreaterThan.ToPointer(),
             Region: shared.LoggingNewrelicRegionUs.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("eius"),
+            Token: sdk.String("fugit"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -255,13 +255,13 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingNewrelic.UpdateLogNewrelic(ctx, operations.UpdateLogNewrelicRequest{
         LoggingNewrelic3: &shared.LoggingNewrelic3{
-            Format: sdk.String("libero"),
-            FormatVersion: shared.LoggingNewrelicFormatVersionTwo.ToPointer(),
+            Format: sdk.String("accusamus"),
+            FormatVersion: shared.LoggingNewrelicFormatVersionOne.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingNewrelicPlacementLessThanNilGreaterThan.ToPointer(),
+            Placement: shared.LoggingNewrelicPlacementNone.ToPointer(),
             Region: shared.LoggingNewrelicRegionUs.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("aliquam"),
+            Token: sdk.String("dolorum"),
         },
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

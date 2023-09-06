@@ -24,8 +24,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -38,7 +38,7 @@ func main() {
     res, err := s.Invitations.CreateInvitation(ctx, shared.InvitationInput{
         Data: &shared.InvitationDataInput{
             Attributes: &shared.InvitationDataAttributes{
-                Email: sdk.String("Kennedy20@yahoo.com"),
+                Email: sdk.String("Russ76@gmail.com"),
                 LimitServices: sdk.Bool(false),
                 Role: shared.RoleUserUser.ToPointer(),
                 StatusCode: shared.InvitationDataAttributesStatusCodeZero.ToPointer(),
@@ -49,7 +49,7 @@ func main() {
                         shared.ServiceInvitationInput{
                             Data: &shared.ServiceInvitationDataInput{
                                 Attributes: &shared.ServiceInvitationDataAttributes{
-                                    Permission: shared.ServiceInvitationDataAttributesPermissionReadOnly.ToPointer(),
+                                    Permission: shared.ServiceInvitationDataAttributesPermissionPurgeAll.ToPointer(),
                                 },
                                 Relationships: &shared.ServiceInvitationDataRelationshipsInput{
                                     Service: &shared.RelationshipMemberServiceInput{

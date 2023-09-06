@@ -86,7 +86,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.ListTLSConfigs(ctx, operations.ListTLSConfigsRequest{
-        FilterBulk: sdk.String("eum"),
+        FilterBulk: sdk.String("culpa"),
         Include: sdk.String("dns_records"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
@@ -143,14 +143,11 @@ func main() {
         TLSConfigurationInput: &shared.TLSConfigurationInput{
             Data: &shared.TLSConfigurationDataInput{
                 Attributes: &shared.TLSConfigurationDataAttributes{
-                    Name: sdk.String("Deanna Swaniawski"),
+                    Name: sdk.String("Dewey Leannon"),
                 },
                 Relationships: &shared.TLSConfigurationDataRelationships2Input{
                     DNSRecords: &shared.TLSConfigurationDataRelationships2DNSRecordsInput{
                         Data: []shared.RelationshipMemberTLSDNSRecordInput{
-                            shared.RelationshipMemberTLSDNSRecordInput{
-                                Type: shared.TypeTLSDNSRecordDNSRecord.ToPointer(),
-                            },
                             shared.RelationshipMemberTLSDNSRecordInput{
                                 Type: shared.TypeTLSDNSRecordDNSRecord.ToPointer(),
                             },

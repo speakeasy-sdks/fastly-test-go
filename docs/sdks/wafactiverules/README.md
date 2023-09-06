@@ -44,16 +44,13 @@ func main() {
     res, err := s.WafActiveRules.BulkUpdateWafActiveRules(ctx, operations.BulkUpdateWafActiveRulesRequest{
         BulkWafActiveRuleInput: &shared.BulkWafActiveRuleInput{
             Attributes: &shared.BulkWafActiveRuleAttributes{
-                ModsecRuleID: sdk.Int64(117315),
+                ModsecRuleID: sdk.Int64(401713),
                 Revision: &shared.WafRuleRevisionOrLatest{},
-                Status: shared.BulkWafActiveRuleAttributesStatusBlock.ToPointer(),
+                Status: shared.BulkWafActiveRuleAttributesStatusLog.ToPointer(),
             },
             Relationships: &shared.RelationshipWafFirewallVersionInput{
                 WafFirewallVersion: &shared.RelationshipWafFirewallVersionWafFirewallVersionInput{
                     Data: []shared.RelationshipMemberWafFirewallVersionInput{
-                        shared.RelationshipMemberWafFirewallVersionInput{
-                            Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
-                        },
                         shared.RelationshipMemberWafFirewallVersionInput{
                             Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
                         },
@@ -120,42 +117,13 @@ func main() {
             Data: []shared.WafActiveRuleDataInput{
                 shared.WafActiveRuleDataInput{
                     Attributes: &shared.WafActiveRuleDataAttributes{
-                        ModsecRuleID: sdk.Int64(235263),
-                        Revision: &shared.WafRuleRevisionOrLatest{},
-                        Status: shared.WafActiveRuleDataAttributesStatusBlock.ToPointer(),
-                    },
-                    Relationships: &shared.RelationshipWafFirewallVersionInput{
-                        WafFirewallVersion: &shared.RelationshipWafFirewallVersionWafFirewallVersionInput{
-                            Data: []shared.RelationshipMemberWafFirewallVersionInput{
-                                shared.RelationshipMemberWafFirewallVersionInput{
-                                    Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
-                                },
-                                shared.RelationshipMemberWafFirewallVersionInput{
-                                    Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
-                                },
-                                shared.RelationshipMemberWafFirewallVersionInput{
-                                    Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
-                                },
-                            },
-                        },
-                    },
-                    Type: shared.TypeWafActiveRuleWafActiveRule.ToPointer(),
-                },
-                shared.WafActiveRuleDataInput{
-                    Attributes: &shared.WafActiveRuleDataAttributes{
-                        ModsecRuleID: sdk.Int64(123844),
+                        ModsecRuleID: sdk.Int64(888044),
                         Revision: &shared.WafRuleRevisionOrLatest{},
                         Status: shared.WafActiveRuleDataAttributesStatusBlock.ToPointer(),
                     },
                     Relationships: &shared.RelationshipWafRuleRevisionInput{
                         WafRuleRevisions: &shared.RelationshipWafRuleRevisionWafRuleRevisionsInput{
                             Data: []shared.RelationshipMemberWafRuleRevisionInput{
-                                shared.RelationshipMemberWafRuleRevisionInput{
-                                    Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                                },
-                                shared.RelationshipMemberWafRuleRevisionInput{
-                                    Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                                },
                                 shared.RelationshipMemberWafRuleRevisionInput{
                                     Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
                                 },
@@ -225,16 +193,13 @@ func main() {
         WafActiveRuleInput: &shared.WafActiveRuleInput{
             Data: &shared.WafActiveRuleDataInput{
                 Attributes: &shared.WafActiveRuleDataAttributes{
-                    ModsecRuleID: sdk.Int64(399667),
+                    ModsecRuleID: sdk.Int64(310381),
                     Revision: &shared.WafRuleRevisionOrLatest{},
-                    Status: shared.WafActiveRuleDataAttributesStatusBlock.ToPointer(),
+                    Status: shared.WafActiveRuleDataAttributesStatusLog.ToPointer(),
                 },
                 Relationships: &shared.RelationshipWafFirewallVersionInput{
                     WafFirewallVersion: &shared.RelationshipWafFirewallVersionWafFirewallVersionInput{
                         Data: []shared.RelationshipMemberWafFirewallVersionInput{
-                            shared.RelationshipMemberWafFirewallVersionInput{
-                                Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
-                            },
                             shared.RelationshipMemberWafFirewallVersionInput{
                                 Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
                             },
@@ -405,10 +370,10 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafActiveRules.ListWafActiveRules(ctx, operations.ListWafActiveRulesRequest{
-        FilterOutdated: sdk.String("perferendis"),
-        FilterStatus: sdk.String("eum"),
-        FilterWafRuleRevisionMessage: sdk.String("voluptas"),
-        FilterWafRuleRevisionModsecRuleID: sdk.String("iste"),
+        FilterOutdated: sdk.String("debitis"),
+        FilterStatus: sdk.String("rem"),
+        FilterWafRuleRevisionMessage: sdk.String("sit"),
+        FilterWafRuleRevisionModsecRuleID: sdk.String("nobis"),
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         Include: sdk.String("waf_rule_revision,waf_firewall_version"),
         PageNumber: sdk.Int64(1),
@@ -471,24 +436,15 @@ func main() {
         WafActiveRuleInput: &shared.WafActiveRuleInput{
             Data: &shared.WafActiveRuleDataInput{
                 Attributes: &shared.WafActiveRuleDataAttributes{
-                    ModsecRuleID: sdk.Int64(661607),
+                    ModsecRuleID: sdk.Int64(625637),
                     Revision: &shared.WafRuleRevisionOrLatest{},
-                    Status: shared.WafActiveRuleDataAttributesStatusLog.ToPointer(),
+                    Status: shared.WafActiveRuleDataAttributesStatusBlock.ToPointer(),
                 },
-                Relationships: &shared.RelationshipWafRuleRevisionInput{
-                    WafRuleRevisions: &shared.RelationshipWafRuleRevisionWafRuleRevisionsInput{
-                        Data: []shared.RelationshipMemberWafRuleRevisionInput{
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
+                Relationships: &shared.RelationshipWafFirewallVersionInput{
+                    WafFirewallVersion: &shared.RelationshipWafFirewallVersionWafFirewallVersionInput{
+                        Data: []shared.RelationshipMemberWafFirewallVersionInput{
+                            shared.RelationshipMemberWafFirewallVersionInput{
+                                Type: shared.TypeWafFirewallVersionWafFirewallVersion.ToPointer(),
                             },
                         },
                     },

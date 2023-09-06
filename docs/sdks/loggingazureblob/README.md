@@ -39,24 +39,24 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingAzureblob.CreateLogAzure(ctx, operations.CreateLogAzureRequest{
         LoggingAzureblobInput: &shared.LoggingAzureblobInput{
-            AccountName: sdk.String("aut"),
+            AccountName: sdk.String("consequuntur"),
             CompressionCodec: shared.LoggingAzureblobCompressionCodecSnappy.ToPointer(),
-            Container: sdk.String("itaque"),
-            FileMaxBytes: sdk.Int64(9240),
+            Container: sdk.String("error"),
+            FileMaxBytes: sdk.Int64(50370),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingAzureblobFormatVersionTwo.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingAzureblobMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("repellendus"),
+            Path: sdk.String("rerum"),
             Period: sdk.Int64(3600),
-            Placement: shared.LoggingAzureblobPlacementLessThanNilGreaterThan.ToPointer(),
+            Placement: shared.LoggingAzureblobPlacementNone.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            SasToken: sdk.String("doloribus"),
+            SasToken: sdk.String("asperiores"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -266,16 +266,16 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingAzureblob.UpdateLogAzure(ctx, operations.UpdateLogAzureRequest{
         LoggingAzureblobInput: &shared.LoggingAzureblobInput{
-            AccountName: sdk.String("ut"),
-            CompressionCodec: shared.LoggingAzureblobCompressionCodecGzip.ToPointer(),
-            Container: sdk.String("cupiditate"),
-            FileMaxBytes: sdk.Int64(181631),
+            AccountName: sdk.String("earum"),
+            CompressionCodec: shared.LoggingAzureblobCompressionCodecZstd.ToPointer(),
+            Container: sdk.String("iste"),
+            FileMaxBytes: sdk.Int64(679091),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingAzureblobFormatVersionOne.ToPointer(),
+            FormatVersion: shared.LoggingAzureblobFormatVersionTwo.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingAzureblobMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("laudantium"),
+            Path: sdk.String("pariatur"),
             Period: sdk.Int64(3600),
             Placement: shared.LoggingAzureblobPlacementWafDebug.ToPointer(),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
@@ -283,7 +283,7 @@ func main() {
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            SasToken: sdk.String("occaecati"),
+            SasToken: sdk.String("nobis"),
         },
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

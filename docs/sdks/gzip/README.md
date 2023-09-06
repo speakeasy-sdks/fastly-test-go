@@ -40,8 +40,8 @@ func main() {
     res, err := s.Gzip.CreateGzipConfig(ctx, operations.CreateGzipConfigRequest{
         Gzip: &shared.Gzip{
             CacheCondition: sdk.String("null"),
-            ContentTypes: sdk.String("id"),
-            Extensions: sdk.String("saepe"),
+            ContentTypes: sdk.String("excepturi"),
+            Extensions: sdk.String("ullam"),
             Name: sdk.String("test-gzip"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -253,8 +253,8 @@ func main() {
     res, err := s.Gzip.UpdateGzipConfig(ctx, operations.UpdateGzipConfigRequest{
         Gzip: &shared.Gzip{
             CacheCondition: sdk.String("null"),
-            ContentTypes: sdk.String("eius"),
-            Extensions: sdk.String("aspernatur"),
+            ContentTypes: sdk.String("provident"),
+            Extensions: sdk.String("quos"),
             Name: sdk.String("test-gzip"),
         },
         GzipName: "test-gzip",

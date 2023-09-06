@@ -39,12 +39,12 @@ func main() {
     ctx := context.Background()
     res, err := s.Condition.CreateCondition(ctx, operations.CreateConditionRequest{
         ConditionInput: &shared.ConditionInput{
-            Comment: sdk.String("excepturi"),
+            Comment: sdk.String("iusto"),
             Name: sdk.String("test-condition"),
             Priority: sdk.String("10"),
-            Statement: sdk.String("pariatur"),
-            Type: shared.ConditionTypeCache.ToPointer(),
-            Version: sdk.String("praesentium"),
+            Statement: sdk.String("dicta"),
+            Type: shared.ConditionTypeResponse.ToPointer(),
+            Version: sdk.String("enim"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -254,12 +254,12 @@ func main() {
     ctx := context.Background()
     res, err := s.Condition.UpdateCondition(ctx, operations.UpdateConditionRequest{
         ConditionInput: &shared.ConditionInput{
-            Comment: sdk.String("rem"),
+            Comment: sdk.String("accusamus"),
             Name: sdk.String("test-condition"),
             Priority: sdk.String("10"),
-            Statement: sdk.String("voluptates"),
-            Type: shared.ConditionTypeRequest.ToPointer(),
-            Version: sdk.String("repudiandae"),
+            Statement: sdk.String("commodi"),
+            Type: shared.ConditionTypePrefetch.ToPointer(),
+            Version: sdk.String("quae"),
         },
         ConditionName: "test-condition",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

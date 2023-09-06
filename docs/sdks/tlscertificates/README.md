@@ -26,8 +26,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -40,21 +40,12 @@ func main() {
     res, err := s.TLSCertificates.CreateTLSCert(ctx, shared.TLSCertificateInput{
         Data: &shared.TLSCertificateDataInput{
             Attributes: &shared.TLSCertificateDataAttributes{
-                CertBlob: sdk.String("officia"),
-                Name: sdk.String("Irving Gleichner"),
+                CertBlob: sdk.String("dolorum"),
+                Name: sdk.String("Bethany D'Amore"),
             },
             Relationships: &shared.RelationshipTLSDomainsInput{
                 TLSDomains: &shared.RelationshipTLSDomainsTLSDomainsInput{
                     Data: []shared.RelationshipMemberTLSDomainInput{
-                        shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
-                        shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
-                        shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
                         shared.RelationshipMemberTLSDomainInput{
                             Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
                         },
@@ -213,10 +204,10 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSCertificates.ListTLSCerts(ctx, operations.ListTLSCertsRequest{
-        FilterInUse: sdk.String("sapiente"),
-        FilterNotAfter: sdk.String("cumque"),
-        FilterTLSDomainsID: sdk.String("vitae"),
-        Include: sdk.String("rerum"),
+        FilterInUse: sdk.String("dolore"),
+        FilterNotAfter: sdk.String("aliquam"),
+        FilterTLSDomainsID: sdk.String("officiis"),
+        Include: sdk.String("temporibus"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),
@@ -273,8 +264,8 @@ func main() {
         TLSCertificateInput: &shared.TLSCertificateInput{
             Data: &shared.TLSCertificateDataInput{
                 Attributes: &shared.TLSCertificateDataAttributes{
-                    CertBlob: sdk.String("quis"),
-                    Name: sdk.String("Mr. Denise Runolfsdottir"),
+                    CertBlob: sdk.String("adipisci"),
+                    Name: sdk.String("Guy Luettgen"),
                 },
                 Relationships: &shared.RelationshipTLSDomainsInput{
                     TLSDomains: &shared.RelationshipTLSDomainsTLSDomainsInput{

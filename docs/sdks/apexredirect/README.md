@@ -36,7 +36,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
-        ApexRedirectID: "debitis",
+        ApexRedirectID: "illum",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -86,7 +86,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ApexRedirect.GetApexRedirect(ctx, operations.GetApexRedirectRequest{
-        ApexRedirectID: "ipsa",
+        ApexRedirectID: "vel",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -190,15 +190,12 @@ func main() {
     res, err := s.ApexRedirect.UpdateApexRedirect(ctx, operations.UpdateApexRedirectRequest{
         ApexRedirectInput: &shared.ApexRedirectInput{
             Domains: []string{
-                "tempora",
-                "suscipit",
-                "molestiae",
-                "minus",
+                "error",
             },
-            FeatureRevision: sdk.Int64(812169),
-            StatusCode: shared.ApexRedirectStatusCodeThreeHundredAndSeven.ToPointer(),
+            FeatureRevision: sdk.Int64(645894),
+            StatusCode: shared.ApexRedirectStatusCodeThreeHundredAndTwo.ToPointer(),
         },
-        ApexRedirectID: "iusto",
+        ApexRedirectID: "iure",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

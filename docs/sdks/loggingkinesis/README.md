@@ -38,15 +38,15 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingKinesis.CreateLogKinesis(ctx, operations.CreateLogKinesisRequest{
         LoggingKinesis: &shared.LoggingKinesis{
-            AccessKey: sdk.String("culpa"),
-            Format: sdk.String("tempore"),
+            AccessKey: sdk.String("possimus"),
+            Format: sdk.String("magnam"),
             FormatVersion: shared.LoggingFormatVersionOne.ToPointer(),
-            IamRole: sdk.String("cumque"),
+            IamRole: sdk.String("ex"),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingPlacementNone.ToPointer(),
-            Region: shared.AwsRegionUsEast1.ToPointer(),
-            SecretKey: sdk.String("minus"),
-            Topic: sdk.String("quaerat"),
+            Placement: shared.LoggingPlacementWafDebug.ToPointer(),
+            Region: shared.AwsRegionUsWest1.ToPointer(),
+            SecretKey: sdk.String("dolor"),
+            Topic: sdk.String("maiores"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

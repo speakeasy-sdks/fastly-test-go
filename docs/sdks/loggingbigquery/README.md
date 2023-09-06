@@ -40,10 +40,10 @@ func main() {
     res, err := s.LoggingBigquery.CreateLogBigquery(ctx, operations.CreateLogBigqueryRequest{
         LoggingBigquery2: &shared.LoggingBigquery2{
             AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Dataset: sdk.String("voluptatibus"),
-            Format: sdk.String("quisquam"),
-            FormatVersion: shared.LoggingBigqueryFormatVersionTwo.ToPointer(),
-            Name: sdk.String("Tim Erdman"),
+            Dataset: sdk.String("libero"),
+            Format: sdk.String("delectus"),
+            FormatVersion: shared.LoggingBigqueryFormatVersionOne.ToPointer(),
+            Name: sdk.String("Gene Effertz"),
             Placement: shared.LoggingBigqueryPlacementNone.ToPointer(),
             ProjectID: sdk.String("test-project-id"),
             ResponseCondition: sdk.String("null"),
@@ -51,8 +51,8 @@ func main() {
         ...
         -----END PRIVATE KEY-----
         "),
-            Table: sdk.String("vero"),
-            TemplateSuffix: sdk.String("tenetur"),
+            Table: sdk.String("ipsum"),
+            TemplateSuffix: sdk.String("hic"),
             User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -264,19 +264,19 @@ func main() {
     res, err := s.LoggingBigquery.UpdateLogBigquery(ctx, operations.UpdateLogBigqueryRequest{
         LoggingBigquery2: &shared.LoggingBigquery2{
             AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Dataset: sdk.String("dignissimos"),
-            Format: sdk.String("hic"),
-            FormatVersion: shared.LoggingBigqueryFormatVersionTwo.ToPointer(),
-            Name: sdk.String("Lonnie Murray"),
-            Placement: shared.LoggingBigqueryPlacementWafDebug.ToPointer(),
+            Dataset: sdk.String("excepturi"),
+            Format: sdk.String("cum"),
+            FormatVersion: shared.LoggingBigqueryFormatVersionOne.ToPointer(),
+            Name: sdk.String("Johanna Farrell"),
+            Placement: shared.LoggingBigqueryPlacementNone.ToPointer(),
             ProjectID: sdk.String("test-project-id"),
             ResponseCondition: sdk.String("null"),
             SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Table: sdk.String("dolore"),
-            TemplateSuffix: sdk.String("quibusdam"),
+            Table: sdk.String("ipsa"),
+            TemplateSuffix: sdk.String("ipsa"),
             User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         LoggingBigqueryName: "test-log-endpoint",

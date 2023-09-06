@@ -37,9 +37,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStore.CreateStore(ctx, operations.CreateStoreRequest{
-        Location: sdk.String("sunt"),
+        Location: sdk.String("libero"),
         Store: &shared.Store{
-            Name: sdk.String("Miss Candice Weimann"),
+            Name: sdk.String("Ernest Hayes"),
         },
     }, operationSecurity)
     if err != nil {
@@ -91,7 +91,7 @@ func main() {
     ctx := context.Background()
     res, err := s.KvStore.DeleteStore(ctx, operations.DeleteStoreRequest{
         Force: sdk.Bool(false),
-        StoreID: "nobis",
+        StoreID: "eaque",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -141,7 +141,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStore.GetStore(ctx, operations.GetStoreRequest{
-        StoreID: "et",
+        StoreID: "quis",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -191,8 +191,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStore.GetStores(ctx, operations.GetStoresRequest{
-        Cursor: sdk.String("saepe"),
-        Limit: sdk.Int64(217450),
+        Cursor: sdk.String("nesciunt"),
+        Limit: sdk.Int64(179490),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

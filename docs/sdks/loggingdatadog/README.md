@@ -39,13 +39,13 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingDatadog.CreateLogDatadog(ctx, operations.CreateLogDatadogRequest{
         LoggingDatadog3: &shared.LoggingDatadog3{
-            Format: sdk.String("officia"),
-            FormatVersion: shared.LoggingDatadogFormatVersionOne.ToPointer(),
+            Format: sdk.String("voluptate"),
+            FormatVersion: shared.LoggingDatadogFormatVersionTwo.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
             Placement: shared.LoggingDatadogPlacementWafDebug.ToPointer(),
-            Region: shared.LoggingDatadogRegionUs.ToPointer(),
+            Region: shared.LoggingDatadogRegionEu.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("aspernatur"),
+            Token: sdk.String("necessitatibus"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -255,13 +255,13 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingDatadog.UpdateLogDatadog(ctx, operations.UpdateLogDatadogRequest{
         LoggingDatadog3: &shared.LoggingDatadog3{
-            Format: sdk.String("vel"),
+            Format: sdk.String("distinctio"),
             FormatVersion: shared.LoggingDatadogFormatVersionTwo.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingDatadogPlacementNone.ToPointer(),
+            Placement: shared.LoggingDatadogPlacementWafDebug.ToPointer(),
             Region: shared.LoggingDatadogRegionUs.ToPointer(),
             ResponseCondition: sdk.String("null"),
-            Token: sdk.String("ex"),
+            Token: sdk.String("voluptate"),
         },
         LoggingDatadogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

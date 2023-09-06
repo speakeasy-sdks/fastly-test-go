@@ -2,21 +2,21 @@ configVersion: 1.0.0
 management:
   docChecksum: 751bdf7393ba568b37b599aaf063bcf1
   docVersion: 1.0.0
-  speakeasyVersion: 1.77.0
-  generationVersion: 2.91.2
+  speakeasyVersion: 1.78.9
+  generationVersion: 2.96.9
 generation:
   sdkClassName: SDK
   singleTagPerOp: false
 features:
   go:
-    core: 2.86.1
+    core: 2.86.4
     deprecations: 2.81.1
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     inputOutputModels: 2.81.1
-    methodSecurity: 2.81.1
+    methodSecurity: 2.81.2
     unions: 2.81.2
 go:
-  version: 1.4.0
+  version: 1.4.1
   maxMethodParams: 0
   packageName: Fastly

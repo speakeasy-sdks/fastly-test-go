@@ -34,13 +34,13 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSDomains.ListTLSDomains(ctx, operations.ListTLSDomainsRequest{
-        FilterInUse: sdk.String("dicta"),
-        FilterTLSCertificatesID: sdk.String("minima"),
-        FilterTLSSubscriptionsID: sdk.String("beatae"),
-        Include: sdk.String("cupiditate"),
+        FilterInUse: sdk.String("sit"),
+        FilterTLSCertificatesID: sdk.String("rerum"),
+        FilterTLSSubscriptionsID: sdk.String("sed"),
+        Include: sdk.String("reiciendis"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
-        Sort: shared.SortMinusCreatedAt.ToPointer(),
+        Sort: shared.SortCreatedAt.ToPointer(),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

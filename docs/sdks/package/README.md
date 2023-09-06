@@ -87,11 +87,11 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Package.PutPackage(ctx, operations.PutPackageRequest{
-        Expect: sdk.String("hic"),
+        Expect: sdk.String("libero"),
         PackageUpload: &shared.PackageUpload{
             Package: &shared.PackageUploadPackage{
-                Content: []byte("exercitationem"),
-                Package: "nobis",
+                Content: []byte("illum"),
+                Package: "soluta",
             },
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

@@ -39,109 +39,28 @@ func main() {
         PublishRequest: &shared.PublishRequest{
             Items: []shared.PublishItem{
                 shared.PublishItem{
-                    Channel: "tempora",
+                    Channel: "non",
                     Formats: shared.PublishItemFormats{
                         HTTPResponse: &shared.HTTPResponseFormat{
-                            Body: sdk.String("tempora"),
-                            BodyBin: sdk.String("voluptate"),
-                            Code: sdk.Int64(970076),
+                            Body: sdk.String("voluptatem"),
+                            BodyBin: sdk.String("dolor"),
+                            Code: sdk.Int64(580152),
                             Headers: map[string]string{
-                                "sit": "non",
-                                "officiis": "praesentium",
+                                "numquam": "impedit",
                             },
-                            Reason: sdk.String("facilis"),
+                            Reason: sdk.String("explicabo"),
                         },
                         HTTPStream: &shared.HTTPStreamFormat{
-                            Content: sdk.String("quaerat"),
-                            ContentBin: sdk.String("incidunt"),
+                            Content: sdk.String("voluptas"),
+                            ContentBin: sdk.String("aut"),
                         },
                         WsMessage: &shared.WsMessageFormat{
-                            Content: sdk.String("ipsam"),
-                            ContentBin: sdk.String("debitis"),
+                            Content: sdk.String("dignissimos"),
+                            ContentBin: sdk.String("dicta"),
                         },
                     },
-                    ID: sdk.String("80ca55ef-d20e-4457-a185-8b6a89fbe3a5"),
-                    PrevID: sdk.String("officia"),
-                },
-                shared.PublishItem{
-                    Channel: "dolorum",
-                    Formats: shared.PublishItemFormats{
-                        HTTPResponse: &shared.HTTPResponseFormat{
-                            Body: sdk.String("corrupti"),
-                            BodyBin: sdk.String("accusamus"),
-                            Code: sdk.Int64(272683),
-                            Headers: map[string]string{
-                                "fugit": "ut",
-                                "fugiat": "voluptatem",
-                                "culpa": "expedita",
-                            },
-                            Reason: sdk.String("magnam"),
-                        },
-                        HTTPStream: &shared.HTTPStreamFormat{
-                            Content: sdk.String("consequatur"),
-                            ContentBin: sdk.String("esse"),
-                        },
-                        WsMessage: &shared.WsMessageFormat{
-                            Content: sdk.String("ipsam"),
-                            ContentBin: sdk.String("sit"),
-                        },
-                    },
-                    ID: sdk.String("88e51862-065e-4904-b3b1-194b8abf603a"),
-                    PrevID: sdk.String("voluptate"),
-                },
-                shared.PublishItem{
-                    Channel: "unde",
-                    Formats: shared.PublishItemFormats{
-                        HTTPResponse: &shared.HTTPResponseFormat{
-                            Body: sdk.String("reiciendis"),
-                            BodyBin: sdk.String("provident"),
-                            Code: sdk.Int64(833819),
-                            Headers: map[string]string{
-                                "voluptates": "perferendis",
-                                "est": "quidem",
-                                "reprehenderit": "facere",
-                                "fuga": "praesentium",
-                            },
-                            Reason: sdk.String("mollitia"),
-                        },
-                        HTTPStream: &shared.HTTPStreamFormat{
-                            Content: sdk.String("veniam"),
-                            ContentBin: sdk.String("voluptatem"),
-                        },
-                        WsMessage: &shared.WsMessageFormat{
-                            Content: sdk.String("quisquam"),
-                            ContentBin: sdk.String("repudiandae"),
-                        },
-                    },
-                    ID: sdk.String("187f86bc-173d-4689-aee9-526f8d986e88"),
-                    PrevID: sdk.String("sunt"),
-                },
-                shared.PublishItem{
-                    Channel: "recusandae",
-                    Formats: shared.PublishItemFormats{
-                        HTTPResponse: &shared.HTTPResponseFormat{
-                            Body: sdk.String("dolorum"),
-                            BodyBin: sdk.String("repellendus"),
-                            Code: sdk.Int64(287119),
-                            Headers: map[string]string{
-                                "doloremque": "repudiandae",
-                                "dicta": "accusantium",
-                                "beatae": "dolores",
-                                "enim": "laboriosam",
-                            },
-                            Reason: sdk.String("velit"),
-                        },
-                        HTTPStream: &shared.HTTPStreamFormat{
-                            Content: sdk.String("a"),
-                            ContentBin: sdk.String("molestias"),
-                        },
-                        WsMessage: &shared.WsMessageFormat{
-                            Content: sdk.String("magnam"),
-                            ContentBin: sdk.String("saepe"),
-                        },
-                    },
-                    ID: sdk.String("29e973e9-22a5-47a1-9be3-e060807e2b6e"),
-                    PrevID: sdk.String("ratione"),
+                    ID: sdk.String("f93f5f06-42da-4c7a-b515-cc413aa63aae"),
+                    PrevID: sdk.String("totam"),
                 },
             },
         },

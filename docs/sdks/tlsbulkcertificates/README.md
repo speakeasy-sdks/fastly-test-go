@@ -138,7 +138,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.ListTLSBulkCerts(ctx, operations.ListTLSBulkCertsRequest{
-        FilterTLSDomainID: sdk.String("animi"),
+        FilterTLSDomainID: sdk.String("similique"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),
@@ -197,23 +197,14 @@ func main() {
             Data: &shared.TLSBulkCertificateDataInput{
                 Attributes: &shared.TLSBulkCertificateDataAttributes{
                     AllowUntrustedRoot: sdk.Bool(false),
-                    CertBlob: sdk.String("aliquid"),
-                    IntermediatesBlob: sdk.String("accusantium"),
+                    CertBlob: sdk.String("aspernatur"),
+                    IntermediatesBlob: sdk.String("voluptas"),
                 },
-                Relationships: &shared.TLSBulkCertificateDataRelationships2Input{
-                    TLSDomains: &shared.TLSBulkCertificateDataRelationships2TLSDomainsInput{
-                        Data: []shared.RelationshipMemberTLSDomainInput{
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
+                Relationships: &shared.RelationshipTLSConfigurationsInput{
+                    TLSConfigurations: &shared.RelationshipTLSConfigurationsTLSConfigurationsInput{
+                        Data: []shared.RelationshipMemberTLSConfigurationInput{
+                            shared.RelationshipMemberTLSConfigurationInput{
+                                Type: shared.TypeTLSConfigurationTLSConfiguration.ToPointer(),
                             },
                         },
                     },
@@ -259,8 +250,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -273,21 +264,12 @@ func main() {
     res, err := s.TLSBulkCertificates.UploadTLSBulkCert(ctx, shared.TLSBulkCertificateDataInput{
         Attributes: &shared.TLSBulkCertificateDataAttributes{
             AllowUntrustedRoot: sdk.Bool(false),
-            CertBlob: sdk.String("ullam"),
-            IntermediatesBlob: sdk.String("in"),
+            CertBlob: sdk.String("voluptas"),
+            IntermediatesBlob: sdk.String("minima"),
         },
         Relationships: &shared.TLSBulkCertificateDataRelationships2Input{
             TLSDomains: &shared.TLSBulkCertificateDataRelationships2TLSDomainsInput{
                 Data: []shared.RelationshipMemberTLSDomainInput{
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
                     shared.RelationshipMemberTLSDomainInput{
                         Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
                     },

@@ -28,8 +28,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -42,7 +42,7 @@ func main() {
     res, err := s.User.CreateUser(ctx, shared.UserInput{
         LimitServices: sdk.Bool(false),
         Locked: sdk.Bool(false),
-        Name: sdk.String("Melba Stokes I"),
+        Name: sdk.String("Naomi Wuckert"),
         RequireNewPassword: sdk.Bool(false),
         Role: shared.RoleUserUser.ToPointer(),
         TwoFactorAuthEnabled: sdk.Bool(false),
@@ -297,7 +297,7 @@ func main() {
         UserInput: &shared.UserInput{
             LimitServices: sdk.Bool(false),
             Locked: sdk.Bool(false),
-            Name: sdk.String("Tanya Buckridge"),
+            Name: sdk.String("Herbert Treutel"),
             RequireNewPassword: sdk.Bool(false),
             Role: shared.RoleUserUser.ToPointer(),
             TwoFactorAuthEnabled: sdk.Bool(false),
@@ -342,8 +342,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -355,8 +355,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.User.UpdateUserPassword(ctx, shared.PasswordChange{
-        NewPassword: sdk.String("praesentium"),
-        OldPassword: sdk.String("maiores"),
+        NewPassword: sdk.String("occaecati"),
+        OldPassword: sdk.String("quos"),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

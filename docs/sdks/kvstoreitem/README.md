@@ -37,8 +37,8 @@ func main() {
     ctx := context.Background()
     res, err := s.KvStoreItem.DeleteKeyFromStore(ctx, operations.DeleteKeyFromStoreRequest{
         Force: sdk.Bool(false),
-        KeyName: "veritatis",
-        StoreID: "nobis",
+        KeyName: "perferendis",
+        StoreID: "dolores",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -88,10 +88,10 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetKeys(ctx, operations.GetKeysRequest{
-        Cursor: sdk.String("quos"),
-        Limit: sdk.Int64(731694),
-        Prefix: sdk.String("cupiditate"),
-        StoreID: "aperiam",
+        Cursor: sdk.String("minus"),
+        Limit: sdk.Int64(463451),
+        Prefix: sdk.String("dolor"),
+        StoreID: "vero",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -141,8 +141,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetValueForKey(ctx, operations.GetValueForKeyRequest{
-        KeyName: "delectus",
-        StoreID: "dolorem",
+        KeyName: "nostrum",
+        StoreID: "hic",
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)
@@ -192,16 +192,16 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.SetValueForKey(ctx, operations.SetValueForKeyRequest{
-        RequestBody: sdk.String("dolore"),
+        RequestBody: sdk.String("recusandae"),
         Add: sdk.Bool(false),
         Append: sdk.Bool(false),
         BackgroundFetch: sdk.Bool(false),
-        IfGenerationMatch: sdk.Int64(286915),
-        KeyName: "adipisci",
-        Metadata: sdk.String("dolorum"),
+        IfGenerationMatch: sdk.Int64(608253),
+        KeyName: "facilis",
+        Metadata: sdk.String("perspiciatis"),
         Prepend: sdk.Bool(false),
-        StoreID: "architecto",
-        TimeToLiveSec: sdk.Int64(63038),
+        StoreID: "voluptatem",
+        TimeToLiveSec: sdk.Int64(783645),
     }, operationSecurity)
     if err != nil {
         log.Fatal(err)

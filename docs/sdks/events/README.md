@@ -86,12 +86,12 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Events.ListEvents(ctx, operations.ListEventsRequest{
-        FilterCreatedAt: sdk.String("necessitatibus"),
+        FilterCreatedAt: sdk.String("eum"),
         FilterCustomerID: sdk.String("x4xCwxxJxGCx123Rx5xTx"),
-        FilterEventType: sdk.String("distinctio"),
-        FilterServiceID: sdk.String("asperiores"),
-        FilterTokenID: sdk.String("nihil"),
-        FilterUserID: sdk.String("ipsum"),
+        FilterEventType: sdk.String("vero"),
+        FilterServiceID: sdk.String("aspernatur"),
+        FilterTokenID: sdk.String("architecto"),
+        FilterUserID: sdk.String("magnam"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
         Sort: shared.SortCreatedAt.ToPointer(),

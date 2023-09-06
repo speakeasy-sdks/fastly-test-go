@@ -39,26 +39,26 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingFtp.CreateLogFtp(ctx, operations.CreateLogFtpRequest{
         LoggingFtpInput: &shared.LoggingFtpInput{
-            Address: sdk.String("7588 Mona Cliffs"),
+            Address: sdk.String("14736 Cristobal Forge"),
             CompressionCodec: shared.LoggingFtpCompressionCodecZstd.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingFtpFormatVersionOne.ToPointer(),
+            FormatVersion: shared.LoggingFtpFormatVersionTwo.ToPointer(),
             GzipLevel: sdk.Int64(0),
-            Hostname: sdk.String("compassionate-network.com"),
-            Ipv4: sdk.String("121.77.124.67"),
+            Hostname: sdk.String("steel-subconscious.net"),
+            Ipv4: sdk.String("30.172.132.70"),
             MessageType: shared.LoggingFtpMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Password: sdk.String("esse"),
-            Path: sdk.String("esse"),
+            Password: sdk.String("aspernatur"),
+            Path: sdk.String("dolores"),
             Period: sdk.Int64(3600),
-            Placement: shared.LoggingFtpPlacementWafDebug.ToPointer(),
-            Port: sdk.Int64(683282),
+            Placement: shared.LoggingFtpPlacementLessThanNilGreaterThan.ToPointer(),
+            Port: sdk.Int64(704474),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            User: sdk.String("reprehenderit"),
+            User: sdk.String("aliquid"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -268,26 +268,26 @@ func main() {
     ctx := context.Background()
     res, err := s.LoggingFtp.UpdateLogFtp(ctx, operations.UpdateLogFtpRequest{
         LoggingFtpInput: &shared.LoggingFtpInput{
-            Address: sdk.String("824 Reyna Dam"),
-            CompressionCodec: shared.LoggingFtpCompressionCodecSnappy.ToPointer(),
+            Address: sdk.String("5812 Casimir Lock"),
+            CompressionCodec: shared.LoggingFtpCompressionCodecZstd.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingFtpFormatVersionTwo.ToPointer(),
+            FormatVersion: shared.LoggingFtpFormatVersionOne.ToPointer(),
             GzipLevel: sdk.Int64(0),
-            Hostname: sdk.String("bouncy-babushka.name"),
-            Ipv4: sdk.String("178.52.199.216"),
+            Hostname: sdk.String("scared-underpass.com"),
+            Ipv4: sdk.String("195.191.191.23"),
             MessageType: shared.LoggingFtpMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Password: sdk.String("quo"),
-            Path: sdk.String("fuga"),
+            Password: sdk.String("saepe"),
+            Path: sdk.String("ipsum"),
             Period: sdk.Int64(3600),
             Placement: shared.LoggingFtpPlacementNone.ToPointer(),
-            Port: sdk.Int64(178367),
+            Port: sdk.Int64(749255),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
             ResponseCondition: sdk.String("null"),
-            User: sdk.String("voluptas"),
+            User: sdk.String("quos"),
         },
         LoggingFtpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

@@ -89,10 +89,10 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafRules.ListWafRules(ctx, operations.ListWafRulesRequest{
-        FilterModsecRuleID: sdk.String("porro"),
-        FilterWafFirewallIDNotMatch: sdk.String("autem"),
-        FilterWafRuleRevisionsSource: sdk.String("nobis"),
-        FilterWafTagsName: sdk.String("laboriosam"),
+        FilterModsecRuleID: sdk.String("praesentium"),
+        FilterWafFirewallIDNotMatch: sdk.String("mollitia"),
+        FilterWafRuleRevisionsSource: sdk.String("veniam"),
+        FilterWafTagsName: sdk.String("voluptatem"),
         Include: sdk.String("waf_tags,waf_rule_revisions"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),

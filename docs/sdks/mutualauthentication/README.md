@@ -26,8 +26,8 @@ import(
 	"context"
 	"log"
 	"Fastly"
-	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
@@ -40,9 +40,9 @@ func main() {
     res, err := s.MutualAuthentication.CreateMutualTLSAuthentication(ctx, shared.MutualAuthenticationInput{
         Data: &shared.MutualAuthenticationDataInput{
             Attributes: &shared.MutualAuthenticationDataAttributes{
-                CertBundle: sdk.String("in"),
+                CertBundle: sdk.String("eveniet"),
                 Enforced: sdk.Bool(false),
-                Name: sdk.String("Suzanne Torphy"),
+                Name: sdk.String("Carroll Bogan V"),
             },
             Relationships: &shared.RelationshipTLSActivationsInput{
                 TLSActivations: &shared.RelationshipTLSActivationsTLSActivationsInput{
@@ -154,7 +154,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.GetMutualAuthentication(ctx, operations.GetMutualAuthenticationRequest{
-        Include: sdk.String("cum"),
+        Include: sdk.String("culpa"),
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
     }, operationSecurity)
     if err != nil {
@@ -205,7 +205,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.ListMutualAuthentications(ctx, operations.ListMutualAuthenticationsRequest{
-        Include: sdk.String("blanditiis"),
+        Include: sdk.String("aliquid"),
         PageNumber: sdk.Int64(1),
         PageSize: sdk.Int64(20),
     }, operationSecurity)
@@ -261,19 +261,13 @@ func main() {
         MutualAuthenticationInput: &shared.MutualAuthenticationInput{
             Data: &shared.MutualAuthenticationDataInput{
                 Attributes: &shared.MutualAuthenticationDataAttributes{
-                    CertBundle: sdk.String("quas"),
+                    CertBundle: sdk.String("tenetur"),
                     Enforced: sdk.Bool(false),
-                    Name: sdk.String("Danny Nader"),
+                    Name: sdk.String("Lila Kassulke"),
                 },
                 Relationships: &shared.RelationshipTLSActivationsInput{
                     TLSActivations: &shared.RelationshipTLSActivationsTLSActivationsInput{
                         Data: []shared.RelationshipMemberTLSActivationInput{
-                            shared.RelationshipMemberTLSActivationInput{
-                                Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSActivationInput{
-                                Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
-                            },
                             shared.RelationshipMemberTLSActivationInput{
                                 Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
                             },

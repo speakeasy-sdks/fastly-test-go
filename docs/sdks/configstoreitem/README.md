@@ -47,16 +47,6 @@ func main() {
                     ItemValue: sdk.String("test-value"),
                     Op: shared.BulkUpdateConfigStoreItemOpCreate.ToPointer(),
                 },
-                shared.BulkUpdateConfigStoreItem{
-                    ItemKey: sdk.String("test-key"),
-                    ItemValue: sdk.String("test-value"),
-                    Op: shared.BulkUpdateConfigStoreItemOpUpsert.ToPointer(),
-                },
-                shared.BulkUpdateConfigStoreItem{
-                    ItemKey: sdk.String("test-key"),
-                    ItemValue: sdk.String("test-value"),
-                    Op: shared.BulkUpdateConfigStoreItemOpUpdate.ToPointer(),
-                },
             },
         },
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",

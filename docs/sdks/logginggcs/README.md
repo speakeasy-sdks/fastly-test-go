@@ -40,16 +40,16 @@ func main() {
     res, err := s.LoggingGcs.CreateLogGcs(ctx, operations.CreateLogGcsRequest{
         LoggingGcsInput: &shared.LoggingGcsInput{
             AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            BucketName: sdk.String("ab"),
+            BucketName: sdk.String("tempore"),
             CompressionCodec: shared.LoggingGcsCompressionCodecSnappy.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingGcsFormatVersionOne.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingGcsMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("tempora"),
+            Path: sdk.String("delectus"),
             Period: sdk.Int64(3600),
-            Placement: shared.LoggingGcsPlacementLessThanNilGreaterThan.ToPointer(),
+            Placement: shared.LoggingGcsPlacementNone.ToPointer(),
             ProjectID: sdk.String("test-project-id"),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
@@ -271,16 +271,16 @@ func main() {
     res, err := s.LoggingGcs.UpdateLogGcs(ctx, operations.UpdateLogGcsRequest{
         LoggingGcsInput: &shared.LoggingGcsInput{
             AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            BucketName: sdk.String("ipsam"),
+            BucketName: sdk.String("dolore"),
             CompressionCodec: shared.LoggingGcsCompressionCodecZstd.ToPointer(),
             Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingGcsFormatVersionOne.ToPointer(),
             GzipLevel: sdk.Int64(0),
             MessageType: shared.LoggingGcsMessageTypeClassic.ToPointer(),
             Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("quo"),
+            Path: sdk.String("dolorum"),
             Period: sdk.Int64(3600),
-            Placement: shared.LoggingGcsPlacementWafDebug.ToPointer(),
+            Placement: shared.LoggingGcsPlacementNone.ToPointer(),
             ProjectID: sdk.String("test-project-id"),
             PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
         ...
