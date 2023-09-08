@@ -16,6 +16,7 @@ import (
 )
 
 // pop - List Fastly POPs and their locations.
+//
 // https://developer.fastly.com/reference/api/utils/pops
 type pop struct {
 	sdkConfiguration sdkConfiguration

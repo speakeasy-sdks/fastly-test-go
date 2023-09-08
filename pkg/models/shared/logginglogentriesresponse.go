@@ -110,7 +110,6 @@ func (e *LoggingLogentriesResponseRegion) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingLogentriesResponse - OK
 type LoggingLogentriesResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

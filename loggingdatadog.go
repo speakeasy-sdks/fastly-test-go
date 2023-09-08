@@ -15,6 +15,7 @@ import (
 )
 
 // loggingDatadog - Fastly will upload log messages to Datadog in the format specified in the Datadog configuration object.
+//
 // https://developer.fastly.com/reference/api/logging/datadog
 type loggingDatadog struct {
 	sdkConfiguration sdkConfiguration

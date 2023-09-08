@@ -16,6 +16,7 @@ import (
 )
 
 // wafFirewalls - A firewall represents a configuration of a Web Application Firewall (WAF) on a service. A firewall has many firewall versions through which you can manage rules.
+//
 // https://developer.fastly.com/reference/api/waf/firewall
 type wafFirewalls struct {
 	sdkConfiguration sdkConfiguration

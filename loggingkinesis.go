@@ -15,6 +15,7 @@ import (
 )
 
 // loggingKinesis - Fastly will publish log messages to an Amazon Kinesis stream in the format specified in the Amazon Kinesis Data Streams logging object.
+//
 // https://developer.fastly.com/reference/api/logging/kinesis
 type loggingKinesis struct {
 	sdkConfiguration sdkConfiguration

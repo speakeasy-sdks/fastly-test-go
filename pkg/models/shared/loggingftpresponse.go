@@ -132,7 +132,6 @@ func (e *LoggingFtpResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingFtpResponse - OK
 type LoggingFtpResponse struct {
 	// An hostname or IPv4 address.
 	Address *string `json:"address,omitempty"`

@@ -1,7 +1,5 @@
 # BackendResponse
 
-OK
-
 
 ## Fields
 

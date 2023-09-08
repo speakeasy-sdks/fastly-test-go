@@ -15,6 +15,7 @@ import (
 )
 
 // condition - Conditions are used to control whether logic defined in configured VCL objects is applied for a particular client request. A condition contains a VCL conditional expression that evaluates to either true or false and is used to determine whether the condition is met. The type of the condition determines where it is executed and the VCL variables that can be evaluated as part of the conditional logic.
+//
 // https://developer.fastly.com/reference/api/vcl-services/condition
 type condition struct {
 	sdkConfiguration sdkConfiguration

@@ -16,6 +16,7 @@ import (
 )
 
 // tlsSubscriptions - The TLS subscriptions API allows you to programmatically generate TLS certificates that are procured and renewed by Fastly. Once a subscription is created for a given hostname or wildcard domain, DNS records are checked to ensure that the domain on the subscription is owned by the subscription creator. Provided DNS records are maintained, TLS certificates will automatically renew. If Fastly is unable to issue a certificate, we will retry to issue the certificate for 7 days past subscription creation or the latest certificate's not_after date, whichever is later. If after 7 days Fastly is unable to issue a certificate, the subscription state will change to `failed` and Fastly will stop retrying.
+//
 // https://developer.fastly.com/reference/api/tls/subs
 type tlsSubscriptions struct {
 	sdkConfiguration sdkConfiguration

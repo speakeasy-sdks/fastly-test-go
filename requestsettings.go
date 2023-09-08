@@ -15,6 +15,7 @@ import (
 )
 
 // requestSettings - Settings used to customize Fastly's request handling. When used with [Conditions](#condition) the Request Settings object allows you to fine tune how specific types of requests are handled.
+//
 // https://developer.fastly.com/reference/api/vcl-services/request-settings
 type requestSettings struct {
 	sdkConfiguration sdkConfiguration

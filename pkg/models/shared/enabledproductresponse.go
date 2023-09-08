@@ -65,7 +65,6 @@ func (o *EnabledProductResponseService) GetObject() *string {
 	return o.Object
 }
 
-// EnabledProductResponse - OK
 type EnabledProductResponse struct {
 	Links   *EnabledProductResponseLinks   `json:"_links,omitempty"`
 	Product *EnabledProductResponseProduct `json:"product,omitempty"`

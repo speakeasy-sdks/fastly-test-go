@@ -15,6 +15,7 @@ import (
 )
 
 // gzip - Gzip configuration allows you to choose resources to automatically compress.  For more information about compressing and decompressing data with Fastly, check out our [concept guide to compression](https://developer.fastly.com/learning/concepts/compression/).
+//
 // https://developer.fastly.com/reference/api/vcl-services/gzip
 type gzip struct {
 	sdkConfiguration sdkConfiguration

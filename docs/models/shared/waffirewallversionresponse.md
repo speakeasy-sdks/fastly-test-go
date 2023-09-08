@@ -1,7 +1,5 @@
 # WafFirewallVersionResponse
 
-Created
-
 
 ## Fields
 

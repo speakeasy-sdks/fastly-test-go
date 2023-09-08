@@ -15,6 +15,7 @@ import (
 )
 
 // billing - Get information on current and past bills.
+//
 // https://developer.fastly.com/reference/api/account/billing
 type billing struct {
 	sdkConfiguration sdkConfiguration

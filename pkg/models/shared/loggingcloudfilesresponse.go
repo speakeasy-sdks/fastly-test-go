@@ -175,7 +175,6 @@ func (e *LoggingCloudfilesResponseRegion) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingCloudfilesResponse - OK
 type LoggingCloudfilesResponse struct {
 	// Your Cloud Files account access key.
 	AccessKey *string `json:"access_key,omitempty"`

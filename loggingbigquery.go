@@ -15,6 +15,7 @@ import (
 )
 
 // loggingBigquery - Fastly will upload log messages to the Google BigQuery dataset and table in the format specified in the BigQuery logging object.
+//
 // https://developer.fastly.com/reference/api/logging/bigquery
 type loggingBigquery struct {
 	sdkConfiguration sdkConfiguration

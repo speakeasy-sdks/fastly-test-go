@@ -15,6 +15,7 @@ import (
 )
 
 // iamServiceGroups - A service group is a collection of services that can be assigned to a user group.
+//
 // https://developer.fastly.com/reference/api/account/service-groups
 type iamServiceGroups struct {
 	sdkConfiguration sdkConfiguration

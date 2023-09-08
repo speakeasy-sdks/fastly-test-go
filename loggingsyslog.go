@@ -15,6 +15,7 @@ import (
 )
 
 // loggingSyslog - Fastly will stream log messages to the location in the format specified in the Syslog object.
+//
 // https://developer.fastly.com/reference/api/logging/syslog
 type loggingSyslog struct {
 	sdkConfiguration sdkConfiguration

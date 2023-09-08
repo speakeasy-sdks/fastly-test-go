@@ -1,7 +1,5 @@
 # PoolResponse
 
-OK
-
 
 ## Fields
 

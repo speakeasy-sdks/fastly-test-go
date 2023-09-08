@@ -16,6 +16,7 @@ import (
 )
 
 // invitations - Invitations allow superusers and engineers to invite users to set up accounts as collaborators under a main customer account. Superusers can invite collaborators and assign them any role or permission level on a per-service basis. Engineers with no per-service limitations on their role can only invite new collaborators but cannot modify their permissions.
+//
 // https://developer.fastly.com/reference/api/account/invitations
 type invitations struct {
 	sdkConfiguration sdkConfiguration

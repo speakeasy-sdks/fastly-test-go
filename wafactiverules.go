@@ -15,6 +15,7 @@ import (
 )
 
 // wafActiveRules - An active rule represents a [rule revision](/reference/api/waf/rules/revisions/) added to a particular [firewall version](/reference/api/waf/firewall-version/).
+//
 // https://developer.fastly.com/reference/api/waf/rules/active
 type wafActiveRules struct {
 	sdkConfiguration sdkConfiguration

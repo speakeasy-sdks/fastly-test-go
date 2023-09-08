@@ -2,7 +2,6 @@
 
 package shared
 
-// MutualAuthenticationResponse - Created
 type MutualAuthenticationResponse struct {
 	Data *MutualAuthenticationResponseData `json:"data,omitempty"`
 }

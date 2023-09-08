@@ -15,6 +15,7 @@ import (
 )
 
 // loggingHeroku - Fastly will stream log messages to the Heroku account in the format specified in the Heroku object.
+//
 // https://developer.fastly.com/reference/api/logging/heroku
 type loggingHeroku struct {
 	sdkConfiguration sdkConfiguration

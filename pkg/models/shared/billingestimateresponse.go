@@ -381,7 +381,6 @@ func (o *BillingEstimateResponseTotal) GetTerms() *string {
 	return o.Terms
 }
 
-// BillingEstimateResponse - OK
 type BillingEstimateResponse struct {
 	CustomerID *string `json:"customer_id,omitempty"`
 	// Date and time in ISO 8601 format.

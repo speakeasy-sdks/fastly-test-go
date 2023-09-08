@@ -15,6 +15,7 @@ import (
 )
 
 // loggingHTTPS - Fastly will upload log messages to an HTTPS endpoint in the format specified in the HTTPS object. The HTTPS endpoint requires proof of domain ownership before logs can be received. Learn how to validate your domain in our [HTTPS endpoint documentation](https://docs.fastly.com/en/guides/log-streaming-https).
+//
 // https://developer.fastly.com/reference/api/logging/https
 type loggingHTTPS struct {
 	sdkConfiguration sdkConfiguration

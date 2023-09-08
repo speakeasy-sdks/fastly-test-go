@@ -80,7 +80,6 @@ func (o *TLSBulkCertificatesResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// TLSBulkCertificatesResponse - OK
 type TLSBulkCertificatesResponse struct {
 	Data  []TLSBulkCertificateResponseData  `json:"data,omitempty"`
 	Links *TLSBulkCertificatesResponseLinks `json:"links,omitempty"`

@@ -80,7 +80,6 @@ func (o *MutualAuthenticationsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// MutualAuthenticationsResponse - OK
 type MutualAuthenticationsResponse struct {
 	Data  []MutualAuthenticationResponseData  `json:"data,omitempty"`
 	Links *MutualAuthenticationsResponseLinks `json:"links,omitempty"`

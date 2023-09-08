@@ -16,6 +16,7 @@ import (
 )
 
 // tlsPrivateKeys - A private key is used to sign a Certificate. A key can be used to sign multiple certificates.
+//
 // https://developer.fastly.com/reference/api/tls/custom-certs/private-keys
 type tlsPrivateKeys struct {
 	sdkConfiguration sdkConfiguration

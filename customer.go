@@ -16,6 +16,7 @@ import (
 )
 
 // customer - A Customer is the base object that owns your Users and Services. Some information may be limited depending on access level.
+//
 // https://developer.fastly.com/reference/api/account/customer
 type customer struct {
 	sdkConfiguration sdkConfiguration

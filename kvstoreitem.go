@@ -14,6 +14,7 @@ import (
 )
 
 // kvStoreItem - An item in an kv store.
+//
 // https://developer.fastly.com/reference/api/services/resources/kv-store-item
 type kvStoreItem struct {
 	sdkConfiguration sdkConfiguration

@@ -16,6 +16,7 @@ import (
 )
 
 // mutualAuthentication - The Mutual TLS API allows for client-to-server authentication using client-side X.509 authentication. The main Mutual Authentication object represents the certificate bundle and other configurations which support Mutual TLS for your domains.
+//
 // https://developer.fastly.com/reference/api/tls/mutual-tls/authentication
 type mutualAuthentication struct {
 	sdkConfiguration sdkConfiguration

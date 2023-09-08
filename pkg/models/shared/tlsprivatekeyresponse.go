@@ -2,7 +2,6 @@
 
 package shared
 
-// TLSPrivateKeyResponse - Created
 type TLSPrivateKeyResponse struct {
 	Data *TLSPrivateKeyResponseData `json:"data,omitempty"`
 }

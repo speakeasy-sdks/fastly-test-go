@@ -15,6 +15,7 @@ import (
 )
 
 // loggingLogentries - The Logentries integration has been discontinued.  No new Logentries endpoints can be created.
+//
 // https://developer.fastly.com/reference/api/logging/logentries
 type loggingLogentries struct {
 	sdkConfiguration sdkConfiguration

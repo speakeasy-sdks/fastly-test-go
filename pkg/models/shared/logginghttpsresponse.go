@@ -126,7 +126,6 @@ func (e *LoggingHTTPSResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingHTTPSResponse - OK
 type LoggingHTTPSResponse struct {
 	// Content type of the header sent with the request.
 	ContentType *string `json:"content_type,omitempty"`

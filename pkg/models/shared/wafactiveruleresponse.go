@@ -2,7 +2,6 @@
 
 package shared
 
-// WafActiveRuleResponse - OK
 type WafActiveRuleResponse struct {
 	Data *WafActiveRuleResponseData `json:"data,omitempty"`
 }

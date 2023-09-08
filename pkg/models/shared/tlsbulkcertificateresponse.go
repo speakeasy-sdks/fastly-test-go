@@ -2,7 +2,6 @@
 
 package shared
 
-// TLSBulkCertificateResponse - Created
 type TLSBulkCertificateResponse struct {
 	Data *TLSBulkCertificateResponseData `json:"data,omitempty"`
 }

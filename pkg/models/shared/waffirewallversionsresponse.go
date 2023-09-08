@@ -80,7 +80,6 @@ func (o *WafFirewallVersionsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// WafFirewallVersionsResponse - OK
 type WafFirewallVersionsResponse struct {
 	Data     []WafFirewallVersionResponseData  `json:"data,omitempty"`
 	Included []interface{}                     `json:"included,omitempty"`

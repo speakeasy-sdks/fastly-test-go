@@ -132,7 +132,6 @@ func (e *LoggingSftpResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingSftpResponse - OK
 type LoggingSftpResponse struct {
 	// A hostname or IPv4 address.
 	Address *string `json:"address,omitempty"`

@@ -14,7 +14,8 @@ import (
 	"net/http"
 )
 
-// pool - A pool is responsible for balancing requests among a group of servers. In addition to balancing, pools can be configured to attempt retrying failed requests. Pools have a quorum setting that can be used to determine when the pool as a whole is considered up, in order to prevent problems following an outage as servers come back up.
+// A pool is responsible for balancing requests among a group of servers. In addition to balancing, pools can be configured to attempt retrying failed requests. Pools have a quorum setting that can be used to determine when the pool as a whole is considered up, in order to prevent problems following an outage as servers come back up.
+//
 // https://developer.fastly.com/reference/api/load-balancing/pools/pool
 type pool struct {
 	sdkConfiguration sdkConfiguration

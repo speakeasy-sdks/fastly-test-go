@@ -36,7 +36,6 @@ func (e *ACLEntryResponseNegated) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ACLEntryResponse - OK
 type ACLEntryResponse struct {
 	ACLID *string `json:"acl_id,omitempty"`
 	// A freeform descriptive note.

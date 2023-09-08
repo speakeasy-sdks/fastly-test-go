@@ -15,6 +15,7 @@ import (
 )
 
 // cacheSettings - Configures cache lifetime for objects stored in the Fastly cache, overriding cache freshness information that would otherwise be determined from cache-related headers on the HTTP response. When used in conjunction with conditions, cache settings objects provide detailed control over how long content persists in the cache.
+//
 // https://developer.fastly.com/reference/api/vcl-services/cache-settings
 type cacheSettings struct {
 	sdkConfiguration sdkConfiguration

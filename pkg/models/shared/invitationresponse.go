@@ -2,7 +2,6 @@
 
 package shared
 
-// InvitationResponse - OK
 type InvitationResponse struct {
 	Data *InvitationResponseData `json:"data,omitempty"`
 }

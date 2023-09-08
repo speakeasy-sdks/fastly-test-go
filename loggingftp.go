@@ -15,6 +15,7 @@ import (
 )
 
 // loggingFtp - Fastly will upload log messages periodically to the server in the format specified in the FTP object.
+//
 // https://developer.fastly.com/reference/api/logging/ftp
 type loggingFtp struct {
 	sdkConfiguration sdkConfiguration

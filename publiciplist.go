@@ -16,6 +16,7 @@ import (
 )
 
 // publicIPList - To help you manage firewall rules for connections from Fastly to your origin, we provide access to the [list of Fastly's assigned IP ranges](https://api.fastly.com/public-ip-list). Changes to this list will be announced in advance as an "IP address announcement" along with other service announcements to our [status page](https://fastlystatus.com/), which you can [subscribe](https://docs.fastly.com/en/guides/fastlys-network-status#subscribing-to-notifications) to. This list is exhaustive and includes all Fastly-owned IP ranges, so any client connections, log streaming reports, and origin connections should use these addresses.
+//
 // https://developer.fastly.com/reference/api/utils/public-ip-list
 type publicIPList struct {
 	sdkConfiguration sdkConfiguration

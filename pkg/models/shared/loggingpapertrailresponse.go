@@ -67,7 +67,6 @@ func (e *LoggingPapertrailResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingPapertrailResponse - OK
 type LoggingPapertrailResponse struct {
 	// A hostname or IPv4 address.
 	Address *string `json:"address,omitempty"`

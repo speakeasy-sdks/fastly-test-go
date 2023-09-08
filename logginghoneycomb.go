@@ -15,6 +15,7 @@ import (
 )
 
 // loggingHoneycomb - Fastly will upload log messages to Honeycomb.io in the format specified in the Honeycomb object.
+//
 // https://developer.fastly.com/reference/api/logging/honeycomb
 type loggingHoneycomb struct {
 	sdkConfiguration sdkConfiguration

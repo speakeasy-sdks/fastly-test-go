@@ -2,7 +2,6 @@
 
 package shared
 
-// DictionaryInfoResponse - OK
 type DictionaryInfoResponse struct {
 	// A hash of all the dictionary content.
 	Digest *string `json:"digest,omitempty"`

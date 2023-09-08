@@ -16,6 +16,7 @@ import (
 )
 
 // serviceAuthorizations - A service authorization allows limited users to access only specified services.
+//
 // https://developer.fastly.com/reference/api/account/service-authorization
 type serviceAuthorizations struct {
 	sdkConfiguration sdkConfiguration

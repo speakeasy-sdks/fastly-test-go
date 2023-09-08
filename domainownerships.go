@@ -15,6 +15,7 @@ import (
 )
 
 // domainOwnerships - A domain ownership is the record that Fastly keeps after a customer has validated control over a domain.
+//
 // https://developer.fastly.com/reference/api/services/domain-ownerships
 type domainOwnerships struct {
 	sdkConfiguration sdkConfiguration

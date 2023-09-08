@@ -38,7 +38,6 @@ func (o *HistoricalFieldResponseMeta) GetTo() *string {
 	return o.To
 }
 
-// HistoricalFieldResponse - OK
 type HistoricalFieldResponse struct {
 	Data map[string][]map[string]string `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.

@@ -16,6 +16,7 @@ import (
 )
 
 // tlsBulkCertificates - Available to Platform TLS customers, these endpoints streamline the upload, deployment and management of large numbers of TLS certificates. A certificate is used to terminate TLS traffic for one or more of your fully qualified domain names (domains). Uploading a new certificate automatically enables TLS for all domains listed as Subject Alternative Names (SAN entries) on the certificate.
+//
 // https://developer.fastly.com/reference/api/tls/platform
 type tlsBulkCertificates struct {
 	sdkConfiguration sdkConfiguration

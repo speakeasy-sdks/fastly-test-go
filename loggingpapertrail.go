@@ -15,6 +15,7 @@ import (
 )
 
 // loggingPapertrail - Fastly will stream log messages to the Papertrail account in the format specified in the Papertrail object.
+//
 // https://developer.fastly.com/reference/api/logging/papertrail
 type loggingPapertrail struct {
 	sdkConfiguration sdkConfiguration

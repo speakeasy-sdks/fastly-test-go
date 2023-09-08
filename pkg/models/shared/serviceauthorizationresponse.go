@@ -2,7 +2,6 @@
 
 package shared
 
-// ServiceAuthorizationResponse - OK
 type ServiceAuthorizationResponse struct {
 	Data *ServiceAuthorizationResponseData `json:"data,omitempty"`
 }

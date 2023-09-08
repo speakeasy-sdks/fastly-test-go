@@ -16,6 +16,7 @@ import (
 )
 
 // tlsConfigurations - Customers with access to multiple sets of IP pools are able to apply different configuration options to their TLS enabled domains.
+//
 // https://developer.fastly.com/reference/api/tls/configuration
 type tlsConfigurations struct {
 	sdkConfiguration sdkConfiguration

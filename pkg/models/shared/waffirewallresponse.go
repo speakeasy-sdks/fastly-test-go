@@ -2,7 +2,6 @@
 
 package shared
 
-// WafFirewallResponse - Created
 type WafFirewallResponse struct {
 	Data     *WafFirewallResponseData    `json:"data,omitempty"`
 	Included []SchemasWafFirewallVersion `json:"included,omitempty"`

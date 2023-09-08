@@ -21,7 +21,6 @@ func (o *StarResponseData) GetID() *string {
 	return o.ID
 }
 
-// StarResponse - OK
 type StarResponse struct {
 	Data *StarResponseData `json:"data,omitempty"`
 }

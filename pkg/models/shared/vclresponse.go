@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// VclResponse - OK
 type VclResponse struct {
 	// The VCL code to be included.
 	Content *string `json:"content,omitempty"`

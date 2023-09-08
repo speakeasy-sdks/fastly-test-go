@@ -22,7 +22,6 @@ func (o *UpdateBillingAddressRequestDataInput) GetType() *TypeBillingAddress {
 	return o.Type
 }
 
-// UpdateBillingAddressRequestInput - One or more billing address attributes
 type UpdateBillingAddressRequestInput struct {
 	Data *UpdateBillingAddressRequestDataInput `json:"data,omitempty"`
 	// When set to true, the address will be saved without verification

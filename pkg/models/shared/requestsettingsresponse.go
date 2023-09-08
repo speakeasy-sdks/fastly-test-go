@@ -73,7 +73,6 @@ func (e *RequestSettingsResponseXff) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RequestSettingsResponse - OK
 type RequestSettingsResponse struct {
 	// Allows you to terminate request handling and immediately perform an action.
 	Action *RequestSettingsResponseAction `json:"action,omitempty"`

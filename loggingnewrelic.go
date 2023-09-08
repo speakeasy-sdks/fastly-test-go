@@ -15,6 +15,7 @@ import (
 )
 
 // loggingNewrelic - Fastly will upload log messages to New Relic Logs in the format specified in the New Relic configuration object.
+//
 // https://developer.fastly.com/reference/api/logging/newrelic
 type loggingNewrelic struct {
 	sdkConfiguration sdkConfiguration

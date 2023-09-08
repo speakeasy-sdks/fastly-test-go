@@ -16,6 +16,7 @@ import (
 )
 
 // content - Fastly makes it possible to see which version of a particular URL is cached on each edge server.
+//
 // https://developer.fastly.com/reference/api/utils/content
 type content struct {
 	sdkConfiguration sdkConfiguration

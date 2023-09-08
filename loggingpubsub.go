@@ -15,6 +15,7 @@ import (
 )
 
 // loggingPubsub - Fastly will publish log messages to a Google Cloud Pub/Sub topic in the format specified in the Pub/Sub logging object.
+//
 // https://developer.fastly.com/reference/api/logging/gcp-pubsub
 type loggingPubsub struct {
 	sdkConfiguration sdkConfiguration

@@ -1,7 +1,5 @@
 # WafActiveRulesResponse
 
-OK
-
 
 ## Fields
 

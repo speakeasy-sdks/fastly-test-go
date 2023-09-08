@@ -132,7 +132,6 @@ func (e *LoggingOpenstackResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingOpenstackResponse - OK
 type LoggingOpenstackResponse struct {
 	// Your OpenStack account access key.
 	AccessKey *string `json:"access_key,omitempty"`

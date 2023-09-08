@@ -15,6 +15,7 @@ import (
 )
 
 // diff - See the line-by-line changes in configuration between two different versions of a service.
+//
 // https://developer.fastly.com/reference/api/utils/diff
 type diff struct {
 	sdkConfiguration sdkConfiguration

@@ -16,6 +16,7 @@ import (
 )
 
 // wafRules - Rules are universally available for every firewall. Rules can have one or multiple [rule revisions](/reference/api/waf/rules/revisions/). You can add rules to your firewall by creating [active rules](/reference/api/waf/rules/active/).
+//
 // https://developer.fastly.com/reference/api/waf/rules
 type wafRules struct {
 	sdkConfiguration sdkConfiguration

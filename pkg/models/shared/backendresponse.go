@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// BackendResponse - OK
 type BackendResponse struct {
 	// A hostname, IPv4, or IPv6 address for the backend. This is the preferred way to specify the location of your backend.
 	Address *string `json:"address,omitempty"`

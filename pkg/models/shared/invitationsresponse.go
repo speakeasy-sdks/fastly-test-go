@@ -80,7 +80,6 @@ func (o *InvitationsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// InvitationsResponse - OK
 type InvitationsResponse struct {
 	Data  []InvitationResponseData  `json:"data,omitempty"`
 	Links *InvitationsResponseLinks `json:"links,omitempty"`

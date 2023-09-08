@@ -21,7 +21,6 @@ func (o *TLSSubscriptionResponseData) GetID() *string {
 	return o.ID
 }
 
-// TLSSubscriptionResponse - Created
 type TLSSubscriptionResponse struct {
 	Data *TLSSubscriptionResponseData `json:"data,omitempty"`
 }

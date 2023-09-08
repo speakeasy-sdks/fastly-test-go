@@ -59,7 +59,6 @@ func (o *VersionInput) GetTesting() *bool {
 	return o.Testing
 }
 
-// Version - OK
 type Version struct {
 	// Whether this is the active version or not.
 	Active *bool `json:"active,omitempty"`

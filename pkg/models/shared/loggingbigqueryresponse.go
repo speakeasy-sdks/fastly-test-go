@@ -67,7 +67,6 @@ func (e *LoggingBigqueryResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingBigqueryResponse - OK
 type LoggingBigqueryResponse struct {
 	// The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.
 	AccountName *string `json:"account_name,omitempty"`

@@ -16,6 +16,7 @@ import (
 )
 
 // tlsActivations - TLS activations.
+//
 // https://developer.fastly.com/reference/api/tls/custom-certs/activations
 type tlsActivations struct {
 	sdkConfiguration sdkConfiguration

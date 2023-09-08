@@ -67,7 +67,6 @@ func (e *LoggingSumologicResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingSumologicResponse - OK
 type LoggingSumologicResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

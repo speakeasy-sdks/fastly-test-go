@@ -15,6 +15,7 @@ import (
 )
 
 // enabledProducts - These endpoints allow you to enable, disable, and check the enablement status of products on your services.
+//
 // https://developer.fastly.com/reference/api/products/enablement
 type enabledProducts struct {
 	sdkConfiguration sdkConfiguration

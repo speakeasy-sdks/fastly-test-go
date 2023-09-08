@@ -66,7 +66,6 @@ func (e *LoggingHoneycombPlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingHoneycomb2 - OK
 type LoggingHoneycomb2 struct {
 	// The Honeycomb Dataset you want to log to.
 	Dataset *string `form:"name=dataset" json:"dataset,omitempty"`

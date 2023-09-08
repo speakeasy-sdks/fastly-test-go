@@ -80,7 +80,6 @@ func (o *WafTagsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// WafTagsResponse - OK
 type WafTagsResponse struct {
 	Data     []WafTagsResponseDataItem `json:"data,omitempty"`
 	Included []WafRule                 `json:"included,omitempty"`

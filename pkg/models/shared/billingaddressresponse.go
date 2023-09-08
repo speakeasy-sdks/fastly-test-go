@@ -39,7 +39,6 @@ func (o *BillingAddressResponseData) GetType() *TypeBillingAddress {
 	return o.Type
 }
 
-// BillingAddressResponse - OK
 type BillingAddressResponse struct {
 	Data *BillingAddressResponseData `json:"data,omitempty"`
 }

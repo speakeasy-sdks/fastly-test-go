@@ -15,6 +15,7 @@ import (
 )
 
 // loggingOpenstack - Fastly will upload log messages to the OpenStack bucket in the format specified in the openstack object.
+//
 // https://developer.fastly.com/reference/api/logging/openstack
 type loggingOpenstack struct {
 	sdkConfiguration sdkConfiguration

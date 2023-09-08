@@ -16,6 +16,7 @@ import (
 )
 
 // service - A Service represents the configuration for a website, app, API, or anything else to be served through Fastly. A Service can have many Versions, through which Backends, Domains, and more can be configured.
+//
 // https://developer.fastly.com/reference/api/services/service
 type service struct {
 	sdkConfiguration sdkConfiguration

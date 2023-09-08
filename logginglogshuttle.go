@@ -15,6 +15,7 @@ import (
 )
 
 // loggingLogshuttle - Fastly will upload log messages to the Log Shuttle bucket in the format specified in the logshuttle object.
+//
 // https://developer.fastly.com/reference/api/logging/logshuttle
 type loggingLogshuttle struct {
 	sdkConfiguration sdkConfiguration

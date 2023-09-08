@@ -15,6 +15,7 @@ import (
 )
 
 // loggingCloudfiles - Fastly will upload log messages to your Rackspace Cloud Files account.
+//
 // https://developer.fastly.com/reference/api/logging/cloudfiles
 type loggingCloudfiles struct {
 	sdkConfiguration sdkConfiguration

@@ -2,7 +2,6 @@
 
 package shared
 
-// PublicIPList - OK
 type PublicIPList struct {
 	// Fastly's IPv4 ranges.
 	Addresses []string `json:"addresses,omitempty"`

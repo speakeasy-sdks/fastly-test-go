@@ -1,7 +1,5 @@
 # BillingEstimateResponse
 
-OK
-
 
 ## Fields
 

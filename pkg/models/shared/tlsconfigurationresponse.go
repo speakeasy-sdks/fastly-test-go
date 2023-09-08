@@ -2,7 +2,6 @@
 
 package shared
 
-// TLSConfigurationResponse - OK
 type TLSConfigurationResponse struct {
 	Data *TLSConfigurationResponseData `json:"data,omitempty"`
 }

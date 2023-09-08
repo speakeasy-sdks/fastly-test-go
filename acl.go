@@ -15,6 +15,7 @@ import (
 )
 
 // acl - An access control list or "ACL" specifies individual IP addresses or subnet ranges and can be accessed and used from Fastly VCL.
+//
 // https://developer.fastly.com/reference/api/acls/acl
 type acl struct {
 	sdkConfiguration sdkConfiguration

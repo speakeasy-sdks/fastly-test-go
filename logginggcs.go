@@ -15,6 +15,7 @@ import (
 )
 
 // loggingGcs - Fastly will upload log messages to the GCS bucket in the format specified in the GCS object.
+//
 // https://developer.fastly.com/reference/api/logging/gcs
 type loggingGcs struct {
 	sdkConfiguration sdkConfiguration

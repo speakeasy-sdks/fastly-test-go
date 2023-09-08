@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// HealthcheckResponse - OK
 type HealthcheckResponse struct {
 	// How often to run the health check in milliseconds.
 	CheckInterval *int64 `json:"check_interval,omitempty"`

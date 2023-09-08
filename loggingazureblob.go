@@ -15,6 +15,7 @@ import (
 )
 
 // loggingAzureblob - Fastly will upload log messages to the Azure Blob Storage container in the format specified in the Azure Blob object.
+//
 // https://developer.fastly.com/reference/api/logging/azureblob
 type loggingAzureblob struct {
 	sdkConfiguration sdkConfiguration

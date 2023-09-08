@@ -42,7 +42,6 @@ func (e *TokenResponseScope) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// TokenResponse - OK
 type TokenResponse struct {
 	// Time-stamp (UTC) of when the token was created.
 	CreatedAt *string `json:"created_at,omitempty"`

@@ -67,7 +67,6 @@ func (e *LoggingSyslogResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingSyslogResponse - OK
 type LoggingSyslogResponse struct {
 	// A hostname or IPv4 address.
 	Address *string `json:"address,omitempty"`

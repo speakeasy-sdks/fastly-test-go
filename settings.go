@@ -15,6 +15,7 @@ import (
 )
 
 // settings - Handles default settings for a particular version of a service.
+//
 // https://developer.fastly.com/reference/api/vcl-services/settings
 type settings struct {
 	sdkConfiguration sdkConfiguration

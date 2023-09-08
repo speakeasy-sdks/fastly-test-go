@@ -163,7 +163,6 @@ func (e *LoggingKafkaResponseRequiredAcks) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingKafkaResponse - OK
 type LoggingKafkaResponse struct {
 	// SASL authentication method.
 	AuthMethod *LoggingKafkaResponseAuthMethod `json:"auth_method,omitempty"`

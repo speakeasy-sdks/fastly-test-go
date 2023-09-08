@@ -15,6 +15,7 @@ import (
 )
 
 // loggingS3 - Fastly will upload log messages to the S3 bucket in the format specified in the S3 object.
+//
 // https://developer.fastly.com/reference/api/logging/s3
 type loggingS3 struct {
 	sdkConfiguration sdkConfiguration

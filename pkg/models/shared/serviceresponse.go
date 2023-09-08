@@ -36,7 +36,6 @@ func (e *ServiceResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ServiceResponse - OK
 type ServiceResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`

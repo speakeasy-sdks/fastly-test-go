@@ -15,6 +15,7 @@ import (
 )
 
 // dictionaryItem - A Dictionary Item is a single key-value pair that makes up an entry in a Dictionary. Dictionary Items can be added, removed and modified without activating a new version of the associated service.
+//
 // https://developer.fastly.com/reference/api/dictionaries/dictionary-item
 type dictionaryItem struct {
 	sdkConfiguration sdkConfiguration

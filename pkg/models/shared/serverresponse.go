@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// ServerResponse - OK
 type ServerResponse struct {
 	// A hostname, IPv4, or IPv6 address for the server. Required.
 	Address *string `json:"address,omitempty"`

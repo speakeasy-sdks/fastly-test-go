@@ -15,6 +15,7 @@ import (
 )
 
 // realtime - The real-time analytics API offers a standardized set of data about traffic received by a specified service in one-second time periods up to the last complete second.
+//
 // https://developer.fastly.com/reference/api/metrics-stats/realtime
 type realtime struct {
 	sdkConfiguration sdkConfiguration

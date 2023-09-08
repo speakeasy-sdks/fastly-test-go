@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// DictionaryResponse - OK
 type DictionaryResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

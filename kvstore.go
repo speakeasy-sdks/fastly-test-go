@@ -16,6 +16,7 @@ import (
 )
 
 // kvStore - An kv store is a persistent, globally consistent key-value store accessible to Compute@Edge services during request processing.
+//
 // https://developer.fastly.com/reference/api/services/resources/kv-store
 type kvStore struct {
 	sdkConfiguration sdkConfiguration

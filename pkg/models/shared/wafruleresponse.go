@@ -2,7 +2,6 @@
 
 package shared
 
-// WafRuleResponse - OK
 type WafRuleResponse struct {
 	Data     *WafRuleResponseData `json:"data,omitempty"`
 	Included []interface{}        `json:"included,omitempty"`

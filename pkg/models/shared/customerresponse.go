@@ -36,7 +36,6 @@ func (e *CustomerResponseBillingNetworkType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CustomerResponse - OK
 type CustomerResponse struct {
 	// The alphanumeric string representing the primary billing contact.
 	BillingContactID *string `json:"billing_contact_id,omitempty"`

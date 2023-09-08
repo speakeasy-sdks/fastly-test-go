@@ -2,7 +2,6 @@
 
 package shared
 
-// Realtime - OK
 type Realtime struct {
 	// How long the system will wait before aggregating messages for each second. The most recent data returned will have happened at the moment of the request, minus the aggregation delay.
 	AggregateDelay *int64 `json:"AggregateDelay,omitempty"`

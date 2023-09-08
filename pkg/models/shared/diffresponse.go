@@ -2,7 +2,6 @@
 
 package shared
 
-// DiffResponse - OK
 type DiffResponse struct {
 	// The differences between two specified service versions. Returns the full config if the version configurations are identical.
 	Diff *string `json:"diff,omitempty"`

@@ -76,7 +76,6 @@ func (e *HeaderResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// HeaderResponse - OK
 type HeaderResponse struct {
 	// Accepts a string value.
 	Action *HeaderResponseAction `json:"action,omitempty"`

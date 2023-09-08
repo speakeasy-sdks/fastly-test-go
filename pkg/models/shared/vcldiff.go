@@ -38,7 +38,6 @@ func (e *VclDiffFormat) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// VclDiff - OK
 type VclDiff struct {
 	// The differences between two specified versions.
 	Diff *string `json:"diff,omitempty"`

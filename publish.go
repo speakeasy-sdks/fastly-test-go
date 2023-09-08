@@ -14,6 +14,7 @@ import (
 )
 
 // publish - Publishing sends messages to [Fanout](https://developer.fastly.com/learning/concepts/real-time-messaging/fanout) subscribers. Fanout is designed to be [GRIP-compatible](https://pushpin.org/docs/protocols/grip/), such that `https://api.fastly.com/service/{service_id}` can be used as a GRIP URL in application configurations.
+//
 // https://developer.fastly.com/reference/api/services/service
 type publish struct {
 	sdkConfiguration sdkConfiguration

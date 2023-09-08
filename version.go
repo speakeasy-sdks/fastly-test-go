@@ -15,6 +15,7 @@ import (
 )
 
 // version - A Version represents a specific instance of the configuration for a service. A Version can be cloned, locked, activated, or deactivated.
+//
 // https://developer.fastly.com/reference/api/services/version
 type version struct {
 	sdkConfiguration sdkConfiguration

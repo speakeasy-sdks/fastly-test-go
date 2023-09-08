@@ -36,7 +36,6 @@ func (e *ServiceDetailType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ServiceDetail - OK
 type ServiceDetail struct {
 	ActiveVersion *ServiceVersionDetailOrNull `json:"active_version,omitempty"`
 	// A freeform descriptive note.

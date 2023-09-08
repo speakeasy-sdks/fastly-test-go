@@ -42,7 +42,6 @@ func (e *ConditionResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ConditionResponse - OK
 type ConditionResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`

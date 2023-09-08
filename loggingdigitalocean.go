@@ -15,6 +15,7 @@ import (
 )
 
 // loggingDigitalocean - Fastly will upload log messages to the DigitalOcean Space in the format specified in the DigitalOcean Spaces object.
+//
 // https://developer.fastly.com/reference/api/logging/digitalocean
 type loggingDigitalocean struct {
 	sdkConfiguration sdkConfiguration

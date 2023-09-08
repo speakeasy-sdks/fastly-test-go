@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// DirectorBackend - OK
 type DirectorBackend struct {
 	// The name of the backend.
 	BackendName *string `json:"backend_name,omitempty"`

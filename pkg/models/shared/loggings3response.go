@@ -132,7 +132,6 @@ func (e *LoggingS3ResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingS3Response - OK
 type LoggingS3Response struct {
 	// The access key for your S3 account. Not required if `iam_role` is provided.
 	AccessKey *string `json:"access_key,omitempty"`

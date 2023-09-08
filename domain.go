@@ -14,7 +14,8 @@ import (
 	"net/http"
 )
 
-// domain - A domain represents the domain name through which visitors will retrieve content. There can be multiple domains for a service.
+// A domain represents the domain name through which visitors will retrieve content. There can be multiple domains for a service.
+//
 // https://developer.fastly.com/reference/api/services/domain
 type domain struct {
 	sdkConfiguration sdkConfiguration

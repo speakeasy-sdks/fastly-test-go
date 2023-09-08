@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// GzipResponse - OK
 type GzipResponse struct {
 	// Name of the cache condition controlling when this configuration applies.
 	CacheCondition *string `json:"cache_condition,omitempty"`

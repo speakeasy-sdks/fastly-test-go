@@ -132,7 +132,6 @@ func (e *LoggingAzureblobResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingAzureblobResponse - OK
 type LoggingAzureblobResponse struct {
 	// The unique Azure Blob Storage namespace in which your data objects are stored. Required.
 	AccountName *string `json:"account_name,omitempty"`

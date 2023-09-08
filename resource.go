@@ -14,7 +14,8 @@ import (
 	"net/http"
 )
 
-// resource - A resource link represents a link between a shared resource (such as an kv store or config store) and a service version.
+// A resource link represents a link between a shared resource (such as an kv store or config store) and a service version.
+//
 // https://developer.fastly.com/reference/api/services/resource
 type resource struct {
 	sdkConfiguration sdkConfiguration

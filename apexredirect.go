@@ -15,6 +15,7 @@ import (
 )
 
 // apexRedirect - Supports redirecting traffic for apex domains, subdomains, or wildcard domains to a WWW subdomain.
+//
 // https://developer.fastly.com/reference/api/vcl-services/apex-redirect
 type apexRedirect struct {
 	sdkConfiguration sdkConfiguration

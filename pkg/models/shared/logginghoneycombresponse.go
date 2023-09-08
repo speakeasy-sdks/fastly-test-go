@@ -67,7 +67,6 @@ func (e *LoggingHoneycombResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingHoneycombResponse - OK
 type LoggingHoneycombResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

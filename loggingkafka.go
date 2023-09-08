@@ -15,6 +15,7 @@ import (
 )
 
 // loggingKafka - Fastly will upload log messages periodically to the server in the format specified in the Kafka object.
+//
 // https://developer.fastly.com/reference/api/logging/kafka
 type loggingKafka struct {
 	sdkConfiguration sdkConfiguration

@@ -15,6 +15,7 @@ import (
 )
 
 // header - Header objects are used to add, modify, or delete headers from requests and responses. The header content can be simple strings or be derived from variables inside Varnish. Regular expressions can be used to customize the headers even further.
+//
 // https://developer.fastly.com/reference/api/vcl-services/header
 type header struct {
 	sdkConfiguration sdkConfiguration

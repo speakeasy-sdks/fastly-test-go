@@ -80,7 +80,6 @@ func (o *WafExclusionsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// WafExclusionsResponse - OK
 type WafExclusionsResponse struct {
 	Data     []WafExclusionResponseData  `json:"data,omitempty"`
 	Included []interface{}               `json:"included,omitempty"`

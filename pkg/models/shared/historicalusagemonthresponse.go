@@ -65,7 +65,6 @@ func (o *HistoricalUsageMonthResponseMeta) GetTo() *string {
 	return o.To
 }
 
-// HistoricalUsageMonthResponse - OK
 type HistoricalUsageMonthResponse struct {
 	Data *HistoricalUsageMonthResponseData `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.

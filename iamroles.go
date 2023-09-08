@@ -15,6 +15,7 @@ import (
 )
 
 // iamRoles - A role is a collection of permissions that can be assigned to a user group.
+//
 // https://developer.fastly.com/reference/api/account/roles
 type iamRoles struct {
 	sdkConfiguration sdkConfiguration

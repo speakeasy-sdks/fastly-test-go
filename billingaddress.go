@@ -15,6 +15,7 @@ import (
 )
 
 // billingAddress - A billing address is used to calculate your bill correctly.
+//
 // https://developer.fastly.com/reference/api/account/billing-address
 type billingAddress struct {
 	sdkConfiguration sdkConfiguration

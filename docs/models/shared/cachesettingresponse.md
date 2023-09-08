@@ -1,7 +1,5 @@
 # CacheSettingResponse
 
-OK
-
 
 ## Fields
 

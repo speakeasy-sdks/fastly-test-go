@@ -67,7 +67,6 @@ func (e *LoggingSplunkResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingSplunkResponse - OK
 type LoggingSplunkResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

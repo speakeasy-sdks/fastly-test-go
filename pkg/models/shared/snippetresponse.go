@@ -91,7 +91,6 @@ func (e *SnippetResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// SnippetResponse - OK
 type SnippetResponse struct {
 	// The VCL code that specifies exactly what the snippet does.
 	Content *string `json:"content,omitempty"`

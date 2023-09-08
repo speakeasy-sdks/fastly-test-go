@@ -15,6 +15,7 @@ import (
 )
 
 // iamUserGroups - A user group is a collection of users with service groups and roles.
+//
 // https://developer.fastly.com/reference/api/account/user-groups
 type iamUserGroups struct {
 	sdkConfiguration sdkConfiguration

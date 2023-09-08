@@ -2,7 +2,6 @@
 
 package shared
 
-// StoreResponse - Created
 type StoreResponse struct {
 	// ID of the store.
 	ID *string `json:"id,omitempty"`

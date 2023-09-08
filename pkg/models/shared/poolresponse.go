@@ -67,7 +67,6 @@ func (e *PoolResponseUseTLS) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// PoolResponse - OK
 type PoolResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`

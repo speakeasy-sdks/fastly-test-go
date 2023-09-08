@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// DomainResponse - OK
 type DomainResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`

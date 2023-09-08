@@ -15,6 +15,7 @@ import (
 )
 
 // loggingSumologic - Fastly will POST messages to the Sumo Logic account in the format specified in the Sumologic object.
+//
 // https://developer.fastly.com/reference/api/logging/sumologic
 type loggingSumologic struct {
 	sdkConfiguration sdkConfiguration

@@ -15,6 +15,7 @@ import (
 )
 
 // loggingLoggly - Fastly will stream log messages to the Loggly account in the format specified in the Loggly logging object.
+//
 // https://developer.fastly.com/reference/api/logging/loggly
 type loggingLoggly struct {
 	sdkConfiguration sdkConfiguration

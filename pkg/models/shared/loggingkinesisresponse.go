@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// LoggingKinesisResponse - OK
 type LoggingKinesisResponse struct {
 	// The access key associated with the target Amazon Kinesis stream. Not required if `iam_role` is specified.
 	AccessKey *string `json:"access_key,omitempty"`

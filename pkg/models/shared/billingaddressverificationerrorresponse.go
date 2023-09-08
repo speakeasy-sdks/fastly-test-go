@@ -46,7 +46,6 @@ func (o *BillingAddressVerificationErrorResponseErrors) GetType() string {
 	return o.Type
 }
 
-// BillingAddressVerificationErrorResponse - Could not validate address
 type BillingAddressVerificationErrorResponse struct {
 	Errors []BillingAddressVerificationErrorResponseErrors `json:"errors,omitempty"`
 }

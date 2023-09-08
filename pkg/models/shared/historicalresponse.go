@@ -38,7 +38,6 @@ func (o *HistoricalResponseMeta) GetTo() *string {
 	return o.To
 }
 
-// HistoricalResponse - OK
 type HistoricalResponse struct {
 	// Contains the results of the query, organized by *service ID*, into arrays where each element describes one service over a *time span*.
 	Data map[string][]Results `json:"data,omitempty"`

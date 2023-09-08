@@ -80,7 +80,6 @@ func (o *TLSPrivateKeysResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// TLSPrivateKeysResponse - OK
 type TLSPrivateKeysResponse struct {
 	Data  []TLSPrivateKeyResponseData  `json:"data,omitempty"`
 	Links *TLSPrivateKeysResponseLinks `json:"links,omitempty"`

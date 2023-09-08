@@ -255,7 +255,6 @@ func (e *RateLimiterResponseWindowSize) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RateLimiterResponse - OK
 type RateLimiterResponse struct {
 	// The action to take when a rate limiter violation is detected.
 	Action *RateLimiterResponseAction `json:"action,omitempty"`

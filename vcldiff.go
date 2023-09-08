@@ -15,6 +15,7 @@ import (
 )
 
 // vclDiff - Compare the changes in generated VCL between two versions of a service. This is sometimes called a "diff" because the comparison may highlight "differences" between the versions. To compare the configuration changes between two versions of a service represented in YAML format instead, use the related [diff](/reference/api/utils/diff/#diff-service-versions) endpoint.
+//
 // https://developer.fastly.com/reference/api/vcl-services/diff
 type vclDiff struct {
 	sdkConfiguration sdkConfiguration

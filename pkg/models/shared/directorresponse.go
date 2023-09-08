@@ -39,7 +39,6 @@ func (e *DirectorResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// DirectorResponse - OK
 type DirectorResponse struct {
 	// List of backends associated to a director.
 	Backends []Backend `json:"backends,omitempty"`

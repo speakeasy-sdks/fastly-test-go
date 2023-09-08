@@ -2,7 +2,6 @@
 
 package shared
 
-// PurgeResponse - OK
 type PurgeResponse struct {
 	ID     *string `json:"id,omitempty"`
 	Status *string `json:"status,omitempty"`

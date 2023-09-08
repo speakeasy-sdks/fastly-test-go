@@ -15,6 +15,7 @@ import (
 )
 
 // vcl - A VCL is a Varnish configuration file used to customize the configuration for a Service.
+//
 // https://developer.fastly.com/reference/api/vcl-services/vcl
 type vcl struct {
 	sdkConfiguration sdkConfiguration

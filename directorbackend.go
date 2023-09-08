@@ -15,6 +15,7 @@ import (
 )
 
 // directorBackend - Maps and relates backends as belonging to directors. Backends can belong to any number of directors but directors can only hold one reference to a specific backend.
+//
 // https://developer.fastly.com/reference/api/load-balancing/directors/backend
 type directorBackend struct {
 	sdkConfiguration sdkConfiguration

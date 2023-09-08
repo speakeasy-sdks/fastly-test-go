@@ -16,6 +16,7 @@ import (
 )
 
 // tokens - An API Token is used to identify who is making the API call. Users can create multiple tokens to suit their needs.
+//
 // https://developer.fastly.com/reference/api/auth-tokens/user
 type tokens struct {
 	sdkConfiguration sdkConfiguration

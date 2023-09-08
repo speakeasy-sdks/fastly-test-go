@@ -132,7 +132,6 @@ func (e *LoggingGcsResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingGcsResponse - OK
 type LoggingGcsResponse struct {
 	// The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.
 	AccountName *string `json:"account_name,omitempty"`

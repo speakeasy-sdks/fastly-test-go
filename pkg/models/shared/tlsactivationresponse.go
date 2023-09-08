@@ -2,7 +2,6 @@
 
 package shared
 
-// TLSActivationResponse - Created
 type TLSActivationResponse struct {
 	Data *TLSActivationResponseData `json:"data,omitempty"`
 }

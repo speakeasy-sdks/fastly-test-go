@@ -15,7 +15,8 @@ import (
 	"strings"
 )
 
-// user - A user of the Fastly API and web interface. A user is always associated with a customer. Some information may be limited depending on access level.
+// A user of the Fastly API and web interface. A user is always associated with a customer. Some information may be limited depending on access level.
+//
 // https://developer.fastly.com/reference/api/account/user
 type user struct {
 	sdkConfiguration sdkConfiguration

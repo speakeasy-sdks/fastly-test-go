@@ -16,6 +16,7 @@ import (
 )
 
 // historical - The Historical Stats API allows you to programmatically retrieve historical caching statistics derived from your Fastly services. You can use these metrics to help you optimize your site’s data caching and analyze your site’s traffic.
+//
 // https://developer.fastly.com/reference/api/metrics-stats/historical-stats
 type historical struct {
 	sdkConfiguration sdkConfiguration

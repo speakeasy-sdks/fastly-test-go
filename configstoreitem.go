@@ -15,6 +15,7 @@ import (
 )
 
 // configStoreItem - A key-value pair within a config store.
+//
 // https://developer.fastly.com/reference/api/services/resources/config-store-item
 type configStoreItem struct {
 	sdkConfiguration sdkConfiguration

@@ -2,7 +2,6 @@
 
 package shared
 
-// VersionCreateResponse - OK
 type VersionCreateResponse struct {
 	Number    *int64  `json:"number,omitempty"`
 	ServiceID *string `json:"service_id,omitempty"`

@@ -16,6 +16,7 @@ import (
 )
 
 // wafTags - Tags for categorizing WAF [rules](/reference/api/waf/rules/).
+//
 // https://developer.fastly.com/reference/api/waf/tags
 type wafTags struct {
 	sdkConfiguration sdkConfiguration

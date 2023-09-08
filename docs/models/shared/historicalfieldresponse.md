@@ -1,7 +1,5 @@
 # HistoricalFieldResponse
 
-OK
-
 
 ## Fields
 

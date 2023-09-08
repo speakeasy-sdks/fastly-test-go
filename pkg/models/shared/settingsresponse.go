@@ -2,7 +2,6 @@
 
 package shared
 
-// SettingsResponse - OK
 type SettingsResponse struct {
 	// The default host name for the version.
 	GeneralDefaultHost *string `json:"general.default_host,omitempty"`

@@ -15,6 +15,7 @@ import (
 )
 
 // responseObject - Allows you to create synthetic responses that exist entirely on the varnish machine. Useful for creating error or maintenance pages that exists outside the scope of your backend architecture. Best when used with [Condition](#condition) objects.
+//
 // https://developer.fastly.com/reference/api/vcl-services/response-object
 type responseObject struct {
 	sdkConfiguration sdkConfiguration

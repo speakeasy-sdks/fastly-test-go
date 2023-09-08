@@ -15,6 +15,7 @@ import (
 )
 
 // healthcheck - Health checks are used to customize the way Fastly checks on your Backends. If an origin server is marked unhealthy due to health checks, Fastly will stop attempting to send requests to it. If all origin servers are marked unhealthy, Fastly will attempt to serve stale. If no stale object is available, a 503 will be returned to the client.
+//
 // https://developer.fastly.com/reference/api/services/healthcheck
 type healthcheck struct {
 	sdkConfiguration sdkConfiguration

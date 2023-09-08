@@ -80,7 +80,6 @@ func (o *TLSActivationsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// TLSActivationsResponse - OK
 type TLSActivationsResponse struct {
 	Data  []TLSActivationResponseData  `json:"data,omitempty"`
 	Links *TLSActivationsResponseLinks `json:"links,omitempty"`

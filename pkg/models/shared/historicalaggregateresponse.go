@@ -38,7 +38,6 @@ func (o *HistoricalAggregateResponseMeta) GetTo() *string {
 	return o.To
 }
 
-// HistoricalAggregateResponse - OK
 type HistoricalAggregateResponse struct {
 	Data []Results `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.

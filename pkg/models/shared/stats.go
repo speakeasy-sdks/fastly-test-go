@@ -2,7 +2,6 @@
 
 package shared
 
-// Stats - OK
 type Stats struct {
 	Stats map[string]Results `json:"stats,omitempty"`
 }

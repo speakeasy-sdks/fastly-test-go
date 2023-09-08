@@ -15,6 +15,7 @@ import (
 )
 
 // dictionaryInfo - Dictionary Info is a set of metadata describing properties of a dictionary which change as items are added and removed.
+//
 // https://developer.fastly.com/reference/api/dictionaries/dictionary-info
 type dictionaryInfo struct {
 	sdkConfiguration sdkConfiguration

@@ -80,7 +80,6 @@ func (o *EventsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// EventsResponse - OK
 type EventsResponse struct {
 	Data  []Event              `json:"data,omitempty"`
 	Links *EventsResponseLinks `json:"links,omitempty"`

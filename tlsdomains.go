@@ -16,6 +16,7 @@ import (
 )
 
 // tlsDomains - TLS domains are all the domains (including wildcard domains) included in any [TLS certificate](#tls_certificates)'s Subject Alternative Names (SAN) list. Included in the response is information about which certificates reference this domain as well as the [TLS activation](#tls_activations) indicating which certificate is enabled to serve TLS traffic for the domain.
+//
 // https://developer.fastly.com/reference/api/tls/custom-certs/domains
 type tlsDomains struct {
 	sdkConfiguration sdkConfiguration

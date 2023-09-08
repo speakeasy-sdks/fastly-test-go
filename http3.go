@@ -15,6 +15,7 @@ import (
 )
 
 // http3 - Supports the use of the HTTP/3 (QUIC) protocol.
+//
 // https://developer.fastly.com/reference/api/vcl-services/http3
 type http3 struct {
 	sdkConfiguration sdkConfiguration

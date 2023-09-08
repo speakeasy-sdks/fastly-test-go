@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// VersionResponse - OK
 type VersionResponse struct {
 	// Whether this is the active version or not.
 	Active *bool `json:"active,omitempty"`

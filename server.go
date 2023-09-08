@@ -14,7 +14,8 @@ import (
 	"net/http"
 )
 
-// server - A server is an address (IP address or hostname) to which the Fastly Load Balancer service can forward requests. This service can define multiple servers and assign it to a pool. Fastly can then select any one of these servers based on a selection policy defined for the pool.
+// A server is an address (IP address or hostname) to which the Fastly Load Balancer service can forward requests. This service can define multiple servers and assign it to a pool. Fastly can then select any one of these servers based on a selection policy defined for the pool.
+//
 // https://developer.fastly.com/reference/api/load-balancing/pools/server
 type server struct {
 	sdkConfiguration sdkConfiguration

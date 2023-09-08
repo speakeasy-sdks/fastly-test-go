@@ -2,7 +2,6 @@
 
 package shared
 
-// EventResponse - OK
 type EventResponse struct {
 	Data *Event `json:"data,omitempty"`
 }

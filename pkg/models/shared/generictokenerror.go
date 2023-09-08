@@ -2,7 +2,6 @@
 
 package shared
 
-// GenericTokenError - Missing or expired token.
 type GenericTokenError struct {
 	Msg *string `json:"msg,omitempty"`
 }

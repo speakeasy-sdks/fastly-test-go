@@ -15,6 +15,7 @@ import (
 )
 
 // iamPermissions - A list of available permissions that can be assigned to a custom role.
+//
 // https://developer.fastly.com/reference/api/account/permissions
 type iamPermissions struct {
 	sdkConfiguration sdkConfiguration

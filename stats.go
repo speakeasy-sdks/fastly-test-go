@@ -15,6 +15,7 @@ import (
 )
 
 // stats - Stats give you information on the usage and performance of your Service. They can be requested by Service and over a particular time span. Stats are broken down per POP, giving you information on how your Services are being used across the world. There is now a more flexible, and fully featured [Stats API](/reference/api/metrics-stats/historical-stats/) available.
+//
 // https://developer.fastly.com/reference/api/metrics-stats/stats
 type stats struct {
 	sdkConfiguration sdkConfiguration

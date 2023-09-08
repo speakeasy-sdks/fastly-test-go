@@ -15,6 +15,7 @@ import (
 )
 
 // wafRuleRevisions - Rule revisions track new variations of [rules](/reference/api/waf/rules/) as they change over time with enhancements, fixes, and improvements. This object allows you to find a specific variation of a rule for use in your application. An [active rule](/reference/api/waf/rules/active/) on a firewall uses a specific rule revision.
+//
 // https://developer.fastly.com/reference/api/waf/rules/revisions
 type wafRuleRevisions struct {
 	sdkConfiguration sdkConfiguration

@@ -16,6 +16,7 @@ import (
 )
 
 // configStore - A container that lets you store data in key-value pairs.
+//
 // https://developer.fastly.com/reference/api/services/resources/config-store
 type configStore struct {
 	sdkConfiguration sdkConfiguration

@@ -132,7 +132,6 @@ func (e *LoggingDigitaloceanResponsePlacement) UnmarshalJSON(data []byte) error 
 	}
 }
 
-// LoggingDigitaloceanResponse - OK
 type LoggingDigitaloceanResponse struct {
 	// Your DigitalOcean Spaces account access key.
 	AccessKey *string `json:"access_key,omitempty"`

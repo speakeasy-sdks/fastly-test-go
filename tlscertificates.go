@@ -16,6 +16,7 @@ import (
 )
 
 // tlsCertificates - A TLS certificate is used to terminate TLS traffic for one or more of your [TLS domains](#tls_domains).
+//
 // https://developer.fastly.com/reference/api/tls/custom-certs/certificates
 type tlsCertificates struct {
 	sdkConfiguration sdkConfiguration

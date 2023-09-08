@@ -95,7 +95,6 @@ func (e *LoggingDatadogResponseRegion) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingDatadogResponse - OK
 type LoggingDatadogResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

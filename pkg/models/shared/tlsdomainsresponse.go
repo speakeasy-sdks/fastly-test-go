@@ -80,7 +80,6 @@ func (o *TLSDomainsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// TLSDomainsResponse - OK
 type TLSDomainsResponse struct {
 	Data  []TLSDomainData          `json:"data,omitempty"`
 	Links *TLSDomainsResponseLinks `json:"links,omitempty"`

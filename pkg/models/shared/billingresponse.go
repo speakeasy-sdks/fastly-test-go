@@ -295,7 +295,6 @@ func (o *BillingResponseTotal) GetTerms() *string {
 	return o.Terms
 }
 
-// BillingResponse - OK
 type BillingResponse struct {
 	CustomerID *string `json:"customer_id,omitempty"`
 	// Date and time in ISO 8601 format.

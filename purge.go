@@ -15,6 +15,7 @@ import (
 )
 
 // purge - Instant Purging removes content from Fastly immediately so it can be refreshed from your origin servers. While the default approach for issuing an individual URL Instant Purge uses the Fastly API, `https://api.fastly.com/`, it is not required.
+//
 // https://developer.fastly.com/reference/api/purging
 type purge struct {
 	sdkConfiguration sdkConfiguration

@@ -72,7 +72,6 @@ func (o *ApexRedirectInput) GetStatusCode() *ApexRedirectStatusCode {
 	return o.StatusCode
 }
 
-// ApexRedirect - OK
 type ApexRedirect struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`

@@ -38,7 +38,6 @@ func (o *HistoricalUsageServiceResponseMeta) GetTo() *string {
 	return o.To
 }
 
-// HistoricalUsageServiceResponse - OK
 type HistoricalUsageServiceResponse struct {
 	Data *HistoricalUsageResults `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.

@@ -15,6 +15,7 @@ import (
 )
 
 // snippet - VCL Snippets are blocks of VCL logic inserted into your service's configuration that don't require custom VCL.
+//
 // https://developer.fastly.com/reference/api/vcl-services/snippet
 type snippet struct {
 	sdkConfiguration sdkConfiguration

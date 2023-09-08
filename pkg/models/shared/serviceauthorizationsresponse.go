@@ -80,7 +80,6 @@ func (o *ServiceAuthorizationsResponseMeta) GetTotalPages() *int64 {
 	return o.TotalPages
 }
 
-// ServiceAuthorizationsResponse - OK
 type ServiceAuthorizationsResponse struct {
 	Data  []ServiceAuthorizationResponseData  `json:"data,omitempty"`
 	Links *ServiceAuthorizationsResponseLinks `json:"links,omitempty"`

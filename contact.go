@@ -15,6 +15,7 @@ import (
 )
 
 // contact - A Customer Contact is the base object that holds the different types of contact information Fastly uses to contact a customer.
+//
 // https://developer.fastly.com/reference/api/account/contact
 type contact struct {
 	sdkConfiguration sdkConfiguration

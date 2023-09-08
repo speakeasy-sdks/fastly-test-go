@@ -15,6 +15,7 @@ import (
 )
 
 // loggingElasticsearch - Fastly will upload log messages periodically to the server in the format specified in the Elasticsearch object.
+//
 // https://developer.fastly.com/reference/api/logging/elasticsearch
 type loggingElasticsearch struct {
 	sdkConfiguration sdkConfiguration

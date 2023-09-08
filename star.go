@@ -15,7 +15,8 @@ import (
 	"strings"
 )
 
-// star - A star allows users to mark services of interest.
+// A star allows users to mark services of interest.
+//
 // https://developer.fastly.com/reference/api/account/star
 type star struct {
 	sdkConfiguration sdkConfiguration

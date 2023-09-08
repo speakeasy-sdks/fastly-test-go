@@ -6,7 +6,6 @@ import (
 	"time"
 )
 
-// ResponseObjectResponse - OK
 type ResponseObjectResponse struct {
 	// Name of the cache condition controlling when this configuration applies.
 	CacheCondition *string `json:"cache_condition,omitempty"`

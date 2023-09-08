@@ -15,6 +15,7 @@ import (
 )
 
 // loggingScalyr - Fastly will stream log messages to the Scalyr account in the format specified in the Scalyr object.
+//
 // https://developer.fastly.com/reference/api/logging/scalyr
 type loggingScalyr struct {
 	sdkConfiguration sdkConfiguration

@@ -1,7 +1,5 @@
 # HistoricalFieldAggregateResponse
 
-OK
-
 
 ## Fields
 

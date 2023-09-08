@@ -15,6 +15,7 @@ import (
 )
 
 // loggingSplunk - Fastly will POST messages to your Splunk account in the format specified in the Splunk object.
+//
 // https://developer.fastly.com/reference/api/logging/splunk
 type loggingSplunk struct {
 	sdkConfiguration sdkConfiguration
