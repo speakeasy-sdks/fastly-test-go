@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateBackendSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateBackendRequest struct {
 	Backend *shared.Backend `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name of the backend.
@@ -21,10 +17,66 @@ type UpdateBackendRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateBackendRequest) GetBackend() *shared.Backend {
+	if o == nil {
+		return nil
+	}
+	return o.Backend
+}
+
+func (o *UpdateBackendRequest) GetBackendName() string {
+	if o == nil {
+		return ""
+	}
+	return o.BackendName
+}
+
+func (o *UpdateBackendRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateBackendRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateBackendResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	BackendResponse *shared.BackendResponse
+}
+
+func (o *UpdateBackendResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateBackendResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateBackendResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateBackendResponse) GetBackendResponse() *shared.BackendResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BackendResponse
 }

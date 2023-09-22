@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogSftpSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogSftpRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingSftpName string `pathParam:"style=simple,explode=false,name=logging_sftp_name"`
@@ -19,10 +15,38 @@ type DeleteLogSftpRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogSftpRequest) GetLoggingSftpName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSftpName
+}
+
+func (o *DeleteLogSftpRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogSftpRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogSftp200ApplicationJSON - OK
 type DeleteLogSftp200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogSftp200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogSftpResponse struct {
@@ -31,4 +55,32 @@ type DeleteLogSftpResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogSftp200ApplicationJSONObject *DeleteLogSftp200ApplicationJSON
+}
+
+func (o *DeleteLogSftpResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogSftpResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogSftpResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogSftpResponse) GetDeleteLogSftp200ApplicationJSONObject() *DeleteLogSftp200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogSftp200ApplicationJSONObject
 }

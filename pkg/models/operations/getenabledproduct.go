@@ -7,14 +7,24 @@ import (
 	"net/http"
 )
 
-type GetEnabledProductSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetEnabledProductRequest struct {
 	ProductID string `pathParam:"style=simple,explode=false,name=product_id"`
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
+}
+
+func (o *GetEnabledProductRequest) GetProductID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ProductID
+}
+
+func (o *GetEnabledProductRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
 }
 
 type GetEnabledProductResponse struct {
@@ -23,4 +33,32 @@ type GetEnabledProductResponse struct {
 	RawResponse *http.Response
 	// OK
 	EnabledProductResponse *shared.EnabledProductResponse
+}
+
+func (o *GetEnabledProductResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetEnabledProductResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetEnabledProductResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetEnabledProductResponse) GetEnabledProductResponse() *shared.EnabledProductResponse {
+	if o == nil {
+		return nil
+	}
+	return o.EnabledProductResponse
 }

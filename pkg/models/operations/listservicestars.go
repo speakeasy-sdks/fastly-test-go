@@ -4,23 +4,64 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListServiceStarsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListServiceStars200ApplicationVndAPIPlusJSONDataData struct {
 	Relationships *shared.RelationshipsForStar `json:"relationships,omitempty"`
 	// Resource type
-	Type *shared.TypeStar `json:"type,omitempty"`
+	type_ *string `const:"star" json:"type"`
+}
+
+func (l ListServiceStars200ApplicationVndAPIPlusJSONDataData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListServiceStars200ApplicationVndAPIPlusJSONDataData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONDataData) GetRelationships() *shared.RelationshipsForStar {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONDataData) GetType() *string {
+	return types.String("star")
 }
 
 type ListServiceStars200ApplicationVndAPIPlusJSONData struct {
 	Attributes *shared.Timestamps                                    `json:"attributes,omitempty"`
 	Data       *ListServiceStars200ApplicationVndAPIPlusJSONDataData `json:"data,omitempty"`
 	ID         *string                                               `json:"id,omitempty"`
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONData) GetAttributes() *shared.Timestamps {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONData) GetData() *ListServiceStars200ApplicationVndAPIPlusJSONDataData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
 }
 
 type ListServiceStars200ApplicationVndAPIPlusJSONLinks struct {
@@ -34,15 +75,82 @@ type ListServiceStars200ApplicationVndAPIPlusJSONLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type ListServiceStars200ApplicationVndAPIPlusJSONMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
 	// Number of records per page.
-	PerPage *int64 `json:"per_page,omitempty"`
+	PerPage *int64 `default:"20" json:"per_page"`
 	// Total records in result set.
 	RecordCount *int64 `json:"record_count,omitempty"`
 	// Total pages in result set.
 	TotalPages *int64 `json:"total_pages,omitempty"`
+}
+
+func (l ListServiceStars200ApplicationVndAPIPlusJSONMeta) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListServiceStars200ApplicationVndAPIPlusJSONMeta) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSONMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
 }
 
 // ListServiceStars200ApplicationVndAPIPlusJSON - OK
@@ -52,10 +160,59 @@ type ListServiceStars200ApplicationVndAPIPlusJSON struct {
 	Meta  *ListServiceStars200ApplicationVndAPIPlusJSONMeta  `json:"meta,omitempty"`
 }
 
+func (o *ListServiceStars200ApplicationVndAPIPlusJSON) GetData() []ListServiceStars200ApplicationVndAPIPlusJSONData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSON) GetLinks() *ListServiceStars200ApplicationVndAPIPlusJSONLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *ListServiceStars200ApplicationVndAPIPlusJSON) GetMeta() *ListServiceStars200ApplicationVndAPIPlusJSONMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
 type ListServiceStarsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	ListServiceStars200ApplicationVndAPIPlusJSONObject *ListServiceStars200ApplicationVndAPIPlusJSON
+}
+
+func (o *ListServiceStarsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListServiceStarsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListServiceStarsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListServiceStarsResponse) GetListServiceStars200ApplicationVndAPIPlusJSONObject() *ListServiceStars200ApplicationVndAPIPlusJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListServiceStars200ApplicationVndAPIPlusJSONObject
 }

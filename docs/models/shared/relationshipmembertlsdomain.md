@@ -3,7 +3,7 @@
 
 ## Fields
 
-| Field                                                  | Type                                                   | Required                                               | Description                                            | Example                                                |
-| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
-| `ID`                                                   | **string*                                              | :heavy_minus_sign:                                     | The domain name.                                       | www.example.com                                        |
-| `Type`                                                 | [*TypeTLSDomain](../../models/shared/typetlsdomain.md) | :heavy_minus_sign:                                     | Resource type                                          |                                                        |
+| Field              | Type               | Required           | Description        | Example            |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| `ID`               | **string*          | :heavy_minus_sign: | The domain name.   | www.example.com    |
+| `Type`             | **string*          | :heavy_minus_sign: | Resource type      |                    |

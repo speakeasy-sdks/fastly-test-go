@@ -2,28 +2,44 @@
 
 package shared
 
-type TLSDomainDataRelationships2TLSCertificates struct {
-	Data []RelationshipMemberTLSCertificate `json:"data,omitempty"`
-}
-
-// TLSDomainDataRelationships2 - The list of all the [TLS certificates](#tls_certificates) that include this domain in their SAN list.
-type TLSDomainDataRelationships2 struct {
-	TLSCertificates *TLSDomainDataRelationships2TLSCertificates `json:"tls_certificates,omitempty"`
-}
-
-type TLSDomainDataRelationships1TLSActivations struct {
-	Data []RelationshipMemberTLSActivation `json:"data,omitempty"`
-}
-
-// TLSDomainDataRelationships1 - The list of [TLS activations](#tls_activations) that exist for the domain. If empty, then this domain is not enabled to serve TLS traffic.
-type TLSDomainDataRelationships1 struct {
-	TLSActivations *TLSDomainDataRelationships1TLSActivations `json:"tls_activations,omitempty"`
-}
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
 
 type TLSDomainData struct {
 	// The domain name.
-	ID            *string     `json:"id,omitempty"`
-	Relationships interface{} `json:"relationships,omitempty"`
+	ID            *string                       `json:"id,omitempty"`
+	Relationships *RelationshipTLSSubscriptions `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSDomain `json:"type,omitempty"`
+	type_ *string `const:"tls_domain" json:"type"`
+}
+
+func (t TLSDomainData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSDomainData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSDomainData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSDomainData) GetRelationships() *RelationshipTLSSubscriptions {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSDomainData) GetType() *string {
+	return types.String("tls_domain")
 }

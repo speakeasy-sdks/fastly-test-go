@@ -45,3 +45,31 @@ type ServiceCreate1 struct {
 	// The type of this service.
 	Type *ServiceCreateType `form:"name=type"`
 }
+
+func (o *ServiceCreate1) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ServiceCreate1) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *ServiceCreate1) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ServiceCreate1) GetType() *ServiceCreateType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}

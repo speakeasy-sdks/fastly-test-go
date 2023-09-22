@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -96,19 +97,79 @@ func (e *LoggingNewrelicRegion) UnmarshalJSON(data []byte) error {
 
 type LoggingNewrelic3 struct {
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats). Must produce valid JSON that New Relic Logs can ingest.
-	Format *string `form:"name=format"`
+	Format *string `default:"{"timestamp":"%{begin:%Y-%m-%dT%H:%M:%S}t","time_elapsed":"%{time.elapsed.usec}V","is_tls":"%{if(req.is_ssl, \"true\", \"false\")}V","client_ip":"%{req.http.Fastly-Client-IP}V","geo_city":"%{client.geo.city}V","geo_country_code":"%{client.geo.country_code}V","request":"%{req.request}V","host":"%{req.http.Fastly-Orig-Host}V","url":"%{json.escape(req.url)}V","request_referer":"%{json.escape(req.http.Referer)}V","request_user_agent":"%{json.escape(req.http.User-Agent)}V","request_accept_language":"%{json.escape(req.http.Accept-Language)}V","request_accept_charset":"%{json.escape(req.http.Accept-Charset)}V","cache_status":"%{regsub(fastly_info.state, \"^(HIT-(SYNTH)|(HITPASS|HIT|MISS|PASS|ERROR|PIPE)).*\", \"\\2\\3\") }V"}" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingNewrelicFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingNewrelicFormatVersion `default:"2" form:"name=format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingNewrelicPlacement `form:"name=placement"`
 	// The region to which to stream logs.
-	Region *LoggingNewrelicRegion `form:"name=region"`
+	Region *LoggingNewrelicRegion `default:"US" form:"name=region"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// The Insert API key from the Account page of your New Relic account. Required.
 	Token *string `form:"name=token"`
+}
+
+func (l LoggingNewrelic3) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingNewrelic3) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingNewrelic3) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingNewrelic3) GetFormatVersion() *LoggingNewrelicFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingNewrelic3) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingNewrelic3) GetPlacement() *LoggingNewrelicPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingNewrelic3) GetRegion() *LoggingNewrelicRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingNewrelic3) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingNewrelic3) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
 }

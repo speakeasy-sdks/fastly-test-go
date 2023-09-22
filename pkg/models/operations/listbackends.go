@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type ListBackendsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListBackendsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListBackendsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListBackendsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListBackendsResponse struct {
@@ -24,4 +34,32 @@ type ListBackendsResponse struct {
 	RawResponse *http.Response
 	// OK
 	BackendResponses []shared.BackendResponse
+}
+
+func (o *ListBackendsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListBackendsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListBackendsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListBackendsResponse) GetBackendResponses() []shared.BackendResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BackendResponses
 }

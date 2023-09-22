@@ -7,3 +7,10 @@ type PublishRequest struct {
 	// The messages to publish.
 	Items []PublishItem `json:"items"`
 }
+
+func (o *PublishRequest) GetItems() []PublishItem {
+	if o == nil {
+		return []PublishItem{}
+	}
+	return o.Items
+}

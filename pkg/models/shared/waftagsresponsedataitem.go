@@ -2,8 +2,20 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type WafTagsResponseDataItemAttributes struct {
 	Name *string `json:"name,omitempty"`
+}
+
+func (o *WafTagsResponseDataItemAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
 }
 
 type WafTagsResponseDataItem struct {
@@ -12,5 +24,41 @@ type WafTagsResponseDataItem struct {
 	ID            *string              `json:"id,omitempty"`
 	Relationships *RelationshipWafRule `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafTag `json:"type,omitempty"`
+	type_ *string `const:"waf_tag" json:"type"`
+}
+
+func (w WafTagsResponseDataItem) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafTagsResponseDataItem) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafTagsResponseDataItem) GetAttributes() *WafTagsResponseDataItemAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafTagsResponseDataItem) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafTagsResponseDataItem) GetRelationships() *RelationshipWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafTagsResponseDataItem) GetType() *string {
+	return types.String("waf_tag")
 }

@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetGzipConfigsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetGzipConfigsRequest struct {
 	// Name of the gzip configuration.
 	GzipName string `pathParam:"style=simple,explode=false,name=gzip_name"`
@@ -20,10 +16,59 @@ type GetGzipConfigsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetGzipConfigsRequest) GetGzipName() string {
+	if o == nil {
+		return ""
+	}
+	return o.GzipName
+}
+
+func (o *GetGzipConfigsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetGzipConfigsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetGzipConfigsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	GzipResponse *shared.GzipResponse
+}
+
+func (o *GetGzipConfigsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetGzipConfigsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetGzipConfigsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetGzipConfigsResponse) GetGzipResponse() *shared.GzipResponse {
+	if o == nil {
+		return nil
+	}
+	return o.GzipResponse
 }

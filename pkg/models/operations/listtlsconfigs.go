@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListTLSConfigsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListTLSConfigsRequest struct {
 	// Optionally filters by the bulk attribute.
@@ -20,7 +17,46 @@ type ListTLSConfigsRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+}
+
+func (l ListTLSConfigsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListTLSConfigsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListTLSConfigsRequest) GetFilterBulk() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterBulk
+}
+
+func (o *ListTLSConfigsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSConfigsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSConfigsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
 }
 
 type ListTLSConfigsResponse struct {
@@ -29,4 +65,32 @@ type ListTLSConfigsResponse struct {
 	RawResponse *http.Response
 	// OK
 	TLSConfigurationsResponse *shared.TLSConfigurationsResponse
+}
+
+func (o *ListTLSConfigsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSConfigsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSConfigsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSConfigsResponse) GetTLSConfigurationsResponse() *shared.TLSConfigurationsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSConfigurationsResponse
 }

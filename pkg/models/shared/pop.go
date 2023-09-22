@@ -59,6 +59,20 @@ type PopCoordinates struct {
 	Longitude float64 `json:"longitude"`
 }
 
+func (o *PopCoordinates) GetLatitude() float64 {
+	if o == nil {
+		return 0.0
+	}
+	return o.Latitude
+}
+
+func (o *PopCoordinates) GetLongitude() float64 {
+	if o == nil {
+		return 0.0
+	}
+	return o.Longitude
+}
+
 type PopRegion string
 
 const (
@@ -195,4 +209,60 @@ type Pop struct {
 	Shield *string `json:"shield,omitempty"`
 	// the region used for stats reporting
 	StatsRegion PopStatsRegion `json:"stats_region"`
+}
+
+func (o *Pop) GetBillingRegion() PopBillingRegion {
+	if o == nil {
+		return PopBillingRegion("")
+	}
+	return o.BillingRegion
+}
+
+func (o *Pop) GetCode() string {
+	if o == nil {
+		return ""
+	}
+	return o.Code
+}
+
+func (o *Pop) GetCoordinates() *PopCoordinates {
+	if o == nil {
+		return nil
+	}
+	return o.Coordinates
+}
+
+func (o *Pop) GetGroup() string {
+	if o == nil {
+		return ""
+	}
+	return o.Group
+}
+
+func (o *Pop) GetName() string {
+	if o == nil {
+		return ""
+	}
+	return o.Name
+}
+
+func (o *Pop) GetRegion() PopRegion {
+	if o == nil {
+		return PopRegion("")
+	}
+	return o.Region
+}
+
+func (o *Pop) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Pop) GetStatsRegion() PopStatsRegion {
+	if o == nil {
+		return PopStatsRegion("")
+	}
+	return o.StatsRegion
 }

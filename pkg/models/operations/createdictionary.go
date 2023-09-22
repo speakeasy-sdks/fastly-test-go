@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateDictionarySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateDictionaryRequest struct {
 	Dictionary *shared.Dictionary `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,59 @@ type CreateDictionaryRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateDictionaryRequest) GetDictionary() *shared.Dictionary {
+	if o == nil {
+		return nil
+	}
+	return o.Dictionary
+}
+
+func (o *CreateDictionaryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateDictionaryRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateDictionaryResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DictionaryResponse *shared.DictionaryResponse
+}
+
+func (o *CreateDictionaryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateDictionaryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateDictionaryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateDictionaryResponse) GetDictionaryResponse() *shared.DictionaryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryResponse
 }

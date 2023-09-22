@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -127,41 +128,178 @@ func (e *LoggingHTTPSPlacement) UnmarshalJSON(data []byte) error {
 
 type LoggingHttps4 struct {
 	// Content type of the header sent with the request.
-	ContentType *string `form:"name=content_type"`
+	ContentType *string `default:"null" form:"name=content_type"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingHTTPSFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingHTTPSFormatVersion `default:"2" form:"name=format_version"`
 	// Name of the custom header sent with the request.
-	HeaderName *string `form:"name=header_name"`
+	HeaderName *string `default:"null" form:"name=header_name"`
 	// Value of the custom header sent with the request.
-	HeaderValue *string `form:"name=header_value"`
+	HeaderValue *string `default:"null" form:"name=header_value"`
 	// Enforces valid JSON formatting for log entries.
 	JSONFormat *LoggingHTTPSJSONFormat `form:"name=json_format"`
 	// How the message should be formatted.
-	MessageType *LoggingMessageType `form:"name=message_type"`
+	MessageType *LoggingMessageType `default:"classic" form:"name=message_type"`
 	// HTTP method used for request.
-	Method *LoggingHTTPSMethod `form:"name=method"`
+	Method *LoggingHTTPSMethod `default:"POST" form:"name=method"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingHTTPSPlacement `form:"name=placement"`
 	// The maximum number of bytes sent in one request. Defaults `0` (100MB).
-	RequestMaxBytes *int64 `form:"name=request_max_bytes"`
+	RequestMaxBytes *int64 `default:"0" form:"name=request_max_bytes"`
 	// The maximum number of logs sent in one request. Defaults `0` (10k).
-	RequestMaxEntries *int64 `form:"name=request_max_entries"`
+	RequestMaxEntries *int64 `default:"0" form:"name=request_max_entries"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// A secure certificate to authenticate a server with. Must be in PEM format.
-	TLSCaCert *string `form:"name=tls_ca_cert"`
+	TLSCaCert *string `default:"null" form:"name=tls_ca_cert"`
 	// The client certificate used to make authenticated requests. Must be in PEM format.
-	TLSClientCert *string `form:"name=tls_client_cert"`
+	TLSClientCert *string `default:"null" form:"name=tls_client_cert"`
 	// The client private key used to make authenticated requests. Must be in PEM format.
-	TLSClientKey *string `form:"name=tls_client_key"`
+	TLSClientKey *string `default:"null" form:"name=tls_client_key"`
 	// The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported.
-	TLSHostname *string `form:"name=tls_hostname"`
+	TLSHostname *string `default:"null" form:"name=tls_hostname"`
 	// The URL to send logs to. Must use HTTPS. Required.
 	URL *string `form:"name=url"`
+}
+
+func (l LoggingHttps4) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingHttps4) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingHttps4) GetContentType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentType
+}
+
+func (o *LoggingHttps4) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingHttps4) GetFormatVersion() *LoggingHTTPSFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingHttps4) GetHeaderName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderName
+}
+
+func (o *LoggingHttps4) GetHeaderValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderValue
+}
+
+func (o *LoggingHttps4) GetJSONFormat() *LoggingHTTPSJSONFormat {
+	if o == nil {
+		return nil
+	}
+	return o.JSONFormat
+}
+
+func (o *LoggingHttps4) GetMessageType() *LoggingMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingHttps4) GetMethod() *LoggingHTTPSMethod {
+	if o == nil {
+		return nil
+	}
+	return o.Method
+}
+
+func (o *LoggingHttps4) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingHttps4) GetPlacement() *LoggingHTTPSPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingHttps4) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingHttps4) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingHttps4) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingHttps4) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingHttps4) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingHttps4) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingHttps4) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingHttps4) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
 }

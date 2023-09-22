@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogHoneycombSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogHoneycombRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingHoneycombName string `pathParam:"style=simple,explode=false,name=logging_honeycomb_name"`
@@ -19,10 +15,38 @@ type DeleteLogHoneycombRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogHoneycombRequest) GetLoggingHoneycombName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingHoneycombName
+}
+
+func (o *DeleteLogHoneycombRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogHoneycombRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogHoneycomb200ApplicationJSON - OK
 type DeleteLogHoneycomb200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogHoneycomb200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogHoneycombResponse struct {
@@ -31,4 +55,32 @@ type DeleteLogHoneycombResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogHoneycomb200ApplicationJSONObject *DeleteLogHoneycomb200ApplicationJSON
+}
+
+func (o *DeleteLogHoneycombResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogHoneycombResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogHoneycombResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogHoneycombResponse) GetDeleteLogHoneycomb200ApplicationJSONObject() *DeleteLogHoneycomb200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogHoneycomb200ApplicationJSONObject
 }

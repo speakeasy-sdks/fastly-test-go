@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetDictionarySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetDictionaryRequest struct {
 	// Name for the Dictionary (must start with an alphabetic character and can contain only alphanumeric characters, underscores, and whitespace).
 	DictionaryName string `pathParam:"style=simple,explode=false,name=dictionary_name"`
@@ -20,10 +16,59 @@ type GetDictionaryRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetDictionaryRequest) GetDictionaryName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryName
+}
+
+func (o *GetDictionaryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetDictionaryRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetDictionaryResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DictionaryResponse *shared.DictionaryResponse
+}
+
+func (o *GetDictionaryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetDictionaryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetDictionaryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetDictionaryResponse) GetDictionaryResponse() *shared.DictionaryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryResponse
 }

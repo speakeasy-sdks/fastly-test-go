@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateLogAwsS3Security struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogAwsS3Request struct {
 	LoggingS3Input *shared.LoggingS3Input `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,59 @@ type CreateLogAwsS3Request struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogAwsS3Request) GetLoggingS3Input() *shared.LoggingS3Input {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingS3Input
+}
+
+func (o *CreateLogAwsS3Request) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogAwsS3Request) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogAwsS3Response struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingS3Response *shared.LoggingS3Response
+}
+
+func (o *CreateLogAwsS3Response) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogAwsS3Response) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogAwsS3Response) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogAwsS3Response) GetLoggingS3Response() *shared.LoggingS3Response {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingS3Response
 }

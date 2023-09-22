@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogGcsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogGcsRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingGcsName string `pathParam:"style=simple,explode=false,name=logging_gcs_name"`
@@ -20,10 +16,59 @@ type GetLogGcsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogGcsRequest) GetLoggingGcsName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingGcsName
+}
+
+func (o *GetLogGcsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogGcsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogGcsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingGcsResponse *shared.LoggingGcsResponse
+}
+
+func (o *GetLogGcsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogGcsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogGcsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogGcsResponse) GetLoggingGcsResponse() *shared.LoggingGcsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingGcsResponse
 }

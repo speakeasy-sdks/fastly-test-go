@@ -3,18 +3,40 @@
 package operations
 
 import (
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListRolesSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListRolesRequest struct {
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
 	// Number of records per page.
-	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
+	PerPage *int64 `default:"20" queryParam:"style=form,explode=true,name=per_page"`
+}
+
+func (l ListRolesRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListRolesRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListRolesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListRolesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
 }
 
 // ListRoles200ApplicationJSON - OK
@@ -27,4 +49,32 @@ type ListRolesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListRoles200ApplicationJSONObject *ListRoles200ApplicationJSON
+}
+
+func (o *ListRolesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListRolesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListRolesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListRolesResponse) GetListRoles200ApplicationJSONObject() *ListRoles200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListRoles200ApplicationJSONObject
 }

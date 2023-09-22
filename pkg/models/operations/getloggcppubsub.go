@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogGcpPubsubSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogGcpPubsubRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingGooglePubsubName string `pathParam:"style=simple,explode=false,name=logging_google_pubsub_name"`
@@ -20,10 +16,59 @@ type GetLogGcpPubsubRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogGcpPubsubRequest) GetLoggingGooglePubsubName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingGooglePubsubName
+}
+
+func (o *GetLogGcpPubsubRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogGcpPubsubRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogGcpPubsubResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingGooglePubsubResponse *shared.LoggingGooglePubsubResponse
+}
+
+func (o *GetLogGcpPubsubResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogGcpPubsubResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogGcpPubsubResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogGcpPubsubResponse) GetLoggingGooglePubsubResponse() *shared.LoggingGooglePubsubResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingGooglePubsubResponse
 }

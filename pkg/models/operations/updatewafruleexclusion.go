@@ -7,18 +7,42 @@ import (
 	"net/http"
 )
 
-type UpdateWafRuleExclusionSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateWafRuleExclusionRequest struct {
 	// A numeric ID identifying a WAF exclusion.
 	ExclusionNumber int64 `pathParam:"style=simple,explode=false,name=exclusion_number"`
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a WAF firewall version.
-	FirewallVersionNumber int64                     `pathParam:"style=simple,explode=false,name=firewall_version_number"`
-	WafExclusionInput     *shared.WafExclusionInput `request:"mediaType=application/vnd.api+json"`
+	FirewallVersionNumber int64                `pathParam:"style=simple,explode=false,name=firewall_version_number"`
+	WafExclusion          *shared.WafExclusion `request:"mediaType=application/vnd.api+json"`
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetExclusionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.ExclusionNumber
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
+func (o *UpdateWafRuleExclusionRequest) GetWafExclusion() *shared.WafExclusion {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusion
 }
 
 type UpdateWafRuleExclusionResponse struct {
@@ -27,4 +51,32 @@ type UpdateWafRuleExclusionResponse struct {
 	RawResponse *http.Response
 	// Created
 	WafExclusionResponse *shared.WafExclusionResponse
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateWafRuleExclusionResponse) GetWafExclusionResponse() *shared.WafExclusionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusionResponse
 }

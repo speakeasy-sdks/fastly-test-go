@@ -4,16 +4,13 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
 
-type DiffServiceVersionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DiffServiceVersionsRequest struct {
 	// Optional method to format the diff field.
-	Format *shared.QueryFormat `queryParam:"style=form,explode=true,name=format"`
+	Format *shared.QueryFormat `default:"text" queryParam:"style=form,explode=true,name=format"`
 	// The version number of the service to which changes in the generated VCL are being compared. Can either be a positive number from 1 to your maximum version or a negative number from -1 down (-1 is latest version etc).
 	FromVersionID int64 `pathParam:"style=simple,explode=false,name=from_version_id"`
 	// Alphanumeric string identifying the service.
@@ -22,10 +19,77 @@ type DiffServiceVersionsRequest struct {
 	ToVersionID int64 `pathParam:"style=simple,explode=false,name=to_version_id"`
 }
 
+func (d DiffServiceVersionsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *DiffServiceVersionsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *DiffServiceVersionsRequest) GetFormat() *shared.QueryFormat {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *DiffServiceVersionsRequest) GetFromVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FromVersionID
+}
+
+func (o *DiffServiceVersionsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DiffServiceVersionsRequest) GetToVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.ToVersionID
+}
+
 type DiffServiceVersionsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DiffResponse *shared.DiffResponse
+}
+
+func (o *DiffServiceVersionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DiffServiceVersionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DiffServiceVersionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DiffServiceVersionsResponse) GetDiffResponse() *shared.DiffResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DiffResponse
 }

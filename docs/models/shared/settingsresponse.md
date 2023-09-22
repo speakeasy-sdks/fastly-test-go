@@ -1,7 +1,5 @@
 # SettingsResponse
 
-OK
-
 
 ## Fields
 

@@ -7,13 +7,16 @@ import (
 	"net/http"
 )
 
-type GetStatsLast120SecondsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetStatsLast120SecondsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
+}
+
+func (o *GetStatsLast120SecondsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
 }
 
 type GetStatsLast120SecondsResponse struct {
@@ -22,4 +25,32 @@ type GetStatsLast120SecondsResponse struct {
 	RawResponse *http.Response
 	// OK
 	Realtime *shared.Realtime
+}
+
+func (o *GetStatsLast120SecondsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetStatsLast120SecondsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetStatsLast120SecondsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetStatsLast120SecondsResponse) GetRealtime() *shared.Realtime {
+	if o == nil {
+		return nil
+	}
+	return o.Realtime
 }

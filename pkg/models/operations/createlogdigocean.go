@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateLogDigoceanSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogDigoceanRequest struct {
 	LoggingDigitaloceanInput *shared.LoggingDigitaloceanInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,59 @@ type CreateLogDigoceanRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogDigoceanRequest) GetLoggingDigitaloceanInput() *shared.LoggingDigitaloceanInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingDigitaloceanInput
+}
+
+func (o *CreateLogDigoceanRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogDigoceanRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogDigoceanResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingDigitaloceanResponse *shared.LoggingDigitaloceanResponse
+}
+
+func (o *CreateLogDigoceanResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogDigoceanResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogDigoceanResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogDigoceanResponse) GetLoggingDigitaloceanResponse() *shared.LoggingDigitaloceanResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingDigitaloceanResponse
 }

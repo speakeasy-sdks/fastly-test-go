@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type ListConditionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListConditionsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListConditionsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListConditionsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListConditionsResponse struct {
@@ -24,4 +34,32 @@ type ListConditionsResponse struct {
 	RawResponse *http.Response
 	// OK
 	ConditionsResponse []shared.ConditionResponse
+}
+
+func (o *ListConditionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListConditionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListConditionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListConditionsResponse) GetConditionsResponse() []shared.ConditionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConditionsResponse
 }

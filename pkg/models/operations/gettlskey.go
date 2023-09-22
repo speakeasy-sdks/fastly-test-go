@@ -7,13 +7,16 @@ import (
 	"net/http"
 )
 
-type GetTLSKeySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetTLSKeyRequest struct {
 	// Alphanumeric string identifying a private Key.
 	TLSPrivateKeyID string `pathParam:"style=simple,explode=false,name=tls_private_key_id"`
+}
+
+func (o *GetTLSKeyRequest) GetTLSPrivateKeyID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSPrivateKeyID
 }
 
 type GetTLSKeyResponse struct {
@@ -22,4 +25,32 @@ type GetTLSKeyResponse struct {
 	RawResponse *http.Response
 	// OK
 	TLSPrivateKeyResponse *shared.TLSPrivateKeyResponse
+}
+
+func (o *GetTLSKeyResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetTLSKeyResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetTLSKeyResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetTLSKeyResponse) GetTLSPrivateKeyResponse() *shared.TLSPrivateKeyResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSPrivateKeyResponse
 }

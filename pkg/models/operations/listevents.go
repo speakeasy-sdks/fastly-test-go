@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListEventsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListEventsRequest struct {
 	// Limit the returned events to a specific time frame. Accepts sub-parameters: lt, lte, gt, gte (e.g., filter[created_at][gt]=2022-01-12).
@@ -28,9 +25,83 @@ type ListEventsRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// The order in which to list the results by creation date.
-	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
+	Sort *shared.Sort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+}
+
+func (l ListEventsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListEventsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListEventsRequest) GetFilterCreatedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterCreatedAt
+}
+
+func (o *ListEventsRequest) GetFilterCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterCustomerID
+}
+
+func (o *ListEventsRequest) GetFilterEventType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterEventType
+}
+
+func (o *ListEventsRequest) GetFilterServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterServiceID
+}
+
+func (o *ListEventsRequest) GetFilterTokenID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTokenID
+}
+
+func (o *ListEventsRequest) GetFilterUserID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterUserID
+}
+
+func (o *ListEventsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListEventsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListEventsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
 }
 
 type ListEventsResponse struct {
@@ -39,4 +110,32 @@ type ListEventsResponse struct {
 	RawResponse *http.Response
 	// OK
 	EventsResponse *shared.EventsResponse
+}
+
+func (o *ListEventsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListEventsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListEventsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListEventsResponse) GetEventsResponse() *shared.EventsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.EventsResponse
 }

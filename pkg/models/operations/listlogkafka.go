@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type ListLogKafkaSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListLogKafkaRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListLogKafkaRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListLogKafkaRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListLogKafkaResponse struct {
@@ -24,4 +34,32 @@ type ListLogKafkaResponse struct {
 	RawResponse *http.Response
 	// OK
 	LoggingKafkaResponses []shared.LoggingKafkaResponse
+}
+
+func (o *ListLogKafkaResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListLogKafkaResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListLogKafkaResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListLogKafkaResponse) GetLoggingKafkaResponses() []shared.LoggingKafkaResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingKafkaResponses
 }

@@ -12,10 +12,52 @@ type UpdateUserPasswordSecurity struct {
 	Username string `security:"scheme,type=http,subtype=basic,name=username"`
 }
 
+func (o *UpdateUserPasswordSecurity) GetPassword() string {
+	if o == nil {
+		return ""
+	}
+	return o.Password
+}
+
+func (o *UpdateUserPasswordSecurity) GetUsername() string {
+	if o == nil {
+		return ""
+	}
+	return o.Username
+}
+
 type UpdateUserPasswordResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	UserResponse *shared.UserResponse
+}
+
+func (o *UpdateUserPasswordResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateUserPasswordResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateUserPasswordResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateUserPasswordResponse) GetUserResponse() *shared.UserResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UserResponse
 }

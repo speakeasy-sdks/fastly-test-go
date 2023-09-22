@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateLogHoneycombSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogHoneycombRequest struct {
 	LoggingHoneycomb2 *shared.LoggingHoneycomb2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,59 @@ type CreateLogHoneycombRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogHoneycombRequest) GetLoggingHoneycomb2() *shared.LoggingHoneycomb2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHoneycomb2
+}
+
+func (o *CreateLogHoneycombRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogHoneycombRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogHoneycombResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingHoneycomb *shared.LoggingHoneycomb2
+}
+
+func (o *CreateLogHoneycombResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogHoneycombResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogHoneycombResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogHoneycombResponse) GetLoggingHoneycomb() *shared.LoggingHoneycomb2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHoneycomb
 }
