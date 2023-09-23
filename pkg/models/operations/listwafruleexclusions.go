@@ -4,14 +4,11 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
-
-type ListWafRuleExclusionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 // ListWafRuleExclusionsFilterExclusionType - Filters the results based on this exclusion type.
 type ListWafRuleExclusionsFilterExclusionType string
@@ -61,7 +58,74 @@ type ListWafRuleExclusionsRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+}
+
+func (l ListWafRuleExclusionsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListWafRuleExclusionsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFilterExclusionType() *ListWafRuleExclusionsFilterExclusionType {
+	if o == nil {
+		return nil
+	}
+	return o.FilterExclusionType
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFilterName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterName
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFilterWafRulesModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafRulesModsecRuleID
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *ListWafRuleExclusionsRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
+func (o *ListWafRuleExclusionsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafRuleExclusionsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafRuleExclusionsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
 }
 
 type ListWafRuleExclusionsResponse struct {
@@ -70,4 +134,32 @@ type ListWafRuleExclusionsResponse struct {
 	RawResponse *http.Response
 	// OK
 	WafExclusionsResponse *shared.WafExclusionsResponse
+}
+
+func (o *ListWafRuleExclusionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafRuleExclusionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafRuleExclusionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafRuleExclusionsResponse) GetWafExclusionsResponse() *shared.WafExclusionsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusionsResponse
 }

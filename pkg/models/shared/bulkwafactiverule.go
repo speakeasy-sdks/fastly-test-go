@@ -3,6 +3,8 @@
 package shared
 
 import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -46,9 +48,59 @@ type BulkWafActiveRuleAttributes struct {
 	Status *BulkWafActiveRuleAttributesStatus `json:"status,omitempty"`
 }
 
-type BulkWafActiveRuleInput struct {
-	Attributes    *BulkWafActiveRuleAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                  `json:"relationships,omitempty"`
+func (o *BulkWafActiveRuleAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *BulkWafActiveRuleAttributes) GetRevision() *WafRuleRevisionOrLatest {
+	if o == nil {
+		return nil
+	}
+	return o.Revision
+}
+
+func (o *BulkWafActiveRuleAttributes) GetStatus() *BulkWafActiveRuleAttributesStatus {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
+type BulkWafActiveRule struct {
+	Attributes    *BulkWafActiveRuleAttributes        `json:"attributes,omitempty"`
+	Relationships *RelationshipsForWafActiveRuleInput `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafActiveRule `json:"type,omitempty"`
+	type_ *string `const:"waf_active_rule" json:"type"`
+}
+
+func (b BulkWafActiveRule) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(b, "", false)
+}
+
+func (b *BulkWafActiveRule) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &b, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *BulkWafActiveRule) GetAttributes() *BulkWafActiveRuleAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *BulkWafActiveRule) GetRelationships() *RelationshipsForWafActiveRuleInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *BulkWafActiveRule) GetType() *string {
+	return types.String("waf_active_rule")
 }

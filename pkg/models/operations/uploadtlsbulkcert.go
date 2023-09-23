@@ -7,14 +7,38 @@ import (
 	"net/http"
 )
 
-type UploadTLSBulkCertSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UploadTLSBulkCertResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// Created
 	TLSBulkCertificateResponse *shared.TLSBulkCertificateResponse
+}
+
+func (o *UploadTLSBulkCertResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UploadTLSBulkCertResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UploadTLSBulkCertResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UploadTLSBulkCertResponse) GetTLSBulkCertificateResponse() *shared.TLSBulkCertificateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSBulkCertificateResponse
 }

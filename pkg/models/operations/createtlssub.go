@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type CreateTLSSubSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateTLSSubRequest struct {
 	// A flag that allows you to edit and delete a subscription with active domains. Valid to use on PATCH and DELETE actions. As a warning, removing an active domain from a subscription or forcing the deletion of a subscription may result in breaking TLS termination to that domain.
 	//
-	Force                *bool                        `queryParam:"style=form,explode=false,name=force"`
-	TLSSubscriptionInput *shared.TLSSubscriptionInput `request:"mediaType=application/vnd.api+json"`
+	Force           *bool                   `queryParam:"style=form,explode=false,name=force"`
+	TLSSubscription *shared.TLSSubscription `request:"mediaType=application/vnd.api+json"`
+}
+
+func (o *CreateTLSSubRequest) GetForce() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Force
+}
+
+func (o *CreateTLSSubRequest) GetTLSSubscription() *shared.TLSSubscription {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSubscription
 }
 
 type CreateTLSSubResponse struct {
@@ -24,4 +34,32 @@ type CreateTLSSubResponse struct {
 	RawResponse *http.Response
 	// Created
 	TLSSubscriptionResponse *shared.TLSSubscriptionResponse
+}
+
+func (o *CreateTLSSubResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateTLSSubResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateTLSSubResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateTLSSubResponse) GetTLSSubscriptionResponse() *shared.TLSSubscriptionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSubscriptionResponse
 }

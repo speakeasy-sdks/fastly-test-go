@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -36,7 +37,6 @@ func (e *ServiceResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ServiceResponse - OK
 type ServiceResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`
@@ -59,4 +59,92 @@ type ServiceResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// A list of [versions](/reference/api/services/version/) associated with the service.
 	Versions []SchemasVersionResponse `json:"versions,omitempty"`
+}
+
+func (s ServiceResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ServiceResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ServiceResponse) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *ServiceResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ServiceResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ServiceResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ServiceResponse) GetPaused() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Paused
+}
+
+func (o *ServiceResponse) GetPublishKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublishKey
+}
+
+func (o *ServiceResponse) GetType() *ServiceResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *ServiceResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ServiceResponse) GetVersions() []SchemasVersionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Versions
 }

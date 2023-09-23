@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -75,7 +76,7 @@ type LoggingBigquery2 struct {
 	Format *string `form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingBigqueryFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingBigqueryFormatVersion `default:"2" form:"name=format_version"`
 	// The name of the BigQuery logging object. Used as a primary key for API access.
 	Name *string `form:"name=name"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
@@ -93,4 +94,99 @@ type LoggingBigquery2 struct {
 	TemplateSuffix *string `form:"name=template_suffix"`
 	// Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.
 	User *string `form:"name=user"`
+}
+
+func (l LoggingBigquery2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingBigquery2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingBigquery2) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingBigquery2) GetDataset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dataset
+}
+
+func (o *LoggingBigquery2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingBigquery2) GetFormatVersion() *LoggingBigqueryFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingBigquery2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingBigquery2) GetPlacement() *LoggingBigqueryPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingBigquery2) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingBigquery2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingBigquery2) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingBigquery2) GetTable() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Table
+}
+
+func (o *LoggingBigquery2) GetTemplateSuffix() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TemplateSuffix
+}
+
+func (o *LoggingBigquery2) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
 }

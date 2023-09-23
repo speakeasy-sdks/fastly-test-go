@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogLogshuttleSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogLogshuttleRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingLogshuttleName string `pathParam:"style=simple,explode=false,name=logging_logshuttle_name"`
@@ -20,10 +16,59 @@ type GetLogLogshuttleRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogLogshuttleRequest) GetLoggingLogshuttleName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingLogshuttleName
+}
+
+func (o *GetLogLogshuttleRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogLogshuttleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogLogshuttleResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingLogshuttleResponse *shared.LoggingLogshuttleResponse
+}
+
+func (o *GetLogLogshuttleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogLogshuttleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogLogshuttleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogLogshuttleResponse) GetLoggingLogshuttleResponse() *shared.LoggingLogshuttleResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogshuttleResponse
 }

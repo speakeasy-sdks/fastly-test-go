@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetDirectorSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetDirectorRequest struct {
 	// Name for the Director.
 	DirectorName string `pathParam:"style=simple,explode=false,name=director_name"`
@@ -20,10 +16,59 @@ type GetDirectorRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetDirectorRequest) GetDirectorName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DirectorName
+}
+
+func (o *GetDirectorRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetDirectorRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetDirectorResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DirectorResponse *shared.DirectorResponse
+}
+
+func (o *GetDirectorResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetDirectorResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetDirectorResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetDirectorResponse) GetDirectorResponse() *shared.DirectorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DirectorResponse
 }

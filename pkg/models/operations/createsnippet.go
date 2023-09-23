@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateSnippetSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateSnippetRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string           `pathParam:"style=simple,explode=false,name=service_id"`
@@ -19,10 +15,59 @@ type CreateSnippetRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateSnippetRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateSnippetRequest) GetSnippet2() *shared.Snippet2 {
+	if o == nil {
+		return nil
+	}
+	return o.Snippet2
+}
+
+func (o *CreateSnippetRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateSnippetResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	SnippetResponse *shared.SnippetResponse
+}
+
+func (o *CreateSnippetResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateSnippetResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateSnippetResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateSnippetResponse) GetSnippetResponse() *shared.SnippetResponse {
+	if o == nil {
+		return nil
+	}
+	return o.SnippetResponse
 }

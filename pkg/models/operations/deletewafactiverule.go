@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteWafActiveRuleSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteWafActiveRuleRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
@@ -19,8 +15,50 @@ type DeleteWafActiveRuleRequest struct {
 	WafRuleID string `pathParam:"style=simple,explode=false,name=waf_rule_id"`
 }
 
+func (o *DeleteWafActiveRuleRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *DeleteWafActiveRuleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
+func (o *DeleteWafActiveRuleRequest) GetWafRuleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WafRuleID
+}
+
 type DeleteWafActiveRuleResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteWafActiveRuleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteWafActiveRuleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteWafActiveRuleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

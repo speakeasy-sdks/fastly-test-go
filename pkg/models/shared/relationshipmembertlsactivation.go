@@ -2,13 +2,55 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberTLSActivationInput struct {
 	// Resource type.
-	Type *TypeTLSActivation `json:"type,omitempty"`
+	type_ *string `const:"tls_activation" json:"type"`
+}
+
+func (r RelationshipMemberTLSActivationInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberTLSActivationInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberTLSActivationInput) GetType() *string {
+	return types.String("tls_activation")
 }
 
 type RelationshipMemberTLSActivation struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type.
-	Type *TypeTLSActivation `json:"type,omitempty"`
+	type_ *string `const:"tls_activation" json:"type"`
+}
+
+func (r RelationshipMemberTLSActivation) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberTLSActivation) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberTLSActivation) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSActivation) GetType() *string {
+	return types.String("tls_activation")
 }

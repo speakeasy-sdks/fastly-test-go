@@ -1,7 +1,5 @@
 # ServiceResponse
 
-OK
-
 
 ## Fields
 

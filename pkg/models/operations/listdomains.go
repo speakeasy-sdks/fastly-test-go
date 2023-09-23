@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type ListDomainsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListDomainsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListDomainsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListDomainsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListDomainsResponse struct {
@@ -24,4 +34,32 @@ type ListDomainsResponse struct {
 	RawResponse *http.Response
 	// OK
 	DomainsResponse []shared.DomainResponse
+}
+
+func (o *ListDomainsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListDomainsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListDomainsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListDomainsResponse) GetDomainsResponse() []shared.DomainResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DomainsResponse
 }

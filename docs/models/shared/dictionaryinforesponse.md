@@ -1,7 +1,5 @@
 # DictionaryInfoResponse
 
-OK
-
 
 ## Fields
 

@@ -6,13 +6,16 @@ import (
 	"net/http"
 )
 
-type DeleteCustomerSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteCustomerRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *DeleteCustomerRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 // DeleteCustomer200ApplicationJSON - OK
@@ -21,10 +24,45 @@ type DeleteCustomer200ApplicationJSON struct {
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteCustomer200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteCustomerResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DeleteCustomer200ApplicationJSONObject *DeleteCustomer200ApplicationJSON
+}
+
+func (o *DeleteCustomerResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteCustomerResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteCustomerResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteCustomerResponse) GetDeleteCustomer200ApplicationJSONObject() *DeleteCustomer200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteCustomer200ApplicationJSONObject
 }

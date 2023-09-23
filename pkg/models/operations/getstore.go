@@ -7,12 +7,15 @@ import (
 	"net/http"
 )
 
-type GetStoreSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetStoreRequest struct {
 	StoreID string `pathParam:"style=simple,explode=false,name=store_id"`
+}
+
+func (o *GetStoreRequest) GetStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.StoreID
 }
 
 type GetStoreResponse struct {
@@ -21,4 +24,32 @@ type GetStoreResponse struct {
 	RawResponse *http.Response
 	// OK
 	StoreResponse *shared.StoreResponse
+}
+
+func (o *GetStoreResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetStoreResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetStoreResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetStoreResponse) GetStoreResponse() *shared.StoreResponse {
+	if o == nil {
+		return nil
+	}
+	return o.StoreResponse
 }

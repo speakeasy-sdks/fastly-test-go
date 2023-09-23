@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -68,33 +69,142 @@ func (e *LoggingSplunkPlacement) UnmarshalJSON(data []byte) error {
 
 type LoggingSplunk2 struct {
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingSplunkFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingSplunkFormatVersion `default:"2" form:"name=format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingSplunkPlacement `form:"name=placement"`
 	// The maximum number of bytes sent in one request. Defaults `0` for unbounded.
-	RequestMaxBytes *int64 `form:"name=request_max_bytes"`
+	RequestMaxBytes *int64 `default:"0" form:"name=request_max_bytes"`
 	// The maximum number of logs sent in one request. Defaults `0` for unbounded.
-	RequestMaxEntries *int64 `form:"name=request_max_entries"`
+	RequestMaxEntries *int64 `default:"0" form:"name=request_max_entries"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// A secure certificate to authenticate a server with. Must be in PEM format.
-	TLSCaCert *string `form:"name=tls_ca_cert"`
+	TLSCaCert *string `default:"null" form:"name=tls_ca_cert"`
 	// The client certificate used to make authenticated requests. Must be in PEM format.
-	TLSClientCert *string `form:"name=tls_client_cert"`
+	TLSClientCert *string `default:"null" form:"name=tls_client_cert"`
 	// The client private key used to make authenticated requests. Must be in PEM format.
-	TLSClientKey *string `form:"name=tls_client_key"`
+	TLSClientKey *string `default:"null" form:"name=tls_client_key"`
 	// The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported.
-	TLSHostname *string `form:"name=tls_hostname"`
+	TLSHostname *string `default:"null" form:"name=tls_hostname"`
 	// A Splunk token for use in posting logs over HTTP to your collector.
 	Token *string `form:"name=token"`
 	// The URL to post logs to.
 	URL *string `form:"name=url"`
 	// Whether to use TLS.
-	UseTLS *LoggingUseTLS `form:"name=use_tls"`
+	UseTLS *LoggingUseTLS `default:"0" form:"name=use_tls"`
+}
+
+func (l LoggingSplunk2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingSplunk2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingSplunk2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingSplunk2) GetFormatVersion() *LoggingSplunkFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingSplunk2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingSplunk2) GetPlacement() *LoggingSplunkPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingSplunk2) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingSplunk2) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingSplunk2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingSplunk2) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingSplunk2) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingSplunk2) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingSplunk2) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingSplunk2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingSplunk2) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}
+
+func (o *LoggingSplunk2) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
 }

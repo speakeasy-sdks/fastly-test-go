@@ -1,7 +1,5 @@
 # DirectorBackend
 
-OK
-
 
 ## Fields
 

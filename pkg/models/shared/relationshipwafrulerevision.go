@@ -6,14 +6,42 @@ type RelationshipWafRuleRevisionWafRuleRevisions struct {
 	Data []RelationshipMemberWafRuleRevision `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafRuleRevisionWafRuleRevisions) GetData() []RelationshipMemberWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafRuleRevision struct {
 	WafRuleRevisions *RelationshipWafRuleRevisionWafRuleRevisions `json:"waf_rule_revisions,omitempty"`
+}
+
+func (o *RelationshipWafRuleRevision) GetWafRuleRevisions() *RelationshipWafRuleRevisionWafRuleRevisions {
+	if o == nil {
+		return nil
+	}
+	return o.WafRuleRevisions
 }
 
 type RelationshipWafRuleRevisionWafRuleRevisionsInput struct {
 	Data []RelationshipMemberWafRuleRevisionInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafRuleRevisionWafRuleRevisionsInput) GetData() []RelationshipMemberWafRuleRevisionInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafRuleRevisionInput struct {
 	WafRuleRevisions *RelationshipWafRuleRevisionWafRuleRevisionsInput `json:"waf_rule_revisions,omitempty"`
+}
+
+func (o *RelationshipWafRuleRevisionInput) GetWafRuleRevisions() *RelationshipWafRuleRevisionWafRuleRevisionsInput {
+	if o == nil {
+		return nil
+	}
+	return o.WafRuleRevisions
 }

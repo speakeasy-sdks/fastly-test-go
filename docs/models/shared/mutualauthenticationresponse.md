@@ -1,7 +1,5 @@
 # MutualAuthenticationResponse
 
-Created
-
 
 ## Fields
 

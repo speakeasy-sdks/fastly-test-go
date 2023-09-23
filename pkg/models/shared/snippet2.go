@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -98,7 +99,53 @@ type Snippet2 struct {
 	// The name for the snippet.
 	Name *string `form:"name=name"`
 	// Priority determines execution order. Lower numbers execute first.
-	Priority *string `form:"name=priority"`
+	Priority *string `default:"100" form:"name=priority"`
 	// The location in generated VCL where the snippet should be placed.
 	Type *SnippetType `form:"name=type"`
+}
+
+func (s Snippet2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *Snippet2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Snippet2) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *Snippet2) GetDynamic() *SnippetDynamic {
+	if o == nil {
+		return nil
+	}
+	return o.Dynamic
+}
+
+func (o *Snippet2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Snippet2) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *Snippet2) GetType() *SnippetType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

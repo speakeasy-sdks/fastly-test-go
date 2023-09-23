@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type ListTokensUserSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListTokensUserResponse struct {
 	ContentType string
 	StatusCode  int
@@ -19,4 +15,39 @@ type ListTokensUserResponse struct {
 	GenericTokenError *shared.GenericTokenError
 	// OK
 	TokenResponses []shared.TokenResponse
+}
+
+func (o *ListTokensUserResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTokensUserResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTokensUserResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTokensUserResponse) GetGenericTokenError() *shared.GenericTokenError {
+	if o == nil {
+		return nil
+	}
+	return o.GenericTokenError
+}
+
+func (o *ListTokensUserResponse) GetTokenResponses() []shared.TokenResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TokenResponses
 }

@@ -1,7 +1,5 @@
 # Stats
 
-OK
-
 
 ## Fields
 

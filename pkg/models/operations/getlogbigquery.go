@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogBigquerySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogBigqueryRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingBigqueryName string `pathParam:"style=simple,explode=false,name=logging_bigquery_name"`
@@ -20,10 +16,59 @@ type GetLogBigqueryRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogBigqueryRequest) GetLoggingBigqueryName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingBigqueryName
+}
+
+func (o *GetLogBigqueryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogBigqueryRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogBigqueryResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingBigqueryResponse *shared.LoggingBigqueryResponse
+}
+
+func (o *GetLogBigqueryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogBigqueryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogBigqueryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogBigqueryResponse) GetLoggingBigqueryResponse() *shared.LoggingBigqueryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingBigqueryResponse
 }

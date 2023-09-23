@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogAzureSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogAzureRequest struct {
 	LoggingAzureblobInput *shared.LoggingAzureblobInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,66 @@ type UpdateLogAzureRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogAzureRequest) GetLoggingAzureblobInput() *shared.LoggingAzureblobInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingAzureblobInput
+}
+
+func (o *UpdateLogAzureRequest) GetLoggingAzureblobName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingAzureblobName
+}
+
+func (o *UpdateLogAzureRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogAzureRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogAzureResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingAzureblobResponse *shared.LoggingAzureblobResponse
+}
+
+func (o *UpdateLogAzureResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogAzureResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogAzureResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogAzureResponse) GetLoggingAzureblobResponse() *shared.LoggingAzureblobResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingAzureblobResponse
 }

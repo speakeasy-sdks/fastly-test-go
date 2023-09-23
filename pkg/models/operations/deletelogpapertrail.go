@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogPapertrailSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogPapertrailRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingPapertrailName string `pathParam:"style=simple,explode=false,name=logging_papertrail_name"`
@@ -19,10 +15,38 @@ type DeleteLogPapertrailRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogPapertrailRequest) GetLoggingPapertrailName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingPapertrailName
+}
+
+func (o *DeleteLogPapertrailRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogPapertrailRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogPapertrail200ApplicationJSON - OK
 type DeleteLogPapertrail200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogPapertrail200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogPapertrailResponse struct {
@@ -31,4 +55,32 @@ type DeleteLogPapertrailResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogPapertrail200ApplicationJSONObject *DeleteLogPapertrail200ApplicationJSON
+}
+
+func (o *DeleteLogPapertrailResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogPapertrailResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogPapertrailResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogPapertrailResponse) GetDeleteLogPapertrail200ApplicationJSONObject() *DeleteLogPapertrail200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogPapertrail200ApplicationJSONObject
 }

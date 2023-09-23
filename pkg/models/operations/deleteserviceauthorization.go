@@ -6,17 +6,41 @@ import (
 	"net/http"
 )
 
-type DeleteServiceAuthorizationSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteServiceAuthorizationRequest struct {
 	// Alphanumeric string identifying a service authorization.
 	ServiceAuthorizationID string `pathParam:"style=simple,explode=false,name=service_authorization_id"`
+}
+
+func (o *DeleteServiceAuthorizationRequest) GetServiceAuthorizationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceAuthorizationID
 }
 
 type DeleteServiceAuthorizationResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteServiceAuthorizationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteServiceAuthorizationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteServiceAuthorizationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

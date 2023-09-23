@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteDomainSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteDomainRequest struct {
 	// The name of the domain or domains associated with this service.
 	DomainName string `pathParam:"style=simple,explode=false,name=domain_name"`
@@ -19,10 +15,38 @@ type DeleteDomainRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteDomainRequest) GetDomainName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DomainName
+}
+
+func (o *DeleteDomainRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteDomainRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteDomain200ApplicationJSON - OK
 type DeleteDomain200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteDomain200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteDomainResponse struct {
@@ -31,4 +55,32 @@ type DeleteDomainResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteDomain200ApplicationJSONObject *DeleteDomain200ApplicationJSON
+}
+
+func (o *DeleteDomainResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteDomainResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteDomainResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteDomainResponse) GetDeleteDomain200ApplicationJSONObject() *DeleteDomain200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteDomain200ApplicationJSONObject
 }

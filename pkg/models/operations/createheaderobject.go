@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateHeaderObjectSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateHeaderObjectRequest struct {
 	Header2 *shared.Header2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,59 @@ type CreateHeaderObjectRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateHeaderObjectRequest) GetHeader2() *shared.Header2 {
+	if o == nil {
+		return nil
+	}
+	return o.Header2
+}
+
+func (o *CreateHeaderObjectRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateHeaderObjectRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateHeaderObjectResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	HeaderResponse *shared.HeaderResponse
+}
+
+func (o *CreateHeaderObjectResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateHeaderObjectResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateHeaderObjectResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateHeaderObjectResponse) GetHeaderResponse() *shared.HeaderResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HeaderResponse
 }

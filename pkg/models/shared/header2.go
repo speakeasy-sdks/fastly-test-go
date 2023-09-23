@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -87,7 +88,7 @@ type Header2 struct {
 	// A handle to refer to this Header object.
 	Name *string `form:"name=name"`
 	// Priority determines execution order. Lower numbers execute first.
-	Priority *int64 `form:"name=priority"`
+	Priority *int64 `default:"100" form:"name=priority"`
 	// Regular expression to use. Only applies to `regex` and `regex_repeat` actions.
 	Regex *string `form:"name=regex"`
 	// Condition which, if met, will select this configuration during a request. Optional.
@@ -100,4 +101,99 @@ type Header2 struct {
 	Substitution *string `form:"name=substitution"`
 	// Accepts a string value.
 	Type *HeaderType `form:"name=type"`
+}
+
+func (h Header2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(h, "", false)
+}
+
+func (h *Header2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &h, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Header2) GetAction() *HeaderAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *Header2) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *Header2) GetDst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dst
+}
+
+func (o *Header2) GetIgnoreIfSet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.IgnoreIfSet
+}
+
+func (o *Header2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Header2) GetPriority() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *Header2) GetRegex() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Regex
+}
+
+func (o *Header2) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *Header2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *Header2) GetSrc() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Src
+}
+
+func (o *Header2) GetSubstitution() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Substitution
+}
+
+func (o *Header2) GetType() *HeaderType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

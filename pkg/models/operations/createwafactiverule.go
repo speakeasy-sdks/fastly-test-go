@@ -7,16 +7,33 @@ import (
 	"net/http"
 )
 
-type CreateWafActiveRuleSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateWafActiveRuleRequest struct {
-	BulkWafActiveRulesInput *shared.BulkWafActiveRulesInput `request:"mediaType=application/vnd.api+json"`
+	BulkWafActiveRules *shared.BulkWafActiveRules `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *CreateWafActiveRuleRequest) GetBulkWafActiveRules() *shared.BulkWafActiveRules {
+	if o == nil {
+		return nil
+	}
+	return o.BulkWafActiveRules
+}
+
+func (o *CreateWafActiveRuleRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *CreateWafActiveRuleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type CreateWafActiveRuleResponse struct {
@@ -25,4 +42,32 @@ type CreateWafActiveRuleResponse struct {
 	RawResponse *http.Response
 	// Created
 	WafActiveRuleCreationResponse *shared.WafActiveRuleCreationResponse
+}
+
+func (o *CreateWafActiveRuleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateWafActiveRuleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateWafActiveRuleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateWafActiveRuleResponse) GetWafActiveRuleCreationResponse() *shared.WafActiveRuleCreationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafActiveRuleCreationResponse
 }

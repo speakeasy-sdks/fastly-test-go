@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -132,7 +133,6 @@ func (e *LoggingAzureblobResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingAzureblobResponse - OK
 type LoggingAzureblobResponse struct {
 	// The unique Azure Blob Storage namespace in which your data objects are stored. Required.
 	AccountName *string `json:"account_name,omitempty"`
@@ -147,25 +147,25 @@ type LoggingAzureblobResponse struct {
 	// The maximum number of bytes for each uploaded file. A value of 0 can be used to indicate there is no limit on the size of uploaded files, otherwise the minimum value is 1048576 bytes (1 MiB.)
 	FileMaxBytes *int64 `json:"file_max_bytes,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `json:"format,omitempty"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingAzureblobResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingAzureblobResponseFormatVersion `default:"2" json:"format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `json:"gzip_level,omitempty"`
+	GzipLevel *int64 `default:"0" json:"gzip_level"`
 	// How the message should be formatted.
-	MessageType *LoggingAzureblobResponseMessageType `json:"message_type,omitempty"`
+	MessageType *LoggingAzureblobResponseMessageType `default:"classic" json:"message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `json:"name,omitempty"`
 	// The path to upload logs to.
-	Path *string `json:"path,omitempty"`
+	Path *string `default:"null" json:"path"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `json:"period,omitempty"`
+	Period *int64 `default:"3600" json:"period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingAzureblobResponsePlacement `json:"placement,omitempty"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `json:"public_key,omitempty"`
+	PublicKey *string `default:"null" json:"public_key"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `json:"response_condition,omitempty"`
 	// The Azure shared access signature providing write access to the blob service objects. Be sure to update your token before it expires or the logging functionality will not work. Required.
@@ -176,4 +176,162 @@ type LoggingAzureblobResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
+}
+
+func (l LoggingAzureblobResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingAzureblobResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingAzureblobResponse) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingAzureblobResponse) GetCompressionCodec() *LoggingAzureblobResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingAzureblobResponse) GetContainer() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Container
+}
+
+func (o *LoggingAzureblobResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingAzureblobResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingAzureblobResponse) GetFileMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FileMaxBytes
+}
+
+func (o *LoggingAzureblobResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingAzureblobResponse) GetFormatVersion() *LoggingAzureblobResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingAzureblobResponse) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingAzureblobResponse) GetMessageType() *LoggingAzureblobResponseMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingAzureblobResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingAzureblobResponse) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingAzureblobResponse) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingAzureblobResponse) GetPlacement() *LoggingAzureblobResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingAzureblobResponse) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingAzureblobResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingAzureblobResponse) GetSasToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SasToken
+}
+
+func (o *LoggingAzureblobResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingAzureblobResponse) GetTimestampFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TimestampFormat
+}
+
+func (o *LoggingAzureblobResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingAzureblobResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

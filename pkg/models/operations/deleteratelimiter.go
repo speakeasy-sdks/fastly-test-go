@@ -6,13 +6,16 @@ import (
 	"net/http"
 )
 
-type DeleteRateLimiterSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteRateLimiterRequest struct {
 	// Alphanumeric string identifying the rate limiter.
 	RateLimiterID string `pathParam:"style=simple,explode=false,name=rate_limiter_id"`
+}
+
+func (o *DeleteRateLimiterRequest) GetRateLimiterID() string {
+	if o == nil {
+		return ""
+	}
+	return o.RateLimiterID
 }
 
 // DeleteRateLimiter200ApplicationJSON - OK
@@ -21,10 +24,45 @@ type DeleteRateLimiter200ApplicationJSON struct {
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteRateLimiter200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteRateLimiterResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DeleteRateLimiter200ApplicationJSONObject *DeleteRateLimiter200ApplicationJSON
+}
+
+func (o *DeleteRateLimiterResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteRateLimiterResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteRateLimiterResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteRateLimiterResponse) GetDeleteRateLimiter200ApplicationJSONObject() *DeleteRateLimiter200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteRateLimiter200ApplicationJSONObject
 }

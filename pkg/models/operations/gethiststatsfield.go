@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type GetHistStatsFieldSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type GetHistStatsFieldRequest struct {
 	// Duration of sample windows. One of:
@@ -17,7 +14,7 @@ type GetHistStatsFieldRequest struct {
 	//   * `minute` - Group data by minute.
 	//   * `day` - Group data by day.
 	//
-	By *shared.By `queryParam:"style=form,explode=true,name=by"`
+	By *shared.By `default:"day" queryParam:"style=form,explode=true,name=by"`
 	// Name of the stats field.
 	Field string `pathParam:"style=simple,explode=false,name=field"`
 	// Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`.
@@ -36,7 +33,53 @@ type GetHistStatsFieldRequest struct {
 	Region *shared.Region `queryParam:"style=form,explode=true,name=region"`
 	// Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.
 	//
-	To *string `queryParam:"style=form,explode=true,name=to"`
+	To *string `default:"now" queryParam:"style=form,explode=true,name=to"`
+}
+
+func (g GetHistStatsFieldRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetHistStatsFieldRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *GetHistStatsFieldRequest) GetBy() *shared.By {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *GetHistStatsFieldRequest) GetField() string {
+	if o == nil {
+		return ""
+	}
+	return o.Field
+}
+
+func (o *GetHistStatsFieldRequest) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *GetHistStatsFieldRequest) GetRegion() *shared.Region {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *GetHistStatsFieldRequest) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
 }
 
 type GetHistStatsFieldResponse struct {
@@ -45,4 +88,32 @@ type GetHistStatsFieldResponse struct {
 	RawResponse *http.Response
 	// OK
 	HistoricalFieldResponse *shared.HistoricalFieldResponse
+}
+
+func (o *GetHistStatsFieldResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetHistStatsFieldResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetHistStatsFieldResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetHistStatsFieldResponse) GetHistoricalFieldResponse() *shared.HistoricalFieldResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HistoricalFieldResponse
 }
