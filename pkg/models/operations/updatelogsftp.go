@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogSftpSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogSftpRequest struct {
 	LoggingSftpInput *shared.LoggingSftpInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,66 @@ type UpdateLogSftpRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogSftpRequest) GetLoggingSftpInput() *shared.LoggingSftpInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSftpInput
+}
+
+func (o *UpdateLogSftpRequest) GetLoggingSftpName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSftpName
+}
+
+func (o *UpdateLogSftpRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogSftpRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogSftpResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingSftpResponse *shared.LoggingSftpResponse
+}
+
+func (o *UpdateLogSftpResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogSftpResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogSftpResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogSftpResponse) GetLoggingSftpResponse() *shared.LoggingSftpResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSftpResponse
 }

@@ -7,14 +7,38 @@ import (
 	"net/http"
 )
 
-type GetCurrentUserSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetCurrentUserResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	UserResponse *shared.UserResponse
+}
+
+func (o *GetCurrentUserResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetCurrentUserResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetCurrentUserResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetCurrentUserResponse) GetUserResponse() *shared.UserResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UserResponse
 }

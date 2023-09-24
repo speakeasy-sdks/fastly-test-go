@@ -6,14 +6,17 @@ import (
 	"net/http"
 )
 
-type ListDomainOwnershipsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 // ListDomainOwnerships200ApplicationVndAPIPlusJSON - OK
 type ListDomainOwnerships200ApplicationVndAPIPlusJSON struct {
 	// Time-stamp (GMT) when the domain_ownership validation will expire.
 	ExpiresAt *string `json:"expires_at,omitempty"`
+}
+
+func (o *ListDomainOwnerships200ApplicationVndAPIPlusJSON) GetExpiresAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ExpiresAt
 }
 
 type ListDomainOwnershipsResponse struct {
@@ -22,4 +25,32 @@ type ListDomainOwnershipsResponse struct {
 	RawResponse *http.Response
 	// OK
 	ListDomainOwnerships200ApplicationVndAPIPlusJSONObject *ListDomainOwnerships200ApplicationVndAPIPlusJSON
+}
+
+func (o *ListDomainOwnershipsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListDomainOwnershipsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListDomainOwnershipsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListDomainOwnershipsResponse) GetListDomainOwnerships200ApplicationVndAPIPlusJSONObject() *ListDomainOwnerships200ApplicationVndAPIPlusJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListDomainOwnerships200ApplicationVndAPIPlusJSONObject
 }

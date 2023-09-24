@@ -2,6 +2,13 @@
 
 package shared
 
-type WafExclusionInput struct {
-	Data *WafExclusionDataInput `json:"data,omitempty"`
+type WafExclusion struct {
+	Data *WafExclusionData `json:"data,omitempty"`
+}
+
+func (o *WafExclusion) GetData() *WafExclusionData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

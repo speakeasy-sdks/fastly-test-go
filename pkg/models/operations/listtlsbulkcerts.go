@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListTLSBulkCertsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListTLSBulkCertsRequest struct {
 	// Filter certificates by their matching, fully-qualified domain name.
@@ -17,9 +14,48 @@ type ListTLSBulkCertsRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// The order in which to list the results by creation date.
-	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
+	Sort *shared.Sort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+}
+
+func (l ListTLSBulkCertsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListTLSBulkCertsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListTLSBulkCertsRequest) GetFilterTLSDomainID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSDomainID
+}
+
+func (o *ListTLSBulkCertsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSBulkCertsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListTLSBulkCertsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
 }
 
 type ListTLSBulkCertsResponse struct {
@@ -28,4 +64,32 @@ type ListTLSBulkCertsResponse struct {
 	RawResponse *http.Response
 	// OK
 	TLSBulkCertificatesResponse *shared.TLSBulkCertificatesResponse
+}
+
+func (o *ListTLSBulkCertsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSBulkCertsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSBulkCertsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSBulkCertsResponse) GetTLSBulkCertificatesResponse() *shared.TLSBulkCertificatesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSBulkCertificatesResponse
 }

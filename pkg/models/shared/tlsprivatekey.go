@@ -5,3 +5,10 @@ package shared
 type TLSPrivateKeyInput struct {
 	Data *TLSPrivateKeyDataInput `json:"data,omitempty"`
 }
+
+func (o *TLSPrivateKeyInput) GetData() *TLSPrivateKeyDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

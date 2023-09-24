@@ -7,18 +7,42 @@ import (
 	"net/http"
 )
 
-type UpdateWafActiveRuleSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateWafActiveRuleRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a service version.
-	VersionID          int64                      `pathParam:"style=simple,explode=false,name=version_id"`
-	WafActiveRuleInput *shared.WafActiveRuleInput `request:"mediaType=application/vnd.api+json"`
+	VersionID      int64                  `pathParam:"style=simple,explode=false,name=version_id"`
+	WafActiveRule1 *shared.WafActiveRule1 `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a WAF rule.
 	WafRuleID string `pathParam:"style=simple,explode=false,name=waf_rule_id"`
+}
+
+func (o *UpdateWafActiveRuleRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *UpdateWafActiveRuleRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
+func (o *UpdateWafActiveRuleRequest) GetWafActiveRule1() *shared.WafActiveRule1 {
+	if o == nil {
+		return nil
+	}
+	return o.WafActiveRule1
+}
+
+func (o *UpdateWafActiveRuleRequest) GetWafRuleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WafRuleID
 }
 
 type UpdateWafActiveRuleResponse struct {
@@ -27,4 +51,32 @@ type UpdateWafActiveRuleResponse struct {
 	RawResponse *http.Response
 	// OK
 	WafActiveRuleResponse *shared.WafActiveRuleResponse
+}
+
+func (o *UpdateWafActiveRuleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateWafActiveRuleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateWafActiveRuleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateWafActiveRuleResponse) GetWafActiveRuleResponse() *shared.WafActiveRuleResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafActiveRuleResponse
 }

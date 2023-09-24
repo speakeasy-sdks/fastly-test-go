@@ -1,7 +1,5 @@
 # HistoricalUsageMonthResponse
 
-OK
-
 
 ## Fields
 

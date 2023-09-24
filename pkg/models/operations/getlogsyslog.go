@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogSyslogSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogSyslogRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingSyslogName string `pathParam:"style=simple,explode=false,name=logging_syslog_name"`
@@ -20,10 +16,59 @@ type GetLogSyslogRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogSyslogRequest) GetLoggingSyslogName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSyslogName
+}
+
+func (o *GetLogSyslogRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogSyslogRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogSyslogResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingSyslogResponse *shared.LoggingSyslogResponse
+}
+
+func (o *GetLogSyslogResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogSyslogResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogSyslogResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogSyslogResponse) GetLoggingSyslogResponse() *shared.LoggingSyslogResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSyslogResponse
 }

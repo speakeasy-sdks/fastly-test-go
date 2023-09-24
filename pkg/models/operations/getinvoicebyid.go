@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type GetInvoiceByIDSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetInvoiceByIDRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
 	// Alphanumeric string identifying the invoice.
 	InvoiceID string `pathParam:"style=simple,explode=false,name=invoice_id"`
+}
+
+func (o *GetInvoiceByIDRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
+}
+
+func (o *GetInvoiceByIDRequest) GetInvoiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.InvoiceID
 }
 
 type GetInvoiceByIDResponse struct {
@@ -28,4 +38,46 @@ type GetInvoiceByIDResponse struct {
 	GetInvoiceByID200ApplicationPdfBinaryString []byte
 	// OK
 	GetInvoiceByID200TextCsvCsvString *string
+}
+
+func (o *GetInvoiceByIDResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetInvoiceByIDResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetInvoiceByIDResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetInvoiceByIDResponse) GetBillingResponse() *shared.BillingResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BillingResponse
+}
+
+func (o *GetInvoiceByIDResponse) GetGetInvoiceByID200ApplicationPdfBinaryString() []byte {
+	if o == nil {
+		return nil
+	}
+	return o.GetInvoiceByID200ApplicationPdfBinaryString
+}
+
+func (o *GetInvoiceByIDResponse) GetGetInvoiceByID200TextCsvCsvString() *string {
+	if o == nil {
+		return nil
+	}
+	return o.GetInvoiceByID200TextCsvCsvString
 }

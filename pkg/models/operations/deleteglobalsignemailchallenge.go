@@ -6,18 +6,56 @@ import (
 	"net/http"
 )
 
-type DeleteGlobalsignEmailChallengeSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteGlobalsignEmailChallengeRequest struct {
 	GlobalsignEmailChallengeID string `pathParam:"style=simple,explode=false,name=globalsign_email_challenge_id"`
 	TLSAuthorizationID         string `pathParam:"style=simple,explode=false,name=tls_authorization_id"`
 	TLSSubscriptionID          string `pathParam:"style=simple,explode=false,name=tls_subscription_id"`
 }
 
+func (o *DeleteGlobalsignEmailChallengeRequest) GetGlobalsignEmailChallengeID() string {
+	if o == nil {
+		return ""
+	}
+	return o.GlobalsignEmailChallengeID
+}
+
+func (o *DeleteGlobalsignEmailChallengeRequest) GetTLSAuthorizationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSAuthorizationID
+}
+
+func (o *DeleteGlobalsignEmailChallengeRequest) GetTLSSubscriptionID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSSubscriptionID
+}
+
 type DeleteGlobalsignEmailChallengeResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteGlobalsignEmailChallengeResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteGlobalsignEmailChallengeResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteGlobalsignEmailChallengeResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

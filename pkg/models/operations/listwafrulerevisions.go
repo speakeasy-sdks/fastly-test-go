@@ -4,22 +4,58 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
 
-type ListWafRuleRevisionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListWafRuleRevisionsRequest struct {
 	// Include relationships. Optional.
-	Include *shared.WafRuleRevisionInclude `queryParam:"style=form,explode=true,name=include"`
+	Include interface{} `queryParam:"style=form,explode=true,name=include"`
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// Alphanumeric string identifying a WAF rule.
 	WafRuleID string `pathParam:"style=simple,explode=false,name=waf_rule_id"`
+}
+
+func (l ListWafRuleRevisionsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListWafRuleRevisionsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListWafRuleRevisionsRequest) GetInclude() interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafRuleRevisionsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafRuleRevisionsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListWafRuleRevisionsRequest) GetWafRuleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.WafRuleID
 }
 
 type ListWafRuleRevisionsResponse struct {
@@ -28,4 +64,32 @@ type ListWafRuleRevisionsResponse struct {
 	RawResponse *http.Response
 	// OK
 	WafRuleRevisionsResponse *shared.WafRuleRevisionsResponse
+}
+
+func (o *ListWafRuleRevisionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafRuleRevisionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafRuleRevisionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafRuleRevisionsResponse) GetWafRuleRevisionsResponse() *shared.WafRuleRevisionsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafRuleRevisionsResponse
 }

@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogNewrelicSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogNewrelicRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingNewrelicName string `pathParam:"style=simple,explode=false,name=logging_newrelic_name"`
@@ -20,10 +16,59 @@ type GetLogNewrelicRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogNewrelicRequest) GetLoggingNewrelicName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingNewrelicName
+}
+
+func (o *GetLogNewrelicRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogNewrelicRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogNewrelicResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingNewrelicResponse *shared.LoggingNewrelicResponse
+}
+
+func (o *GetLogNewrelicResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogNewrelicResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogNewrelicResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogNewrelicResponse) GetLoggingNewrelicResponse() *shared.LoggingNewrelicResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingNewrelicResponse
 }

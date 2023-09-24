@@ -6,13 +6,23 @@ import (
 	"net/http"
 )
 
-type GetValueForKeySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetValueForKeyRequest struct {
 	KeyName string `pathParam:"style=simple,explode=false,name=key_name"`
 	StoreID string `pathParam:"style=simple,explode=false,name=store_id"`
+}
+
+func (o *GetValueForKeyRequest) GetKeyName() string {
+	if o == nil {
+		return ""
+	}
+	return o.KeyName
+}
+
+func (o *GetValueForKeyRequest) GetStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.StoreID
 }
 
 type GetValueForKeyResponse struct {
@@ -22,4 +32,39 @@ type GetValueForKeyResponse struct {
 	RawResponse *http.Response
 	// OK
 	GetValueForKey200ApplicationOctetStreamByteString *string
+}
+
+func (o *GetValueForKeyResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetValueForKeyResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *GetValueForKeyResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetValueForKeyResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetValueForKeyResponse) GetGetValueForKey200ApplicationOctetStreamByteString() *string {
+	if o == nil {
+		return nil
+	}
+	return o.GetValueForKey200ApplicationOctetStreamByteString
 }

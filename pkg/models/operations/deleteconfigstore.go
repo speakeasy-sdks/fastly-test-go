@@ -6,13 +6,16 @@ import (
 	"net/http"
 )
 
-type DeleteConfigStoreSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteConfigStoreRequest struct {
 	// An alphanumeric string identifying the config store.
 	ConfigStoreID string `pathParam:"style=simple,explode=false,name=config_store_id"`
+}
+
+func (o *DeleteConfigStoreRequest) GetConfigStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreID
 }
 
 // DeleteConfigStore200ApplicationJSON - OK
@@ -21,10 +24,45 @@ type DeleteConfigStore200ApplicationJSON struct {
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteConfigStore200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteConfigStoreResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DeleteConfigStore200ApplicationJSONObject *DeleteConfigStore200ApplicationJSON
+}
+
+func (o *DeleteConfigStoreResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteConfigStoreResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteConfigStoreResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteConfigStoreResponse) GetDeleteConfigStore200ApplicationJSONObject() *DeleteConfigStore200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteConfigStore200ApplicationJSONObject
 }

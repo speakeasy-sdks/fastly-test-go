@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateLogKafkaSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogKafkaRequest struct {
 	LoggingKafka5 *shared.LoggingKafka5 `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,59 @@ type CreateLogKafkaRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogKafkaRequest) GetLoggingKafka5() *shared.LoggingKafka5 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingKafka5
+}
+
+func (o *CreateLogKafkaRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogKafkaRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogKafkaResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingKafkaResponse *shared.LoggingKafkaResponse
+}
+
+func (o *CreateLogKafkaResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogKafkaResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogKafkaResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogKafkaResponse) GetLoggingKafkaResponse() *shared.LoggingKafkaResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingKafkaResponse
 }

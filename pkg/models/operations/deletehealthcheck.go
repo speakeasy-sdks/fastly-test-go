@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteHealthcheckSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteHealthcheckRequest struct {
 	// The name of the health check.
 	HealthcheckName string `pathParam:"style=simple,explode=false,name=healthcheck_name"`
@@ -19,10 +15,38 @@ type DeleteHealthcheckRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteHealthcheckRequest) GetHealthcheckName() string {
+	if o == nil {
+		return ""
+	}
+	return o.HealthcheckName
+}
+
+func (o *DeleteHealthcheckRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteHealthcheckRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteHealthcheck200ApplicationJSON - OK
 type DeleteHealthcheck200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteHealthcheck200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteHealthcheckResponse struct {
@@ -31,4 +55,32 @@ type DeleteHealthcheckResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteHealthcheck200ApplicationJSONObject *DeleteHealthcheck200ApplicationJSON
+}
+
+func (o *DeleteHealthcheckResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteHealthcheckResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteHealthcheckResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteHealthcheckResponse) GetDeleteHealthcheck200ApplicationJSONObject() *DeleteHealthcheck200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteHealthcheck200ApplicationJSONObject
 }

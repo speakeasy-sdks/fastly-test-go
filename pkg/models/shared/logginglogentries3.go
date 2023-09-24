@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -111,17 +112,17 @@ func (e *LoggingLogentriesRegion) UnmarshalJSON(data []byte) error {
 
 type LoggingLogentries3 struct {
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingLogentriesFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingLogentriesFormatVersion `default:"2" form:"name=format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingLogentriesPlacement `form:"name=placement"`
 	// The port number.
-	Port *int64 `form:"name=port"`
+	Port *int64 `default:"20000" form:"name=port"`
 	// The region to which to stream logs.
 	Region *LoggingLogentriesRegion `form:"name=region"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
@@ -129,5 +130,79 @@ type LoggingLogentries3 struct {
 	// Use token based authentication ([https://logentries.com/doc/input-token/](https://logentries.com/doc/input-token/)).
 	Token *string `form:"name=token"`
 	// Whether to use TLS.
-	UseTLS *LoggingUseTLS `form:"name=use_tls"`
+	UseTLS *LoggingUseTLS `default:"0" form:"name=use_tls"`
+}
+
+func (l LoggingLogentries3) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingLogentries3) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingLogentries3) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingLogentries3) GetFormatVersion() *LoggingLogentriesFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingLogentries3) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingLogentries3) GetPlacement() *LoggingLogentriesPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingLogentries3) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingLogentries3) GetRegion() *LoggingLogentriesRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingLogentries3) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingLogentries3) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingLogentries3) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
 }

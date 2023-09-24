@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogBigquerySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogBigqueryRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingBigqueryName string `pathParam:"style=simple,explode=false,name=logging_bigquery_name"`
@@ -19,10 +15,38 @@ type DeleteLogBigqueryRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogBigqueryRequest) GetLoggingBigqueryName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingBigqueryName
+}
+
+func (o *DeleteLogBigqueryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogBigqueryRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogBigquery200ApplicationJSON - OK
 type DeleteLogBigquery200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogBigquery200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogBigqueryResponse struct {
@@ -31,4 +55,32 @@ type DeleteLogBigqueryResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogBigquery200ApplicationJSONObject *DeleteLogBigquery200ApplicationJSON
+}
+
+func (o *DeleteLogBigqueryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogBigqueryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogBigqueryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogBigqueryResponse) GetDeleteLogBigquery200ApplicationJSONObject() *DeleteLogBigquery200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogBigquery200ApplicationJSONObject
 }

@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type GetUsageServiceSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type GetUsageServiceRequest struct {
 	// Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`.
@@ -17,7 +14,32 @@ type GetUsageServiceRequest struct {
 	From *string `queryParam:"style=form,explode=true,name=from"`
 	// Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.
 	//
-	To *string `queryParam:"style=form,explode=true,name=to"`
+	To *string `default:"now" queryParam:"style=form,explode=true,name=to"`
+}
+
+func (g GetUsageServiceRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetUsageServiceRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *GetUsageServiceRequest) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *GetUsageServiceRequest) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
 }
 
 type GetUsageServiceResponse struct {
@@ -26,4 +48,32 @@ type GetUsageServiceResponse struct {
 	RawResponse *http.Response
 	// OK
 	HistoricalUsageServiceResponse *shared.HistoricalUsageServiceResponse
+}
+
+func (o *GetUsageServiceResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetUsageServiceResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetUsageServiceResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetUsageServiceResponse) GetHistoricalUsageServiceResponse() *shared.HistoricalUsageServiceResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HistoricalUsageServiceResponse
 }

@@ -8,3 +8,17 @@ type Domain struct {
 	// The name of the domain or domains associated with this service.
 	Name *string `form:"name=name"`
 }
+
+func (o *Domain) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Domain) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

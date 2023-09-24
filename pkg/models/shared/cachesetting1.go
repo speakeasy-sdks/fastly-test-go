@@ -51,3 +51,38 @@ type CacheSetting1 struct {
 	// Maximum time to consider the object fresh in the cache (the cache 'time to live').
 	TTL *int64 `form:"name=ttl"`
 }
+
+func (o *CacheSetting1) GetAction() *CacheSettingAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *CacheSetting1) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *CacheSetting1) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *CacheSetting1) GetStaleTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.StaleTTL
+}
+
+func (o *CacheSetting1) GetTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TTL
+}

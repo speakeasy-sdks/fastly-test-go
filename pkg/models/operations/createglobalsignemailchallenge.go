@@ -6,16 +6,33 @@ import (
 	"net/http"
 )
 
-type CreateGlobalsignEmailChallengeSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateGlobalsignEmailChallengeRequest struct {
 	RequestBody map[string]interface{} `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a TLS subscription.
 	TLSAuthorizationID string `pathParam:"style=simple,explode=false,name=tls_authorization_id"`
 	// Alphanumeric string identifying a TLS subscription.
 	TLSSubscriptionID string `pathParam:"style=simple,explode=false,name=tls_subscription_id"`
+}
+
+func (o *CreateGlobalsignEmailChallengeRequest) GetRequestBody() map[string]interface{} {
+	if o == nil {
+		return nil
+	}
+	return o.RequestBody
+}
+
+func (o *CreateGlobalsignEmailChallengeRequest) GetTLSAuthorizationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSAuthorizationID
+}
+
+func (o *CreateGlobalsignEmailChallengeRequest) GetTLSSubscriptionID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSSubscriptionID
 }
 
 // CreateGlobalsignEmailChallenge201ApplicationJSON - Created
@@ -28,4 +45,32 @@ type CreateGlobalsignEmailChallengeResponse struct {
 	RawResponse *http.Response
 	// Created
 	CreateGlobalsignEmailChallenge201ApplicationJSONObject *CreateGlobalsignEmailChallenge201ApplicationJSON
+}
+
+func (o *CreateGlobalsignEmailChallengeResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateGlobalsignEmailChallengeResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateGlobalsignEmailChallengeResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateGlobalsignEmailChallengeResponse) GetCreateGlobalsignEmailChallenge201ApplicationJSONObject() *CreateGlobalsignEmailChallenge201ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.CreateGlobalsignEmailChallenge201ApplicationJSONObject
 }

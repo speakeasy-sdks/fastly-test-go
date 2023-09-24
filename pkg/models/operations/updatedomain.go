@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateDomainSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateDomainRequest struct {
 	Domain *shared.Domain `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name of the domain or domains associated with this service.
@@ -21,10 +17,66 @@ type UpdateDomainRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateDomainRequest) GetDomain() *shared.Domain {
+	if o == nil {
+		return nil
+	}
+	return o.Domain
+}
+
+func (o *UpdateDomainRequest) GetDomainName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DomainName
+}
+
+func (o *UpdateDomainRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateDomainRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateDomainResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	DomainResponse *shared.DomainResponse
+}
+
+func (o *UpdateDomainResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateDomainResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateDomainResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateDomainResponse) GetDomainResponse() *shared.DomainResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DomainResponse
 }

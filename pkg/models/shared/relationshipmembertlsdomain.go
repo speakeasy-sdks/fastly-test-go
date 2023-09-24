@@ -2,14 +2,56 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberTLSDomainInput struct {
 	// Resource type
-	Type *TypeTLSDomain `json:"type,omitempty"`
+	type_ *string `const:"tls_domain" json:"type"`
+}
+
+func (r RelationshipMemberTLSDomainInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberTLSDomainInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberTLSDomainInput) GetType() *string {
+	return types.String("tls_domain")
 }
 
 type RelationshipMemberTLSDomain struct {
 	// The domain name.
 	ID *string `json:"id,omitempty"`
 	// Resource type
-	Type *TypeTLSDomain `json:"type,omitempty"`
+	type_ *string `const:"tls_domain" json:"type"`
+}
+
+func (r RelationshipMemberTLSDomain) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberTLSDomain) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberTLSDomain) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSDomain) GetType() *string {
+	return types.String("tls_domain")
 }

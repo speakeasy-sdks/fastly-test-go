@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetConditionSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetConditionRequest struct {
 	// Name of the condition. Required.
 	ConditionName string `pathParam:"style=simple,explode=false,name=condition_name"`
@@ -20,10 +16,59 @@ type GetConditionRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetConditionRequest) GetConditionName() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConditionName
+}
+
+func (o *GetConditionRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetConditionRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetConditionResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	ConditionResponse *shared.ConditionResponse
+}
+
+func (o *GetConditionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetConditionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetConditionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetConditionResponse) GetConditionResponse() *shared.ConditionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConditionResponse
 }

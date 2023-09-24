@@ -7,13 +7,16 @@ import (
 	"net/http"
 )
 
-type ListContactsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListContactsRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *ListContactsRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 type ListContactsResponse struct {
@@ -22,4 +25,32 @@ type ListContactsResponse struct {
 	RawResponse *http.Response
 	// OK
 	SchemasContactResponses []shared.SchemasContactResponse
+}
+
+func (o *ListContactsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListContactsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListContactsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListContactsResponse) GetSchemasContactResponses() []shared.SchemasContactResponse {
+	if o == nil {
+		return nil
+	}
+	return o.SchemasContactResponses
 }
