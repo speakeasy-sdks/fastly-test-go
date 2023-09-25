@@ -98,3 +98,87 @@ type RequestSettings2 struct {
 	// Short for X-Forwarded-For.
 	Xff *RequestSettingsXff `form:"name=xff"`
 }
+
+func (o *RequestSettings2) GetAction() *RequestSettingsAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *RequestSettings2) GetBypassBusyWait() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BypassBusyWait
+}
+
+func (o *RequestSettings2) GetDefaultHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.DefaultHost
+}
+
+func (o *RequestSettings2) GetForceMiss() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ForceMiss
+}
+
+func (o *RequestSettings2) GetForceSsl() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ForceSsl
+}
+
+func (o *RequestSettings2) GetGeoHeaders() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeoHeaders
+}
+
+func (o *RequestSettings2) GetHashKeys() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HashKeys
+}
+
+func (o *RequestSettings2) GetMaxStaleAge() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxStaleAge
+}
+
+func (o *RequestSettings2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *RequestSettings2) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *RequestSettings2) GetTimerSupport() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TimerSupport
+}
+
+func (o *RequestSettings2) GetXff() *RequestSettingsXff {
+	if o == nil {
+		return nil
+	}
+	return o.Xff
+}

@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetServiceStatsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetServiceStatsRequest struct {
 	// Epoch timestamp. Limits the results returned.
 	EndTime *int64 `queryParam:"style=form,explode=true,name=end_time"`
@@ -24,10 +20,73 @@ type GetServiceStatsRequest struct {
 	Year *string `queryParam:"style=form,explode=true,name=year"`
 }
 
+func (o *GetServiceStatsRequest) GetEndTime() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.EndTime
+}
+
+func (o *GetServiceStatsRequest) GetMonth() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Month
+}
+
+func (o *GetServiceStatsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetServiceStatsRequest) GetStartTime() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.StartTime
+}
+
+func (o *GetServiceStatsRequest) GetYear() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Year
+}
+
 type GetServiceStatsResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	Stats *shared.Stats
+}
+
+func (o *GetServiceStatsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetServiceStatsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetServiceStatsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetServiceStatsResponse) GetStats() *shared.Stats {
+	if o == nil {
+		return nil
+	}
+	return o.Stats
 }

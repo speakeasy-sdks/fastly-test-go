@@ -2,27 +2,84 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type TLSBulkCertificateDataAttributes struct {
 	// Allow certificates that chain to untrusted roots.
-	AllowUntrustedRoot *bool `json:"allow_untrusted_root,omitempty"`
+	AllowUntrustedRoot *bool `default:"false" json:"allow_untrusted_root"`
 	// The PEM-formatted certificate blob. Required.
 	CertBlob *string `json:"cert_blob,omitempty"`
 	// The PEM-formatted chain of intermediate blobs. Required.
 	IntermediatesBlob *string `json:"intermediates_blob,omitempty"`
 }
 
-type TLSBulkCertificateDataRelationships2TLSDomainsInput struct {
-	Data []RelationshipMemberTLSDomainInput `json:"data,omitempty"`
+func (t TLSBulkCertificateDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
 }
 
-// TLSBulkCertificateDataRelationships2Input - All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
-type TLSBulkCertificateDataRelationships2Input struct {
-	TLSDomains *TLSBulkCertificateDataRelationships2TLSDomainsInput `json:"tls_domains,omitempty"`
+func (t *TLSBulkCertificateDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSBulkCertificateDataAttributes) GetAllowUntrustedRoot() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.AllowUntrustedRoot
+}
+
+func (o *TLSBulkCertificateDataAttributes) GetCertBlob() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CertBlob
+}
+
+func (o *TLSBulkCertificateDataAttributes) GetIntermediatesBlob() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IntermediatesBlob
 }
 
 type TLSBulkCertificateDataInput struct {
-	Attributes    *TLSBulkCertificateDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                       `json:"relationships,omitempty"`
+	Attributes    *TLSBulkCertificateDataAttributes   `json:"attributes,omitempty"`
+	Relationships *RelationshipTLSConfigurationsInput `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSBulkCertificate `json:"type,omitempty"`
+	type_ *string `const:"tls_bulk_certificate" json:"type"`
+}
+
+func (t TLSBulkCertificateDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSBulkCertificateDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSBulkCertificateDataInput) GetAttributes() *TLSBulkCertificateDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSBulkCertificateDataInput) GetRelationships() *RelationshipTLSConfigurationsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSBulkCertificateDataInput) GetType() *string {
+	return types.String("tls_bulk_certificate")
 }

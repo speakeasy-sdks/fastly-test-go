@@ -1,7 +1,5 @@
 # LoggingKinesisResponse
 
-OK
-
 
 ## Fields
 

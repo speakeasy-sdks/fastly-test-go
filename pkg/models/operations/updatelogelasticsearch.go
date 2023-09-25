@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogElasticsearchSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogElasticsearchRequest struct {
 	LoggingElasticsearch2 *shared.LoggingElasticsearch2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,66 @@ type UpdateLogElasticsearchRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogElasticsearchRequest) GetLoggingElasticsearch2() *shared.LoggingElasticsearch2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingElasticsearch2
+}
+
+func (o *UpdateLogElasticsearchRequest) GetLoggingElasticsearchName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingElasticsearchName
+}
+
+func (o *UpdateLogElasticsearchRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogElasticsearchRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogElasticsearchResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingElasticsearchResponse *shared.LoggingElasticsearchResponse
+}
+
+func (o *UpdateLogElasticsearchResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogElasticsearchResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogElasticsearchResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogElasticsearchResponse) GetLoggingElasticsearchResponse() *shared.LoggingElasticsearchResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingElasticsearchResponse
 }

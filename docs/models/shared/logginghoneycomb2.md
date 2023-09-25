@@ -1,7 +1,5 @@
 # LoggingHoneycomb2
 
-OK
-
 
 ## Fields
 

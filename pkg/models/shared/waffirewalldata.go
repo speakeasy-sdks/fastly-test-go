@@ -2,17 +2,76 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type WafFirewallDataAttributesInput struct {
 	// The status of the firewall.
-	Disabled *bool `json:"disabled,omitempty"`
+	Disabled *bool `default:"false" json:"disabled"`
 	// Name of the corresponding condition object.
 	PrefetchCondition *string `json:"prefetch_condition,omitempty"`
 	// Name of the corresponding response object.
 	Response *string `json:"response,omitempty"`
 }
 
+func (w WafFirewallDataAttributesInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafFirewallDataAttributesInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafFirewallDataAttributesInput) GetDisabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Disabled
+}
+
+func (o *WafFirewallDataAttributesInput) GetPrefetchCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PrefetchCondition
+}
+
+func (o *WafFirewallDataAttributesInput) GetResponse() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Response
+}
+
 type WafFirewallDataInput struct {
 	Attributes *WafFirewallDataAttributesInput `json:"attributes,omitempty"`
 	// Resource type.
-	Type *TypeWafFirewall `json:"type,omitempty"`
+	type_ *string `const:"waf_firewall" json:"type"`
+}
+
+func (w WafFirewallDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafFirewallDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafFirewallDataInput) GetAttributes() *WafFirewallDataAttributesInput {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafFirewallDataInput) GetType() *string {
+	return types.String("waf_firewall")
 }

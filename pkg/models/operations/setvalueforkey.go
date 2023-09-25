@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type SetValueForKeySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type SetValueForKeyRequest struct {
 	RequestBody       *string `request:"mediaType=application/octet-stream"`
 	Add               *bool   `queryParam:"style=form,explode=true,name=add"`
@@ -23,6 +19,76 @@ type SetValueForKeyRequest struct {
 	TimeToLiveSec     *int64  `header:"style=simple,explode=false,name=time_to_live_sec"`
 }
 
+func (o *SetValueForKeyRequest) GetRequestBody() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestBody
+}
+
+func (o *SetValueForKeyRequest) GetAdd() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Add
+}
+
+func (o *SetValueForKeyRequest) GetAppend() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Append
+}
+
+func (o *SetValueForKeyRequest) GetBackgroundFetch() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.BackgroundFetch
+}
+
+func (o *SetValueForKeyRequest) GetIfGenerationMatch() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.IfGenerationMatch
+}
+
+func (o *SetValueForKeyRequest) GetKeyName() string {
+	if o == nil {
+		return ""
+	}
+	return o.KeyName
+}
+
+func (o *SetValueForKeyRequest) GetMetadata() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *SetValueForKeyRequest) GetPrepend() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Prepend
+}
+
+func (o *SetValueForKeyRequest) GetStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.StoreID
+}
+
+func (o *SetValueForKeyRequest) GetTimeToLiveSec() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TimeToLiveSec
+}
+
 type SetValueForKeyResponse struct {
 	ContentType string
 	Headers     map[string][]string
@@ -30,4 +96,39 @@ type SetValueForKeyResponse struct {
 	RawResponse *http.Response
 	// OK
 	SetValueForKey200ApplicationOctetStreamByteString *string
+}
+
+func (o *SetValueForKeyResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *SetValueForKeyResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *SetValueForKeyResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *SetValueForKeyResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *SetValueForKeyResponse) GetSetValueForKey200ApplicationOctetStreamByteString() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SetValueForKey200ApplicationOctetStreamByteString
 }

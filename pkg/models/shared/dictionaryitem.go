@@ -8,3 +8,17 @@ type DictionaryItem struct {
 	// Item value, maximum 8000 characters.
 	ItemValue *string `form:"name=item_value"`
 }
+
+func (o *DictionaryItem) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *DictionaryItem) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}

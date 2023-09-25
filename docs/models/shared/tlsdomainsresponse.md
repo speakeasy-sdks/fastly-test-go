@@ -1,7 +1,5 @@
 # TLSDomainsResponse
 
-OK
-
 
 ## Fields
 

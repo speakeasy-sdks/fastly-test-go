@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type ListLogHerokuSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListLogHerokuRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListLogHerokuRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListLogHerokuRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListLogHerokuResponse struct {
@@ -24,4 +34,32 @@ type ListLogHerokuResponse struct {
 	RawResponse *http.Response
 	// OK
 	LoggingHerokuResponses []shared.LoggingHerokuResponse
+}
+
+func (o *ListLogHerokuResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListLogHerokuResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListLogHerokuResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListLogHerokuResponse) GetLoggingHerokuResponses() []shared.LoggingHerokuResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingHerokuResponses
 }

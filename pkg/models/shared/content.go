@@ -16,3 +16,45 @@ type Content struct {
 	ResponseTime *float64         `json:"response_time,omitempty"`
 	Server       *string          `json:"server,omitempty"`
 }
+
+func (o *Content) GetHash() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hash
+}
+
+func (o *Content) GetPop() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Pop
+}
+
+func (o *Content) GetRequest() *ContentRequest {
+	if o == nil {
+		return nil
+	}
+	return o.Request
+}
+
+func (o *Content) GetResponse() *ContentResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Response
+}
+
+func (o *Content) GetResponseTime() *float64 {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseTime
+}
+
+func (o *Content) GetServer() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Server
+}

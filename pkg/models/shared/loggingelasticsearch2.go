@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -71,7 +72,7 @@ type LoggingElasticsearch2 struct {
 	Format *string `form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingElasticsearchFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingElasticsearchFormatVersion `default:"2" form:"name=format_version"`
 	// The name of the Elasticsearch index to send documents (logs) to. The index must follow the Elasticsearch [index format rules](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html). We support [strftime](https://www.man7.org/linux/man-pages/man3/strftime.3.html) interpolated variables inside braces prefixed with a pound symbol. For example, `#{%F}` will interpolate as `YYYY-MM-DD` with today's date.
 	Index *string `form:"name=index"`
 	// The name for the real-time logging configuration.
@@ -84,21 +85,144 @@ type LoggingElasticsearch2 struct {
 	//
 	Placement *LoggingElasticsearchPlacement `form:"name=placement"`
 	// The maximum number of bytes sent in one request. Defaults `0` for unbounded.
-	RequestMaxBytes *int64 `form:"name=request_max_bytes"`
+	RequestMaxBytes *int64 `default:"0" form:"name=request_max_bytes"`
 	// The maximum number of logs sent in one request. Defaults `0` for unbounded.
-	RequestMaxEntries *int64 `form:"name=request_max_entries"`
+	RequestMaxEntries *int64 `default:"0" form:"name=request_max_entries"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// A secure certificate to authenticate a server with. Must be in PEM format.
-	TLSCaCert *string `form:"name=tls_ca_cert"`
+	TLSCaCert *string `default:"null" form:"name=tls_ca_cert"`
 	// The client certificate used to make authenticated requests. Must be in PEM format.
-	TLSClientCert *string `form:"name=tls_client_cert"`
+	TLSClientCert *string `default:"null" form:"name=tls_client_cert"`
 	// The client private key used to make authenticated requests. Must be in PEM format.
-	TLSClientKey *string `form:"name=tls_client_key"`
+	TLSClientKey *string `default:"null" form:"name=tls_client_key"`
 	// The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported.
-	TLSHostname *string `form:"name=tls_hostname"`
+	TLSHostname *string `default:"null" form:"name=tls_hostname"`
 	// The URL to stream logs to. Must use HTTPS.
 	URL *string `form:"name=url"`
 	// Basic Auth username.
 	User *string `form:"name=user"`
+}
+
+func (l LoggingElasticsearch2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingElasticsearch2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingElasticsearch2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingElasticsearch2) GetFormatVersion() *LoggingElasticsearchFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingElasticsearch2) GetIndex() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Index
+}
+
+func (o *LoggingElasticsearch2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingElasticsearch2) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingElasticsearch2) GetPipeline() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Pipeline
+}
+
+func (o *LoggingElasticsearch2) GetPlacement() *LoggingElasticsearchPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingElasticsearch2) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingElasticsearch2) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingElasticsearch2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingElasticsearch2) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingElasticsearch2) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingElasticsearch2) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingElasticsearch2) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingElasticsearch2) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}
+
+func (o *LoggingElasticsearch2) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
 }

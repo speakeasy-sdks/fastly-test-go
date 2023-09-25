@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -66,7 +67,6 @@ func (e *LoggingHoneycombPlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingHoneycomb2 - OK
 type LoggingHoneycomb2 struct {
 	// The Honeycomb Dataset you want to log to.
 	Dataset *string `form:"name=dataset" json:"dataset,omitempty"`
@@ -74,7 +74,7 @@ type LoggingHoneycomb2 struct {
 	Format *string `form:"name=format" json:"format,omitempty"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingHoneycombFormatVersion `form:"name=format_version" json:"format_version,omitempty"`
+	FormatVersion *LoggingHoneycombFormatVersion `default:"2" form:"name=format_version" json:"format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name" json:"name,omitempty"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
@@ -84,4 +84,64 @@ type LoggingHoneycomb2 struct {
 	ResponseCondition *string `form:"name=response_condition" json:"response_condition,omitempty"`
 	// The Write Key from the Account page of your Honeycomb account.
 	Token *string `form:"name=token" json:"token,omitempty"`
+}
+
+func (l LoggingHoneycomb2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingHoneycomb2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingHoneycomb2) GetDataset() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Dataset
+}
+
+func (o *LoggingHoneycomb2) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingHoneycomb2) GetFormatVersion() *LoggingHoneycombFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingHoneycomb2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingHoneycomb2) GetPlacement() *LoggingHoneycombPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingHoneycomb2) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingHoneycomb2) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
 }

@@ -1,7 +1,5 @@
 # MutualAuthenticationsResponse
 
-OK
-
 
 ## Fields
 

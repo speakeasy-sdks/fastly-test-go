@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogLogglySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogLogglyRequest struct {
 	LoggingLoggly2 *shared.LoggingLoggly2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,66 @@ type UpdateLogLogglyRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogLogglyRequest) GetLoggingLoggly2() *shared.LoggingLoggly2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLoggly2
+}
+
+func (o *UpdateLogLogglyRequest) GetLoggingLogglyName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingLogglyName
+}
+
+func (o *UpdateLogLogglyRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogLogglyRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogLogglyResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
 	LoggingLogglyResponse *shared.LoggingLogglyResponse
+}
+
+func (o *UpdateLogLogglyResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogLogglyResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogLogglyResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogLogglyResponse) GetLoggingLogglyResponse() *shared.LoggingLogglyResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogglyResponse
 }

@@ -18,3 +18,52 @@ type UserInput struct {
 	// Indicates if 2FA is required by the user's customer account.
 	TwoFactorSetupRequired *bool `form:"name=two_factor_setup_required"`
 }
+
+func (o *UserInput) GetLimitServices() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.LimitServices
+}
+
+func (o *UserInput) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *UserInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *UserInput) GetRequireNewPassword() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.RequireNewPassword
+}
+
+func (o *UserInput) GetRole() *RoleUser {
+	if o == nil {
+		return nil
+	}
+	return o.Role
+}
+
+func (o *UserInput) GetTwoFactorAuthEnabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.TwoFactorAuthEnabled
+}
+
+func (o *UserInput) GetTwoFactorSetupRequired() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.TwoFactorSetupRequired
+}

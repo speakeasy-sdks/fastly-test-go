@@ -7,14 +7,24 @@ import (
 	"net/http"
 )
 
-type PublishSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type PublishRequest struct {
 	PublishRequest *shared.PublishRequest `request:"mediaType=application/json"`
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
+}
+
+func (o *PublishRequest) GetPublishRequest() *shared.PublishRequest {
+	if o == nil {
+		return nil
+	}
+	return o.PublishRequest
+}
+
+func (o *PublishRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
 }
 
 type PublishResponse struct {
@@ -23,4 +33,32 @@ type PublishResponse struct {
 	RawResponse *http.Response
 	// OK
 	Publish200TextPlainString *string
+}
+
+func (o *PublishResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *PublishResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *PublishResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *PublishResponse) GetPublish200TextPlainString() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Publish200TextPlainString
 }

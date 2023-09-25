@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -41,7 +42,46 @@ type ACLEntry struct {
 	// An IP address.
 	IP *string `json:"ip,omitempty"`
 	// Whether to negate the match. Useful primarily when creating individual exceptions to larger subnets.
-	Negated *ACLEntryNegated `json:"negated,omitempty"`
+	Negated *ACLEntryNegated `default:"0" json:"negated"`
 	// Number of bits for the subnet mask applied to the IP address. For IPv4 addresses, a value of 32 represents the smallest subnet mask (1 address), 24 represents a class C subnet mask (256 addresses), 16 represents a class B subnet mask (65k addresses), and 8 is class A subnet mask (16m addresses). If not provided, no mask is applied.
 	Subnet *int64 `json:"subnet,omitempty"`
+}
+
+func (a ACLEntry) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *ACLEntry) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ACLEntry) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ACLEntry) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *ACLEntry) GetNegated() *ACLEntryNegated {
+	if o == nil {
+		return nil
+	}
+	return o.Negated
+}
+
+func (o *ACLEntry) GetSubnet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Subnet
 }

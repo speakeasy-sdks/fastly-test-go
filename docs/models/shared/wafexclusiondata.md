@@ -1,0 +1,10 @@
+# WafExclusionData
+
+
+## Fields
+
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                   | [*WafExclusionDataAttributes](../../models/shared/wafexclusiondataattributes.md)               | :heavy_minus_sign:                                                                             | N/A                                                                                            |
+| `Relationships`                                                                                | [*RelationshipsForWafExclusionInput](../../models/shared/relationshipsforwafexclusioninput.md) | :heavy_minus_sign:                                                                             | N/A                                                                                            |
+| `Type`                                                                                         | **string*                                                                                      | :heavy_minus_sign:                                                                             | Resource type.                                                                                 |

@@ -7,14 +7,24 @@ import (
 	"net/http"
 )
 
-type UpdateServiceAuthorizationSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateServiceAuthorizationRequest struct {
 	ServiceAuthorizationInput *shared.ServiceAuthorizationInput `request:"mediaType=application/json"`
 	// Alphanumeric string identifying a service authorization.
 	ServiceAuthorizationID string `pathParam:"style=simple,explode=false,name=service_authorization_id"`
+}
+
+func (o *UpdateServiceAuthorizationRequest) GetServiceAuthorizationInput() *shared.ServiceAuthorizationInput {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceAuthorizationInput
+}
+
+func (o *UpdateServiceAuthorizationRequest) GetServiceAuthorizationID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceAuthorizationID
 }
 
 type UpdateServiceAuthorizationResponse struct {
@@ -23,4 +33,32 @@ type UpdateServiceAuthorizationResponse struct {
 	RawResponse *http.Response
 	// OK
 	ServiceAuthorizationResponse *shared.ServiceAuthorizationResponse
+}
+
+func (o *UpdateServiceAuthorizationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateServiceAuthorizationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateServiceAuthorizationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateServiceAuthorizationResponse) GetServiceAuthorizationResponse() *shared.ServiceAuthorizationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceAuthorizationResponse
 }

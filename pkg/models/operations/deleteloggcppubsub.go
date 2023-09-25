@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogGcpPubsubSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogGcpPubsubRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingGooglePubsubName string `pathParam:"style=simple,explode=false,name=logging_google_pubsub_name"`
@@ -19,10 +15,38 @@ type DeleteLogGcpPubsubRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogGcpPubsubRequest) GetLoggingGooglePubsubName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingGooglePubsubName
+}
+
+func (o *DeleteLogGcpPubsubRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogGcpPubsubRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogGcpPubsub200ApplicationJSON - OK
 type DeleteLogGcpPubsub200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogGcpPubsub200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogGcpPubsubResponse struct {
@@ -31,4 +55,32 @@ type DeleteLogGcpPubsubResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogGcpPubsub200ApplicationJSONObject *DeleteLogGcpPubsub200ApplicationJSON
+}
+
+func (o *DeleteLogGcpPubsubResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogGcpPubsubResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogGcpPubsubResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogGcpPubsubResponse) GetDeleteLogGcpPubsub200ApplicationJSONObject() *DeleteLogGcpPubsub200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogGcpPubsub200ApplicationJSONObject
 }

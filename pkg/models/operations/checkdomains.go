@@ -3,12 +3,9 @@
 package operations
 
 import (
+	"Fastly/pkg/models/shared"
 	"net/http"
 )
-
-type CheckDomainsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type CheckDomainsRequest struct {
 	// Alphanumeric string identifying the service.
@@ -17,12 +14,18 @@ type CheckDomainsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
-// CheckDomains200ApplicationJSON1 - Domain details.
-type CheckDomains200ApplicationJSON1 struct {
-	// A freeform descriptive note.
-	Comment *string `json:"comment,omitempty"`
-	// The name of the domain or domains associated with this service.
-	Name *string `json:"name,omitempty"`
+func (o *CheckDomainsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CheckDomainsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type CheckDomainsResponse struct {
@@ -30,5 +33,33 @@ type CheckDomainsResponse struct {
 	StatusCode  int
 	RawResponse *http.Response
 	// OK
-	DomainCheckResponseList [][]interface{}
+	DomainCheckResponseList [][]shared.DomainCheckItem
+}
+
+func (o *CheckDomainsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CheckDomainsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CheckDomainsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CheckDomainsResponse) GetDomainCheckResponseList() [][]shared.DomainCheckItem {
+	if o == nil {
+		return nil
+	}
+	return o.DomainCheckResponseList
 }

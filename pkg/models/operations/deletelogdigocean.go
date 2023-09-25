@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogDigoceanSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogDigoceanRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingDigitaloceanName string `pathParam:"style=simple,explode=false,name=logging_digitalocean_name"`
@@ -19,10 +15,38 @@ type DeleteLogDigoceanRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogDigoceanRequest) GetLoggingDigitaloceanName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingDigitaloceanName
+}
+
+func (o *DeleteLogDigoceanRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogDigoceanRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogDigocean200ApplicationJSON - OK
 type DeleteLogDigocean200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogDigocean200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogDigoceanResponse struct {
@@ -31,4 +55,32 @@ type DeleteLogDigoceanResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogDigocean200ApplicationJSONObject *DeleteLogDigocean200ApplicationJSON
+}
+
+func (o *DeleteLogDigoceanResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogDigoceanResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogDigoceanResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogDigoceanResponse) GetDeleteLogDigocean200ApplicationJSONObject() *DeleteLogDigocean200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogDigocean200ApplicationJSONObject
 }

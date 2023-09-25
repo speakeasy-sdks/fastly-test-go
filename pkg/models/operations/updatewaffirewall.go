@@ -7,14 +7,24 @@ import (
 	"net/http"
 )
 
-type UpdateWafFirewallSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateWafFirewallRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID       string                   `pathParam:"style=simple,explode=false,name=firewall_id"`
 	WafFirewallInput *shared.WafFirewallInput `request:"mediaType=application/vnd.api+json"`
+}
+
+func (o *UpdateWafFirewallRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *UpdateWafFirewallRequest) GetWafFirewallInput() *shared.WafFirewallInput {
+	if o == nil {
+		return nil
+	}
+	return o.WafFirewallInput
 }
 
 type UpdateWafFirewallResponse struct {
@@ -23,4 +33,32 @@ type UpdateWafFirewallResponse struct {
 	RawResponse *http.Response
 	// OK
 	WafFirewallResponse *shared.WafFirewallResponse
+}
+
+func (o *UpdateWafFirewallResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateWafFirewallResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateWafFirewallResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateWafFirewallResponse) GetWafFirewallResponse() *shared.WafFirewallResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafFirewallResponse
 }

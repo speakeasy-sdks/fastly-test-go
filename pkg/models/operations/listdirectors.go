@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type ListDirectorsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListDirectorsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
+}
+
+func (o *ListDirectorsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListDirectorsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
 }
 
 type ListDirectorsResponse struct {
@@ -24,4 +34,32 @@ type ListDirectorsResponse struct {
 	RawResponse *http.Response
 	// OK
 	DirectorResponses []shared.DirectorResponse
+}
+
+func (o *ListDirectorsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListDirectorsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListDirectorsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListDirectorsResponse) GetDirectorResponses() []shared.DirectorResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DirectorResponses
 }

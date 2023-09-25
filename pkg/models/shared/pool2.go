@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -76,7 +77,7 @@ type Pool2 struct {
 	// Name of the healthcheck to use with this pool. Can be empty and could be reused across multiple backend and pools.
 	Healthcheck *string `form:"name=healthcheck"`
 	// Maximum number of connections. Optional.
-	MaxConnDefault *int64 `form:"name=max_conn_default"`
+	MaxConnDefault *int64 `default:"200" form:"name=max_conn_default"`
 	// Maximum allowed TLS version on connections to this server. Optional.
 	MaxTLSVersion *int64 `form:"name=max_tls_version"`
 	// Minimum allowed TLS version on connections to this server. Optional.
@@ -84,29 +85,187 @@ type Pool2 struct {
 	// Name for the Pool.
 	Name *string `form:"name=name"`
 	// The hostname to [override the Host header](https://docs.fastly.com/en/guides/specifying-an-override-host). Defaults to `null` meaning no override of the Host header will occur. This setting can also be added to a Server definition. If the field is set on a Server definition it will override the Pool setting.
-	OverrideHost *string `form:"name=override_host"`
+	OverrideHost *string `default:"null" form:"name=override_host"`
 	// Percentage of capacity (`0-100`) that needs to be operationally available for a pool to be considered up.
-	Quorum *int64 `form:"name=quorum"`
+	Quorum *int64 `default:"75" form:"name=quorum"`
 	// Condition which, if met, will select this configuration during a request. Optional.
 	RequestCondition *string `form:"name=request_condition"`
 	// Selected POP to serve as a shield for the servers. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.
-	Shield *string `form:"name=shield"`
+	Shield *string `default:"null" form:"name=shield"`
 	// A secure certificate to authenticate a server with. Must be in PEM format.
-	TLSCaCert *string `form:"name=tls_ca_cert"`
+	TLSCaCert *string `default:"null" form:"name=tls_ca_cert"`
 	// The hostname used to verify a server's certificate. It can either be the Common Name (CN) or a Subject Alternative Name (SAN).
-	TLSCertHostname *string `form:"name=tls_cert_hostname"`
+	TLSCertHostname *string `default:"null" form:"name=tls_cert_hostname"`
 	// Be strict on checking TLS certs. Optional.
 	TLSCheckCert *int64 `form:"name=tls_check_cert"`
 	// List of OpenSSL ciphers (see the [openssl.org manpages](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html) for details). Optional.
 	TLSCiphers *string `form:"name=tls_ciphers"`
 	// The client certificate used to make authenticated requests. Must be in PEM format.
-	TLSClientCert *string `form:"name=tls_client_cert"`
+	TLSClientCert *string `default:"null" form:"name=tls_client_cert"`
 	// The client private key used to make authenticated requests. Must be in PEM format.
-	TLSClientKey *string `form:"name=tls_client_key"`
+	TLSClientKey *string `default:"null" form:"name=tls_client_key"`
 	// SNI hostname. Optional.
 	TLSSniHostname *string `form:"name=tls_sni_hostname"`
 	// What type of load balance group to use.
 	Type *PoolType `form:"name=type"`
 	// Whether to use TLS.
-	UseTLS *PoolUseTLS `form:"name=use_tls"`
+	UseTLS *PoolUseTLS `default:"0" form:"name=use_tls"`
+}
+
+func (p Pool2) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(p, "", false)
+}
+
+func (p *Pool2) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &p, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Pool2) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Pool2) GetConnectTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ConnectTimeout
+}
+
+func (o *Pool2) GetFirstByteTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FirstByteTimeout
+}
+
+func (o *Pool2) GetHealthcheck() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Healthcheck
+}
+
+func (o *Pool2) GetMaxConnDefault() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConnDefault
+}
+
+func (o *Pool2) GetMaxTLSVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxTLSVersion
+}
+
+func (o *Pool2) GetMinTLSVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MinTLSVersion
+}
+
+func (o *Pool2) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Pool2) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *Pool2) GetQuorum() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Quorum
+}
+
+func (o *Pool2) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *Pool2) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Pool2) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *Pool2) GetTLSCertHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertHostname
+}
+
+func (o *Pool2) GetTLSCheckCert() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCheckCert
+}
+
+func (o *Pool2) GetTLSCiphers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCiphers
+}
+
+func (o *Pool2) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *Pool2) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *Pool2) GetTLSSniHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSniHostname
+}
+
+func (o *Pool2) GetType() *PoolType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *Pool2) GetUseTLS() *PoolUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
 }

@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogAwsS3Security struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogAwsS3Request struct {
 	// The name for the real-time logging configuration.
 	LoggingS3Name string `pathParam:"style=simple,explode=false,name=logging_s3_name"`
@@ -19,10 +15,38 @@ type DeleteLogAwsS3Request struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogAwsS3Request) GetLoggingS3Name() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingS3Name
+}
+
+func (o *DeleteLogAwsS3Request) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogAwsS3Request) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogAwsS3200ApplicationJSON - OK
 type DeleteLogAwsS3200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteLogAwsS3200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteLogAwsS3Response struct {
@@ -31,4 +55,32 @@ type DeleteLogAwsS3Response struct {
 	RawResponse *http.Response
 	// OK
 	DeleteLogAwsS3200ApplicationJSONObject *DeleteLogAwsS3200ApplicationJSON
+}
+
+func (o *DeleteLogAwsS3Response) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogAwsS3Response) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogAwsS3Response) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogAwsS3Response) GetDeleteLogAwsS3200ApplicationJSONObject() *DeleteLogAwsS3200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogAwsS3200ApplicationJSONObject
 }

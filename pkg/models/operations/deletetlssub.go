@@ -6,17 +6,41 @@ import (
 	"net/http"
 )
 
-type DeleteTLSSubSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteTLSSubRequest struct {
 	// Alphanumeric string identifying a TLS subscription.
 	TLSSubscriptionID string `pathParam:"style=simple,explode=false,name=tls_subscription_id"`
+}
+
+func (o *DeleteTLSSubRequest) GetTLSSubscriptionID() string {
+	if o == nil {
+		return ""
+	}
+	return o.TLSSubscriptionID
 }
 
 type DeleteTLSSubResponse struct {
 	ContentType string
 	StatusCode  int
 	RawResponse *http.Response
+}
+
+func (o *DeleteTLSSubResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteTLSSubResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteTLSSubResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

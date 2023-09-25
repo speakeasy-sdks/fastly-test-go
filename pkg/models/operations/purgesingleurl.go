@@ -7,15 +7,25 @@ import (
 	"net/http"
 )
 
-type PurgeSingleURLSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type PurgeSingleURLRequest struct {
 	// URL of object in cache to be purged.
 	CachedURL string `pathParam:"style=simple,explode=false,name=cached_url"`
 	// If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to "1" when used, but the value is not important.
 	FastlySoftPurge *int64 `header:"style=simple,explode=false,name=fastly-soft-purge"`
+}
+
+func (o *PurgeSingleURLRequest) GetCachedURL() string {
+	if o == nil {
+		return ""
+	}
+	return o.CachedURL
+}
+
+func (o *PurgeSingleURLRequest) GetFastlySoftPurge() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FastlySoftPurge
 }
 
 type PurgeSingleURLResponse struct {
@@ -24,4 +34,32 @@ type PurgeSingleURLResponse struct {
 	RawResponse *http.Response
 	// OK
 	PurgeResponse *shared.PurgeResponse
+}
+
+func (o *PurgeSingleURLResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *PurgeSingleURLResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *PurgeSingleURLResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *PurgeSingleURLResponse) GetPurgeResponse() *shared.PurgeResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PurgeResponse
 }

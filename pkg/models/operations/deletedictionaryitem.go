@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteDictionaryItemSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteDictionaryItemRequest struct {
 	// Alphanumeric string identifying a Dictionary.
 	DictionaryID string `pathParam:"style=simple,explode=false,name=dictionary_id"`
@@ -19,10 +15,38 @@ type DeleteDictionaryItemRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *DeleteDictionaryItemRequest) GetDictionaryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryID
+}
+
+func (o *DeleteDictionaryItemRequest) GetDictionaryItemKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryItemKey
+}
+
+func (o *DeleteDictionaryItemRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 // DeleteDictionaryItem200ApplicationJSON - OK
 type DeleteDictionaryItem200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *DeleteDictionaryItem200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }
 
 type DeleteDictionaryItemResponse struct {
@@ -31,4 +55,32 @@ type DeleteDictionaryItemResponse struct {
 	RawResponse *http.Response
 	// OK
 	DeleteDictionaryItem200ApplicationJSONObject *DeleteDictionaryItem200ApplicationJSON
+}
+
+func (o *DeleteDictionaryItemResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteDictionaryItemResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteDictionaryItemResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteDictionaryItemResponse) GetDeleteDictionaryItem200ApplicationJSONObject() *DeleteDictionaryItem200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteDictionaryItem200ApplicationJSONObject
 }

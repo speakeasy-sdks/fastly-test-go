@@ -4,22 +4,58 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
 
-type ListServicesSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListServicesRequest struct {
 	// Direction in which to sort results.
-	Direction *shared.Direction `queryParam:"style=form,explode=true,name=direction"`
+	Direction *shared.Direction `default:"ascend" queryParam:"style=form,explode=true,name=direction"`
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
 	// Number of records per page.
-	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
+	PerPage *int64 `default:"20" queryParam:"style=form,explode=true,name=per_page"`
 	// Field on which to sort.
-	Sort *string `queryParam:"style=form,explode=true,name=sort"`
+	Sort *string `default:"created" queryParam:"style=form,explode=true,name=sort"`
+}
+
+func (l ListServicesRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListServicesRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListServicesRequest) GetDirection() *shared.Direction {
+	if o == nil {
+		return nil
+	}
+	return o.Direction
+}
+
+func (o *ListServicesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListServicesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListServicesRequest) GetSort() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
 }
 
 type ListServicesResponse struct {
@@ -29,4 +65,39 @@ type ListServicesResponse struct {
 	RawResponse *http.Response
 	// OK
 	ServiceListResponses []shared.ServiceListResponse
+}
+
+func (o *ListServicesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListServicesResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *ListServicesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListServicesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListServicesResponse) GetServiceListResponses() []shared.ServiceListResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceListResponses
 }
