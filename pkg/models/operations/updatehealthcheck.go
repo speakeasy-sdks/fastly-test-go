@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateHealthcheckSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateHealthcheckRequest struct {
 	Healthcheck *shared.Healthcheck `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name of the health check.
@@ -21,10 +17,69 @@ type UpdateHealthcheckRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateHealthcheckRequest) GetHealthcheck() *shared.Healthcheck {
+	if o == nil {
+		return nil
+	}
+	return o.Healthcheck
+}
+
+func (o *UpdateHealthcheckRequest) GetHealthcheckName() string {
+	if o == nil {
+		return ""
+	}
+	return o.HealthcheckName
+}
+
+func (o *UpdateHealthcheckRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateHealthcheckRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateHealthcheckResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	HealthcheckResponse *shared.HealthcheckResponse
+}
+
+func (o *UpdateHealthcheckResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateHealthcheckResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateHealthcheckResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateHealthcheckResponse) GetHealthcheckResponse() *shared.HealthcheckResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HealthcheckResponse
 }

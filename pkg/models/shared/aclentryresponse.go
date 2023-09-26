@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -36,7 +37,6 @@ func (e *ACLEntryResponseNegated) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ACLEntryResponse - OK
 type ACLEntryResponse struct {
 	ACLID *string `json:"acl_id,omitempty"`
 	// A freeform descriptive note.
@@ -49,10 +49,91 @@ type ACLEntryResponse struct {
 	// An IP address.
 	IP *string `json:"ip,omitempty"`
 	// Whether to negate the match. Useful primarily when creating individual exceptions to larger subnets.
-	Negated   *ACLEntryResponseNegated `json:"negated,omitempty"`
+	Negated   *ACLEntryResponseNegated `default:"0" json:"negated"`
 	ServiceID *string                  `json:"service_id,omitempty"`
 	// Number of bits for the subnet mask applied to the IP address. For IPv4 addresses, a value of 32 represents the smallest subnet mask (1 address), 24 represents a class C subnet mask (256 addresses), 16 represents a class B subnet mask (65k addresses), and 8 is class A subnet mask (16m addresses). If not provided, no mask is applied.
 	Subnet *int64 `json:"subnet,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (a ACLEntryResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *ACLEntryResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ACLEntryResponse) GetACLID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ACLID
+}
+
+func (o *ACLEntryResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ACLEntryResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ACLEntryResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ACLEntryResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ACLEntryResponse) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *ACLEntryResponse) GetNegated() *ACLEntryResponseNegated {
+	if o == nil {
+		return nil
+	}
+	return o.Negated
+}
+
+func (o *ACLEntryResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ACLEntryResponse) GetSubnet() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Subnet
+}
+
+func (o *ACLEntryResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

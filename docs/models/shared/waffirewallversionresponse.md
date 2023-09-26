@@ -1,11 +1,9 @@
 # WafFirewallVersionResponse
 
-Created
-
 
 ## Fields
 
-| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `Data`                                                                                   | [*WafFirewallVersionResponseData](../../models/shared/waffirewallversionresponsedata.md) | :heavy_minus_sign:                                                                       | N/A                                                                                      |
-| `Included`                                                                               | []*interface{}*                                                                          | :heavy_minus_sign:                                                                       | N/A                                                                                      |
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                            | [*WafFirewallVersionResponseData](../../models/shared/waffirewallversionresponsedata.md)          | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Included`                                                                                        | [][IncludedWithWafFirewallVersionItem](../../models/shared/includedwithwaffirewallversionitem.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |

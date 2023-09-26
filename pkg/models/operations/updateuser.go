@@ -7,20 +7,61 @@ import (
 	"net/http"
 )
 
-type UpdateUserSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateUserRequest struct {
 	UserInput *shared.UserInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the user.
 	UserID string `pathParam:"style=simple,explode=false,name=user_id"`
 }
 
+func (o *UpdateUserRequest) GetUserInput() *shared.UserInput {
+	if o == nil {
+		return nil
+	}
+	return o.UserInput
+}
+
+func (o *UpdateUserRequest) GetUserID() string {
+	if o == nil {
+		return ""
+	}
+	return o.UserID
+}
+
 type UpdateUserResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	UserResponse *shared.UserResponse
+}
+
+func (o *UpdateUserResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateUserResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateUserResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateUserResponse) GetUserResponse() *shared.UserResponse {
+	if o == nil {
+		return nil
+	}
+	return o.UserResponse
 }

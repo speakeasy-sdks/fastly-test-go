@@ -26,18 +26,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Purge.PurgeAll(ctx, operations.PurgeAllRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.PurgeAllSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -51,11 +54,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
-| `request`                                                                  | [operations.PurgeAllRequest](../../models/operations/purgeallrequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.PurgeAllSecurity](../../models/operations/purgeallsecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [operations.PurgeAllRequest](../../models/operations/purgeallrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
 
 
 ### Response
@@ -75,19 +77,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Purge.PurgeSingleURL(ctx, operations.PurgeSingleURLRequest{
         CachedURL: "www.example.com/path/to/object-to-purge",
-        FastlySoftPurge: sdk.Int64(1),
-    }, operations.PurgeSingleURLSecurity{
-        Token: "",
+        FastlySoftPurge: fastly.Int64(1),
     })
     if err != nil {
         log.Fatal(err)
@@ -101,11 +106,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.PurgeSingleURLRequest](../../models/operations/purgesingleurlrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.PurgeSingleURLSecurity](../../models/operations/purgesingleurlsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.PurgeSingleURLRequest](../../models/operations/purgesingleurlrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -125,20 +129,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Purge.PurgeTag(ctx, operations.PurgeTagRequest{
-        FastlySoftPurge: sdk.Int64(1),
+        FastlySoftPurge: fastly.Int64(1),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         SurrogateKey: "key_1",
-    }, operations.PurgeTagSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -152,11 +159,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
-| `request`                                                                  | [operations.PurgeTagRequest](../../models/operations/purgetagrequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.PurgeTagSecurity](../../models/operations/purgetagsecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [operations.PurgeTagRequest](../../models/operations/purgetagrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
 
 
 ### Response

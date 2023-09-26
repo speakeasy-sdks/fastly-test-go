@@ -4,33 +4,121 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListDictionaryItemsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListDictionaryItemsRequest struct {
 	// Alphanumeric string identifying a Dictionary.
 	DictionaryID string `pathParam:"style=simple,explode=false,name=dictionary_id"`
 	// Direction in which to sort results.
-	Direction *shared.Direction `queryParam:"style=form,explode=true,name=direction"`
+	Direction *shared.Direction `default:"ascend" queryParam:"style=form,explode=true,name=direction"`
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
 	// Number of records per page.
-	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
+	PerPage *int64 `default:"20" queryParam:"style=form,explode=true,name=per_page"`
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Field on which to sort.
-	Sort *string `queryParam:"style=form,explode=true,name=sort"`
+	Sort *string `default:"created" queryParam:"style=form,explode=true,name=sort"`
+}
+
+func (l ListDictionaryItemsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListDictionaryItemsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListDictionaryItemsRequest) GetDictionaryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryID
+}
+
+func (o *ListDictionaryItemsRequest) GetDirection() *shared.Direction {
+	if o == nil {
+		return nil
+	}
+	return o.Direction
+}
+
+func (o *ListDictionaryItemsRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListDictionaryItemsRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListDictionaryItemsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *ListDictionaryItemsRequest) GetSort() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
 }
 
 type ListDictionaryItemsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
 	Headers     map[string][]string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DictionaryItemResponses []shared.DictionaryItemResponse
+}
+
+func (o *ListDictionaryItemsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListDictionaryItemsResponse) GetHeaders() map[string][]string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *ListDictionaryItemsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListDictionaryItemsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListDictionaryItemsResponse) GetDictionaryItemResponses() []shared.DictionaryItemResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryItemResponses
 }

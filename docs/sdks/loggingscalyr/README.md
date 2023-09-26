@@ -25,30 +25,32 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.CreateLogScalyr(ctx, operations.CreateLogScalyrRequest{
         LoggingScalyr3: &shared.LoggingScalyr3{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+            Format: fastly.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingScalyrFormatVersionOne.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingScalyrPlacementNone.ToPointer(),
-            ProjectID: sdk.String("consequuntur"),
-            Region: shared.LoggingScalyrRegionEu.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("officia"),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: shared.LoggingScalyrPlacementWafDebug.ToPointer(),
+            ProjectID: fastly.String("accusamus"),
+            Region: shared.LoggingScalyrRegionUs.ToPointer(),
+            ResponseCondition: fastly.String("null"),
+            Token: fastly.String("odio"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogScalyrSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -62,11 +64,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.CreateLogScalyrRequest](../../models/operations/createlogscalyrrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.CreateLogScalyrSecurity](../../models/operations/createlogscalyrsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.CreateLogScalyrRequest](../../models/operations/createlogscalyrrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -86,20 +87,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.DeleteLogScalyr(ctx, operations.DeleteLogScalyrRequest{
         LoggingScalyrName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogScalyrSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -113,11 +117,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.DeleteLogScalyrRequest](../../models/operations/deletelogscalyrrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteLogScalyrSecurity](../../models/operations/deletelogscalyrsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.DeleteLogScalyrRequest](../../models/operations/deletelogscalyrrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -137,20 +140,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.GetLogScalyr(ctx, operations.GetLogScalyrRequest{
         LoggingScalyrName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogScalyrSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -164,11 +170,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.GetLogScalyrRequest](../../models/operations/getlogscalyrrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetLogScalyrSecurity](../../models/operations/getlogscalyrsecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.GetLogScalyrRequest](../../models/operations/getlogscalyrrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -188,19 +193,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.ListLogScalyr(ctx, operations.ListLogScalyrRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogScalyrSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -214,11 +222,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.ListLogScalyrRequest](../../models/operations/listlogscalyrrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListLogScalyrSecurity](../../models/operations/listlogscalyrsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.ListLogScalyrRequest](../../models/operations/listlogscalyrrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -238,31 +245,33 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingScalyr.UpdateLogScalyr(ctx, operations.UpdateLogScalyrRequest{
         LoggingScalyr3: &shared.LoggingScalyr3{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+            Format: fastly.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingScalyrFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
+            Name: fastly.String("test-log-endpoint"),
             Placement: shared.LoggingScalyrPlacementWafDebug.ToPointer(),
-            ProjectID: sdk.String("officia"),
-            Region: shared.LoggingScalyrRegionEu.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("nemo"),
+            ProjectID: fastly.String("sapiente"),
+            Region: shared.LoggingScalyrRegionUs.ToPointer(),
+            ResponseCondition: fastly.String("null"),
+            Token: fastly.String("deserunt"),
         },
         LoggingScalyrName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogScalyrSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -276,11 +285,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.UpdateLogScalyrRequest](../../models/operations/updatelogscalyrrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.UpdateLogScalyrSecurity](../../models/operations/updatelogscalyrsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.UpdateLogScalyrRequest](../../models/operations/updatelogscalyrrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
