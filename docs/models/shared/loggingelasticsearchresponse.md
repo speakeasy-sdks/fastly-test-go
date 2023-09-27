@@ -1,7 +1,5 @@
 # LoggingElasticsearchResponse
 
-OK
-
 
 ## Fields
 

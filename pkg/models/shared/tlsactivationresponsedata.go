@@ -2,10 +2,51 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type TLSActivationResponseData struct {
 	Attributes    *Timestamps                    `json:"attributes,omitempty"`
 	ID            *string                        `json:"id,omitempty"`
 	Relationships *RelationshipsForTLSActivation `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeTLSActivation `json:"type,omitempty"`
+	type_ *string `const:"tls_activation" json:"type"`
+}
+
+func (t TLSActivationResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSActivationResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSActivationResponseData) GetAttributes() *Timestamps {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSActivationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSActivationResponseData) GetRelationships() *RelationshipsForTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSActivationResponseData) GetType() *string {
+	return types.String("tls_activation")
 }

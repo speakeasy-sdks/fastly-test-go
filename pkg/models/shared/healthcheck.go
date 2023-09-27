@@ -30,3 +30,94 @@ type Healthcheck struct {
 	// The number of most recent health check queries to keep for this health check.
 	Window *int64 `form:"name=window"`
 }
+
+func (o *Healthcheck) GetCheckInterval() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CheckInterval
+}
+
+func (o *Healthcheck) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Healthcheck) GetExpectedResponse() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ExpectedResponse
+}
+
+func (o *Healthcheck) GetHeaders() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *Healthcheck) GetHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Host
+}
+
+func (o *Healthcheck) GetHTTPVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPVersion
+}
+
+func (o *Healthcheck) GetInitial() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Initial
+}
+
+func (o *Healthcheck) GetMethod() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Method
+}
+
+func (o *Healthcheck) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Healthcheck) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *Healthcheck) GetThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Threshold
+}
+
+func (o *Healthcheck) GetTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Timeout
+}
+
+func (o *Healthcheck) GetWindow() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Window
+}

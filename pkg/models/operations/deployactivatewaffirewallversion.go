@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeployActivateWafFirewallVersionSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeployActivateWafFirewallVersionRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
@@ -17,14 +13,59 @@ type DeployActivateWafFirewallVersionRequest struct {
 	FirewallVersionNumber int64 `pathParam:"style=simple,explode=false,name=firewall_version_number"`
 }
 
+func (o *DeployActivateWafFirewallVersionRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *DeployActivateWafFirewallVersionRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
 // DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSON - Accepted
 type DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSON struct {
 }
 
 type DeployActivateWafFirewallVersionResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// Accepted
 	DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSONObject *DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSON
+}
+
+func (o *DeployActivateWafFirewallVersionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeployActivateWafFirewallVersionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeployActivateWafFirewallVersionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeployActivateWafFirewallVersionResponse) GetDeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSONObject() *DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeployActivateWafFirewallVersion202ApplicationVndAPIPlusJSONObject
 }

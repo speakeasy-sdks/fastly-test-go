@@ -1,4 +1,5 @@
 # WafFirewalls
+(*WafFirewalls*)
 
 ## Overview
 
@@ -18,7 +19,7 @@ A firewall represents a configuration of a Web Application Firewall (WAF) on a s
 Create a firewall object for a particular service and service version using a defined `prefetch_condition` and `response`. If the `prefetch_condition` or the `response` is missing from the request body, Fastly will generate a default object on your service.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -28,26 +29,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
-	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafFirewalls.CreateWafFirewall(ctx, shared.WafFirewallInput{
         Data: &shared.WafFirewallDataInput{
             Attributes: &shared.WafFirewallDataAttributesInput{
-                Disabled: sdk.Bool(false),
-                PrefetchCondition: sdk.String("veniam"),
-                Response: sdk.String("nesciunt"),
+                Disabled: fastly.Bool(false),
+                PrefetchCondition: fastly.String("error"),
+                Response: fastly.String("blanditiis"),
             },
-            Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
+            Type: fastly.String("suscipit"),
         },
-    }, operations.CreateWafFirewallSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -61,11 +63,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [shared.WafFirewallInput](../../models/shared/waffirewallinput.md)                           | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.CreateWafFirewallSecurity](../../models/operations/createwaffirewallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `ctx`                                                              | [context.Context](https://pkg.go.dev/context#Context)              | :heavy_check_mark:                                                 | The context to use for the request.                                |
+| `request`                                                          | [shared.WafFirewallInput](../../models/shared/waffirewallinput.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
 
 
 ### Response
@@ -78,7 +79,7 @@ func main() {
 Delete the firewall object for a particular service and service version.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -88,13 +89,17 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafFirewalls.DeleteWafFirewall(ctx, operations.DeleteWafFirewallRequest{
@@ -102,15 +107,13 @@ func main() {
         WafFirewallInput: &shared.WafFirewallInput{
             Data: &shared.WafFirewallDataInput{
                 Attributes: &shared.WafFirewallDataAttributesInput{
-                    Disabled: sdk.Bool(false),
-                    PrefetchCondition: sdk.String("expedita"),
-                    Response: sdk.String("eum"),
+                    Disabled: fastly.Bool(false),
+                    PrefetchCondition: fastly.String("repudiandae"),
+                    Response: fastly.String("atque"),
                 },
-                Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
+                Type: fastly.String("atque"),
             },
         },
-    }, operations.DeleteWafFirewallSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -124,11 +127,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.DeleteWafFirewallRequest](../../models/operations/deletewaffirewallrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteWafFirewallSecurity](../../models/operations/deletewaffirewallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.DeleteWafFirewallRequest](../../models/operations/deletewaffirewallrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -140,7 +142,7 @@ func main() {
 
 Get a specific firewall object.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -150,21 +152,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafFirewalls.GetWafFirewall(ctx, operations.GetWafFirewallRequest{
-        FilterServiceVersionNumber: sdk.String("vel"),
+        FilterServiceVersionNumber: fastly.String("sunt"),
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
-        Include: shared.FirewallIncludeWafFirewallVersions.ToPointer(),
-    }, operations.GetWafFirewallSecurity{
-        Token: "",
+        Include: fastly.String("recusandae"),
     })
     if err != nil {
         log.Fatal(err)
@@ -178,11 +182,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetWafFirewallRequest](../../models/operations/getwaffirewallrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetWafFirewallSecurity](../../models/operations/getwaffirewallsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetWafFirewallRequest](../../models/operations/getwaffirewallrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -194,7 +197,7 @@ func main() {
 
 List all firewall objects.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -204,23 +207,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafFirewalls.ListWafFirewalls(ctx, operations.ListWafFirewallsRequest{
-        FilterServiceID: sdk.String("voluptatum"),
-        FilterServiceVersionNumber: sdk.String("magnam"),
-        Include: shared.FirewallIncludeWafFirewallVersions.ToPointer(),
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-    }, operations.ListWafFirewallsSecurity{
-        Token: "",
+        FilterServiceID: fastly.String("dolorum"),
+        FilterServiceVersionNumber: fastly.String("repellendus"),
+        Include: fastly.String("labore"),
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -234,11 +239,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.ListWafFirewallsRequest](../../models/operations/listwaffirewallsrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListWafFirewallsSecurity](../../models/operations/listwaffirewallssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.ListWafFirewallsRequest](../../models/operations/listwaffirewallsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -251,7 +255,7 @@ func main() {
 Update a firewall object for a particular service and service version. Specifying a `service_version_number` is required.
 
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -261,13 +265,17 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafFirewalls.UpdateWafFirewall(ctx, operations.UpdateWafFirewallRequest{
@@ -275,15 +283,13 @@ func main() {
         WafFirewallInput: &shared.WafFirewallInput{
             Data: &shared.WafFirewallDataInput{
                 Attributes: &shared.WafFirewallDataAttributesInput{
-                    Disabled: sdk.Bool(false),
-                    PrefetchCondition: sdk.String("exercitationem"),
-                    Response: sdk.String("ab"),
+                    Disabled: fastly.Bool(false),
+                    PrefetchCondition: fastly.String("reiciendis"),
+                    Response: fastly.String("doloremque"),
                 },
-                Type: shared.TypeWafFirewallWafFirewall.ToPointer(),
+                Type: fastly.String("repudiandae"),
             },
         },
-    }, operations.UpdateWafFirewallSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -297,11 +303,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.UpdateWafFirewallRequest](../../models/operations/updatewaffirewallrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateWafFirewallSecurity](../../models/operations/updatewaffirewallsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.UpdateWafFirewallRequest](../../models/operations/updatewaffirewallrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response

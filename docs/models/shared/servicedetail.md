@@ -1,7 +1,5 @@
 # ServiceDetail
 
-OK
-
 
 ## Fields
 

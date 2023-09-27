@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetStatsLastSecondSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetStatsLastSecondRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
@@ -18,10 +14,55 @@ type GetStatsLastSecondRequest struct {
 	TimestampInSeconds int64 `pathParam:"style=simple,explode=false,name=timestamp_in_seconds"`
 }
 
+func (o *GetStatsLastSecondRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetStatsLastSecondRequest) GetTimestampInSeconds() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.TimestampInSeconds
+}
+
 type GetStatsLastSecondResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	Realtime *shared.Realtime
+}
+
+func (o *GetStatsLastSecondResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetStatsLastSecondResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetStatsLastSecondResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetStatsLastSecondResponse) GetRealtime() *shared.Realtime {
+	if o == nil {
+		return nil
+	}
+	return o.Realtime
 }

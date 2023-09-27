@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogSplunkSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogSplunkRequest struct {
 	LoggingSplunk2 *shared.LoggingSplunk2 `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,69 @@ type UpdateLogSplunkRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogSplunkRequest) GetLoggingSplunk2() *shared.LoggingSplunk2 {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSplunk2
+}
+
+func (o *UpdateLogSplunkRequest) GetLoggingSplunkName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSplunkName
+}
+
+func (o *UpdateLogSplunkRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogSplunkRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogSplunkResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingSplunkResponse *shared.LoggingSplunkResponse
+}
+
+func (o *UpdateLogSplunkResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogSplunkResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogSplunkResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogSplunkResponse) GetLoggingSplunkResponse() *shared.LoggingSplunkResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSplunkResponse
 }

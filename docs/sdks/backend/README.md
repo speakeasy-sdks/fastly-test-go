@@ -1,4 +1,5 @@
 # Backend
+(*Backend*)
 
 ## Overview
 
@@ -25,52 +26,54 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Backend.CreateBackend(ctx, operations.CreateBackendRequest{
         Backend: &shared.Backend{
-            Address: sdk.String("3980 Ashlee Place"),
-            AutoLoadbalance: sdk.Bool(false),
-            BetweenBytesTimeout: sdk.Int64(20218),
-            ClientCert: sdk.String("ipsam"),
-            Comment: sdk.String("repellendus"),
-            ConnectTimeout: sdk.Int64(957156),
-            FirstByteTimeout: sdk.Int64(778157),
-            Healthcheck: sdk.String("odit"),
-            Hostname: sdk.String("trifling-sunday.org"),
-            Ipv4: sdk.String("121.204.205.118"),
-            Ipv6: sdk.String("8ca1:ba92:8fc8:1674:2cb7:3920:5929:396f"),
-            KeepaliveTime: sdk.Int64(902599),
-            MaxConn: sdk.Int64(681820),
-            MaxTLSVersion: sdk.String("in"),
-            MinTLSVersion: sdk.String("corporis"),
-            Name: sdk.String("test-backend"),
-            OverrideHost: sdk.String("iste"),
-            Port: sdk.Int64(437032),
-            RequestCondition: sdk.String("saepe"),
-            Shield: sdk.String("quidem"),
-            SslCaCert: sdk.String("architecto"),
-            SslCertHostname: sdk.String("ipsa"),
-            SslCheckCert: sdk.Bool(false),
-            SslCiphers: sdk.String("reiciendis"),
-            SslClientCert: sdk.String("est"),
-            SslClientKey: sdk.String("mollitia"),
-            SslHostname: sdk.String("laborum"),
-            SslSniHostname: sdk.String("dolores"),
-            UseSsl: sdk.Bool(false),
-            Weight: sdk.Int64(210382),
+            Address: fastly.String("80923 Paxton Spurs"),
+            AutoLoadbalance: fastly.Bool(false),
+            BetweenBytesTimeout: fastly.Int64(528895),
+            ClientCert: fastly.String("iusto"),
+            Comment: fastly.String("excepturi"),
+            ConnectTimeout: fastly.Int64(392785),
+            FirstByteTimeout: fastly.Int64(925597),
+            Healthcheck: fastly.String("temporibus"),
+            Hostname: fastly.String("bite-sized-favorite.com"),
+            Ipv4: fastly.String("165.5.94.213"),
+            Ipv6: fastly.String("fc2d:df7c:c78c:a1ba:928f:c816:742c:b739"),
+            KeepaliveTime: fastly.Int64(135218),
+            MaxConn: fastly.Int64(18789),
+            MaxTLSVersion: fastly.String("ad"),
+            MinTLSVersion: fastly.String("natus"),
+            Name: fastly.String("test-backend"),
+            OverrideHost: fastly.String("sed"),
+            Port: fastly.Int64(612096),
+            RequestCondition: fastly.String("dolor"),
+            Shield: fastly.String("natus"),
+            SslCaCert: fastly.String("laboriosam"),
+            SslCertHostname: fastly.String("hic"),
+            SslCheckCert: fastly.Bool(false),
+            SslCiphers: fastly.String("saepe"),
+            SslClientCert: fastly.String("fuga"),
+            SslClientKey: fastly.String("in"),
+            SslHostname: fastly.String("corporis"),
+            SslSniHostname: fastly.String("iste"),
+            UseSsl: fastly.Bool(false),
+            Weight: fastly.Int64(437032),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateBackendSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -84,11 +87,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.CreateBackendRequest](../../models/operations/createbackendrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.CreateBackendSecurity](../../models/operations/createbackendsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.CreateBackendRequest](../../models/operations/createbackendrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -108,20 +110,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Backend.DeleteBackend(ctx, operations.DeleteBackendRequest{
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteBackendSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -135,11 +140,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.DeleteBackendRequest](../../models/operations/deletebackendrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.DeleteBackendSecurity](../../models/operations/deletebackendsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.DeleteBackendRequest](../../models/operations/deletebackendrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -159,20 +163,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Backend.GetBackend(ctx, operations.GetBackendRequest{
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetBackendSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -186,11 +193,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.GetBackendRequest](../../models/operations/getbackendrequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetBackendSecurity](../../models/operations/getbackendsecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.GetBackendRequest](../../models/operations/getbackendrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
@@ -210,19 +216,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Backend.ListBackends(ctx, operations.ListBackendsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListBackendsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -236,11 +245,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.ListBackendsRequest](../../models/operations/listbackendsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListBackendsSecurity](../../models/operations/listbackendssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.ListBackendsRequest](../../models/operations/listbackendsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -260,53 +268,55 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Backend.UpdateBackend(ctx, operations.UpdateBackendRequest{
         Backend: &shared.Backend{
-            Address: sdk.String("1736 Era Mountains"),
-            AutoLoadbalance: sdk.Bool(false),
-            BetweenBytesTimeout: sdk.Int64(38425),
-            ClientCert: sdk.String("iure"),
-            Comment: sdk.String("culpa"),
-            ConnectTimeout: sdk.Int64(988374),
-            FirstByteTimeout: sdk.Int64(958950),
-            Healthcheck: sdk.String("architecto"),
-            Hostname: sdk.String("prize-cornmeal.name"),
-            Ipv4: sdk.String("41.254.167.148"),
-            Ipv6: sdk.String("4677:3925:1aa5:2c3f:5ad0:19da:1ffe:78f0"),
-            KeepaliveTime: sdk.Int64(604846),
-            MaxConn: sdk.Int64(451159),
-            MaxTLSVersion: sdk.String("cum"),
-            MinTLSVersion: sdk.String("perferendis"),
-            Name: sdk.String("test-backend"),
-            OverrideHost: sdk.String("doloremque"),
-            Port: sdk.Int64(441711),
-            RequestCondition: sdk.String("ut"),
-            Shield: sdk.String("maiores"),
-            SslCaCert: sdk.String("dicta"),
-            SslCertHostname: sdk.String("corporis"),
-            SslCheckCert: sdk.Bool(false),
-            SslCiphers: sdk.String("dolore"),
-            SslClientCert: sdk.String("iusto"),
-            SslClientKey: sdk.String("dicta"),
-            SslHostname: sdk.String("harum"),
-            SslSniHostname: sdk.String("enim"),
-            UseSsl: sdk.Bool(false),
-            Weight: sdk.Int64(880476),
+            Address: fastly.String("600 Orn Plain"),
+            AutoLoadbalance: fastly.Bool(false),
+            BetweenBytesTimeout: fastly.Int64(670638),
+            ClientCert: fastly.String("dolores"),
+            Comment: fastly.String("dolorem"),
+            ConnectTimeout: fastly.Int64(358152),
+            FirstByteTimeout: fastly.Int64(128926),
+            Healthcheck: fastly.String("nobis"),
+            Hostname: fastly.String("front-odyssey.info"),
+            Ipv4: fastly.String("83.145.9.112"),
+            Ipv6: fastly.String("aff1:a3a2:fa94:6773:9251:aa52:c3f5:ad01"),
+            KeepaliveTime: fastly.Int64(622846),
+            MaxConn: fastly.Int64(837945),
+            MaxTLSVersion: fastly.String("laborum"),
+            MinTLSVersion: fastly.String("quasi"),
+            Name: fastly.String("test-backend"),
+            OverrideHost: fastly.String("reiciendis"),
+            Port: fastly.Int64(976460),
+            RequestCondition: fastly.String("vero"),
+            Shield: fastly.String("nihil"),
+            SslCaCert: fastly.String("praesentium"),
+            SslCertHostname: fastly.String("voluptatibus"),
+            SslCheckCert: fastly.Bool(false),
+            SslCiphers: fastly.String("ipsa"),
+            SslClientCert: fastly.String("omnis"),
+            SslClientKey: fastly.String("voluptate"),
+            SslHostname: fastly.String("cum"),
+            SslSniHostname: fastly.String("perferendis"),
+            UseSsl: fastly.Bool(false),
+            Weight: fastly.Int64(39187),
         },
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateBackendSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -320,11 +330,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.UpdateBackendRequest](../../models/operations/updatebackendrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.UpdateBackendSecurity](../../models/operations/updatebackendsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.UpdateBackendRequest](../../models/operations/updatebackendrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response

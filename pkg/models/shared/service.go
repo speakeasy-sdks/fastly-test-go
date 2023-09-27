@@ -10,3 +10,24 @@ type Service struct {
 	// The name of the service.
 	Name *string `form:"name=name"`
 }
+
+func (o *Service) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Service) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *Service) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
