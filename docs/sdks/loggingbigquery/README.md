@@ -1,4 +1,5 @@
 # LoggingBigquery
+(*LoggingBigquery*)
 
 ## Overview
 
@@ -25,37 +26,39 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.CreateLogBigquery(ctx, operations.CreateLogBigqueryRequest{
         LoggingBigquery2: &shared.LoggingBigquery2{
-            AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Dataset: sdk.String("voluptatibus"),
-            Format: sdk.String("quisquam"),
+            AccountName: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            Dataset: fastly.String("qui"),
+            Format: fastly.String("ipsum"),
             FormatVersion: shared.LoggingBigqueryFormatVersionTwo.ToPointer(),
-            Name: sdk.String("Tim Erdman"),
+            Name: fastly.String("Felipe Klein"),
             Placement: shared.LoggingBigqueryPlacementNone.ToPointer(),
-            ProjectID: sdk.String("test-project-id"),
-            ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            ProjectID: fastly.String("test-project-id"),
+            ResponseCondition: fastly.String("null"),
+            SecretKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Table: sdk.String("vero"),
-            TemplateSuffix: sdk.String("tenetur"),
-            User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            Table: fastly.String("dolorum"),
+            TemplateSuffix: fastly.String("numquam"),
+            User: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogBigquerySecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -69,11 +72,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.CreateLogBigqueryRequest](../../models/operations/createlogbigqueryrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.CreateLogBigquerySecurity](../../models/operations/createlogbigquerysecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.CreateLogBigqueryRequest](../../models/operations/createlogbigqueryrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -93,20 +95,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.DeleteLogBigquery(ctx, operations.DeleteLogBigqueryRequest{
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogBigquerySecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -120,11 +125,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.DeleteLogBigqueryRequest](../../models/operations/deletelogbigqueryrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteLogBigquerySecurity](../../models/operations/deletelogbigquerysecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.DeleteLogBigqueryRequest](../../models/operations/deletelogbigqueryrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -144,20 +148,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.GetLogBigquery(ctx, operations.GetLogBigqueryRequest{
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogBigquerySecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -171,11 +178,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetLogBigqueryRequest](../../models/operations/getlogbigqueryrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetLogBigquerySecurity](../../models/operations/getlogbigquerysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetLogBigqueryRequest](../../models/operations/getlogbigqueryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -195,19 +201,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.ListLogBigquery(ctx, operations.ListLogBigqueryRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogBigquerySecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -221,11 +230,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListLogBigqueryRequest](../../models/operations/listlogbigqueryrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListLogBigquerySecurity](../../models/operations/listlogbigquerysecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.ListLogBigqueryRequest](../../models/operations/listlogbigqueryrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -245,38 +253,40 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.UpdateLogBigquery(ctx, operations.UpdateLogBigqueryRequest{
         LoggingBigquery2: &shared.LoggingBigquery2{
-            AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Dataset: sdk.String("dignissimos"),
-            Format: sdk.String("hic"),
-            FormatVersion: shared.LoggingBigqueryFormatVersionTwo.ToPointer(),
-            Name: sdk.String("Lonnie Murray"),
-            Placement: shared.LoggingBigqueryPlacementWafDebug.ToPointer(),
-            ProjectID: sdk.String("test-project-id"),
-            ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            AccountName: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            Dataset: fastly.String("veritatis"),
+            Format: fastly.String("ipsa"),
+            FormatVersion: shared.LoggingBigqueryFormatVersionOne.ToPointer(),
+            Name: fastly.String("Viola Hahn"),
+            Placement: shared.LoggingBigqueryPlacementLessThanNilGreaterThan.ToPointer(),
+            ProjectID: fastly.String("test-project-id"),
+            ResponseCondition: fastly.String("null"),
+            SecretKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Table: sdk.String("dolore"),
-            TemplateSuffix: sdk.String("quibusdam"),
-            User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            Table: fastly.String("voluptas"),
+            TemplateSuffix: fastly.String("natus"),
+            User: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogBigquerySecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -290,11 +300,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.UpdateLogBigqueryRequest](../../models/operations/updatelogbigqueryrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateLogBigquerySecurity](../../models/operations/updatelogbigquerysecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.UpdateLogBigqueryRequest](../../models/operations/updatelogbigqueryrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response

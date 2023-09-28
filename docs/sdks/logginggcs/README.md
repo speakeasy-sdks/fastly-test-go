@@ -1,4 +1,5 @@
 # LoggingGcs
+(*LoggingGcs*)
 
 ## Overview
 
@@ -25,44 +26,46 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingGcs.CreateLogGcs(ctx, operations.CreateLogGcsRequest{
         LoggingGcsInput: &shared.LoggingGcsInput{
-            AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            BucketName: sdk.String("ab"),
-            CompressionCodec: shared.LoggingGcsCompressionCodecSnappy.ToPointer(),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+            AccountName: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            BucketName: fastly.String("architecto"),
+            CompressionCodec: shared.LoggingGcsCompressionCodecZstd.ToPointer(),
+            Format: fastly.String("%h %l %u %t "%r" %&gt;s %b"),
             FormatVersion: shared.LoggingGcsFormatVersionOne.ToPointer(),
-            GzipLevel: sdk.Int64(0),
+            GzipLevel: fastly.Int64(0),
             MessageType: shared.LoggingGcsMessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("tempora"),
-            Period: sdk.Int64(3600),
+            Name: fastly.String("test-log-endpoint"),
+            Path: fastly.String("quas"),
+            Period: fastly.Int64(3600),
             Placement: shared.LoggingGcsPlacementLessThanNilGreaterThan.ToPointer(),
-            ProjectID: sdk.String("test-project-id"),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            ProjectID: fastly.String("test-project-id"),
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            ResponseCondition: fastly.String("null"),
+            SecretKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            User: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogGcsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -76,11 +79,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.CreateLogGcsRequest](../../models/operations/createloggcsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.CreateLogGcsSecurity](../../models/operations/createloggcssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.CreateLogGcsRequest](../../models/operations/createloggcsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -100,20 +102,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingGcs.DeleteLogGcs(ctx, operations.DeleteLogGcsRequest{
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogGcsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -127,11 +132,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.DeleteLogGcsRequest](../../models/operations/deleteloggcsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.DeleteLogGcsSecurity](../../models/operations/deleteloggcssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.DeleteLogGcsRequest](../../models/operations/deleteloggcsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -151,20 +155,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingGcs.GetLogGcs(ctx, operations.GetLogGcsRequest{
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogGcsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -178,11 +185,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
-| `request`                                                                    | [operations.GetLogGcsRequest](../../models/operations/getloggcsrequest.md)   | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `security`                                                                   | [operations.GetLogGcsSecurity](../../models/operations/getloggcssecurity.md) | :heavy_check_mark:                                                           | The security requirements to use for the request.                            |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `request`                                                                  | [operations.GetLogGcsRequest](../../models/operations/getloggcsrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
 
 
 ### Response
@@ -202,19 +208,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingGcs.ListLogGcs(ctx, operations.ListLogGcsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogGcsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -228,11 +237,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.ListLogGcsRequest](../../models/operations/listloggcsrequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.ListLogGcsSecurity](../../models/operations/listloggcssecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.ListLogGcsRequest](../../models/operations/listloggcsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
@@ -252,45 +260,47 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingGcs.UpdateLogGcs(ctx, operations.UpdateLogGcsRequest{
         LoggingGcsInput: &shared.LoggingGcsInput{
-            AccountName: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            BucketName: sdk.String("ipsam"),
-            CompressionCodec: shared.LoggingGcsCompressionCodecZstd.ToPointer(),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingGcsFormatVersionOne.ToPointer(),
-            GzipLevel: sdk.Int64(0),
+            AccountName: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            BucketName: fastly.String("consequatur"),
+            CompressionCodec: shared.LoggingGcsCompressionCodecGzip.ToPointer(),
+            Format: fastly.String("%h %l %u %t "%r" %&gt;s %b"),
+            FormatVersion: shared.LoggingGcsFormatVersionTwo.ToPointer(),
+            GzipLevel: fastly.Int64(0),
             MessageType: shared.LoggingGcsMessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("quo"),
-            Period: sdk.Int64(3600),
-            Placement: shared.LoggingGcsPlacementWafDebug.ToPointer(),
-            ProjectID: sdk.String("test-project-id"),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            Name: fastly.String("test-log-endpoint"),
+            Path: fastly.String("porro"),
+            Period: fastly.Int64(3600),
+            Placement: shared.LoggingGcsPlacementLessThanNilGreaterThan.ToPointer(),
+            ProjectID: fastly.String("test-project-id"),
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            ResponseCondition: fastly.String("null"),
+            SecretKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            User: sdk.String("test-user@test-project-id.iam.gserviceaccount.com"),
+            User: fastly.String("test-user@test-project-id.iam.gserviceaccount.com"),
         },
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogGcsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -304,11 +314,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.UpdateLogGcsRequest](../../models/operations/updateloggcsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.UpdateLogGcsSecurity](../../models/operations/updateloggcssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.UpdateLogGcsRequest](../../models/operations/updateloggcsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response

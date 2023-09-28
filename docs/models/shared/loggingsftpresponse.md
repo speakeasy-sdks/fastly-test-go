@@ -1,7 +1,5 @@
 # LoggingSftpResponse
 
-OK
-
 
 ## Fields
 

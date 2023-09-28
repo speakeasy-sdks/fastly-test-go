@@ -1,7 +1,5 @@
 # LoggingAzureblobResponse
 
-OK
-
 
 ## Fields
 

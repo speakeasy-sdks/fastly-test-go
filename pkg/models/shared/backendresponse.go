@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// BackendResponse - OK
 type BackendResponse struct {
 	// A hostname, IPv4, or IPv6 address for the backend. This is the preferred way to specify the location of your backend.
 	Address *string `json:"address,omitempty"`
@@ -60,7 +60,7 @@ type BackendResponse struct {
 	// Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.
 	SslCertHostname *string `json:"ssl_cert_hostname,omitempty"`
 	// Be strict on checking SSL certs.
-	SslCheckCert *bool `json:"ssl_check_cert,omitempty"`
+	SslCheckCert *bool `default:"true" json:"ssl_check_cert"`
 	// List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.
 	SslCiphers *string `json:"ssl_ciphers,omitempty"`
 	// Client certificate attached to origin.
@@ -69,7 +69,7 @@ type BackendResponse struct {
 	SslClientKey *string `json:"ssl_client_key,omitempty"`
 	// Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	SslHostname *string `json:"ssl_hostname,omitempty"`
 	// Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.
 	SslSniHostname *string `json:"ssl_sni_hostname,omitempty"`
@@ -80,4 +80,267 @@ type BackendResponse struct {
 	Version *int64 `json:"version,omitempty"`
 	// Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true.
 	Weight *int64 `json:"weight,omitempty"`
+}
+
+func (b BackendResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(b, "", false)
+}
+
+func (b *BackendResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &b, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *BackendResponse) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *BackendResponse) GetAutoLoadbalance() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.AutoLoadbalance
+}
+
+func (o *BackendResponse) GetBetweenBytesTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BetweenBytesTimeout
+}
+
+func (o *BackendResponse) GetClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientCert
+}
+
+func (o *BackendResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *BackendResponse) GetConnectTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ConnectTimeout
+}
+
+func (o *BackendResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *BackendResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *BackendResponse) GetFirstByteTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FirstByteTimeout
+}
+
+func (o *BackendResponse) GetHealthcheck() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Healthcheck
+}
+
+func (o *BackendResponse) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *BackendResponse) GetIpv4() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv4
+}
+
+func (o *BackendResponse) GetIpv6() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv6
+}
+
+func (o *BackendResponse) GetKeepaliveTime() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.KeepaliveTime
+}
+
+func (o *BackendResponse) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *BackendResponse) GetMaxConn() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConn
+}
+
+func (o *BackendResponse) GetMaxTLSVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.MaxTLSVersion
+}
+
+func (o *BackendResponse) GetMinTLSVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.MinTLSVersion
+}
+
+func (o *BackendResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *BackendResponse) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *BackendResponse) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *BackendResponse) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *BackendResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *BackendResponse) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *BackendResponse) GetSslCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslCaCert
+}
+
+func (o *BackendResponse) GetSslCertHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslCertHostname
+}
+
+func (o *BackendResponse) GetSslCheckCert() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.SslCheckCert
+}
+
+func (o *BackendResponse) GetSslCiphers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslCiphers
+}
+
+func (o *BackendResponse) GetSslClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslClientCert
+}
+
+func (o *BackendResponse) GetSslClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslClientKey
+}
+
+func (o *BackendResponse) GetSslHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslHostname
+}
+
+func (o *BackendResponse) GetSslSniHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslSniHostname
+}
+
+func (o *BackendResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *BackendResponse) GetUseSsl() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.UseSsl
+}
+
+func (o *BackendResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *BackendResponse) GetWeight() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Weight
 }
