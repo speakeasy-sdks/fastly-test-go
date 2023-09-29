@@ -6,6 +6,20 @@ type RelationshipWafFirewallVersionsWafFirewallVersions struct {
 	Data []RelationshipMemberWafFirewallVersion `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafFirewallVersionsWafFirewallVersions) GetData() []RelationshipMemberWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafFirewallVersions struct {
 	WafFirewallVersions *RelationshipWafFirewallVersionsWafFirewallVersions `json:"waf_firewall_versions,omitempty"`
+}
+
+func (o *RelationshipWafFirewallVersions) GetWafFirewallVersions() *RelationshipWafFirewallVersionsWafFirewallVersions {
+	if o == nil {
+		return nil
+	}
+	return o.WafFirewallVersions
 }

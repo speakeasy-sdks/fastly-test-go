@@ -4,16 +4,13 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
 
-type VclDiffServiceVersionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type VclDiffServiceVersionsRequest struct {
 	// Optional method to format the diff field.
-	Format *shared.QueryFormat `queryParam:"style=form,explode=true,name=format"`
+	Format *shared.QueryFormat `default:"text" queryParam:"style=form,explode=true,name=format"`
 	// The version number of the service to which changes in the generated VCL are being compared. Can either be a positive number from 1 to your maximum version or a negative number from -1 down (-1 is latest version etc).
 	FromVersionID int64 `pathParam:"style=simple,explode=false,name=from_version_id"`
 	// Alphanumeric string identifying the service.
@@ -22,10 +19,80 @@ type VclDiffServiceVersionsRequest struct {
 	ToVersionID int64 `pathParam:"style=simple,explode=false,name=to_version_id"`
 }
 
+func (v VclDiffServiceVersionsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
+}
+
+func (v *VclDiffServiceVersionsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *VclDiffServiceVersionsRequest) GetFormat() *shared.QueryFormat {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *VclDiffServiceVersionsRequest) GetFromVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FromVersionID
+}
+
+func (o *VclDiffServiceVersionsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *VclDiffServiceVersionsRequest) GetToVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.ToVersionID
+}
+
 type VclDiffServiceVersionsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	VclDiff *shared.VclDiff
+}
+
+func (o *VclDiffServiceVersionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *VclDiffServiceVersionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *VclDiffServiceVersionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *VclDiffServiceVersionsResponse) GetVclDiff() *shared.VclDiff {
+	if o == nil {
+		return nil
+	}
+	return o.VclDiff
 }

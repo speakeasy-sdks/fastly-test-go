@@ -7,20 +7,61 @@ import (
 	"net/http"
 )
 
-type UpdateBulkTLSCertSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateBulkTLSCertRequest struct {
 	// Alphanumeric string identifying a TLS bulk certificate.
 	CertificateID           string                          `pathParam:"style=simple,explode=false,name=certificate_id"`
 	TLSBulkCertificateInput *shared.TLSBulkCertificateInput `request:"mediaType=application/vnd.api+json"`
 }
 
+func (o *UpdateBulkTLSCertRequest) GetCertificateID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CertificateID
+}
+
+func (o *UpdateBulkTLSCertRequest) GetTLSBulkCertificateInput() *shared.TLSBulkCertificateInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSBulkCertificateInput
+}
+
 type UpdateBulkTLSCertResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	TLSBulkCertificateResponse *shared.TLSBulkCertificateResponse
+}
+
+func (o *UpdateBulkTLSCertResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateBulkTLSCertResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateBulkTLSCertResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateBulkTLSCertResponse) GetTLSBulkCertificateResponse() *shared.TLSBulkCertificateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSBulkCertificateResponse
 }

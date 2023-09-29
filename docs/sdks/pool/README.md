@@ -1,4 +1,5 @@
 # Pool
+(*Pool*)
 
 ## Overview
 
@@ -25,43 +26,45 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.CreateServerPool(ctx, operations.CreateServerPoolRequest{
-        Pool2: &shared.Pool2{
-            Comment: sdk.String("sit"),
-            ConnectTimeout: sdk.Int64(699575),
-            FirstByteTimeout: sdk.Int64(148829),
-            Healthcheck: sdk.String("reiciendis"),
-            MaxConnDefault: sdk.Int64(131852),
-            MaxTLSVersion: sdk.Int64(994401),
-            MinTLSVersion: sdk.Int64(707918),
-            Name: sdk.String("my-pool"),
-            OverrideHost: sdk.String("voluptate"),
-            Quorum: sdk.Int64(709072),
-            RequestCondition: sdk.String("null"),
-            Shield: sdk.String("ab"),
-            TLSCaCert: sdk.String("iste"),
-            TLSCertHostname: sdk.String("dolore"),
-            TLSCheckCert: sdk.Int64(671907),
-            TLSCiphers: sdk.String("sed"),
-            TLSClientCert: sdk.String("in"),
-            TLSClientKey: sdk.String("commodi"),
-            TLSSniHostname: sdk.String("quidem"),
+        Pool: &shared.Pool{
+            Comment: fastly.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
+            ConnectTimeout: fastly.Int64(811080),
+            FirstByteTimeout: fastly.Int64(590807),
+            Healthcheck: fastly.String("Producer ROI"),
+            MaxConnDefault: fastly.Int64(866009),
+            MaxTLSVersion: fastly.Int64(533393),
+            MinTLSVersion: fastly.Int64(447912),
+            Name: fastly.String("my-pool"),
+            OverrideHost: fastly.String("empower Darmstadtium"),
+            Quorum: fastly.Int64(662201),
+            RequestCondition: fastly.String("null"),
+            Shield: fastly.String("Paradigm"),
+            TLSCaCert: fastly.String("Hybrid Electronic Nihonium"),
+            TLSCertHostname: fastly.String("Dinar spool disintermediate"),
+            TLSCheckCert: fastly.Int64(135881),
+            TLSCiphers: fastly.String("Cotton useful"),
+            TLSClientCert: fastly.String("instructive drive Touring"),
+            TLSClientKey: fastly.String("Buckinghamshire hack"),
+            TLSSniHostname: fastly.String("harum bifurcated"),
             Type: shared.PoolTypeRandom.ToPointer(),
-            UseTLS: shared.PoolUseTLSZero.ToPointer(),
+            UseTLS: shared.PoolUseTLSOne.ToPointer(),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -75,11 +78,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.CreateServerPoolRequest](../../models/operations/createserverpoolrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreateServerPoolSecurity](../../models/operations/createserverpoolsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.CreateServerPoolRequest](../../models/operations/createserverpoolrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -99,20 +101,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.DeleteServerPool(ctx, operations.DeleteServerPoolRequest{
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -126,11 +131,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.DeleteServerPoolRequest](../../models/operations/deleteserverpoolrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteServerPoolSecurity](../../models/operations/deleteserverpoolsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.DeleteServerPoolRequest](../../models/operations/deleteserverpoolrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -150,20 +154,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.GetServerPool(ctx, operations.GetServerPoolRequest{
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -177,11 +184,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.GetServerPoolRequest](../../models/operations/getserverpoolrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetServerPoolSecurity](../../models/operations/getserverpoolsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.GetServerPoolRequest](../../models/operations/getserverpoolrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -201,19 +207,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.ListServerPools(ctx, operations.ListServerPoolsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListServerPoolsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -227,11 +236,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListServerPoolsRequest](../../models/operations/listserverpoolsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListServerPoolsSecurity](../../models/operations/listserverpoolssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.ListServerPoolsRequest](../../models/operations/listserverpoolsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -251,44 +259,46 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.UpdateServerPool(ctx, operations.UpdateServerPoolRequest{
-        Pool2: &shared.Pool2{
-            Comment: sdk.String("unde"),
-            ConnectTimeout: sdk.Int64(100032),
-            FirstByteTimeout: sdk.Int64(382808),
-            Healthcheck: sdk.String("sapiente"),
-            MaxConnDefault: sdk.Int64(895386),
-            MaxTLSVersion: sdk.Int64(72434),
-            MinTLSVersion: sdk.Int64(967795),
-            Name: sdk.String("my-pool"),
-            OverrideHost: sdk.String("perferendis"),
-            Quorum: sdk.Int64(546885),
-            RequestCondition: sdk.String("null"),
-            Shield: sdk.String("maiores"),
-            TLSCaCert: sdk.String("incidunt"),
-            TLSCertHostname: sdk.String("sed"),
-            TLSCheckCert: sdk.Int64(592231),
-            TLSCiphers: sdk.String("eius"),
-            TLSClientCert: sdk.String("necessitatibus"),
-            TLSClientKey: sdk.String("ipsum"),
-            TLSSniHostname: sdk.String("ea"),
-            Type: shared.PoolTypeHash.ToPointer(),
+        Pool: &shared.Pool{
+            Comment: fastly.String("Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"),
+            ConnectTimeout: fastly.Int64(870420),
+            FirstByteTimeout: fastly.Int64(29969),
+            Healthcheck: fastly.String("gold Rancho Hybrid"),
+            MaxConnDefault: fastly.Int64(422957),
+            MaxTLSVersion: fastly.Int64(357933),
+            MinTLSVersion: fastly.Int64(955467),
+            Name: fastly.String("my-pool"),
+            OverrideHost: fastly.String("Cedi"),
+            Quorum: fastly.Int64(770007),
+            RequestCondition: fastly.String("null"),
+            Shield: fastly.String("experiences Tactics"),
+            TLSCaCert: fastly.String("terribly quantifying MTF"),
+            TLSCertHostname: fastly.String("services BCEAO requite"),
+            TLSCheckCert: fastly.Int64(600539),
+            TLSCiphers: fastly.String("male"),
+            TLSClientCert: fastly.String("Northwest blue digital"),
+            TLSClientKey: fastly.String("navigating"),
+            TLSSniHostname: fastly.String("Arab"),
+            Type: shared.PoolTypeClient.ToPointer(),
             UseTLS: shared.PoolUseTLSOne.ToPointer(),
         },
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -302,11 +312,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.UpdateServerPoolRequest](../../models/operations/updateserverpoolrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.UpdateServerPoolSecurity](../../models/operations/updateserverpoolsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.UpdateServerPoolRequest](../../models/operations/updateserverpoolrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response

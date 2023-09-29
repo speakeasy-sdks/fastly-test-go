@@ -4,12 +4,10 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type GetWafFirewallSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type GetWafFirewallRequest struct {
 	// Limit the results returned to a specific service version.
@@ -17,13 +15,73 @@ type GetWafFirewallRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Include related objects. Optional.
-	Include *shared.FirewallInclude `queryParam:"style=form,explode=true,name=include"`
+	include *string `const:"waf_firewall_versions" queryParam:"style=form,explode=true,name=include"`
+}
+
+func (g GetWafFirewallRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetWafFirewallRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *GetWafFirewallRequest) GetFilterServiceVersionNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterServiceVersionNumber
+}
+
+func (o *GetWafFirewallRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *GetWafFirewallRequest) GetInclude() *string {
+	return types.String("waf_firewall_versions")
 }
 
 type GetWafFirewallResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	WafFirewallResponse *shared.WafFirewallResponse
+}
+
+func (o *GetWafFirewallResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetWafFirewallResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetWafFirewallResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetWafFirewallResponse) GetWafFirewallResponse() *shared.WafFirewallResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafFirewallResponse
 }

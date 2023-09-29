@@ -1,4 +1,5 @@
 # Stats
+(*Stats*)
 
 ## Overview
 
@@ -21,22 +22,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Stats.GetServiceStats(ctx, operations.GetServiceStatsRequest{
-        EndTime: sdk.Int64(1608560817),
-        Month: sdk.String("05"),
+        EndTime: fastly.Int64(1608560817),
+        Month: fastly.String("05"),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        StartTime: sdk.Int64(1608560817),
-        Year: sdk.String("2020"),
-    }, operations.GetServiceStatsSecurity{
-        Token: "",
+        StartTime: fastly.Int64(1608560817),
+        Year: fastly.String("2020"),
     })
     if err != nil {
         log.Fatal(err)
@@ -50,11 +54,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.GetServiceStatsRequest](../../models/operations/getservicestatsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetServiceStatsSecurity](../../models/operations/getservicestatssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.GetServiceStatsRequest](../../models/operations/getservicestatsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response

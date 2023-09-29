@@ -1,7 +1,5 @@
 # LoggingHerokuResponse
 
-OK
-
 
 ## Fields
 
