@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetInvoiceSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetInvoiceRequest struct {
 	// 2-digit month.
 	Month string `pathParam:"style=simple,explode=false,name=month"`
@@ -18,9 +14,26 @@ type GetInvoiceRequest struct {
 	Year string `pathParam:"style=simple,explode=false,name=year"`
 }
 
+func (o *GetInvoiceRequest) GetMonth() string {
+	if o == nil {
+		return ""
+	}
+	return o.Month
+}
+
+func (o *GetInvoiceRequest) GetYear() string {
+	if o == nil {
+		return ""
+	}
+	return o.Year
+}
+
 type GetInvoiceResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	BillingResponse *shared.BillingResponse
@@ -28,4 +41,46 @@ type GetInvoiceResponse struct {
 	GetInvoice200ApplicationPdfBinaryString []byte
 	// OK
 	GetInvoice200TextCsvCsvString *string
+}
+
+func (o *GetInvoiceResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetInvoiceResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetInvoiceResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetInvoiceResponse) GetBillingResponse() *shared.BillingResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BillingResponse
+}
+
+func (o *GetInvoiceResponse) GetGetInvoice200ApplicationPdfBinaryString() []byte {
+	if o == nil {
+		return nil
+	}
+	return o.GetInvoice200ApplicationPdfBinaryString
+}
+
+func (o *GetInvoiceResponse) GetGetInvoice200TextCsvCsvString() *string {
+	if o == nil {
+		return nil
+	}
+	return o.GetInvoice200TextCsvCsvString
 }

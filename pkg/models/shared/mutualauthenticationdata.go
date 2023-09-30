@@ -2,6 +2,11 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type MutualAuthenticationDataAttributes struct {
 	// One or more certificates. Enter each individual certificate blob on a new line. Must be PEM-formatted. Required on create. You may optionally rotate the cert_bundle on update.
 	CertBundle *string `json:"cert_bundle,omitempty"`
@@ -11,9 +16,59 @@ type MutualAuthenticationDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *MutualAuthenticationDataAttributes) GetCertBundle() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CertBundle
+}
+
+func (o *MutualAuthenticationDataAttributes) GetEnforced() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Enforced
+}
+
+func (o *MutualAuthenticationDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type MutualAuthenticationDataInput struct {
 	Attributes    *MutualAuthenticationDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                         `json:"relationships,omitempty"`
+	Relationships *RelationshipTLSActivationsInput    `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeMutualAuthentication `json:"type,omitempty"`
+	type_ *string `const:"mutual_authentication" json:"type"`
+}
+
+func (m MutualAuthenticationDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(m, "", false)
+}
+
+func (m *MutualAuthenticationDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &m, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *MutualAuthenticationDataInput) GetAttributes() *MutualAuthenticationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *MutualAuthenticationDataInput) GetRelationships() *RelationshipTLSActivationsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *MutualAuthenticationDataInput) GetType() *string {
+	return types.String("mutual_authentication")
 }

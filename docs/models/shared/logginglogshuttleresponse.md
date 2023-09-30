@@ -1,7 +1,5 @@
 # LoggingLogshuttleResponse
 
-OK
-
 
 ## Fields
 

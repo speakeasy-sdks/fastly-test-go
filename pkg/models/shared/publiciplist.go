@@ -2,10 +2,23 @@
 
 package shared
 
-// PublicIPList - OK
 type PublicIPList struct {
 	// Fastly's IPv4 ranges.
 	Addresses []string `json:"addresses,omitempty"`
 	// Fastly's IPv6 ranges.
 	Ipv6Addresses []string `json:"ipv6_addresses,omitempty"`
+}
+
+func (o *PublicIPList) GetAddresses() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Addresses
+}
+
+func (o *PublicIPList) GetIpv6Addresses() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv6Addresses
 }

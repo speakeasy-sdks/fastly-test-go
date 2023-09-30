@@ -1,4 +1,5 @@
 # LoggingS3
+(*LoggingS3*)
 
 ## Overview
 
@@ -25,45 +26,47 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingS3.CreateLogAwsS3(ctx, operations.CreateLogAwsS3Request{
         LoggingS3Input: &shared.LoggingS3Input{
-            AccessKey: sdk.String("accusantium"),
-            ACL: sdk.String("rem"),
-            BucketName: sdk.String("aut"),
-            CompressionCodec: shared.LoggingS3CompressionCodecSnappy.ToPointer(),
-            Domain: sdk.String("eum"),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+            AccessKey: fastly.String("Northwest deposit"),
+            ACL: fastly.String("Borders Beauty VGA"),
+            BucketName: fastly.String("Assurance Central"),
+            CompressionCodec: shared.LoggingS3CompressionCodecZstd.ToPointer(),
+            Domain: fastly.String("overdue-grain.org"),
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: shared.LoggingS3FormatVersionTwo.ToPointer(),
-            GzipLevel: sdk.Int64(0),
-            IamRole: sdk.String("ab"),
+            GzipLevel: fastly.Int64(0),
+            IamRole: fastly.String("Music"),
             MessageType: shared.LoggingS3MessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("corrupti"),
-            Period: sdk.Int64(3600),
-            Placement: shared.LoggingS3PlacementNone.ToPointer(),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            Name: fastly.String("test-log-endpoint"),
+            Path: fastly.String("/proc"),
+            Period: fastly.Int64(3600),
+            Placement: shared.LoggingS3PlacementWafDebug.ToPointer(),
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Redundancy: sdk.String("voluptatem"),
-            ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("dolor"),
-            ServerSideEncryption: sdk.String("occaecati"),
-            ServerSideEncryptionKmsKeyID: sdk.String("numquam"),
+            Redundancy: fastly.String("congregation adapter Shirt"),
+            ResponseCondition: fastly.String("null"),
+            SecretKey: fastly.String("Hybrid Usability Mills"),
+            ServerSideEncryption: fastly.String("so tempo mindshare"),
+            ServerSideEncryptionKmsKeyID: fastly.String("Fish Cotton broadly"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogAwsS3Security{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -77,11 +80,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.CreateLogAwsS3Request](../../models/operations/createlogawss3request.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateLogAwsS3Security](../../models/operations/createlogawss3security.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.CreateLogAwsS3Request](../../models/operations/createlogawss3request.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -101,20 +103,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingS3.DeleteLogAwsS3(ctx, operations.DeleteLogAwsS3Request{
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogAwsS3Security{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -128,11 +133,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.DeleteLogAwsS3Request](../../models/operations/deletelogawss3request.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteLogAwsS3Security](../../models/operations/deletelogawss3security.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.DeleteLogAwsS3Request](../../models/operations/deletelogawss3request.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -152,20 +156,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingS3.GetLogAwsS3(ctx, operations.GetLogAwsS3Request{
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogAwsS3Security{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -179,11 +186,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.GetLogAwsS3Request](../../models/operations/getlogawss3request.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetLogAwsS3Security](../../models/operations/getlogawss3security.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [operations.GetLogAwsS3Request](../../models/operations/getlogawss3request.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
@@ -203,19 +209,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingS3.ListLogAwsS3(ctx, operations.ListLogAwsS3Request{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogAwsS3Security{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -229,11 +238,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.ListLogAwsS3Request](../../models/operations/listlogawss3request.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListLogAwsS3Security](../../models/operations/listlogawss3security.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.ListLogAwsS3Request](../../models/operations/listlogawss3request.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -253,46 +261,48 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingS3.UpdateLogAwsS3(ctx, operations.UpdateLogAwsS3Request{
         LoggingS3Input: &shared.LoggingS3Input{
-            AccessKey: sdk.String("impedit"),
-            ACL: sdk.String("explicabo"),
-            BucketName: sdk.String("voluptas"),
+            AccessKey: fastly.String("North Sausages"),
+            ACL: fastly.String("while wireless Kwanza"),
+            BucketName: fastly.String("Applications Electric West"),
             CompressionCodec: shared.LoggingS3CompressionCodecZstd.ToPointer(),
-            Domain: sdk.String("dignissimos"),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingS3FormatVersionOne.ToPointer(),
-            GzipLevel: sdk.Int64(0),
-            IamRole: sdk.String("maiores"),
+            Domain: fastly.String("sharp-hatchet.biz"),
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: shared.LoggingS3FormatVersionTwo.ToPointer(),
+            GzipLevel: fastly.Int64(0),
+            IamRole: fastly.String("impartial"),
             MessageType: shared.LoggingS3MessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("natus"),
-            Period: sdk.Int64(3600),
-            Placement: shared.LoggingS3PlacementNone.ToPointer(),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            Name: fastly.String("test-log-endpoint"),
+            Path: fastly.String("/etc/ppp"),
+            Period: fastly.Int64(3600),
+            Placement: shared.LoggingS3PlacementLessThanNilGreaterThan.ToPointer(),
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Redundancy: sdk.String("voluptatibus"),
-            ResponseCondition: sdk.String("null"),
-            SecretKey: sdk.String("voluptas"),
-            ServerSideEncryption: sdk.String("asperiores"),
-            ServerSideEncryptionKmsKeyID: sdk.String("aperiam"),
+            Redundancy: fastly.String("plum Interface"),
+            ResponseCondition: fastly.String("null"),
+            SecretKey: fastly.String("compete 24/7"),
+            ServerSideEncryption: fastly.String("Claire payment silver"),
+            ServerSideEncryptionKmsKeyID: fastly.String("Elegant Borders"),
         },
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogAwsS3Security{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -306,11 +316,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.UpdateLogAwsS3Request](../../models/operations/updatelogawss3request.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateLogAwsS3Security](../../models/operations/updatelogawss3security.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.UpdateLogAwsS3Request](../../models/operations/updatelogawss3request.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
