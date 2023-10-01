@@ -2,6 +2,13 @@
 
 package shared
 
-type BulkWafActiveRulesInput struct {
-	Data []WafActiveRuleDataInput `json:"data,omitempty"`
+type BulkWafActiveRules struct {
+	Data []WafActiveRuleData1 `json:"data,omitempty"`
+}
+
+func (o *BulkWafActiveRules) GetData() []WafActiveRuleData1 {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

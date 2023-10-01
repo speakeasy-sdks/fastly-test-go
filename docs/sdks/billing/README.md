@@ -1,4 +1,5 @@
 # Billing
+(*Billing*)
 
 ## Overview
 
@@ -23,19 +24,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoice(ctx, operations.GetInvoiceRequest{
         Month: "05",
         Year: "2020",
-    }, operations.GetInvoiceSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -49,11 +53,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.GetInvoiceRequest](../../models/operations/getinvoicerequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetInvoiceSecurity](../../models/operations/getinvoicesecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.GetInvoiceRequest](../../models/operations/getinvoicerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
@@ -73,19 +76,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoiceByID(ctx, operations.GetInvoiceByIDRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
         InvoiceID: "7SlAESxcJ2zxHOV4gQ9y9X",
-    }, operations.GetInvoiceByIDSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -99,11 +105,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetInvoiceByIDRequest](../../models/operations/getinvoicebyidrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetInvoiceByIDSecurity](../../models/operations/getinvoicebyidsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetInvoiceByIDRequest](../../models/operations/getinvoicebyidrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -123,20 +128,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoiceMtd(ctx, operations.GetInvoiceMtdRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-        Month: sdk.String("05"),
-        Year: sdk.String("2020"),
-    }, operations.GetInvoiceMtdSecurity{
-        Token: "",
+        Month: fastly.String("05"),
+        Year: fastly.String("2020"),
     })
     if err != nil {
         log.Fatal(err)
@@ -150,11 +158,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.GetInvoiceMtdRequest](../../models/operations/getinvoicemtdrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetInvoiceMtdSecurity](../../models/operations/getinvoicemtdsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.GetInvoiceMtdRequest](../../models/operations/getinvoicemtdrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response

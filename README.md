@@ -16,23 +16,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
         ACL: &shared.ACL{
-            Name: sdk.String("test-acl"),
+            Name: fastly.String("test-acl"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateACLSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -776,6 +778,38 @@ func main() {
 
 * [~~ListWafTags~~](docs/sdks/waftags/README.md#listwaftags) - List tags :warning: **Deprecated**
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `nil`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+
+
+<!-- Start Go Types -->
+
+<!-- End Go Types -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

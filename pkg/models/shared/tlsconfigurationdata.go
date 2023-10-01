@@ -2,28 +2,55 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type TLSConfigurationDataAttributes struct {
 	// A custom name for your TLS configuration.
 	Name *string `json:"name,omitempty"`
 }
 
-type TLSConfigurationDataRelationships2DNSRecordsInput struct {
-	Data []RelationshipMemberTLSDNSRecordInput `json:"data,omitempty"`
+func (o *TLSConfigurationDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
 }
 
-// TLSConfigurationDataRelationships2Input - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
-type TLSConfigurationDataRelationships2Input struct {
-	DNSRecords *TLSConfigurationDataRelationships2DNSRecordsInput `json:"dns_records,omitempty"`
-}
-
-// TLSConfigurationDataRelationships1Input - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
-type TLSConfigurationDataRelationships1Input struct {
-	Service *RelationshipMemberServiceInput `json:"service,omitempty"`
-}
-
-type TLSConfigurationDataInput struct {
-	Attributes    *TLSConfigurationDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                     `json:"relationships,omitempty"`
+type TLSConfigurationData struct {
+	Attributes    *TLSConfigurationDataAttributes        `json:"attributes,omitempty"`
+	Relationships *RelationshipsForTLSConfigurationInput `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSConfiguration `json:"type,omitempty"`
+	type_ *string `const:"tls_configuration" json:"type"`
+}
+
+func (t TLSConfigurationData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSConfigurationData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSConfigurationData) GetAttributes() *TLSConfigurationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSConfigurationData) GetRelationships() *RelationshipsForTLSConfigurationInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSConfigurationData) GetType() *string {
+	return types.String("tls_configuration")
 }

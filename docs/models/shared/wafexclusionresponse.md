@@ -1,7 +1,5 @@
 # WafExclusionResponse
 
-Created
-
 
 ## Fields
 

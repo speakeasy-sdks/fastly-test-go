@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteCacheSettingsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteCacheSettingsRequest struct {
 	// Name for the cache settings object.
 	CacheSettingsName string `pathParam:"style=simple,explode=false,name=cache_settings_name"`
@@ -19,16 +15,75 @@ type DeleteCacheSettingsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteCacheSettingsRequest) GetCacheSettingsName() string {
+	if o == nil {
+		return ""
+	}
+	return o.CacheSettingsName
+}
+
+func (o *DeleteCacheSettingsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteCacheSettingsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteCacheSettings200ApplicationJSON - OK
 type DeleteCacheSettings200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteCacheSettings200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteCacheSettingsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteCacheSettings200ApplicationJSONObject *DeleteCacheSettings200ApplicationJSON
+}
+
+func (o *DeleteCacheSettingsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteCacheSettingsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteCacheSettingsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteCacheSettingsResponse) GetDeleteCacheSettings200ApplicationJSONObject() *DeleteCacheSettings200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteCacheSettings200ApplicationJSONObject
 }

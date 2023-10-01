@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetDomainSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetDomainRequest struct {
 	// The name of the domain or domains associated with this service.
 	DomainName string `pathParam:"style=simple,explode=false,name=domain_name"`
@@ -20,10 +16,62 @@ type GetDomainRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetDomainRequest) GetDomainName() string {
+	if o == nil {
+		return ""
+	}
+	return o.DomainName
+}
+
+func (o *GetDomainRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetDomainRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetDomainResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DomainResponse *shared.DomainResponse
+}
+
+func (o *GetDomainResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetDomainResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetDomainResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetDomainResponse) GetDomainResponse() *shared.DomainResponse {
+	if o == nil {
+		return nil
+	}
+	return o.DomainResponse
 }
