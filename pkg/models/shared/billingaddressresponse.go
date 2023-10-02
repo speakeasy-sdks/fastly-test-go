@@ -2,16 +2,63 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type BillingAddressResponseData struct {
 	Attributes *BillingAddressAttributes `json:"attributes,omitempty"`
 	// Alphanumeric string identifying the billing address.
 	ID            *string               `json:"id,omitempty"`
 	Relationships *RelationshipCustomer `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeBillingAddress `json:"type,omitempty"`
+	type_ *string `const:"billing_address" json:"type"`
 }
 
-// BillingAddressResponse - OK
+func (b BillingAddressResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(b, "", false)
+}
+
+func (b *BillingAddressResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &b, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *BillingAddressResponseData) GetAttributes() *BillingAddressAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *BillingAddressResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *BillingAddressResponseData) GetRelationships() *RelationshipCustomer {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *BillingAddressResponseData) GetType() *string {
+	return types.String("billing_address")
+}
+
 type BillingAddressResponse struct {
 	Data *BillingAddressResponseData `json:"data,omitempty"`
+}
+
+func (o *BillingAddressResponse) GetData() *BillingAddressResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

@@ -1,7 +1,5 @@
 # WafRuleRevisionsResponse
 
-OK
-
 
 ## Fields
 

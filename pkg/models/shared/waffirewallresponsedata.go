@@ -2,10 +2,51 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type WafFirewallResponseData struct {
 	Attributes    *WafFirewallResponseDataAttributes `json:"attributes,omitempty"`
 	ID            *string                            `json:"id,omitempty"`
 	Relationships *RelationshipWafFirewallVersions   `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafFirewall `json:"type,omitempty"`
+	type_ *string `const:"waf_firewall" json:"type"`
+}
+
+func (w WafFirewallResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafFirewallResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafFirewallResponseData) GetAttributes() *WafFirewallResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafFirewallResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafFirewallResponseData) GetRelationships() *RelationshipWafFirewallVersions {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafFirewallResponseData) GetType() *string {
+	return types.String("waf_firewall")
 }

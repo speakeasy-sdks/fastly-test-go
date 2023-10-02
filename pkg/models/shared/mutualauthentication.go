@@ -2,6 +2,13 @@
 
 package shared
 
-type MutualAuthenticationInput struct {
-	Data *MutualAuthenticationDataInput `json:"data,omitempty"`
+type MutualAuthentication struct {
+	Data *MutualAuthenticationData `json:"data,omitempty"`
+}
+
+func (o *MutualAuthentication) GetData() *MutualAuthenticationData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

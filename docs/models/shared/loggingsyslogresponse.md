@@ -1,7 +1,5 @@
 # LoggingSyslogResponse
 
-OK
-
 
 ## Fields
 

@@ -3,6 +3,8 @@
 package shared
 
 import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -43,7 +45,25 @@ func (e *ServiceInvitationDataAttributesPermission) UnmarshalJSON(data []byte) e
 
 type ServiceInvitationDataAttributes struct {
 	// The permission the accepting user will have in relation to the service.
-	Permission *ServiceInvitationDataAttributesPermission `json:"permission,omitempty"`
+	Permission *ServiceInvitationDataAttributesPermission `default:"full" json:"permission"`
+}
+
+func (s ServiceInvitationDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceInvitationDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceInvitationDataAttributes) GetPermission() *ServiceInvitationDataAttributesPermission {
+	if o == nil {
+		return nil
+	}
+	return o.Permission
 }
 
 // ServiceInvitationDataRelationshipsInput - Service the accepting user will have access to.
@@ -51,10 +71,46 @@ type ServiceInvitationDataRelationshipsInput struct {
 	Service *RelationshipMemberServiceInput `json:"service,omitempty"`
 }
 
+func (o *ServiceInvitationDataRelationshipsInput) GetService() *RelationshipMemberServiceInput {
+	if o == nil {
+		return nil
+	}
+	return o.Service
+}
+
 type ServiceInvitationDataInput struct {
 	Attributes *ServiceInvitationDataAttributes `json:"attributes,omitempty"`
 	// Service the accepting user will have access to.
 	Relationships *ServiceInvitationDataRelationshipsInput `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeServiceInvitation `json:"type,omitempty"`
+	type_ *string `const:"service_invitation" json:"type"`
+}
+
+func (s ServiceInvitationDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceInvitationDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceInvitationDataInput) GetAttributes() *ServiceInvitationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *ServiceInvitationDataInput) GetRelationships() *ServiceInvitationDataRelationshipsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *ServiceInvitationDataInput) GetType() *string {
+	return types.String("service_invitation")
 }

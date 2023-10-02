@@ -8,3 +8,17 @@ type Resource struct {
 	// The ID of the underlying linked resource.
 	ResourceID *string `form:"name=resource_id"`
 }
+
+func (o *Resource) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Resource) GetResourceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResourceID
+}

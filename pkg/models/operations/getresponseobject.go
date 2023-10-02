@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetResponseObjectSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetResponseObjectRequest struct {
 	// Name for the request settings.
 	ResponseObjectName string `pathParam:"style=simple,explode=false,name=response_object_name"`
@@ -20,10 +16,62 @@ type GetResponseObjectRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetResponseObjectRequest) GetResponseObjectName() string {
+	if o == nil {
+		return ""
+	}
+	return o.ResponseObjectName
+}
+
+func (o *GetResponseObjectRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetResponseObjectRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetResponseObjectResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ResponseObjectResponse *shared.ResponseObjectResponse
+}
+
+func (o *GetResponseObjectResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetResponseObjectResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetResponseObjectResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetResponseObjectResponse) GetResponseObjectResponse() *shared.ResponseObjectResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseObjectResponse
 }
