@@ -1,4 +1,5 @@
 # LoggingSplunk
+(*LoggingSplunk*)
 
 ## Overview
 
@@ -25,36 +26,38 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.CreateLogSplunk(ctx, operations.CreateLogSplunkRequest{
-        LoggingSplunk2: &shared.LoggingSplunk2{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+        LoggingSplunk: &shared.LoggingSplunk{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: shared.LoggingSplunkFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingSplunkPlacementWafDebug.ToPointer(),
-            RequestMaxBytes: sdk.Int64(287051),
-            RequestMaxEntries: sdk.Int64(822560),
-            ResponseCondition: sdk.String("null"),
-            TLSCaCert: sdk.String("facilis"),
-            TLSClientCert: sdk.String("cum"),
-            TLSClientKey: sdk.String("commodi"),
-            TLSHostname: sdk.String("in"),
-            Token: sdk.String("corporis"),
-            URL: sdk.String("reiciendis"),
-            UseTLS: shared.LoggingUseTLSOne.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: shared.LoggingSplunkPlacementLessThanNilGreaterThan.ToPointer(),
+            RequestMaxBytes: fastly.Int64(98989),
+            RequestMaxEntries: fastly.Int64(953900),
+            ResponseCondition: fastly.String("null"),
+            TLSCaCert: fastly.String("degree likewise Cotton"),
+            TLSClientCert: fastly.String("Checking"),
+            TLSClientKey: fastly.String("matrix"),
+            TLSHostname: fastly.String("while Volkswagen GB"),
+            Token: fastly.String("Account Southwest West"),
+            URL: fastly.String("https://curly-guidance.net"),
+            UseTLS: shared.LoggingUseTLSZero.ToPointer(),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogSplunkSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -68,11 +71,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.CreateLogSplunkRequest](../../models/operations/createlogsplunkrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.CreateLogSplunkSecurity](../../models/operations/createlogsplunksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.CreateLogSplunkRequest](../../models/operations/createlogsplunkrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -92,20 +94,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.DeleteLogSplunk(ctx, operations.DeleteLogSplunkRequest{
         LoggingSplunkName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogSplunkSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -119,11 +124,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.DeleteLogSplunkRequest](../../models/operations/deletelogsplunkrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteLogSplunkSecurity](../../models/operations/deletelogsplunksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.DeleteLogSplunkRequest](../../models/operations/deletelogsplunkrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -143,20 +147,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.GetLogSplunk(ctx, operations.GetLogSplunkRequest{
         LoggingSplunkName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogSplunkSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -170,11 +177,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.GetLogSplunkRequest](../../models/operations/getlogsplunkrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetLogSplunkSecurity](../../models/operations/getlogsplunksecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.GetLogSplunkRequest](../../models/operations/getlogsplunkrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -194,19 +200,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.ListLogSplunk(ctx, operations.ListLogSplunkRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogSplunkSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -220,11 +229,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.ListLogSplunkRequest](../../models/operations/listlogsplunkrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListLogSplunkSecurity](../../models/operations/listlogsplunksecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.ListLogSplunkRequest](../../models/operations/listlogsplunkrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -244,37 +252,39 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingSplunk.UpdateLogSplunk(ctx, operations.UpdateLogSplunkRequest{
-        LoggingSplunk2: &shared.LoggingSplunk2{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+        LoggingSplunk: &shared.LoggingSplunk{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: shared.LoggingSplunkFormatVersionOne.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingSplunkPlacementLessThanNilGreaterThan.ToPointer(),
-            RequestMaxBytes: sdk.Int64(397533),
-            RequestMaxEntries: sdk.Int64(46007),
-            ResponseCondition: sdk.String("null"),
-            TLSCaCert: sdk.String("cum"),
-            TLSClientCert: sdk.String("consectetur"),
-            TLSClientKey: sdk.String("in"),
-            TLSHostname: sdk.String("exercitationem"),
-            Token: sdk.String("earum"),
-            URL: sdk.String("facere"),
-            UseTLS: shared.LoggingUseTLSZero.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: shared.LoggingSplunkPlacementWafDebug.ToPointer(),
+            RequestMaxBytes: fastly.Int64(499214),
+            RequestMaxEntries: fastly.Int64(893979),
+            ResponseCondition: fastly.String("null"),
+            TLSCaCert: fastly.String("male seamless"),
+            TLSClientCert: fastly.String("Rubber impactful"),
+            TLSClientKey: fastly.String("Powlowski Screen"),
+            TLSHostname: fastly.String("mollitia Northwest Northwest"),
+            Token: fastly.String("Pizza Southeast Molybdenum"),
+            URL: fastly.String("https://critical-radiosonde.info"),
+            UseTLS: shared.LoggingUseTLSOne.ToPointer(),
         },
         LoggingSplunkName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogSplunkSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -288,11 +298,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.UpdateLogSplunkRequest](../../models/operations/updatelogsplunkrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.UpdateLogSplunkSecurity](../../models/operations/updatelogsplunksecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.UpdateLogSplunkRequest](../../models/operations/updatelogsplunkrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response

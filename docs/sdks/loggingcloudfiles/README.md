@@ -1,4 +1,5 @@
 # LoggingCloudfiles
+(*LoggingCloudfiles*)
 
 ## Overview
 
@@ -25,40 +26,42 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.CreateLogCloudfiles(ctx, operations.CreateLogCloudfilesRequest{
         LoggingCloudfilesInput: &shared.LoggingCloudfilesInput{
-            AccessKey: sdk.String("illum"),
-            BucketName: sdk.String("sequi"),
+            AccessKey: fastly.String("Gasoline Technician North"),
+            BucketName: fastly.String("Immanuel"),
             CompressionCodec: shared.LoggingCloudfilesCompressionCodecSnappy.ToPointer(),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: shared.LoggingCloudfilesFormatVersionTwo.ToPointer(),
-            GzipLevel: sdk.Int64(0),
+            GzipLevel: fastly.Int64(0),
             MessageType: shared.LoggingCloudfilesMessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("aut"),
-            Period: sdk.Int64(3600),
+            Name: fastly.String("test-log-endpoint"),
+            Path: fastly.String("/usr/include"),
+            Period: fastly.Int64(3600),
             Placement: shared.LoggingCloudfilesPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Region: shared.LoggingCloudfilesRegionIad.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            User: sdk.String("nulla"),
+            Region: shared.LoggingCloudfilesRegionSyd.ToPointer(),
+            ResponseCondition: fastly.String("null"),
+            User: fastly.String("Foster_Hettinger"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogCloudfilesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -72,11 +75,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CreateLogCloudfilesRequest](../../models/operations/createlogcloudfilesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateLogCloudfilesSecurity](../../models/operations/createlogcloudfilessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateLogCloudfilesRequest](../../models/operations/createlogcloudfilesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -96,20 +98,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.DeleteLogCloudfiles(ctx, operations.DeleteLogCloudfilesRequest{
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogCloudfilesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -123,11 +128,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.DeleteLogCloudfilesRequest](../../models/operations/deletelogcloudfilesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteLogCloudfilesSecurity](../../models/operations/deletelogcloudfilessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.DeleteLogCloudfilesRequest](../../models/operations/deletelogcloudfilesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -147,20 +151,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.GetLogCloudfiles(ctx, operations.GetLogCloudfilesRequest{
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogCloudfilesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -174,11 +181,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.GetLogCloudfilesRequest](../../models/operations/getlogcloudfilesrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetLogCloudfilesSecurity](../../models/operations/getlogcloudfilessecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.GetLogCloudfilesRequest](../../models/operations/getlogcloudfilesrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -198,19 +204,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.ListLogCloudfiles(ctx, operations.ListLogCloudfilesRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogCloudfilesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -224,11 +233,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListLogCloudfilesRequest](../../models/operations/listlogcloudfilesrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListLogCloudfilesSecurity](../../models/operations/listlogcloudfilessecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ListLogCloudfilesRequest](../../models/operations/listlogcloudfilesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -248,41 +256,43 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingCloudfiles.UpdateLogCloudfiles(ctx, operations.UpdateLogCloudfilesRequest{
         LoggingCloudfilesInput: &shared.LoggingCloudfilesInput{
-            AccessKey: sdk.String("fugit"),
-            BucketName: sdk.String("porro"),
-            CompressionCodec: shared.LoggingCloudfilesCompressionCodecGzip.ToPointer(),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+            AccessKey: fastly.String("calculating capacitor Bicycle"),
+            BucketName: fastly.String("interactive"),
+            CompressionCodec: shared.LoggingCloudfilesCompressionCodecZstd.ToPointer(),
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: shared.LoggingCloudfilesFormatVersionTwo.ToPointer(),
-            GzipLevel: sdk.Int64(0),
+            GzipLevel: fastly.Int64(0),
             MessageType: shared.LoggingCloudfilesMessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("iusto"),
-            Period: sdk.Int64(3600),
+            Name: fastly.String("test-log-endpoint"),
+            Path: fastly.String("/Network"),
+            Period: fastly.Int64(3600),
             Placement: shared.LoggingCloudfilesPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            Region: shared.LoggingCloudfilesRegionLon.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            User: sdk.String("alias"),
+            Region: shared.LoggingCloudfilesRegionDfw.ToPointer(),
+            ResponseCondition: fastly.String("null"),
+            User: fastly.String("Casper.Stanton"),
         },
         LoggingCloudfilesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogCloudfilesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -296,11 +306,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.UpdateLogCloudfilesRequest](../../models/operations/updatelogcloudfilesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateLogCloudfilesSecurity](../../models/operations/updatelogcloudfilessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.UpdateLogCloudfilesRequest](../../models/operations/updatelogcloudfilesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response

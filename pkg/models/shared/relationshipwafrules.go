@@ -6,14 +6,42 @@ type RelationshipWafRulesWafRulesInput struct {
 	Data []RelationshipMemberWafRuleInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafRulesWafRulesInput) GetData() []RelationshipMemberWafRuleInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafRulesInput struct {
 	WafRules *RelationshipWafRulesWafRulesInput `json:"waf_rules,omitempty"`
+}
+
+func (o *RelationshipWafRulesInput) GetWafRules() *RelationshipWafRulesWafRulesInput {
+	if o == nil {
+		return nil
+	}
+	return o.WafRules
 }
 
 type RelationshipWafRulesWafRules struct {
 	Data []RelationshipMemberWafRule `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafRulesWafRules) GetData() []RelationshipMemberWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafRules struct {
 	WafRules *RelationshipWafRulesWafRules `json:"waf_rules,omitempty"`
+}
+
+func (o *RelationshipWafRules) GetWafRules() *RelationshipWafRulesWafRules {
+	if o == nil {
+		return nil
+	}
+	return o.WafRules
 }

@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpsertConfigStoreItemSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpsertConfigStoreItemRequest struct {
 	// An alphanumeric string identifying the config store.
 	ConfigStoreID   string                  `pathParam:"style=simple,explode=false,name=config_store_id"`
@@ -19,10 +15,62 @@ type UpsertConfigStoreItemRequest struct {
 	ConfigStoreItemKey string `pathParam:"style=simple,explode=false,name=config_store_item_key"`
 }
 
+func (o *UpsertConfigStoreItemRequest) GetConfigStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreID
+}
+
+func (o *UpsertConfigStoreItemRequest) GetConfigStoreItem() *shared.ConfigStoreItem {
+	if o == nil {
+		return nil
+	}
+	return o.ConfigStoreItem
+}
+
+func (o *UpsertConfigStoreItemRequest) GetConfigStoreItemKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreItemKey
+}
+
 type UpsertConfigStoreItemResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ConfigStoreItemResponse *shared.ConfigStoreItemResponse
+}
+
+func (o *UpsertConfigStoreItemResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpsertConfigStoreItemResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpsertConfigStoreItemResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpsertConfigStoreItemResponse) GetConfigStoreItemResponse() *shared.ConfigStoreItemResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConfigStoreItemResponse
 }

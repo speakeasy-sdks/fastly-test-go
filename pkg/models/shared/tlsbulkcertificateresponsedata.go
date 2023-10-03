@@ -2,19 +2,51 @@
 
 package shared
 
-type TLSBulkCertificateResponseDataRelationships2TLSDomains struct {
-	Data []RelationshipMemberTLSDomain `json:"data,omitempty"`
-}
-
-// TLSBulkCertificateResponseDataRelationships2 - All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
-type TLSBulkCertificateResponseDataRelationships2 struct {
-	TLSDomains *TLSBulkCertificateResponseDataRelationships2TLSDomains `json:"tls_domains,omitempty"`
-}
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
 
 type TLSBulkCertificateResponseData struct {
 	Attributes    *TLSBulkCertificateResponseAttributes `json:"attributes,omitempty"`
 	ID            *string                               `json:"id,omitempty"`
-	Relationships interface{}                           `json:"relationships,omitempty"`
+	Relationships *RelationshipsForTLSBulkCertificate   `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSBulkCertificate `json:"type,omitempty"`
+	type_ *string `const:"tls_bulk_certificate" json:"type"`
+}
+
+func (t TLSBulkCertificateResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSBulkCertificateResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSBulkCertificateResponseData) GetAttributes() *TLSBulkCertificateResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSBulkCertificateResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSBulkCertificateResponseData) GetRelationships() *RelationshipsForTLSBulkCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSBulkCertificateResponseData) GetType() *string {
+	return types.String("tls_bulk_certificate")
 }

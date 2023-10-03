@@ -2,7 +2,13 @@
 
 package shared
 
-// Stats - OK
 type Stats struct {
 	Stats map[string]Results `json:"stats,omitempty"`
+}
+
+func (o *Stats) GetStats() map[string]Results {
+	if o == nil {
+		return nil
+	}
+	return o.Stats
 }

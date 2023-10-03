@@ -4,12 +4,10 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListWafFirewallsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListWafFirewallsRequest struct {
 	// Limit the results returned to a specific service.
@@ -17,17 +15,91 @@ type ListWafFirewallsRequest struct {
 	// Limit the results returned to a specific service version.
 	FilterServiceVersionNumber *string `queryParam:"style=form,explode=true,name=filter[service_version_number]"`
 	// Include related objects. Optional.
-	Include *shared.FirewallInclude `queryParam:"style=form,explode=true,name=include"`
+	include *string `const:"waf_firewall_versions" queryParam:"style=form,explode=true,name=include"`
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+}
+
+func (l ListWafFirewallsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListWafFirewallsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListWafFirewallsRequest) GetFilterServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterServiceID
+}
+
+func (o *ListWafFirewallsRequest) GetFilterServiceVersionNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterServiceVersionNumber
+}
+
+func (o *ListWafFirewallsRequest) GetInclude() *string {
+	return types.String("waf_firewall_versions")
+}
+
+func (o *ListWafFirewallsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafFirewallsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
 }
 
 type ListWafFirewallsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	WafFirewallsResponse *shared.WafFirewallsResponse
+}
+
+func (o *ListWafFirewallsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafFirewallsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafFirewallsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafFirewallsResponse) GetWafFirewallsResponse() *shared.WafFirewallsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafFirewallsResponse
 }

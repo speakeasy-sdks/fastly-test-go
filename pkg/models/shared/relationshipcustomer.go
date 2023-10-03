@@ -6,6 +6,20 @@ type RelationshipCustomerCustomer struct {
 	Data []RelationshipMemberCustomer `json:"data,omitempty"`
 }
 
+func (o *RelationshipCustomerCustomer) GetData() []RelationshipMemberCustomer {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipCustomer struct {
 	Customer *RelationshipCustomerCustomer `json:"customer,omitempty"`
+}
+
+func (o *RelationshipCustomer) GetCustomer() *RelationshipCustomerCustomer {
+	if o == nil {
+		return nil
+	}
+	return o.Customer
 }

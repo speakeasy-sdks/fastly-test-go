@@ -1,4 +1,5 @@
 # LoggingElasticsearch
+(*LoggingElasticsearch*)
 
 ## Overview
 
@@ -25,38 +26,40 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.CreateLogElasticsearch(ctx, operations.CreateLogElasticsearchRequest{
-        LoggingElasticsearch2: &shared.LoggingElasticsearch2{
-            Format: sdk.String("veniam"),
-            FormatVersion: shared.LoggingElasticsearchFormatVersionOne.ToPointer(),
-            Index: sdk.String("inventore"),
-            Name: sdk.String("test-log-endpoint"),
-            Password: sdk.String("magnam"),
-            Pipeline: sdk.String("ea"),
-            Placement: shared.LoggingElasticsearchPlacementLessThanNilGreaterThan.ToPointer(),
-            RequestMaxBytes: sdk.Int64(232234),
-            RequestMaxEntries: sdk.Int64(926213),
-            ResponseCondition: sdk.String("null"),
-            TLSCaCert: sdk.String("aspernatur"),
-            TLSClientCert: sdk.String("minima"),
-            TLSClientKey: sdk.String("eaque"),
-            TLSHostname: sdk.String("a"),
-            URL: sdk.String("libero"),
-            User: sdk.String("aut"),
+        LoggingElasticsearch: &shared.LoggingElasticsearch{
+            Format: fastly.String("Sedan"),
+            FormatVersion: shared.LoggingElasticsearchFormatVersionTwo.ToPointer(),
+            Index: fastly.String("Mouse"),
+            Name: fastly.String("test-log-endpoint"),
+            Password: fastly.String("L0LtOVDJ_cyv_Gf"),
+            Pipeline: fastly.String("leverage CSS"),
+            Placement: shared.LoggingElasticsearchPlacementWafDebug.ToPointer(),
+            RequestMaxBytes: fastly.Int64(733399),
+            RequestMaxEntries: fastly.Int64(237272),
+            ResponseCondition: fastly.String("null"),
+            TLSCaCert: fastly.String("thistle purple"),
+            TLSClientCert: fastly.String("superstructure"),
+            TLSClientKey: fastly.String("Cayman Court Bicycle"),
+            TLSHostname: fastly.String("mobile Croatian paradigms"),
+            URL: fastly.String("http://trained-dusk.info"),
+            User: fastly.String("Raul_Ankunding"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogElasticsearchSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -70,11 +73,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.CreateLogElasticsearchRequest](../../models/operations/createlogelasticsearchrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.CreateLogElasticsearchSecurity](../../models/operations/createlogelasticsearchsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.CreateLogElasticsearchRequest](../../models/operations/createlogelasticsearchrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -94,20 +96,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.DeleteLogElasticsearch(ctx, operations.DeleteLogElasticsearchRequest{
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogElasticsearchSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -121,11 +126,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.DeleteLogElasticsearchRequest](../../models/operations/deletelogelasticsearchrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.DeleteLogElasticsearchSecurity](../../models/operations/deletelogelasticsearchsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.DeleteLogElasticsearchRequest](../../models/operations/deletelogelasticsearchrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -145,20 +149,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.GetLogElasticsearch(ctx, operations.GetLogElasticsearchRequest{
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogElasticsearchSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -172,11 +179,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.GetLogElasticsearchRequest](../../models/operations/getlogelasticsearchrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.GetLogElasticsearchSecurity](../../models/operations/getlogelasticsearchsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.GetLogElasticsearchRequest](../../models/operations/getlogelasticsearchrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -196,19 +202,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.ListLogElasticsearch(ctx, operations.ListLogElasticsearchRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogElasticsearchSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -222,11 +231,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.ListLogElasticsearchRequest](../../models/operations/listlogelasticsearchrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.ListLogElasticsearchSecurity](../../models/operations/listlogelasticsearchsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.ListLogElasticsearchRequest](../../models/operations/listlogelasticsearchrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
@@ -246,39 +254,41 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.UpdateLogElasticsearch(ctx, operations.UpdateLogElasticsearchRequest{
-        LoggingElasticsearch2: &shared.LoggingElasticsearch2{
-            Format: sdk.String("aut"),
-            FormatVersion: shared.LoggingElasticsearchFormatVersionTwo.ToPointer(),
-            Index: sdk.String("impedit"),
-            Name: sdk.String("test-log-endpoint"),
-            Password: sdk.String("aliquam"),
-            Pipeline: sdk.String("fugit"),
-            Placement: shared.LoggingElasticsearchPlacementLessThanNilGreaterThan.ToPointer(),
-            RequestMaxBytes: sdk.Int64(79522),
-            RequestMaxEntries: sdk.Int64(250622),
-            ResponseCondition: sdk.String("null"),
-            TLSCaCert: sdk.String("et"),
-            TLSClientCert: sdk.String("dolorum"),
-            TLSClientKey: sdk.String("laborum"),
-            TLSHostname: sdk.String("placeat"),
-            URL: sdk.String("velit"),
-            User: sdk.String("eum"),
+        LoggingElasticsearch: &shared.LoggingElasticsearch{
+            Format: fastly.String("grenade yellow"),
+            FormatVersion: shared.LoggingElasticsearchFormatVersionOne.ToPointer(),
+            Index: fastly.String("HDD"),
+            Name: fastly.String("test-log-endpoint"),
+            Password: fastly.String("vvCrseYZg_P55Bi"),
+            Pipeline: fastly.String("Handmade"),
+            Placement: shared.LoggingElasticsearchPlacementNone.ToPointer(),
+            RequestMaxBytes: fastly.Int64(534662),
+            RequestMaxEntries: fastly.Int64(978553),
+            ResponseCondition: fastly.String("null"),
+            TLSCaCert: fastly.String("reciprocal PCI Wagon"),
+            TLSClientCert: fastly.String("snare experiences"),
+            TLSClientKey: fastly.String("Seychelles muffled Freeda"),
+            TLSHostname: fastly.String("bypass"),
+            URL: fastly.String("https://well-worn-maker.com"),
+            User: fastly.String("Jamil_Bauch53"),
         },
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogElasticsearchSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -292,11 +302,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.UpdateLogElasticsearchRequest](../../models/operations/updatelogelasticsearchrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.UpdateLogElasticsearchSecurity](../../models/operations/updatelogelasticsearchsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.UpdateLogElasticsearchRequest](../../models/operations/updatelogelasticsearchrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response

@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// ServerResponse - OK
 type ServerResponse struct {
 	// A hostname, IPv4, or IPv6 address for the server. Required.
 	Address *string `json:"address,omitempty"`
@@ -17,18 +17,120 @@ type ServerResponse struct {
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// Allows servers to be enabled and disabled in a pool.
-	Disabled *bool   `json:"disabled,omitempty"`
+	Disabled *bool   `default:"false" json:"disabled"`
 	ID       *string `json:"id,omitempty"`
 	// Maximum number of connections. If the value is `0`, it inherits the value from pool's `max_conn_default`.
-	MaxConn *int64 `json:"max_conn,omitempty"`
+	MaxConn *int64 `default:"0" json:"max_conn"`
 	// The hostname to override the Host header. Defaults to `null` meaning no override of the Host header if not set. This setting can also be added to a Pool definition. However, the server setting will override the Pool setting.
-	OverrideHost *string `json:"override_host,omitempty"`
+	OverrideHost *string `default:"null" json:"override_host"`
 	PoolID       *string `json:"pool_id,omitempty"`
 	// Port number. Setting port `443` does not force TLS. Set `use_tls` in pool to force TLS.
-	Port      *int64  `json:"port,omitempty"`
+	Port      *int64  `default:"80" json:"port"`
 	ServiceID *string `json:"service_id,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// Weight (`1-100`) used to load balance this server against others.
-	Weight *int64 `json:"weight,omitempty"`
+	Weight *int64 `default:"100" json:"weight"`
+}
+
+func (s ServerResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServerResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServerResponse) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *ServerResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ServerResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ServerResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ServerResponse) GetDisabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Disabled
+}
+
+func (o *ServerResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ServerResponse) GetMaxConn() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConn
+}
+
+func (o *ServerResponse) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *ServerResponse) GetPoolID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PoolID
+}
+
+func (o *ServerResponse) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *ServerResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ServerResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ServerResponse) GetWeight() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Weight
 }
