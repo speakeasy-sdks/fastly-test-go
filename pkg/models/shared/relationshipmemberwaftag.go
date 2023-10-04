@@ -2,9 +2,36 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberWafTag struct {
 	// Alphanumeric string identifying a WAF tag.
 	ID *string `json:"id,omitempty"`
 	// Resource type.
-	Type *TypeWafTag `json:"type,omitempty"`
+	type_ *string `const:"waf_tag" json:"type"`
+}
+
+func (r RelationshipMemberWafTag) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafTag) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafTag) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafTag) GetType() *string {
+	return types.String("waf_tag")
 }

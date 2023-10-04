@@ -1,7 +1,5 @@
 # VclDiff
 
-OK
-
 
 ## Fields
 

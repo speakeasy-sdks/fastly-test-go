@@ -2,35 +2,151 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type VersionInput struct {
 	// Whether this is the active version or not.
-	Active *bool `form:"name=active"`
+	Active *bool `default:"false" form:"name=active"`
 	// A freeform descriptive note.
 	Comment *string `form:"name=comment"`
 	// Unused at this time.
 	Deployed *bool `form:"name=deployed"`
 	// Whether this version is locked or not. Objects can not be added or edited on locked versions.
-	Locked *bool `form:"name=locked"`
+	Locked *bool `default:"false" form:"name=locked"`
 	// Unused at this time.
-	Staging *bool `form:"name=staging"`
+	Staging *bool `default:"false" form:"name=staging"`
 	// Unused at this time.
-	Testing *bool `form:"name=testing"`
+	Testing *bool `default:"false" form:"name=testing"`
 }
 
-// Version - OK
+func (v VersionInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
+}
+
+func (v *VersionInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *VersionInput) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *VersionInput) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *VersionInput) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *VersionInput) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *VersionInput) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *VersionInput) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
+}
+
 type Version struct {
 	// Whether this is the active version or not.
-	Active *bool `json:"active,omitempty"`
+	Active *bool `default:"false" json:"active"`
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`
 	// Unused at this time.
 	Deployed *bool `json:"deployed,omitempty"`
 	// Whether this version is locked or not. Objects can not be added or edited on locked versions.
-	Locked *bool `json:"locked,omitempty"`
+	Locked *bool `default:"false" json:"locked"`
 	// The number of this version.
 	Number *int64 `json:"number,omitempty"`
 	// Unused at this time.
-	Staging *bool `json:"staging,omitempty"`
+	Staging *bool `default:"false" json:"staging"`
 	// Unused at this time.
-	Testing *bool `json:"testing,omitempty"`
+	Testing *bool `default:"false" json:"testing"`
+}
+
+func (v Version) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(v, "", false)
+}
+
+func (v *Version) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &v, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Version) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *Version) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Version) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *Version) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *Version) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *Version) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *Version) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
 }

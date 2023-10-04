@@ -1,0 +1,10 @@
+# RelationshipsForTLSSubscription1Input
+
+The unique identifier for the set of TLS configuration options that apply to the enabled domains on this subscription. Write-only on create.
+
+
+## Fields
+
+| Field                                                                                                                                  | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `TLSConfiguration`                                                                                                                     | [*RelationshipsForTLSSubscription1TLSConfigurationInput](../../models/shared/relationshipsfortlssubscription1tlsconfigurationinput.md) | :heavy_minus_sign:                                                                                                                     | N/A                                                                                                                                    |

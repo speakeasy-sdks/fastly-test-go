@@ -2,13 +2,55 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberTLSDNSRecordInput struct {
 	// Resource type
-	Type *TypeTLSDNSRecord `json:"type,omitempty"`
+	type_ *string `const:"dns_record" json:"type"`
+}
+
+func (r RelationshipMemberTLSDNSRecordInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberTLSDNSRecordInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberTLSDNSRecordInput) GetType() *string {
+	return types.String("dns_record")
 }
 
 type RelationshipMemberTLSDNSRecord struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
-	Type *TypeTLSDNSRecord `json:"type,omitempty"`
+	type_ *string `const:"dns_record" json:"type"`
+}
+
+func (r RelationshipMemberTLSDNSRecord) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberTLSDNSRecord) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberTLSDNSRecord) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberTLSDNSRecord) GetType() *string {
+	return types.String("dns_record")
 }

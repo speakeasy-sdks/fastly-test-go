@@ -2,8 +2,35 @@
 
 package shared
 
+import (
+	"Fastly/pkg/types"
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberWafActiveRule struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type.
-	Type *TypeWafActiveRule `json:"type,omitempty"`
+	type_ *string `const:"waf_active_rule" json:"type"`
+}
+
+func (r RelationshipMemberWafActiveRule) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafActiveRule) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafActiveRule) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafActiveRule) GetType() *string {
+	return types.String("waf_active_rule")
 }

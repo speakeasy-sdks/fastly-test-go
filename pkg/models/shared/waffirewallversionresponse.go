@@ -2,8 +2,21 @@
 
 package shared
 
-// WafFirewallVersionResponse - Created
 type WafFirewallVersionResponse struct {
-	Data     *WafFirewallVersionResponseData `json:"data,omitempty"`
-	Included []interface{}                   `json:"included,omitempty"`
+	Data     *WafFirewallVersionResponseData      `json:"data,omitempty"`
+	Included []IncludedWithWafFirewallVersionItem `json:"included,omitempty"`
+}
+
+func (o *WafFirewallVersionResponse) GetData() *WafFirewallVersionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafFirewallVersionResponse) GetIncluded() []IncludedWithWafFirewallVersionItem {
+	if o == nil {
+		return nil
+	}
+	return o.Included
 }

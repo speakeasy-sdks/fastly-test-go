@@ -1,7 +1,5 @@
 # Realtime
 
-OK
-
 
 ## Fields
 

@@ -1,7 +1,5 @@
 # LoggingSumologicResponse
 
-OK
-
 
 ## Fields
 

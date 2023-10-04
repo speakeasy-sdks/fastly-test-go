@@ -3,20 +3,49 @@
 package operations
 
 import (
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListUserGroupRolesSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListUserGroupRolesRequest struct {
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
 	// Number of records per page.
-	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
+	PerPage *int64 `default:"20" queryParam:"style=form,explode=true,name=per_page"`
 	// Alphanumeric string identifying the user group.
 	UserGroupID string `pathParam:"style=simple,explode=false,name=user_group_id"`
+}
+
+func (l ListUserGroupRolesRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListUserGroupRolesRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListUserGroupRolesRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListUserGroupRolesRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *ListUserGroupRolesRequest) GetUserGroupID() string {
+	if o == nil {
+		return ""
+	}
+	return o.UserGroupID
 }
 
 // ListUserGroupRoles200ApplicationJSON - OK
@@ -24,9 +53,40 @@ type ListUserGroupRoles200ApplicationJSON struct {
 }
 
 type ListUserGroupRolesResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ListUserGroupRoles200ApplicationJSONObject *ListUserGroupRoles200ApplicationJSON
+}
+
+func (o *ListUserGroupRolesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListUserGroupRolesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListUserGroupRolesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListUserGroupRolesResponse) GetListUserGroupRoles200ApplicationJSONObject() *ListUserGroupRoles200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListUserGroupRoles200ApplicationJSONObject
 }
