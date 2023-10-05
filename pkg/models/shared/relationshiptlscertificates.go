@@ -6,6 +6,20 @@ type RelationshipTLSCertificatesTLSCertificatesInput struct {
 	Data []RelationshipMemberTLSCertificateInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipTLSCertificatesTLSCertificatesInput) GetData() []RelationshipMemberTLSCertificateInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipTLSCertificatesInput struct {
 	TLSCertificates *RelationshipTLSCertificatesTLSCertificatesInput `json:"tls_certificates,omitempty"`
+}
+
+func (o *RelationshipTLSCertificatesInput) GetTLSCertificates() *RelationshipTLSCertificatesTLSCertificatesInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertificates
 }

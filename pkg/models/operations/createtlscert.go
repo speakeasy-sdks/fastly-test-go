@@ -6,18 +6,45 @@ import (
 	"net/http"
 )
 
-type CreateTLSCertSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 // CreateTLSCert201ApplicationVndAPIPlusJSON - Created
 type CreateTLSCert201ApplicationVndAPIPlusJSON struct {
 }
 
 type CreateTLSCertResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// Created
 	CreateTLSCert201ApplicationVndAPIPlusJSONObject *CreateTLSCert201ApplicationVndAPIPlusJSON
+}
+
+func (o *CreateTLSCertResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateTLSCertResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateTLSCertResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateTLSCertResponse) GetCreateTLSCert201ApplicationVndAPIPlusJSONObject() *CreateTLSCert201ApplicationVndAPIPlusJSON {
+	if o == nil {
+		return nil
+	}
+	return o.CreateTLSCert201ApplicationVndAPIPlusJSONObject
 }

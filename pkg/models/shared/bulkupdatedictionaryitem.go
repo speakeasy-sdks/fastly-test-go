@@ -47,3 +47,24 @@ type BulkUpdateDictionaryItem struct {
 	ItemValue *string                     `json:"item_value,omitempty"`
 	Op        *BulkUpdateDictionaryItemOp `json:"op,omitempty"`
 }
+
+func (o *BulkUpdateDictionaryItem) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *BulkUpdateDictionaryItem) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}
+
+func (o *BulkUpdateDictionaryItem) GetOp() *BulkUpdateDictionaryItemOp {
+	if o == nil {
+		return nil
+	}
+	return o.Op
+}

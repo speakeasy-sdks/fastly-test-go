@@ -2,7 +2,13 @@
 
 package shared
 
-// InvitationResponse - OK
 type InvitationResponse struct {
 	Data *InvitationResponseData `json:"data,omitempty"`
+}
+
+func (o *InvitationResponse) GetData() *InvitationResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

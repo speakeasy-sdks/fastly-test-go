@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -104,7 +105,7 @@ type SchemasSnippetResponse struct {
 	// The name for the snippet.
 	Name *string `json:"name,omitempty"`
 	// Priority determines execution order. Lower numbers execute first.
-	Priority  *string `json:"priority,omitempty"`
+	Priority  *string `default:"100" json:"priority"`
 	ServiceID *string `json:"service_id,omitempty"`
 	// The location in generated VCL where the snippet should be placed.
 	Type *SchemasSnippetResponseType `json:"type,omitempty"`
@@ -112,4 +113,92 @@ type SchemasSnippetResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// String representing the number identifying a version of the service.
 	Version *string `json:"version,omitempty"`
+}
+
+func (s SchemasSnippetResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *SchemasSnippetResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *SchemasSnippetResponse) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *SchemasSnippetResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *SchemasSnippetResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *SchemasSnippetResponse) GetDynamic() *SchemasSnippetResponseDynamic {
+	if o == nil {
+		return nil
+	}
+	return o.Dynamic
+}
+
+func (o *SchemasSnippetResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *SchemasSnippetResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *SchemasSnippetResponse) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *SchemasSnippetResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *SchemasSnippetResponse) GetType() *SchemasSnippetResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *SchemasSnippetResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *SchemasSnippetResponse) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }
