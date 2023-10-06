@@ -1,4 +1,5 @@
 # WafExclusions
+(*WafExclusions*)
 
 ## Overview
 
@@ -18,7 +19,7 @@ WAF rule exclusions provide a flexible way to handle false positives, allowing s
 
 Create a WAF exclusion for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -28,45 +29,36 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafExclusions.CreateWafRuleExclusion(ctx, operations.CreateWafRuleExclusionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-        WafExclusionInput: &shared.WafExclusionInput{
-            Data: &shared.WafExclusionDataInput{
+        WafExclusion: &shared.WafExclusion{
+            Data: &shared.WafExclusionData{
                 Attributes: &shared.WafExclusionDataAttributes{
-                    Condition: sdk.String("voluptates"),
-                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeVariable.ToPointer(),
-                    Logging: sdk.Bool(false),
-                    Name: sdk.String("Wm Hane"),
-                    Number: sdk.Int64(1),
-                    Variable: shared.WafExclusionDataAttributesVariableReqCookies.ToPointer(),
+                    Condition: fastly.String("override Central"),
+                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeRule.ToPointer(),
+                    Logging: fastly.Bool(false),
+                    Name: fastly.String("navigate magenta"),
+                    Number: fastly.Int64(1),
+                    Variable: shared.WafExclusionDataAttributesVariableReqPost.ToPointer(),
                 },
-                Relationships: &shared.RelationshipWafRuleRevisionsInput{
-                    WafRuleRevisions: &shared.RelationshipWafRuleRevisionsWafRuleRevisionsInput{
-                        Data: []shared.RelationshipMemberWafRuleRevisionInput{
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleRevisionInput{
-                                Type: shared.TypeWafRuleRevisionWafRuleRevision.ToPointer(),
-                            },
-                        },
-                    },
-                },
+                Relationships: &shared.RelationshipsForWafExclusionInput{},
                 Type: shared.TypeWafExclusionWafExclusion.ToPointer(),
             },
         },
-    }, operations.CreateWafRuleExclusionSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -80,11 +72,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.CreateWafRuleExclusionRequest](../../models/operations/createwafruleexclusionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.CreateWafRuleExclusionSecurity](../../models/operations/createwafruleexclusionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.CreateWafRuleExclusionRequest](../../models/operations/createwafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -96,7 +87,7 @@ func main() {
 
 Delete a WAF exclusion for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -106,20 +97,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafExclusions.DeleteWafRuleExclusion(ctx, operations.DeleteWafRuleExclusionRequest{
         ExclusionNumber: 1,
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-    }, operations.DeleteWafRuleExclusionSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -133,11 +127,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.DeleteWafRuleExclusionRequest](../../models/operations/deletewafruleexclusionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.DeleteWafRuleExclusionSecurity](../../models/operations/deletewafruleexclusionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.DeleteWafRuleExclusionRequest](../../models/operations/deletewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -149,7 +142,7 @@ func main() {
 
 Get a specific WAF exclusion object.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -159,20 +152,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafExclusions.GetWafRuleExclusion(ctx, operations.GetWafRuleExclusionRequest{
         ExclusionNumber: 1,
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-    }, operations.GetWafRuleExclusionSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -186,11 +182,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.GetWafRuleExclusionRequest](../../models/operations/getwafruleexclusionrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.GetWafRuleExclusionSecurity](../../models/operations/getwafruleexclusionsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.GetWafRuleExclusionRequest](../../models/operations/getwafruleexclusionrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -202,7 +197,7 @@ func main() {
 
 List all exclusions for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -212,25 +207,28 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafExclusions.ListWafRuleExclusions(ctx, operations.ListWafRuleExclusionsRequest{
         FilterExclusionType: operations.ListWafRuleExclusionsFilterExclusionTypeWaf.ToPointer(),
-        FilterName: sdk.String("ex"),
-        FilterWafRulesModsecRuleID: sdk.Int64(281153),
+        FilterName: fastly.String("Factors Central Ukraine"),
+        FilterWafRulesModsecRuleID: fastly.Int64(212442),
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-        Include: sdk.String("waf_rules"),
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-    }, operations.ListWafRuleExclusionsSecurity{
-        Token: "",
+        Include: fastly.String("waf_rules"),
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -244,11 +242,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.ListWafRuleExclusionsRequest](../../models/operations/listwafruleexclusionsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.ListWafRuleExclusionsSecurity](../../models/operations/listwafruleexclusionssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.ListWafRuleExclusionsRequest](../../models/operations/listwafruleexclusionsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
@@ -260,7 +257,7 @@ func main() {
 
 Update a WAF exclusion for a particular firewall version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -270,49 +267,37 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.WafExclusions.UpdateWafRuleExclusion(ctx, operations.UpdateWafRuleExclusionRequest{
         ExclusionNumber: 1,
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-        WafExclusionInput: &shared.WafExclusionInput{
-            Data: &shared.WafExclusionDataInput{
+        WafExclusion: &shared.WafExclusion{
+            Data: &shared.WafExclusionData{
                 Attributes: &shared.WafExclusionDataAttributes{
-                    Condition: sdk.String("ad"),
-                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeWaf.ToPointer(),
-                    Logging: sdk.Bool(false),
-                    Name: sdk.String("Leona Rippin IV"),
-                    Number: sdk.Int64(1),
-                    Variable: shared.WafExclusionDataAttributesVariableReqPostFilename.ToPointer(),
+                    Condition: fastly.String("Van female"),
+                    ExclusionType: shared.WafExclusionDataAttributesExclusionTypeRule.ToPointer(),
+                    Logging: fastly.Bool(false),
+                    Name: fastly.String("Bicycle Buckinghamshire aged"),
+                    Number: fastly.Int64(1),
+                    Variable: shared.WafExclusionDataAttributesVariableReqPost.ToPointer(),
                 },
-                Relationships: &shared.RelationshipWafRulesInput{
-                    WafRules: &shared.RelationshipWafRulesWafRulesInput{
-                        Data: []shared.RelationshipMemberWafRuleInput{
-                            shared.RelationshipMemberWafRuleInput{
-                                Type: shared.TypeWafRuleWafRule.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleInput{
-                                Type: shared.TypeWafRuleWafRule.ToPointer(),
-                            },
-                            shared.RelationshipMemberWafRuleInput{
-                                Type: shared.TypeWafRuleWafRule.ToPointer(),
-                            },
-                        },
-                    },
-                },
+                Relationships: &shared.RelationshipsForWafExclusionInput{},
                 Type: shared.TypeWafExclusionWafExclusion.ToPointer(),
             },
         },
-    }, operations.UpdateWafRuleExclusionSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -326,11 +311,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.UpdateWafRuleExclusionRequest](../../models/operations/updatewafruleexclusionrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.UpdateWafRuleExclusionSecurity](../../models/operations/updatewafruleexclusionsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.UpdateWafRuleExclusionRequest](../../models/operations/updatewafruleexclusionrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response

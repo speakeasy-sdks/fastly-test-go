@@ -7,7 +7,28 @@ type PackageUploadPackage struct {
 	Package string `multipartForm:"name=package"`
 }
 
+func (o *PackageUploadPackage) GetContent() []byte {
+	if o == nil {
+		return []byte{}
+	}
+	return o.Content
+}
+
+func (o *PackageUploadPackage) GetPackage() string {
+	if o == nil {
+		return ""
+	}
+	return o.Package
+}
+
 type PackageUpload struct {
 	// The content of the Wasm binary package.
 	Package *PackageUploadPackage `multipartForm:"file"`
+}
+
+func (o *PackageUpload) GetPackage() *PackageUploadPackage {
+	if o == nil {
+		return nil
+	}
+	return o.Package
 }

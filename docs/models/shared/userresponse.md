@@ -1,7 +1,5 @@
 # UserResponse
 
-OK
-
 
 ## Fields
 
