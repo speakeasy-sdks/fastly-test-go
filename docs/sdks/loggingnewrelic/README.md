@@ -1,4 +1,5 @@
 # LoggingNewrelic
+(*LoggingNewrelic*)
 
 ## Overview
 
@@ -25,29 +26,28 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.CreateLogNewrelic(ctx, operations.CreateLogNewrelicRequest{
-        LoggingNewrelic3: &shared.LoggingNewrelic3{
-            Format: sdk.String("quae"),
+        LoggingNewrelic: &shared.LoggingNewrelic{
             FormatVersion: shared.LoggingNewrelicFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
+            Name: fastly.String("test-log-endpoint"),
             Placement: shared.LoggingNewrelicPlacementWafDebug.ToPointer(),
-            Region: shared.LoggingNewrelicRegionUs.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("eius"),
+            ResponseCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogNewrelicSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -61,11 +61,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.CreateLogNewrelicRequest](../../models/operations/createlognewrelicrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.CreateLogNewrelicSecurity](../../models/operations/createlognewrelicsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.CreateLogNewrelicRequest](../../models/operations/createlognewrelicrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -85,20 +84,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.DeleteLogNewrelic(ctx, operations.DeleteLogNewrelicRequest{
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogNewrelicSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -112,11 +114,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.DeleteLogNewrelicRequest](../../models/operations/deletelognewrelicrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteLogNewrelicSecurity](../../models/operations/deletelognewrelicsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.DeleteLogNewrelicRequest](../../models/operations/deletelognewrelicrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -136,20 +137,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.GetLogNewrelic(ctx, operations.GetLogNewrelicRequest{
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogNewrelicSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -163,11 +167,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetLogNewrelicRequest](../../models/operations/getlognewrelicrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetLogNewrelicSecurity](../../models/operations/getlognewrelicsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetLogNewrelicRequest](../../models/operations/getlognewrelicrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -187,19 +190,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.ListLogNewrelic(ctx, operations.ListLogNewrelicRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogNewrelicSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -213,11 +219,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListLogNewrelicRequest](../../models/operations/listlognewrelicrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListLogNewrelicSecurity](../../models/operations/listlognewrelicsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.ListLogNewrelicRequest](../../models/operations/listlognewrelicrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -237,30 +242,29 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.UpdateLogNewrelic(ctx, operations.UpdateLogNewrelicRequest{
-        LoggingNewrelic3: &shared.LoggingNewrelic3{
-            Format: sdk.String("libero"),
+        LoggingNewrelic: &shared.LoggingNewrelic{
             FormatVersion: shared.LoggingNewrelicFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
+            Name: fastly.String("test-log-endpoint"),
             Placement: shared.LoggingNewrelicPlacementLessThanNilGreaterThan.ToPointer(),
-            Region: shared.LoggingNewrelicRegionUs.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("aliquam"),
+            ResponseCondition: fastly.String("null"),
         },
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogNewrelicSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -274,11 +278,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.UpdateLogNewrelicRequest](../../models/operations/updatelognewrelicrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateLogNewrelicSecurity](../../models/operations/updatelognewrelicsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.UpdateLogNewrelicRequest](../../models/operations/updatelognewrelicrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response

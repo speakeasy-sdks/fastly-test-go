@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -91,7 +92,6 @@ func (e *SnippetResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// SnippetResponse - OK
 type SnippetResponse struct {
 	// The VCL code that specifies exactly what the snippet does.
 	Content *string `json:"content,omitempty"`
@@ -105,7 +105,7 @@ type SnippetResponse struct {
 	// The name for the snippet.
 	Name *string `json:"name,omitempty"`
 	// Priority determines execution order. Lower numbers execute first.
-	Priority  *string `json:"priority,omitempty"`
+	Priority  *string `default:"100" json:"priority"`
 	ServiceID *string `json:"service_id,omitempty"`
 	// The location in generated VCL where the snippet should be placed.
 	Type *SnippetResponseType `json:"type,omitempty"`
@@ -113,4 +113,92 @@ type SnippetResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// String representing the number identifying a version of the service.
 	Version *string `json:"version,omitempty"`
+}
+
+func (s SnippetResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *SnippetResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *SnippetResponse) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *SnippetResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *SnippetResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *SnippetResponse) GetDynamic() *SnippetResponseDynamic {
+	if o == nil {
+		return nil
+	}
+	return o.Dynamic
+}
+
+func (o *SnippetResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *SnippetResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *SnippetResponse) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *SnippetResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *SnippetResponse) GetType() *SnippetResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *SnippetResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *SnippetResponse) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

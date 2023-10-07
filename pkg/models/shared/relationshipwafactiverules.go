@@ -6,6 +6,20 @@ type RelationshipWafActiveRulesWafActiveRules struct {
 	Data []RelationshipMemberWafActiveRule `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafActiveRulesWafActiveRules) GetData() []RelationshipMemberWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafActiveRules struct {
 	WafActiveRules *RelationshipWafActiveRulesWafActiveRules `json:"waf_active_rules,omitempty"`
+}
+
+func (o *RelationshipWafActiveRules) GetWafActiveRules() *RelationshipWafActiveRulesWafActiveRules {
+	if o == nil {
+		return nil
+	}
+	return o.WafActiveRules
 }

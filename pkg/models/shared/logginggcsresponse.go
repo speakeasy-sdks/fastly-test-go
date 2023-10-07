@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -132,7 +133,6 @@ func (e *LoggingGcsResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingGcsResponse - OK
 type LoggingGcsResponse struct {
 	// The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.
 	AccountName *string `json:"account_name,omitempty"`
@@ -145,27 +145,27 @@ type LoggingGcsResponse struct {
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `json:"format,omitempty"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingGcsResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingGcsResponseFormatVersion `default:"2" json:"format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `json:"gzip_level,omitempty"`
+	GzipLevel *int64 `default:"0" json:"gzip_level"`
 	// How the message should be formatted.
-	MessageType *LoggingGcsResponseMessageType `json:"message_type,omitempty"`
+	MessageType *LoggingGcsResponseMessageType `default:"classic" json:"message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `json:"name,omitempty"`
 	// The path to upload logs to.
-	Path *string `json:"path,omitempty"`
+	Path *string `default:"null" json:"path"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `json:"period,omitempty"`
+	Period *int64 `default:"3600" json:"period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingGcsResponsePlacement `json:"placement,omitempty"`
 	// Your Google Cloud Platform project ID. Required
 	ProjectID *string `json:"project_id,omitempty"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `json:"public_key,omitempty"`
+	PublicKey *string `default:"null" json:"public_key"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `json:"response_condition,omitempty"`
 	// Your Google Cloud Platform account secret key. The `private_key` field in your service account authentication JSON. Not required if `account_name` is specified.
@@ -178,4 +178,169 @@ type LoggingGcsResponse struct {
 	// Your Google Cloud Platform service account email address. The `client_email` field in your service account authentication JSON. Not required if `account_name` is specified.
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
+}
+
+func (l LoggingGcsResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingGcsResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingGcsResponse) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingGcsResponse) GetBucketName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BucketName
+}
+
+func (o *LoggingGcsResponse) GetCompressionCodec() *LoggingGcsResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingGcsResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingGcsResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingGcsResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingGcsResponse) GetFormatVersion() *LoggingGcsResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingGcsResponse) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingGcsResponse) GetMessageType() *LoggingGcsResponseMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingGcsResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingGcsResponse) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingGcsResponse) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingGcsResponse) GetPlacement() *LoggingGcsResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingGcsResponse) GetProjectID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ProjectID
+}
+
+func (o *LoggingGcsResponse) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingGcsResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingGcsResponse) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingGcsResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingGcsResponse) GetTimestampFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TimestampFormat
+}
+
+func (o *LoggingGcsResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingGcsResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingGcsResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

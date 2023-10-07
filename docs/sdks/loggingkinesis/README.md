@@ -1,4 +1,5 @@
 # LoggingKinesis
+(*LoggingKinesis*)
 
 ## Overview
 
@@ -24,31 +25,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.CreateLogKinesis(ctx, operations.CreateLogKinesisRequest{
         LoggingKinesis: &shared.LoggingKinesis{
-            AccessKey: sdk.String("culpa"),
-            Format: sdk.String("tempore"),
-            FormatVersion: shared.LoggingFormatVersionOne.ToPointer(),
-            IamRole: sdk.String("cumque"),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingPlacementNone.ToPointer(),
-            Region: shared.AwsRegionUsEast1.ToPointer(),
-            SecretKey: sdk.String("minus"),
-            Topic: sdk.String("quaerat"),
+            FormatVersion: shared.LoggingFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: shared.LoggingPlacementLessThanNilGreaterThan.ToPointer(),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogKinesisSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -62,11 +59,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.CreateLogKinesisRequest](../../models/operations/createlogkinesisrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreateLogKinesisSecurity](../../models/operations/createlogkinesissecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.CreateLogKinesisRequest](../../models/operations/createlogkinesisrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -86,20 +82,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.DeleteLogKinesis(ctx, operations.DeleteLogKinesisRequest{
         LoggingKinesisName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogKinesisSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -113,11 +112,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.DeleteLogKinesisRequest](../../models/operations/deletelogkinesisrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteLogKinesisSecurity](../../models/operations/deletelogkinesissecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.DeleteLogKinesisRequest](../../models/operations/deletelogkinesisrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -137,20 +135,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.GetLogKinesis(ctx, operations.GetLogKinesisRequest{
         LoggingKinesisName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogKinesisSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -164,11 +165,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.GetLogKinesisRequest](../../models/operations/getlogkinesisrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetLogKinesisSecurity](../../models/operations/getlogkinesissecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.GetLogKinesisRequest](../../models/operations/getlogkinesisrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -188,19 +188,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.ListLogKinesis(ctx, operations.ListLogKinesisRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogKinesisSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -214,11 +217,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.ListLogKinesisRequest](../../models/operations/listlogkinesisrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListLogKinesisSecurity](../../models/operations/listlogkinesissecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.ListLogKinesisRequest](../../models/operations/listlogkinesisrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response

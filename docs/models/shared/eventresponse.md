@@ -1,7 +1,5 @@
 # EventResponse
 
-OK
-
 
 ## Fields
 

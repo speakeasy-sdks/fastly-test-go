@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type WafRulesResponseLinks struct {
 	// The first page of data.
 	First *string `json:"first,omitempty"`
@@ -13,21 +17,115 @@ type WafRulesResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *WafRulesResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *WafRulesResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *WafRulesResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *WafRulesResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type WafRulesResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
 	// Number of records per page.
-	PerPage *int64 `json:"per_page,omitempty"`
+	PerPage *int64 `default:"20" json:"per_page"`
 	// Total records in result set.
 	RecordCount *int64 `json:"record_count,omitempty"`
 	// Total pages in result set.
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
-// WafRulesResponse - OK
+func (w WafRulesResponseMeta) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafRulesResponseMeta) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafRulesResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *WafRulesResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *WafRulesResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *WafRulesResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 type WafRulesResponse struct {
-	Data     []WafRuleResponseData  `json:"data,omitempty"`
-	Included []interface{}          `json:"included,omitempty"`
-	Links    *WafRulesResponseLinks `json:"links,omitempty"`
-	Meta     *WafRulesResponseMeta  `json:"meta,omitempty"`
+	Data     []WafRuleResponseData     `json:"data,omitempty"`
+	Included []IncludedWithWafRuleItem `json:"included,omitempty"`
+	Links    *WafRulesResponseLinks    `json:"links,omitempty"`
+	Meta     *WafRulesResponseMeta     `json:"meta,omitempty"`
+}
+
+func (o *WafRulesResponse) GetData() []WafRuleResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafRulesResponse) GetIncluded() []IncludedWithWafRuleItem {
+	if o == nil {
+		return nil
+	}
+	return o.Included
+}
+
+func (o *WafRulesResponse) GetLinks() *WafRulesResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *WafRulesResponse) GetMeta() *WafRulesResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

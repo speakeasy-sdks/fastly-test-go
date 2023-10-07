@@ -1,7 +1,5 @@
 # LoggingCloudfilesResponse
 
-OK
-
 
 ## Fields
 

@@ -1,4 +1,5 @@
 # LoggingPapertrail
+(*LoggingPapertrail*)
 
 ## Overview
 
@@ -25,29 +26,30 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.CreateLogPapertrail(ctx, operations.CreateLogPapertrailRequest{
-        LoggingPapertrail2: &shared.LoggingPapertrail2{
-            Address: sdk.String("example.com"),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
+        LoggingPapertrail: &shared.LoggingPapertrail{
+            Address: fastly.String("example.com"),
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: shared.LoggingPapertrailFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
+            Name: fastly.String("test-log-endpoint"),
             Placement: shared.LoggingPapertrailPlacementNone.ToPointer(),
-            Port: sdk.Int64(869489),
-            ResponseCondition: sdk.String("null"),
+            ResponseCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogPapertrailSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -61,11 +63,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CreateLogPapertrailRequest](../../models/operations/createlogpapertrailrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateLogPapertrailSecurity](../../models/operations/createlogpapertrailsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateLogPapertrailRequest](../../models/operations/createlogpapertrailrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -85,20 +86,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.DeleteLogPapertrail(ctx, operations.DeleteLogPapertrailRequest{
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogPapertrailSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -112,11 +116,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.DeleteLogPapertrailRequest](../../models/operations/deletelogpapertrailrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteLogPapertrailSecurity](../../models/operations/deletelogpapertrailsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.DeleteLogPapertrailRequest](../../models/operations/deletelogpapertrailrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -136,20 +139,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.GetLogPapertrail(ctx, operations.GetLogPapertrailRequest{
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogPapertrailSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -163,11 +169,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.GetLogPapertrailRequest](../../models/operations/getlogpapertrailrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetLogPapertrailSecurity](../../models/operations/getlogpapertrailsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.GetLogPapertrailRequest](../../models/operations/getlogpapertrailrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -187,19 +192,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.ListLogPapertrail(ctx, operations.ListLogPapertrailRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogPapertrailSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -213,11 +221,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListLogPapertrailRequest](../../models/operations/listlogpapertrailrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListLogPapertrailSecurity](../../models/operations/listlogpapertrailsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ListLogPapertrailRequest](../../models/operations/listlogpapertrailrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -237,30 +244,31 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.UpdateLogPapertrail(ctx, operations.UpdateLogPapertrailRequest{
-        LoggingPapertrail2: &shared.LoggingPapertrail2{
-            Address: sdk.String("example.com"),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingPapertrailFormatVersionOne.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingPapertrailPlacementWafDebug.ToPointer(),
-            Port: sdk.Int64(55965),
-            ResponseCondition: sdk.String("null"),
+        LoggingPapertrail: &shared.LoggingPapertrail{
+            Address: fastly.String("example.com"),
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: shared.LoggingPapertrailFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: shared.LoggingPapertrailPlacementLessThanNilGreaterThan.ToPointer(),
+            ResponseCondition: fastly.String("null"),
         },
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogPapertrailSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -274,11 +282,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.UpdateLogPapertrailRequest](../../models/operations/updatelogpapertrailrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateLogPapertrailSecurity](../../models/operations/updatelogpapertrailsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.UpdateLogPapertrailRequest](../../models/operations/updatelogpapertrailrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response

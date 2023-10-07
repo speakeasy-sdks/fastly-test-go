@@ -1,4 +1,5 @@
 # Historical
+(*Historical*)
 
 ## Overview
 
@@ -29,22 +30,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStats(ctx, operations.GetHistStatsRequest{
         By: shared.ByDay.ToPointer(),
-        From: sdk.String("incidunt"),
         Region: shared.RegionUsa.ToPointer(),
-        To: sdk.String("qui"),
-    }, operations.GetHistStatsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -58,11 +59,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.GetHistStatsRequest](../../models/operations/gethiststatsrequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.GetHistStatsSecurity](../../models/operations/gethiststatssecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.GetHistStatsRequest](../../models/operations/gethiststatsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
@@ -82,22 +82,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsAggregated(ctx, operations.GetHistStatsAggregatedRequest{
         By: shared.ByDay.ToPointer(),
-        From: sdk.String("cupiditate"),
         Region: shared.RegionUsa.ToPointer(),
-        To: sdk.String("maxime"),
-    }, operations.GetHistStatsAggregatedSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -111,11 +111,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
-| `request`                                                                                              | [operations.GetHistStatsAggregatedRequest](../../models/operations/gethiststatsaggregatedrequest.md)   | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `security`                                                                                             | [operations.GetHistStatsAggregatedSecurity](../../models/operations/gethiststatsaggregatedsecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
+| `request`                                                                                            | [operations.GetHistStatsAggregatedRequest](../../models/operations/gethiststatsaggregatedrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
 
 
 ### Response
@@ -135,23 +134,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsField(ctx, operations.GetHistStatsFieldRequest{
         By: shared.ByDay.ToPointer(),
         Field: "hit_ratio",
-        From: sdk.String("pariatur"),
         Region: shared.RegionUsa.ToPointer(),
-        To: sdk.String("soluta"),
-    }, operations.GetHistStatsFieldSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -165,11 +164,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.GetHistStatsFieldRequest](../../models/operations/gethiststatsfieldrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.GetHistStatsFieldSecurity](../../models/operations/gethiststatsfieldsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.GetHistStatsFieldRequest](../../models/operations/gethiststatsfieldrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -189,23 +187,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsService(ctx, operations.GetHistStatsServiceRequest{
         By: shared.ByDay.ToPointer(),
-        From: sdk.String("dicta"),
         Region: shared.RegionUsa.ToPointer(),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        To: sdk.String("laborum"),
-    }, operations.GetHistStatsServiceSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -219,11 +217,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.GetHistStatsServiceRequest](../../models/operations/gethiststatsservicerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.GetHistStatsServiceSecurity](../../models/operations/gethiststatsservicesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.GetHistStatsServiceRequest](../../models/operations/gethiststatsservicerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -243,24 +240,24 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Historical.GetHistStatsServiceField(ctx, operations.GetHistStatsServiceFieldRequest{
         By: shared.ByDay.ToPointer(),
         Field: "hit_ratio",
-        From: sdk.String("totam"),
         Region: shared.RegionUsa.ToPointer(),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        To: sdk.String("incidunt"),
-    }, operations.GetHistStatsServiceFieldSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -274,11 +271,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `request`                                                                                                  | [operations.GetHistStatsServiceFieldRequest](../../models/operations/gethiststatsservicefieldrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.GetHistStatsServiceFieldSecurity](../../models/operations/gethiststatsservicefieldsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.GetHistStatsServiceFieldRequest](../../models/operations/gethiststatsservicefieldrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
@@ -298,17 +294,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
-    res, err := s.Historical.GetRegions(ctx, operations.GetRegionsSecurity{
-        Token: "",
-    })
+    res, err := s.Historical.GetRegions(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -321,10 +319,9 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `security`                                                                     | [operations.GetRegionsSecurity](../../models/operations/getregionssecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
 
 
 ### Response
@@ -344,20 +341,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
-    res, err := s.Historical.GetUsage(ctx, operations.GetUsageRequest{
-        From: sdk.String("aspernatur"),
-        To: sdk.String("dolores"),
-    }, operations.GetUsageSecurity{
-        Token: "",
-    })
+    res, err := s.Historical.GetUsage(ctx, operations.GetUsageRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -370,11 +367,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
-| `request`                                                                  | [operations.GetUsageRequest](../../models/operations/getusagerequest.md)   | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `security`                                                                 | [operations.GetUsageSecurity](../../models/operations/getusagesecurity.md) | :heavy_check_mark:                                                         | The security requirements to use for the request.                          |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [operations.GetUsageRequest](../../models/operations/getusagerequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
 
 
 ### Response
@@ -394,20 +390,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.Historical.GetUsageMonth(ctx, operations.GetUsageMonthRequest{
-        BillableUnits: sdk.Bool(true),
-        Month: sdk.String("05"),
-        Year: sdk.String("2020"),
-    }, operations.GetUsageMonthSecurity{
-        Token: "",
+        BillableUnits: fastly.Bool(true),
+        Month: fastly.String("05"),
+        Year: fastly.String("2020"),
     })
     if err != nil {
         log.Fatal(err)
@@ -421,11 +420,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.GetUsageMonthRequest](../../models/operations/getusagemonthrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetUsageMonthSecurity](../../models/operations/getusagemonthsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.GetUsageMonthRequest](../../models/operations/getusagemonthrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -445,20 +443,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
-    res, err := s.Historical.GetUsageService(ctx, operations.GetUsageServiceRequest{
-        From: sdk.String("distinctio"),
-        To: sdk.String("facilis"),
-    }, operations.GetUsageServiceSecurity{
-        Token: "",
-    })
+    res, err := s.Historical.GetUsageService(ctx, operations.GetUsageServiceRequest{})
     if err != nil {
         log.Fatal(err)
     }
@@ -471,11 +469,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.GetUsageServiceRequest](../../models/operations/getusageservicerequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetUsageServiceSecurity](../../models/operations/getusageservicesecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.GetUsageServiceRequest](../../models/operations/getusageservicerequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
