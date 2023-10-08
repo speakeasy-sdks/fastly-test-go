@@ -1,7 +1,5 @@
 # HistoricalRegionsResponse
 
-OK
-
 
 ## Fields
 

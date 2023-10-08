@@ -75,3 +75,136 @@ type CustomerInput struct {
 	// The alphanumeric string identifying the account's technical contact.
 	TechnicalContactID *string `form:"name=technical_contact_id"`
 }
+
+func (o *CustomerInput) GetBillingContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BillingContactID
+}
+
+func (o *CustomerInput) GetBillingNetworkType() *CustomerBillingNetworkType {
+	if o == nil {
+		return nil
+	}
+	return o.BillingNetworkType
+}
+
+func (o *CustomerInput) GetBillingRef() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BillingRef
+}
+
+func (o *CustomerInput) GetForce2fa() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Force2fa
+}
+
+func (o *CustomerInput) GetForceSso() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.ForceSso
+}
+
+func (o *CustomerInput) GetHasAccountPanel() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasAccountPanel
+}
+
+func (o *CustomerInput) GetHasImprovedEvents() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasImprovedEvents
+}
+
+func (o *CustomerInput) GetHasOpenstackLogging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasOpenstackLogging
+}
+
+func (o *CustomerInput) GetHasPci() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.HasPci
+}
+
+func (o *CustomerInput) GetIPWhitelist() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IPWhitelist
+}
+
+func (o *CustomerInput) GetLegalContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.LegalContactID
+}
+
+func (o *CustomerInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *CustomerInput) GetOwnerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OwnerID
+}
+
+func (o *CustomerInput) GetPhoneNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PhoneNumber
+}
+
+func (o *CustomerInput) GetPostalAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PostalAddress
+}
+
+func (o *CustomerInput) GetPricingPlan() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PricingPlan
+}
+
+func (o *CustomerInput) GetPricingPlanID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PricingPlanID
+}
+
+func (o *CustomerInput) GetSecurityContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecurityContactID
+}
+
+func (o *CustomerInput) GetTechnicalContactID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TechnicalContactID
+}

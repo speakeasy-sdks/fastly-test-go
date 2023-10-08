@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -84,7 +85,7 @@ type WafExclusionDataAttributes struct {
 	// The type of exclusion.
 	ExclusionType *WafExclusionDataAttributesExclusionType `json:"exclusion_type,omitempty"`
 	// Whether to generate a log upon matching.
-	Logging *bool `json:"logging,omitempty"`
+	Logging *bool `default:"true" json:"logging"`
 	// Name of the exclusion.
 	Name *string `json:"name,omitempty"`
 	// A numeric ID identifying a WAF exclusion.
@@ -93,9 +94,94 @@ type WafExclusionDataAttributes struct {
 	Variable *WafExclusionDataAttributesVariable `json:"variable,omitempty"`
 }
 
-type WafExclusionDataInput struct {
-	Attributes    *WafExclusionDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                 `json:"relationships,omitempty"`
+func (w WafExclusionDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafExclusionDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafExclusionDataAttributes) GetCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Condition
+}
+
+func (o *WafExclusionDataAttributes) GetExclusionType() *WafExclusionDataAttributesExclusionType {
+	if o == nil {
+		return nil
+	}
+	return o.ExclusionType
+}
+
+func (o *WafExclusionDataAttributes) GetLogging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Logging
+}
+
+func (o *WafExclusionDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *WafExclusionDataAttributes) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *WafExclusionDataAttributes) GetVariable() *WafExclusionDataAttributesVariable {
+	if o == nil {
+		return nil
+	}
+	return o.Variable
+}
+
+type WafExclusionData struct {
+	Attributes    *WafExclusionDataAttributes        `json:"attributes,omitempty"`
+	Relationships *RelationshipsForWafExclusionInput `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafExclusion `json:"type,omitempty"`
+	Type *TypeWafExclusion `default:"waf_exclusion" json:"type"`
+}
+
+func (w WafExclusionData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafExclusionData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafExclusionData) GetAttributes() *WafExclusionDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafExclusionData) GetRelationships() *RelationshipsForWafExclusionInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafExclusionData) GetType() *TypeWafExclusion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

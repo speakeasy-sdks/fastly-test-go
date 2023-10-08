@@ -6,3 +6,10 @@ type Store struct {
 	// A human-readable name for the store.
 	Name *string `json:"name,omitempty"`
 }
+
+func (o *Store) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

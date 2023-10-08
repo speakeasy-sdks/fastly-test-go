@@ -5,3 +5,10 @@ package shared
 type WafFirewallInput struct {
 	Data *WafFirewallDataInput `json:"data,omitempty"`
 }
+
+func (o *WafFirewallInput) GetData() *WafFirewallDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

@@ -1,4 +1,5 @@
 # TLSBulkCertificates
+(*TLSBulkCertificates*)
 
 ## Overview
 
@@ -25,18 +26,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.DeleteBulkTLSCert(ctx, operations.DeleteBulkTLSCertRequest{
         CertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.DeleteBulkTLSCertSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -50,11 +54,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.DeleteBulkTLSCertRequest](../../models/operations/deletebulktlscertrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteBulkTLSCertSecurity](../../models/operations/deletebulktlscertsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.DeleteBulkTLSCertRequest](../../models/operations/deletebulktlscertrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -74,18 +77,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.GetTLSBulkCert(ctx, operations.GetTLSBulkCertRequest{
         CertificateID: "cRTguUGZzb2W9Euo4moOr",
-    }, operations.GetTLSBulkCertSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -99,11 +105,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetTLSBulkCertRequest](../../models/operations/gettlsbulkcertrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetTLSBulkCertSecurity](../../models/operations/gettlsbulkcertsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetTLSBulkCertRequest](../../models/operations/gettlsbulkcertrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -123,22 +128,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.ListTLSBulkCerts(ctx, operations.ListTLSBulkCertsRequest{
-        FilterTLSDomainID: sdk.String("animi"),
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-        Sort: shared.SortCreatedAt.ToPointer(),
-    }, operations.ListTLSBulkCertsSecurity{
-        Token: "",
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -152,11 +157,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.ListTLSBulkCertsRequest](../../models/operations/listtlsbulkcertsrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListTLSBulkCertsSecurity](../../models/operations/listtlsbulkcertssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.ListTLSBulkCertsRequest](../../models/operations/listtlsbulkcertsrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -176,47 +180,35 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.UpdateBulkTLSCert(ctx, operations.UpdateBulkTLSCertRequest{
         CertificateID: "cRTguUGZzb2W9Euo4moOr",
-        TLSBulkCertificateInput: &shared.TLSBulkCertificateInput{
-            Data: &shared.TLSBulkCertificateDataInput{
-                Attributes: &shared.TLSBulkCertificateDataAttributes{
-                    AllowUntrustedRoot: sdk.Bool(false),
-                    CertBlob: sdk.String("aliquid"),
-                    IntermediatesBlob: sdk.String("accusantium"),
-                },
-                Relationships: &shared.TLSBulkCertificateDataRelationships2Input{
-                    TLSDomains: &shared.TLSBulkCertificateDataRelationships2TLSDomainsInput{
-                        Data: []shared.RelationshipMemberTLSDomainInput{
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSDomainInput{
-                                Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
+        TLSBulkCertificate: &shared.TLSBulkCertificate{
+            Data: &shared.TLSBulkCertificateData{
+                Attributes: &shared.TLSBulkCertificateDataAttributes{},
+                Relationships: shared.CreateRelationshipsForTLSBulkCertificateInputRelationshipTLSConfigurationsInput(
+                        shared.RelationshipTLSConfigurationsInput{
+                            TLSConfigurations: &shared.RelationshipTLSConfigurationsTLSConfigurationsInput{
+                                Data: []shared.RelationshipMemberTLSConfigurationInput{
+                                    shared.RelationshipMemberTLSConfigurationInput{},
+                                },
                             },
                         },
-                    },
-                },
-                Type: shared.TypeTLSBulkCertificateTLSBulkCertificate.ToPointer(),
+                ),
             },
         },
-    }, operations.UpdateBulkTLSCertSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -230,11 +222,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.UpdateBulkTLSCertRequest](../../models/operations/updatebulktlscertrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateBulkTLSCertSecurity](../../models/operations/updatebulktlscertsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.UpdateBulkTLSCertRequest](../../models/operations/updatebulktlscertrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -254,42 +245,29 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
-	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
-    res, err := s.TLSBulkCertificates.UploadTLSBulkCert(ctx, shared.TLSBulkCertificateDataInput{
-        Attributes: &shared.TLSBulkCertificateDataAttributes{
-            AllowUntrustedRoot: sdk.Bool(false),
-            CertBlob: sdk.String("ullam"),
-            IntermediatesBlob: sdk.String("in"),
-        },
-        Relationships: &shared.TLSBulkCertificateDataRelationships2Input{
-            TLSDomains: &shared.TLSBulkCertificateDataRelationships2TLSDomainsInput{
-                Data: []shared.RelationshipMemberTLSDomainInput{
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
-                    shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
+    res, err := s.TLSBulkCertificates.UploadTLSBulkCert(ctx, &shared.TLSBulkCertificateData{
+        Attributes: &shared.TLSBulkCertificateDataAttributes{},
+        Relationships: shared.CreateRelationshipsForTLSBulkCertificateInputRelationshipTLSDomainsInput(
+                shared.RelationshipTLSDomainsInput{
+                    TLSDomains: &shared.RelationshipTLSDomainsTLSDomainsInput{
+                        Data: []shared.RelationshipMemberTLSDomainInput{
+                            shared.RelationshipMemberTLSDomainInput{},
+                        },
                     },
                 },
-            },
-        },
-        Type: shared.TypeTLSBulkCertificateTLSBulkCertificate.ToPointer(),
-    }, operations.UploadTLSBulkCertSecurity{
-        Token: "",
+        ),
     })
     if err != nil {
         log.Fatal(err)
@@ -303,11 +281,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [shared.TLSBulkCertificateDataInput](../../models/shared/tlsbulkcertificatedatainput.md)     | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UploadTLSBulkCertSecurity](../../models/operations/uploadtlsbulkcertsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [shared.TLSBulkCertificateData](../../models/shared/tlsbulkcertificatedata.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
