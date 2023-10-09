@@ -2,7 +2,13 @@
 
 package shared
 
-// GenericTokenError - Missing or expired token.
 type GenericTokenError struct {
 	Msg *string `json:"msg,omitempty"`
+}
+
+func (o *GenericTokenError) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
 }

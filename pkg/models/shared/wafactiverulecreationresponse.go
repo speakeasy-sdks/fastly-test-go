@@ -3,8 +3,7 @@
 package shared
 
 import (
-	"bytes"
-	"encoding/json"
+	"Fastly/pkg/utils"
 	"errors"
 )
 
@@ -41,21 +40,16 @@ func CreateWafActiveRuleCreationResponseWafActiveRulesResponse(wafActiveRulesRes
 }
 
 func (u *WafActiveRuleCreationResponse) UnmarshalJSON(data []byte) error {
-	var d *json.Decoder
 
 	wafActiveRuleResponse := new(WafActiveRuleResponse)
-	d = json.NewDecoder(bytes.NewReader(data))
-	d.DisallowUnknownFields()
-	if err := d.Decode(&wafActiveRuleResponse); err == nil {
+	if err := utils.UnmarshalJSON(data, &wafActiveRuleResponse, "", true, true); err == nil {
 		u.WafActiveRuleResponse = wafActiveRuleResponse
 		u.Type = WafActiveRuleCreationResponseTypeWafActiveRuleResponse
 		return nil
 	}
 
 	wafActiveRulesResponse := new(WafActiveRulesResponse)
-	d = json.NewDecoder(bytes.NewReader(data))
-	d.DisallowUnknownFields()
-	if err := d.Decode(&wafActiveRulesResponse); err == nil {
+	if err := utils.UnmarshalJSON(data, &wafActiveRulesResponse, "", true, true); err == nil {
 		u.WafActiveRulesResponse = wafActiveRulesResponse
 		u.Type = WafActiveRuleCreationResponseTypeWafActiveRulesResponse
 		return nil
@@ -66,12 +60,12 @@ func (u *WafActiveRuleCreationResponse) UnmarshalJSON(data []byte) error {
 
 func (u WafActiveRuleCreationResponse) MarshalJSON() ([]byte, error) {
 	if u.WafActiveRuleResponse != nil {
-		return json.Marshal(u.WafActiveRuleResponse)
+		return utils.MarshalJSON(u.WafActiveRuleResponse, "", true)
 	}
 
 	if u.WafActiveRulesResponse != nil {
-		return json.Marshal(u.WafActiveRulesResponse)
+		return utils.MarshalJSON(u.WafActiveRulesResponse, "", true)
 	}
 
-	return nil, nil
+	return nil, errors.New("could not marshal union type: all fields are null")
 }

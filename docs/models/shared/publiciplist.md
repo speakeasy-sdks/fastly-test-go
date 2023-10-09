@@ -1,7 +1,5 @@
 # PublicIPList
 
-OK
-
 
 ## Fields
 

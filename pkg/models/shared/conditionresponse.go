@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -42,7 +43,6 @@ func (e *ConditionResponseType) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// ConditionResponse - OK
 type ConditionResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`
@@ -53,7 +53,7 @@ type ConditionResponse struct {
 	// Name of the condition. Required.
 	Name *string `json:"name,omitempty"`
 	// A numeric string. Priority determines execution order. Lower numbers execute first.
-	Priority  *string `json:"priority,omitempty"`
+	Priority  *string `default:"100" json:"priority"`
 	ServiceID *string `json:"service_id,omitempty"`
 	// A conditional expression in VCL used to determine if the condition is met.
 	Statement *string `json:"statement,omitempty"`
@@ -63,4 +63,85 @@ type ConditionResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// A numeric string that represents the service version.
 	Version *string `json:"version,omitempty"`
+}
+
+func (c ConditionResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *ConditionResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ConditionResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ConditionResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ConditionResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ConditionResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ConditionResponse) GetPriority() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Priority
+}
+
+func (o *ConditionResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ConditionResponse) GetStatement() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Statement
+}
+
+func (o *ConditionResponse) GetType() *ConditionResponseType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
+func (o *ConditionResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ConditionResponse) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

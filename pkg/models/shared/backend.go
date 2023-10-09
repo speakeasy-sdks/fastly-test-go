@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type Backend struct {
 	// A hostname, IPv4, or IPv6 address for the backend. This is the preferred way to specify the location of your backend.
 	Address *string `json:"address,omitempty" form:"name=address"`
@@ -48,7 +52,7 @@ type Backend struct {
 	// Overrides `ssl_hostname`, but only for cert verification. Does not affect SNI at all.
 	SslCertHostname *string `json:"ssl_cert_hostname,omitempty" form:"name=ssl_cert_hostname"`
 	// Be strict on checking SSL certs.
-	SslCheckCert *bool `json:"ssl_check_cert,omitempty" form:"name=ssl_check_cert"`
+	SslCheckCert *bool `default:"true" json:"ssl_check_cert" form:"name=ssl_check_cert"`
 	// List of [OpenSSL ciphers](https://www.openssl.org/docs/manmaster/man1/ciphers.html) to support for connections to this origin. If your backend server is not able to negotiate a connection meeting this constraint, a synthetic `503` error response will be generated.
 	SslCiphers *string `json:"ssl_ciphers,omitempty" form:"name=ssl_ciphers"`
 	// Client certificate attached to origin.
@@ -57,7 +61,7 @@ type Backend struct {
 	SslClientKey *string `json:"ssl_client_key,omitempty" form:"name=ssl_client_key"`
 	// Use `ssl_cert_hostname` and `ssl_sni_hostname` to configure certificate validation.
 	//
-	// Deprecated: this field will be removed in a future release, please migrate away from it as soon as possible.
+	// Deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
 	SslHostname *string `json:"ssl_hostname,omitempty" form:"name=ssl_hostname"`
 	// Overrides `ssl_hostname`, but only for SNI in the handshake. Does not affect cert validation at all.
 	SslSniHostname *string `json:"ssl_sni_hostname,omitempty" form:"name=ssl_sni_hostname"`
@@ -65,4 +69,225 @@ type Backend struct {
 	UseSsl *bool `json:"use_ssl,omitempty" form:"name=use_ssl"`
 	// Weight used to load balance this backend against others. May be any positive integer. If `auto_loadbalance` is true, the chance of this backend being selected is equal to its own weight over the sum of all weights for backends that have `auto_loadbalance` set to true.
 	Weight *int64 `json:"weight,omitempty" form:"name=weight"`
+}
+
+func (b Backend) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(b, "", false)
+}
+
+func (b *Backend) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &b, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Backend) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *Backend) GetAutoLoadbalance() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.AutoLoadbalance
+}
+
+func (o *Backend) GetBetweenBytesTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BetweenBytesTimeout
+}
+
+func (o *Backend) GetClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ClientCert
+}
+
+func (o *Backend) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Backend) GetConnectTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ConnectTimeout
+}
+
+func (o *Backend) GetFirstByteTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FirstByteTimeout
+}
+
+func (o *Backend) GetHealthcheck() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Healthcheck
+}
+
+func (o *Backend) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *Backend) GetIpv4() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv4
+}
+
+func (o *Backend) GetIpv6() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv6
+}
+
+func (o *Backend) GetKeepaliveTime() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.KeepaliveTime
+}
+
+func (o *Backend) GetMaxConn() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConn
+}
+
+func (o *Backend) GetMaxTLSVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.MaxTLSVersion
+}
+
+func (o *Backend) GetMinTLSVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.MinTLSVersion
+}
+
+func (o *Backend) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Backend) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *Backend) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *Backend) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *Backend) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Backend) GetSslCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslCaCert
+}
+
+func (o *Backend) GetSslCertHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslCertHostname
+}
+
+func (o *Backend) GetSslCheckCert() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.SslCheckCert
+}
+
+func (o *Backend) GetSslCiphers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslCiphers
+}
+
+func (o *Backend) GetSslClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslClientCert
+}
+
+func (o *Backend) GetSslClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslClientKey
+}
+
+func (o *Backend) GetSslHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslHostname
+}
+
+func (o *Backend) GetSslSniHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SslSniHostname
+}
+
+func (o *Backend) GetUseSsl() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.UseSsl
+}
+
+func (o *Backend) GetWeight() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Weight
 }

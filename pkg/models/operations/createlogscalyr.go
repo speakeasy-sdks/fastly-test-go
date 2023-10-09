@@ -7,22 +7,70 @@ import (
 	"net/http"
 )
 
-type CreateLogScalyrSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogScalyrRequest struct {
-	LoggingScalyr3 *shared.LoggingScalyr3 `request:"mediaType=application/x-www-form-urlencoded"`
+	LoggingScalyr *shared.LoggingScalyr `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogScalyrRequest) GetLoggingScalyr() *shared.LoggingScalyr {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingScalyr
+}
+
+func (o *CreateLogScalyrRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogScalyrRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogScalyrResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingScalyrResponse *shared.LoggingScalyrResponse
+}
+
+func (o *CreateLogScalyrResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogScalyrResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogScalyrResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogScalyrResponse) GetLoggingScalyrResponse() *shared.LoggingScalyrResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingScalyrResponse
 }

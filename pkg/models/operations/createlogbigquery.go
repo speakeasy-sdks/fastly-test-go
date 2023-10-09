@@ -7,22 +7,70 @@ import (
 	"net/http"
 )
 
-type CreateLogBigquerySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogBigqueryRequest struct {
-	LoggingBigquery2 *shared.LoggingBigquery2 `request:"mediaType=application/x-www-form-urlencoded"`
+	LoggingBigquery *shared.LoggingBigquery `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Integer identifying a service version.
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogBigqueryRequest) GetLoggingBigquery() *shared.LoggingBigquery {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingBigquery
+}
+
+func (o *CreateLogBigqueryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogBigqueryRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogBigqueryResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingBigqueryResponse *shared.LoggingBigqueryResponse
+}
+
+func (o *CreateLogBigqueryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogBigqueryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogBigqueryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogBigqueryResponse) GetLoggingBigqueryResponse() *shared.LoggingBigqueryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingBigqueryResponse
 }

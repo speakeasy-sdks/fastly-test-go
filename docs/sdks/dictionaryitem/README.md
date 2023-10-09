@@ -1,4 +1,5 @@
 # DictionaryItem
+(*DictionaryItem*)
 
 ## Overview
 
@@ -27,34 +28,30 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.BulkUpdateDictionaryItem(ctx, operations.BulkUpdateDictionaryItemRequest{
         BulkUpdateDictionaryListRequest: &shared.BulkUpdateDictionaryListRequest{
             Items: []shared.BulkUpdateDictionaryItem{
                 shared.BulkUpdateDictionaryItem{
-                    ItemKey: sdk.String("test-key"),
-                    ItemValue: sdk.String("test-value"),
-                    Op: shared.BulkUpdateDictionaryItemOpCreate.ToPointer(),
-                },
-                shared.BulkUpdateDictionaryItem{
-                    ItemKey: sdk.String("test-key"),
-                    ItemValue: sdk.String("test-value"),
-                    Op: shared.BulkUpdateDictionaryItemOpCreate.ToPointer(),
+                    ItemKey: fastly.String("test-key"),
+                    ItemValue: fastly.String("test-value"),
                 },
             },
         },
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.BulkUpdateDictionaryItemSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -68,11 +65,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `request`                                                                                                  | [operations.BulkUpdateDictionaryItemRequest](../../models/operations/bulkupdatedictionaryitemrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.BulkUpdateDictionaryItemSecurity](../../models/operations/bulkupdatedictionaryitemsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.BulkUpdateDictionaryItemRequest](../../models/operations/bulkupdatedictionaryitemrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
@@ -92,24 +88,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.CreateDictionaryItem(ctx, operations.CreateDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItem: &shared.DictionaryItem{
-            ItemKey: sdk.String("test-key"),
-            ItemValue: sdk.String("test-value"),
+            ItemKey: fastly.String("test-key"),
+            ItemValue: fastly.String("test-value"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.CreateDictionaryItemSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -123,11 +121,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.CreateDictionaryItemRequest](../../models/operations/createdictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.CreateDictionaryItemSecurity](../../models/operations/createdictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.CreateDictionaryItemRequest](../../models/operations/createdictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
@@ -147,20 +144,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.DeleteDictionaryItem(ctx, operations.DeleteDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DeleteDictionaryItemSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -174,11 +174,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.DeleteDictionaryItemRequest](../../models/operations/deletedictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.DeleteDictionaryItemSecurity](../../models/operations/deletedictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.DeleteDictionaryItemRequest](../../models/operations/deletedictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
@@ -198,20 +197,23 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.GetDictionaryItem(ctx, operations.GetDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetDictionaryItemSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -225,11 +227,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.GetDictionaryItemRequest](../../models/operations/getdictionaryitemrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.GetDictionaryItemSecurity](../../models/operations/getdictionaryitemsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.GetDictionaryItemRequest](../../models/operations/getdictionaryitemrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -249,24 +250,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.ListDictionaryItems(ctx, operations.ListDictionaryItemsRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         Direction: shared.DirectionAscend.ToPointer(),
-        Page: sdk.Int64(1),
-        PerPage: sdk.Int64(20),
+        Page: fastly.Int64(1),
+        PerPage: fastly.Int64(20),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Sort: sdk.String("created"),
-    }, operations.ListDictionaryItemsSecurity{
-        Token: "",
+        Sort: fastly.String("created"),
     })
     if err != nil {
         log.Fatal(err)
@@ -280,11 +283,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.ListDictionaryItemsRequest](../../models/operations/listdictionaryitemsrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.ListDictionaryItemsSecurity](../../models/operations/listdictionaryitemssecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.ListDictionaryItemsRequest](../../models/operations/listdictionaryitemsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
@@ -304,25 +306,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.UpdateDictionaryItem(ctx, operations.UpdateDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItem: &shared.DictionaryItem{
-            ItemKey: sdk.String("test-key"),
-            ItemValue: sdk.String("test-value"),
+            ItemKey: fastly.String("test-key"),
+            ItemValue: fastly.String("test-value"),
         },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpdateDictionaryItemSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -336,11 +340,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.UpdateDictionaryItemRequest](../../models/operations/updatedictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.UpdateDictionaryItemSecurity](../../models/operations/updatedictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.UpdateDictionaryItemRequest](../../models/operations/updatedictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response
@@ -360,25 +363,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(shared.Security{
+            Token: "",
+        }),
+    )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.UpsertDictionaryItem(ctx, operations.UpsertDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItem: &shared.DictionaryItem{
-            ItemKey: sdk.String("test-key"),
-            ItemValue: sdk.String("test-value"),
+            ItemKey: fastly.String("test-key"),
+            ItemValue: fastly.String("test-value"),
         },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.UpsertDictionaryItemSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -392,11 +397,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
-| `request`                                                                                          | [operations.UpsertDictionaryItemRequest](../../models/operations/upsertdictionaryitemrequest.md)   | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `security`                                                                                         | [operations.UpsertDictionaryItemSecurity](../../models/operations/upsertdictionaryitemsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
+| `request`                                                                                        | [operations.UpsertDictionaryItemRequest](../../models/operations/upsertdictionaryitemrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
 
 
 ### Response

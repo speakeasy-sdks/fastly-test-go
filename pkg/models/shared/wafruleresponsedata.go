@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -78,10 +79,70 @@ type WafRuleResponseDataAttributes struct {
 	Type *WafRuleResponseDataAttributesType `json:"type,omitempty"`
 }
 
+func (o *WafRuleResponseDataAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *WafRuleResponseDataAttributes) GetPublisher() *WafRuleResponseDataAttributesPublisher {
+	if o == nil {
+		return nil
+	}
+	return o.Publisher
+}
+
+func (o *WafRuleResponseDataAttributes) GetType() *WafRuleResponseDataAttributesType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type WafRuleResponseData struct {
 	Attributes    *WafRuleResponseDataAttributes `json:"attributes,omitempty"`
 	ID            *string                        `json:"id,omitempty"`
-	Relationships interface{}                    `json:"relationships,omitempty"`
+	Relationships *RelationshipsForWafRule       `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafRule `json:"type,omitempty"`
+	Type *TypeWafRule `default:"waf_rule" json:"type"`
+}
+
+func (w WafRuleResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafRuleResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafRuleResponseData) GetAttributes() *WafRuleResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafRuleResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafRuleResponseData) GetRelationships() *RelationshipsForWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafRuleResponseData) GetType() *TypeWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

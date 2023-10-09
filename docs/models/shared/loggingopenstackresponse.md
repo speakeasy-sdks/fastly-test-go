@@ -1,7 +1,5 @@
 # LoggingOpenstackResponse
 
-OK
-
 
 ## Fields
 

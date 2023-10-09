@@ -1,7 +1,5 @@
 # TokenResponse
 
-OK
-
 
 ## Fields
 

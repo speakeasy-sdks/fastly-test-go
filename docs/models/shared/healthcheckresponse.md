@@ -1,7 +1,5 @@
 # HealthcheckResponse
 
-OK
-
 
 ## Fields
 

@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteACLEntrySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteACLEntryRequest struct {
 	// Alphanumeric string identifying an ACL Entry.
 	ACLEntryID string `pathParam:"style=simple,explode=false,name=acl_entry_id"`
@@ -19,16 +15,75 @@ type DeleteACLEntryRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *DeleteACLEntryRequest) GetACLEntryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLEntryID
+}
+
+func (o *DeleteACLEntryRequest) GetACLID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLID
+}
+
+func (o *DeleteACLEntryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 // DeleteACLEntry200ApplicationJSON - OK
 type DeleteACLEntry200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteACLEntry200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteACLEntryResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteACLEntry200ApplicationJSONObject *DeleteACLEntry200ApplicationJSON
+}
+
+func (o *DeleteACLEntryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteACLEntryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteACLEntryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteACLEntryResponse) GetDeleteACLEntry200ApplicationJSONObject() *DeleteACLEntry200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteACLEntry200ApplicationJSONObject
 }

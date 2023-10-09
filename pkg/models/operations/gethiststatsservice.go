@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type GetHistStatsServiceSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type GetHistStatsServiceRequest struct {
 	// Duration of sample windows. One of:
@@ -17,7 +14,7 @@ type GetHistStatsServiceRequest struct {
 	//   * `minute` - Group data by minute.
 	//   * `day` - Group data by day.
 	//
-	By *shared.By `queryParam:"style=form,explode=true,name=by"`
+	By *shared.By `default:"day" queryParam:"style=form,explode=true,name=by"`
 	// Timestamp that defines the start of the window for which to fetch statistics, including the timestamp itself. Accepts Unix timestamps, or any form of input parsable by the [Chronic Ruby library](https://github.com/mojombo/chronic), such as 'yesterday', or 'two weeks ago'. Default varies based on the value of `by`.
 	//
 	From *string `queryParam:"style=form,explode=true,name=from"`
@@ -36,13 +33,90 @@ type GetHistStatsServiceRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 	// Timestamp that defines the end of the window for which to fetch statistics. Accepts the same formats as `from`.
 	//
-	To *string `queryParam:"style=form,explode=true,name=to"`
+	To *string `default:"now" queryParam:"style=form,explode=true,name=to"`
+}
+
+func (g GetHistStatsServiceRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetHistStatsServiceRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *GetHistStatsServiceRequest) GetBy() *shared.By {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *GetHistStatsServiceRequest) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *GetHistStatsServiceRequest) GetRegion() *shared.Region {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *GetHistStatsServiceRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetHistStatsServiceRequest) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
 }
 
 type GetHistStatsServiceResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	HistoricalAggregateResponse *shared.HistoricalAggregateResponse
+}
+
+func (o *GetHistStatsServiceResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetHistStatsServiceResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetHistStatsServiceResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetHistStatsServiceResponse) GetHistoricalAggregateResponse() *shared.HistoricalAggregateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.HistoricalAggregateResponse
 }

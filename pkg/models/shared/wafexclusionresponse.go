@@ -2,7 +2,13 @@
 
 package shared
 
-// WafExclusionResponse - Created
 type WafExclusionResponse struct {
 	Data *WafExclusionResponseData `json:"data,omitempty"`
+}
+
+func (o *WafExclusionResponse) GetData() *WafExclusionResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
