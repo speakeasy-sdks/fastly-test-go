@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListTLSSubsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListTLSSubsRequest struct {
 	// Limit the returned subscriptions to those that have currently active orders. Permitted values: `true`.
@@ -26,15 +23,106 @@ type ListTLSSubsRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
 	// The order in which to list the results by creation date.
-	Sort *shared.Sort `queryParam:"style=form,explode=true,name=sort"`
+	Sort *shared.Sort `default:"created_at" queryParam:"style=form,explode=true,name=sort"`
+}
+
+func (l ListTLSSubsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListTLSSubsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListTLSSubsRequest) GetFilterHasActiveOrder() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.FilterHasActiveOrder
+}
+
+func (o *ListTLSSubsRequest) GetFilterState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterState
+}
+
+func (o *ListTLSSubsRequest) GetFilterTLSDomainsID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterTLSDomainsID
+}
+
+func (o *ListTLSSubsRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListTLSSubsRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListTLSSubsRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
+}
+
+func (o *ListTLSSubsRequest) GetSort() *shared.Sort {
+	if o == nil {
+		return nil
+	}
+	return o.Sort
 }
 
 type ListTLSSubsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	TLSSubscriptionsResponse *shared.TLSSubscriptionsResponse
+}
+
+func (o *ListTLSSubsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListTLSSubsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListTLSSubsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListTLSSubsResponse) GetTLSSubscriptionsResponse() *shared.TLSSubscriptionsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSubscriptionsResponse
 }

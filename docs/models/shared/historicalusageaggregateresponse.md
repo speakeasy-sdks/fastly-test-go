@@ -1,7 +1,5 @@
 # HistoricalUsageAggregateResponse
 
-OK
-
 
 ## Fields
 

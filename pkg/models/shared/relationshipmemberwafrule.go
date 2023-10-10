@@ -2,13 +2,60 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberWafRule struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type.
-	Type *TypeWafRule `json:"type,omitempty"`
+	Type *TypeWafRule `default:"waf_rule" json:"type"`
+}
+
+func (r RelationshipMemberWafRule) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafRule) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafRule) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafRule) GetType() *TypeWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 type RelationshipMemberWafRuleInput struct {
 	// Resource type.
-	Type *TypeWafRule `json:"type,omitempty"`
+	Type *TypeWafRule `default:"waf_rule" json:"type"`
+}
+
+func (r RelationshipMemberWafRuleInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafRuleInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafRuleInput) GetType() *TypeWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

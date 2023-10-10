@@ -1,7 +1,5 @@
 # RateLimiterResponse
 
-OK
-
 
 ## Fields
 

@@ -1,7 +1,5 @@
 # BillingAddressResponse
 
-OK
-
 
 ## Fields
 

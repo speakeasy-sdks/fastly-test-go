@@ -7,7 +7,27 @@ type StarResponseData struct {
 	ID         *string     `json:"id,omitempty"`
 }
 
-// StarResponse - OK
+func (o *StarResponseData) GetAttributes() *Timestamps {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *StarResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
 type StarResponse struct {
 	Data *StarResponseData `json:"data,omitempty"`
+}
+
+func (o *StarResponse) GetData() *StarResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

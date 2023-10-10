@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type BulkUpdateDictionaryItemSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type BulkUpdateDictionaryItemRequest struct {
 	BulkUpdateDictionaryListRequest *shared.BulkUpdateDictionaryListRequest `request:"mediaType=application/json"`
 	// Alphanumeric string identifying a Dictionary.
@@ -19,16 +15,75 @@ type BulkUpdateDictionaryItemRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *BulkUpdateDictionaryItemRequest) GetBulkUpdateDictionaryListRequest() *shared.BulkUpdateDictionaryListRequest {
+	if o == nil {
+		return nil
+	}
+	return o.BulkUpdateDictionaryListRequest
+}
+
+func (o *BulkUpdateDictionaryItemRequest) GetDictionaryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.DictionaryID
+}
+
+func (o *BulkUpdateDictionaryItemRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 // BulkUpdateDictionaryItem200ApplicationJSON - OK
 type BulkUpdateDictionaryItem200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *BulkUpdateDictionaryItem200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type BulkUpdateDictionaryItemResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	BulkUpdateDictionaryItem200ApplicationJSONObject *BulkUpdateDictionaryItem200ApplicationJSON
+}
+
+func (o *BulkUpdateDictionaryItemResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *BulkUpdateDictionaryItemResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *BulkUpdateDictionaryItemResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *BulkUpdateDictionaryItemResponse) GetBulkUpdateDictionaryItem200ApplicationJSONObject() *BulkUpdateDictionaryItem200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.BulkUpdateDictionaryItem200ApplicationJSONObject
 }
