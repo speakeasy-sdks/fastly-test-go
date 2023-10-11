@@ -10,13 +10,68 @@ type HistoricalFieldAggregateResponseMeta struct {
 	To     *string `json:"to,omitempty"`
 }
 
-// HistoricalFieldAggregateResponse - OK
+func (o *HistoricalFieldAggregateResponseMeta) GetBy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *HistoricalFieldAggregateResponseMeta) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *HistoricalFieldAggregateResponseMeta) GetRegion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *HistoricalFieldAggregateResponseMeta) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 type HistoricalFieldAggregateResponse struct {
-	Data []map[string]string `json:"data,omitempty"`
+	Data []HistoricalFieldResults `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.
 	Meta *HistoricalFieldAggregateResponseMeta `json:"meta,omitempty"`
 	// If the query was not successful, this will provide a string that explains why.
 	Msg *string `json:"msg,omitempty"`
 	// Whether or not we were able to successfully execute the query.
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *HistoricalFieldAggregateResponse) GetData() []HistoricalFieldResults {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *HistoricalFieldAggregateResponse) GetMeta() *HistoricalFieldAggregateResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
+func (o *HistoricalFieldAggregateResponse) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
+}
+
+func (o *HistoricalFieldAggregateResponse) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }

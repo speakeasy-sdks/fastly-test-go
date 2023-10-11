@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetInvoiceMtdSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetInvoiceMtdRequest struct {
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
@@ -20,10 +16,62 @@ type GetInvoiceMtdRequest struct {
 	Year *string `queryParam:"style=form,explode=true,name=year"`
 }
 
+func (o *GetInvoiceMtdRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
+}
+
+func (o *GetInvoiceMtdRequest) GetMonth() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Month
+}
+
+func (o *GetInvoiceMtdRequest) GetYear() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Year
+}
+
 type GetInvoiceMtdResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	BillingEstimateResponse *shared.BillingEstimateResponse
+}
+
+func (o *GetInvoiceMtdResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetInvoiceMtdResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetInvoiceMtdResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetInvoiceMtdResponse) GetBillingEstimateResponse() *shared.BillingEstimateResponse {
+	if o == nil {
+		return nil
+	}
+	return o.BillingEstimateResponse
 }

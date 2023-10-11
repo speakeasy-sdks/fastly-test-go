@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -54,11 +55,106 @@ type WafRuleRevisionResponseDataAttributes struct {
 	Vcl *string `json:"vcl,omitempty"`
 }
 
+func (o *WafRuleRevisionResponseDataAttributes) GetMessage() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Message
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetParanoiaLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ParanoiaLevel
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Revision
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetSeverity() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Severity
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetSource() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Source
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetState() *WafRuleRevisionResponseDataAttributesState {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
+func (o *WafRuleRevisionResponseDataAttributes) GetVcl() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Vcl
+}
+
 type WafRuleRevisionResponseData struct {
 	Attributes *WafRuleRevisionResponseDataAttributes `json:"attributes,omitempty"`
 	// Alphanumeric string identifying a WAF rule revision.
 	ID            *string              `json:"id,omitempty"`
 	Relationships *RelationshipWafRule `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafRuleRevision `json:"type,omitempty"`
+	Type *TypeWafRuleRevision `default:"waf_rule_revision" json:"type"`
+}
+
+func (w WafRuleRevisionResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafRuleRevisionResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafRuleRevisionResponseData) GetAttributes() *WafRuleRevisionResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafRuleRevisionResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafRuleRevisionResponseData) GetRelationships() *RelationshipWafRule {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafRuleRevisionResponseData) GetType() *TypeWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

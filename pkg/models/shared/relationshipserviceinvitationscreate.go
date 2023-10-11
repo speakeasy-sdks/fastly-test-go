@@ -6,6 +6,20 @@ type RelationshipServiceInvitationsCreateServiceInvitationsInput struct {
 	Data []ServiceInvitationInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipServiceInvitationsCreateServiceInvitationsInput) GetData() []ServiceInvitationInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipServiceInvitationsCreateInput struct {
 	ServiceInvitations *RelationshipServiceInvitationsCreateServiceInvitationsInput `json:"service_invitations,omitempty"`
+}
+
+func (o *RelationshipServiceInvitationsCreateInput) GetServiceInvitations() *RelationshipServiceInvitationsCreateServiceInvitationsInput {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceInvitations
 }

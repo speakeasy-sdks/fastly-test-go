@@ -5,3 +5,10 @@ package shared
 type BulkUpdateACLEntriesRequestInput struct {
 	Entries []BulkUpdateACLEntryInput `json:"entries,omitempty"`
 }
+
+func (o *BulkUpdateACLEntriesRequestInput) GetEntries() []BulkUpdateACLEntryInput {
+	if o == nil {
+		return nil
+	}
+	return o.Entries
+}

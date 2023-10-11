@@ -1,0 +1,10 @@
+# WafActiveRuleData1
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `Attributes`                                                                                     | [*WafActiveRuleDataAttributes](../../models/shared/wafactiveruledataattributes.md)               | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `Relationships`                                                                                  | [*RelationshipsForWafActiveRuleInput](../../models/shared/relationshipsforwafactiveruleinput.md) | :heavy_minus_sign:                                                                               | N/A                                                                                              |
+| `Type`                                                                                           | [*TypeWafActiveRule](../../models/shared/typewafactiverule.md)                                   | :heavy_minus_sign:                                                                               | Resource type.                                                                                   |

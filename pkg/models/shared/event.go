@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -434,9 +435,122 @@ type EventAttributes struct {
 	UserID    *string                  `json:"user_id,omitempty"`
 }
 
+func (e EventAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(e, "", false)
+}
+
+func (e *EventAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &e, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *EventAttributes) GetAdmin() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Admin
+}
+
+func (o *EventAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *EventAttributes) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *EventAttributes) GetDescription() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Description
+}
+
+func (o *EventAttributes) GetEventType() *EventAttributesEventType {
+	if o == nil {
+		return nil
+	}
+	return o.EventType
+}
+
+func (o *EventAttributes) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *EventAttributes) GetMetadata() *EventAttributesMetadata {
+	if o == nil {
+		return nil
+	}
+	return o.Metadata
+}
+
+func (o *EventAttributes) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *EventAttributes) GetTokenID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TokenID
+}
+
+func (o *EventAttributes) GetUserID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserID
+}
+
 type Event struct {
 	Attributes *EventAttributes `json:"attributes,omitempty"`
 	ID         *string          `json:"id,omitempty"`
 	// Resource type
-	Type *TypeEvent `json:"type,omitempty"`
+	Type *TypeEvent `default:"event" json:"type"`
+}
+
+func (e Event) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(e, "", false)
+}
+
+func (e *Event) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &e, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Event) GetAttributes() *EventAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *Event) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *Event) GetType() *TypeEvent {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

@@ -2,6 +2,13 @@
 
 package shared
 
-type TLSPrivateKeyInput struct {
-	Data *TLSPrivateKeyDataInput `json:"data,omitempty"`
+type TLSPrivateKey struct {
+	Data *TLSPrivateKeyData `json:"data,omitempty"`
+}
+
+func (o *TLSPrivateKey) GetData() *TLSPrivateKeyData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

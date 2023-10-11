@@ -47,3 +47,24 @@ type BulkUpdateConfigStoreItem struct {
 	ItemValue *string                      `json:"item_value,omitempty"`
 	Op        *BulkUpdateConfigStoreItemOp `json:"op,omitempty"`
 }
+
+func (o *BulkUpdateConfigStoreItem) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *BulkUpdateConfigStoreItem) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}
+
+func (o *BulkUpdateConfigStoreItem) GetOp() *BulkUpdateConfigStoreItemOp {
+	if o == nil {
+		return nil
+	}
+	return o.Op
+}

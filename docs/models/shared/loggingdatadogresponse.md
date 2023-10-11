@@ -1,7 +1,5 @@
 # LoggingDatadogResponse
 
-OK
-
 
 ## Fields
 

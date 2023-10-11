@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type CreateLogGcsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateLogGcsRequest struct {
 	LoggingGcsInput *shared.LoggingGcsInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the service.
@@ -19,10 +15,62 @@ type CreateLogGcsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *CreateLogGcsRequest) GetLoggingGcsInput() *shared.LoggingGcsInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingGcsInput
+}
+
+func (o *CreateLogGcsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *CreateLogGcsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type CreateLogGcsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingGcsResponse *shared.LoggingGcsResponse
+}
+
+func (o *CreateLogGcsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateLogGcsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateLogGcsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateLogGcsResponse) GetLoggingGcsResponse() *shared.LoggingGcsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingGcsResponse
 }

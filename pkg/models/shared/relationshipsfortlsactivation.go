@@ -6,8 +6,22 @@ type RelationshipsForTLSActivationTLSCertificateInput struct {
 	Data *RelationshipMemberTLSCertificateInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipsForTLSActivationTLSCertificateInput) GetData() *RelationshipMemberTLSCertificateInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipsForTLSActivationTLSDomainInput struct {
 	Data *RelationshipMemberTLSDomainInput `json:"data,omitempty"`
+}
+
+func (o *RelationshipsForTLSActivationTLSDomainInput) GetData() *RelationshipMemberTLSDomainInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 // RelationshipsForTLSActivationInput - The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
@@ -16,16 +30,58 @@ type RelationshipsForTLSActivationInput struct {
 	TLSDomain      *RelationshipsForTLSActivationTLSDomainInput      `json:"tls_domain,omitempty"`
 }
 
+func (o *RelationshipsForTLSActivationInput) GetTLSCertificate() *RelationshipsForTLSActivationTLSCertificateInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertificate
+}
+
+func (o *RelationshipsForTLSActivationInput) GetTLSDomain() *RelationshipsForTLSActivationTLSDomainInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomain
+}
+
 type RelationshipsForTLSActivationTLSCertificate struct {
 	Data *RelationshipMemberTLSCertificate `json:"data,omitempty"`
+}
+
+func (o *RelationshipsForTLSActivationTLSCertificate) GetData() *RelationshipMemberTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 type RelationshipsForTLSActivationTLSDomain struct {
 	Data *RelationshipMemberTLSDomain `json:"data,omitempty"`
 }
 
+func (o *RelationshipsForTLSActivationTLSDomain) GetData() *RelationshipMemberTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 // RelationshipsForTLSActivation - The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
 type RelationshipsForTLSActivation struct {
 	TLSCertificate *RelationshipsForTLSActivationTLSCertificate `json:"tls_certificate,omitempty"`
 	TLSDomain      *RelationshipsForTLSActivationTLSDomain      `json:"tls_domain,omitempty"`
+}
+
+func (o *RelationshipsForTLSActivation) GetTLSCertificate() *RelationshipsForTLSActivationTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertificate
+}
+
+func (o *RelationshipsForTLSActivation) GetTLSDomain() *RelationshipsForTLSActivationTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomain
 }
