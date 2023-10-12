@@ -3,18 +3,40 @@
 package operations
 
 import (
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListUserGroupsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListUserGroupsRequest struct {
 	// Current page.
 	Page *int64 `queryParam:"style=form,explode=true,name=page"`
 	// Number of records per page.
-	PerPage *int64 `queryParam:"style=form,explode=true,name=per_page"`
+	PerPage *int64 `default:"20" queryParam:"style=form,explode=true,name=per_page"`
+}
+
+func (l ListUserGroupsRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListUserGroupsRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListUserGroupsRequest) GetPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Page
+}
+
+func (o *ListUserGroupsRequest) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
 }
 
 // ListUserGroups200ApplicationJSON - OK
@@ -22,9 +44,40 @@ type ListUserGroups200ApplicationJSON struct {
 }
 
 type ListUserGroupsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ListUserGroups200ApplicationJSONObject *ListUserGroups200ApplicationJSON
+}
+
+func (o *ListUserGroupsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListUserGroupsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListUserGroupsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListUserGroupsResponse) GetListUserGroups200ApplicationJSONObject() *ListUserGroups200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListUserGroups200ApplicationJSONObject
 }

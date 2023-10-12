@@ -4,12 +4,9 @@ package operations
 
 import (
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/utils"
 	"net/http"
 )
-
-type ListWafRulesSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
 
 type ListWafRulesRequest struct {
 	// Limit the returned rules to a specific ModSecurity rule ID.
@@ -26,13 +23,104 @@ type ListWafRulesRequest struct {
 	// Current page.
 	PageNumber *int64 `queryParam:"style=form,explode=true,name=page[number]"`
 	// Number of records per page.
-	PageSize *int64 `queryParam:"style=form,explode=true,name=page[size]"`
+	PageSize *int64 `default:"20" queryParam:"style=form,explode=true,name=page[size]"`
+}
+
+func (l ListWafRulesRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *ListWafRulesRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ListWafRulesRequest) GetFilterModsecRuleID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterModsecRuleID
+}
+
+func (o *ListWafRulesRequest) GetFilterWafFirewallIDNotMatch() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafFirewallIDNotMatch
+}
+
+func (o *ListWafRulesRequest) GetFilterWafRuleRevisionsSource() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafRuleRevisionsSource
+}
+
+func (o *ListWafRulesRequest) GetFilterWafTagsName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilterWafTagsName
+}
+
+func (o *ListWafRulesRequest) GetInclude() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Include
+}
+
+func (o *ListWafRulesRequest) GetPageNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageNumber
+}
+
+func (o *ListWafRulesRequest) GetPageSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PageSize
 }
 
 type ListWafRulesResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	WafRulesResponse *shared.WafRulesResponse
+}
+
+func (o *ListWafRulesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListWafRulesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListWafRulesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListWafRulesResponse) GetWafRulesResponse() *shared.WafRulesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafRulesResponse
 }

@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -89,7 +90,7 @@ type WafExclusionResponseDataAttributes struct {
 	// The type of exclusion.
 	ExclusionType *WafExclusionResponseDataAttributesExclusionType `json:"exclusion_type,omitempty"`
 	// Whether to generate a log upon matching.
-	Logging *bool `json:"logging,omitempty"`
+	Logging *bool `default:"true" json:"logging"`
 	// Name of the exclusion.
 	Name *string `json:"name,omitempty"`
 	// A numeric ID identifying a WAF exclusion.
@@ -98,4 +99,78 @@ type WafExclusionResponseDataAttributes struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// The variable to exclude. An optional selector can be specified after the variable separated by a colon (`:`) to restrict the variable to a particular parameter. Required for `exclusion_type=variable`.
 	Variable *WafExclusionResponseDataAttributesVariable `json:"variable,omitempty"`
+}
+
+func (w WafExclusionResponseDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafExclusionResponseDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafExclusionResponseDataAttributes) GetCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Condition
+}
+
+func (o *WafExclusionResponseDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *WafExclusionResponseDataAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *WafExclusionResponseDataAttributes) GetExclusionType() *WafExclusionResponseDataAttributesExclusionType {
+	if o == nil {
+		return nil
+	}
+	return o.ExclusionType
+}
+
+func (o *WafExclusionResponseDataAttributes) GetLogging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Logging
+}
+
+func (o *WafExclusionResponseDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *WafExclusionResponseDataAttributes) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *WafExclusionResponseDataAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *WafExclusionResponseDataAttributes) GetVariable() *WafExclusionResponseDataAttributesVariable {
+	if o == nil {
+		return nil
+	}
+	return o.Variable
 }

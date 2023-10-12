@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
@@ -21,4 +22,64 @@ type TLSConfigurationResponseAttributes struct {
 	TLSProtocols []float64 `json:"tls_protocols,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (t TLSConfigurationResponseAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSConfigurationResponseAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSConfigurationResponseAttributes) GetBulk() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Bulk
+}
+
+func (o *TLSConfigurationResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSConfigurationResponseAttributes) GetDefault() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Default
+}
+
+func (o *TLSConfigurationResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSConfigurationResponseAttributes) GetHTTPProtocols() []string {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPProtocols
+}
+
+func (o *TLSConfigurationResponseAttributes) GetTLSProtocols() []float64 {
+	if o == nil {
+		return nil
+	}
+	return o.TLSProtocols
+}
+
+func (o *TLSConfigurationResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

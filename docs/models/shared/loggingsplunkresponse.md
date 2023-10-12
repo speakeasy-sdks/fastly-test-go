@@ -1,7 +1,5 @@
 # LoggingSplunkResponse
 
-OK
-
 
 ## Fields
 

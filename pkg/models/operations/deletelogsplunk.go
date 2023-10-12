@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogSplunkSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogSplunkRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingSplunkName string `pathParam:"style=simple,explode=false,name=logging_splunk_name"`
@@ -19,16 +15,75 @@ type DeleteLogSplunkRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogSplunkRequest) GetLoggingSplunkName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSplunkName
+}
+
+func (o *DeleteLogSplunkRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogSplunkRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogSplunk200ApplicationJSON - OK
 type DeleteLogSplunk200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteLogSplunk200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteLogSplunkResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteLogSplunk200ApplicationJSONObject *DeleteLogSplunk200ApplicationJSON
+}
+
+func (o *DeleteLogSplunkResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogSplunkResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogSplunkResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogSplunkResponse) GetDeleteLogSplunk200ApplicationJSONObject() *DeleteLogSplunk200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogSplunk200ApplicationJSONObject
 }
