@@ -9,3 +9,17 @@ type HTTPStreamFormat struct {
 	// A fragment of body data as a base64-encoded binary blob.
 	ContentBin *string `json:"content-bin,omitempty"`
 }
+
+func (o *HTTPStreamFormat) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *HTTPStreamFormat) GetContentBin() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentBin
+}

@@ -10,7 +10,34 @@ type HistoricalUsageAggregateResponseMeta struct {
 	To     *string `json:"to,omitempty"`
 }
 
-// HistoricalUsageAggregateResponse - OK
+func (o *HistoricalUsageAggregateResponseMeta) GetBy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *HistoricalUsageAggregateResponseMeta) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *HistoricalUsageAggregateResponseMeta) GetRegion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *HistoricalUsageAggregateResponseMeta) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 type HistoricalUsageAggregateResponse struct {
 	Data *HistoricalUsageResults `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.
@@ -19,4 +46,32 @@ type HistoricalUsageAggregateResponse struct {
 	Msg *string `json:"msg,omitempty"`
 	// Whether or not we were able to successfully execute the query.
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *HistoricalUsageAggregateResponse) GetData() *HistoricalUsageResults {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *HistoricalUsageAggregateResponse) GetMeta() *HistoricalUsageAggregateResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
+func (o *HistoricalUsageAggregateResponse) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
+}
+
+func (o *HistoricalUsageAggregateResponse) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }

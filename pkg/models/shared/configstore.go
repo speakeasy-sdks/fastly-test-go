@@ -6,3 +6,10 @@ type ConfigStore struct {
 	// The name of the config store.
 	Name *string `form:"name=name"`
 }
+
+func (o *ConfigStore) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

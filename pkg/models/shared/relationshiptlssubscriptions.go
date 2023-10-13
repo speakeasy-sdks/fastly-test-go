@@ -6,6 +6,20 @@ type RelationshipTLSSubscriptionsTLSSubscriptions struct {
 	Data []RelationshipMemberTLSSubscription `json:"data,omitempty"`
 }
 
+func (o *RelationshipTLSSubscriptionsTLSSubscriptions) GetData() []RelationshipMemberTLSSubscription {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipTLSSubscriptions struct {
 	TLSSubscriptions *RelationshipTLSSubscriptionsTLSSubscriptions `json:"tls_subscriptions,omitempty"`
+}
+
+func (o *RelationshipTLSSubscriptions) GetTLSSubscriptions() *RelationshipTLSSubscriptionsTLSSubscriptions {
+	if o == nil {
+		return nil
+	}
+	return o.TLSSubscriptions
 }

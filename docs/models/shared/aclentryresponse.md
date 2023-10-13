@@ -1,7 +1,5 @@
 # ACLEntryResponse
 
-OK
-
 
 ## Fields
 

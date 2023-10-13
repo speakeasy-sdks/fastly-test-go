@@ -1,7 +1,5 @@
 # TLSSubscriptionsResponse
 
-OK
-
 
 ## Fields
 

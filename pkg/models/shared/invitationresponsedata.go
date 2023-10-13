@@ -2,10 +2,53 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type InvitationResponseData struct {
-	Attributes    *Timestamps `json:"attributes,omitempty"`
-	ID            *string     `json:"id,omitempty"`
-	Relationships interface{} `json:"relationships,omitempty"`
+	Attributes    *Timestamps                 `json:"attributes,omitempty"`
+	ID            *string                     `json:"id,omitempty"`
+	Relationships *RelationshipsForInvitation `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeInvitation `json:"type,omitempty"`
+	Type *TypeInvitation `default:"invitation" json:"type"`
+}
+
+func (i InvitationResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(i, "", false)
+}
+
+func (i *InvitationResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &i, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *InvitationResponseData) GetAttributes() *Timestamps {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *InvitationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *InvitationResponseData) GetRelationships() *RelationshipsForInvitation {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *InvitationResponseData) GetType() *TypeInvitation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

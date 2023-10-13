@@ -6,15 +6,25 @@ import (
 	"net/http"
 )
 
-type DeleteContactSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteContactRequest struct {
 	// An alphanumeric string identifying the customer contact.
 	ContactID string `pathParam:"style=simple,explode=false,name=contact_id"`
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
+}
+
+func (o *DeleteContactRequest) GetContactID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContactID
+}
+
+func (o *DeleteContactRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
 }
 
 // DeleteContact200ApplicationJSON - OK
@@ -23,10 +33,48 @@ type DeleteContact200ApplicationJSON struct {
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteContact200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteContactResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteContact200ApplicationJSONObject *DeleteContact200ApplicationJSON
+}
+
+func (o *DeleteContactResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteContactResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteContactResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteContactResponse) GetDeleteContact200ApplicationJSONObject() *DeleteContact200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteContact200ApplicationJSONObject
 }
