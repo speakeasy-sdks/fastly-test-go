@@ -2,14 +2,61 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberWafRuleRevision struct {
 	// Alphanumeric string identifying a WAF rule revision.
 	ID *string `json:"id,omitempty"`
 	// Resource type.
-	Type *TypeWafRuleRevision `json:"type,omitempty"`
+	Type *TypeWafRuleRevision `default:"waf_rule_revision" json:"type"`
+}
+
+func (r RelationshipMemberWafRuleRevision) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafRuleRevision) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafRuleRevision) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafRuleRevision) GetType() *TypeWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 type RelationshipMemberWafRuleRevisionInput struct {
 	// Resource type.
-	Type *TypeWafRuleRevision `json:"type,omitempty"`
+	Type *TypeWafRuleRevision `default:"waf_rule_revision" json:"type"`
+}
+
+func (r RelationshipMemberWafRuleRevisionInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafRuleRevisionInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafRuleRevisionInput) GetType() *TypeWafRuleRevision {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

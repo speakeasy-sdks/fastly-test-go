@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type PurgeTagSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type PurgeTagRequest struct {
 	// If present, this header triggers the purge to be 'soft', which marks the affected object as stale rather than making it inaccessible.  Typically set to "1" when used, but the value is not important.
 	FastlySoftPurge *int64 `header:"style=simple,explode=false,name=fastly-soft-purge"`
@@ -20,10 +16,62 @@ type PurgeTagRequest struct {
 	SurrogateKey string `pathParam:"style=simple,explode=false,name=surrogate_key"`
 }
 
+func (o *PurgeTagRequest) GetFastlySoftPurge() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FastlySoftPurge
+}
+
+func (o *PurgeTagRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *PurgeTagRequest) GetSurrogateKey() string {
+	if o == nil {
+		return ""
+	}
+	return o.SurrogateKey
+}
+
 type PurgeTagResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	PurgeResponse *shared.PurgeResponse
+}
+
+func (o *PurgeTagResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *PurgeTagResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *PurgeTagResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *PurgeTagResponse) GetPurgeResponse() *shared.PurgeResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PurgeResponse
 }

@@ -1,7 +1,5 @@
 # VersionCreateResponse
 
-OK
-
 
 ## Fields
 

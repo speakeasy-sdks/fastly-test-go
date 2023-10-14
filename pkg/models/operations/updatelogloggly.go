@@ -7,12 +7,8 @@ import (
 	"net/http"
 )
 
-type UpdateLogLogglySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogLogglyRequest struct {
-	LoggingLoggly2 *shared.LoggingLoggly2 `request:"mediaType=application/x-www-form-urlencoded"`
+	LoggingLoggly *shared.LoggingLoggly `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
 	LoggingLogglyName string `pathParam:"style=simple,explode=false,name=logging_loggly_name"`
 	// Alphanumeric string identifying the service.
@@ -21,10 +17,69 @@ type UpdateLogLogglyRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogLogglyRequest) GetLoggingLoggly() *shared.LoggingLoggly {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLoggly
+}
+
+func (o *UpdateLogLogglyRequest) GetLoggingLogglyName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingLogglyName
+}
+
+func (o *UpdateLogLogglyRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogLogglyRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogLogglyResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingLogglyResponse *shared.LoggingLogglyResponse
+}
+
+func (o *UpdateLogLogglyResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogLogglyResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogLogglyResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogLogglyResponse) GetLoggingLogglyResponse() *shared.LoggingLogglyResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogglyResponse
 }

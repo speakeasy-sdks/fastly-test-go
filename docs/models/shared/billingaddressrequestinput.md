@@ -1,7 +1,5 @@
 # BillingAddressRequestInput
 
-Billing address
-
 
 ## Fields
 

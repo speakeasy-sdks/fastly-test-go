@@ -7,7 +7,6 @@ import (
 	"fmt"
 )
 
-// WafTagInclude - Include relationships. Optional.
 type WafTagInclude string
 
 const (

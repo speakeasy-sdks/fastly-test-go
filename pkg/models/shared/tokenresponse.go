@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -42,7 +43,6 @@ func (e *TokenResponseScope) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// TokenResponse - OK
 type TokenResponse struct {
 	// Time-stamp (UTC) of when the token was created.
 	CreatedAt *string `json:"created_at,omitempty"`
@@ -58,7 +58,7 @@ type TokenResponse struct {
 	// Name of the token.
 	Name *string `json:"name,omitempty"`
 	// Space-delimited list of authorization scope.
-	Scope *TokenResponseScope `json:"scope,omitempty"`
+	Scope *TokenResponseScope `default:"global" json:"scope"`
 	// List of alphanumeric strings identifying services (optional). If no services are specified, the token will have access to all services on the account.
 	//
 	Services []string `json:"services,omitempty"`
@@ -67,4 +67,99 @@ type TokenResponse struct {
 	// User-Agent header of the client that last used the token.
 	UserAgent *string `json:"user_agent,omitempty"`
 	UserID    *string `json:"user_id,omitempty"`
+}
+
+func (t TokenResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TokenResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TokenResponse) GetCreatedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TokenResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TokenResponse) GetExpiresAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ExpiresAt
+}
+
+func (o *TokenResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TokenResponse) GetIP() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IP
+}
+
+func (o *TokenResponse) GetLastUsedAt() *string {
+	if o == nil {
+		return nil
+	}
+	return o.LastUsedAt
+}
+
+func (o *TokenResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *TokenResponse) GetScope() *TokenResponseScope {
+	if o == nil {
+		return nil
+	}
+	return o.Scope
+}
+
+func (o *TokenResponse) GetServices() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Services
+}
+
+func (o *TokenResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *TokenResponse) GetUserAgent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserAgent
+}
+
+func (o *TokenResponse) GetUserID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.UserID
 }

@@ -3,23 +3,73 @@
 package operations
 
 import (
+	"Fastly/pkg/utils"
 	"net/http"
 )
 
-type GetKeysSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetKeysRequest struct {
 	Cursor  *string `queryParam:"style=form,explode=true,name=cursor"`
-	Limit   *int64  `queryParam:"style=form,explode=true,name=limit"`
+	Limit   *int64  `default:"100" queryParam:"style=form,explode=true,name=limit"`
 	Prefix  *string `queryParam:"style=form,explode=true,name=prefix"`
 	StoreID string  `pathParam:"style=simple,explode=false,name=store_id"`
+}
+
+func (g GetKeysRequest) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(g, "", false)
+}
+
+func (g *GetKeysRequest) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &g, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *GetKeysRequest) GetCursor() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Cursor
+}
+
+func (o *GetKeysRequest) GetLimit() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Limit
+}
+
+func (o *GetKeysRequest) GetPrefix() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prefix
+}
+
+func (o *GetKeysRequest) GetStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.StoreID
 }
 
 type GetKeys200ApplicationJSONMeta struct {
 	Limit      *int64  `json:"limit,omitempty"`
 	NextCursor *string `json:"next_cursor,omitempty"`
+}
+
+func (o *GetKeys200ApplicationJSONMeta) GetLimit() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Limit
+}
+
+func (o *GetKeys200ApplicationJSONMeta) GetNextCursor() *string {
+	if o == nil {
+		return nil
+	}
+	return o.NextCursor
 }
 
 // GetKeys200ApplicationJSON - OK
@@ -28,10 +78,55 @@ type GetKeys200ApplicationJSON struct {
 	Meta *GetKeys200ApplicationJSONMeta `json:"meta,omitempty"`
 }
 
+func (o *GetKeys200ApplicationJSON) GetData() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *GetKeys200ApplicationJSON) GetMeta() *GetKeys200ApplicationJSONMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
 type GetKeysResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	GetKeys200ApplicationJSONObject *GetKeys200ApplicationJSON
+}
+
+func (o *GetKeysResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetKeysResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetKeysResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetKeysResponse) GetGetKeys200ApplicationJSONObject() *GetKeys200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.GetKeys200ApplicationJSONObject
 }

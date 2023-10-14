@@ -4,7 +4,21 @@ package shared
 
 type Domain struct {
 	// A freeform descriptive note.
-	Comment *string `form:"name=comment"`
+	Comment *string `form:"name=comment" json:"comment,omitempty"`
 	// The name of the domain or domains associated with this service.
-	Name *string `form:"name=name"`
+	Name *string `form:"name=name" json:"name,omitempty"`
+}
+
+func (o *Domain) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Domain) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
 }
