@@ -1,7 +1,5 @@
 # WafFirewallsResponse
 
-OK
-
 
 ## Fields
 

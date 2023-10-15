@@ -1,7 +1,5 @@
 # LoggingPapertrailResponse
 
-OK
-
 
 ## Fields
 

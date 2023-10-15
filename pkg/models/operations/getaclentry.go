@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetACLEntrySecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetACLEntryRequest struct {
 	// Alphanumeric string identifying an ACL Entry.
 	ACLEntryID string `pathParam:"style=simple,explode=false,name=acl_entry_id"`
@@ -20,10 +16,62 @@ type GetACLEntryRequest struct {
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *GetACLEntryRequest) GetACLEntryID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLEntryID
+}
+
+func (o *GetACLEntryRequest) GetACLID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ACLID
+}
+
+func (o *GetACLEntryRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 type GetACLEntryResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ACLEntryResponse *shared.ACLEntryResponse
+}
+
+func (o *GetACLEntryResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetACLEntryResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetACLEntryResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetACLEntryResponse) GetACLEntryResponse() *shared.ACLEntryResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ACLEntryResponse
 }

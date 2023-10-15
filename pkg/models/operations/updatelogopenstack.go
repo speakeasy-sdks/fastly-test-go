@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogOpenstackSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogOpenstackRequest struct {
 	LoggingOpenstackInput *shared.LoggingOpenstackInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,69 @@ type UpdateLogOpenstackRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogOpenstackRequest) GetLoggingOpenstackInput() *shared.LoggingOpenstackInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingOpenstackInput
+}
+
+func (o *UpdateLogOpenstackRequest) GetLoggingOpenstackName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingOpenstackName
+}
+
+func (o *UpdateLogOpenstackRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogOpenstackRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogOpenstackResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingOpenstackResponse *shared.LoggingOpenstackResponse
+}
+
+func (o *UpdateLogOpenstackResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogOpenstackResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogOpenstackResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogOpenstackResponse) GetLoggingOpenstackResponse() *shared.LoggingOpenstackResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingOpenstackResponse
 }

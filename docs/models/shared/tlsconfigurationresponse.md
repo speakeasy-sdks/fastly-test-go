@@ -1,7 +1,5 @@
 # TLSConfigurationResponse
 
-OK
-
 
 ## Fields
 
