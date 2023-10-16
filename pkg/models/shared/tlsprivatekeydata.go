@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type TLSPrivateKeyDataAttributes struct {
 	// The contents of the private key. Must be a PEM-formatted key. Not returned in response body. Required.
 	Key *string `json:"key,omitempty"`
@@ -9,18 +13,55 @@ type TLSPrivateKeyDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
-type TLSPrivateKeyDataRelationships2TLSDomainsInput struct {
-	Data []RelationshipMemberTLSDomainInput `json:"data,omitempty"`
+func (o *TLSPrivateKeyDataAttributes) GetKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Key
 }
 
-// TLSPrivateKeyDataRelationships2Input - All the domains (including wildcard domains) that are listed in any certificate's Subject Alternative Names (SAN) list.
-type TLSPrivateKeyDataRelationships2Input struct {
-	TLSDomains *TLSPrivateKeyDataRelationships2TLSDomainsInput `json:"tls_domains,omitempty"`
+func (o *TLSPrivateKeyDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
 }
 
-type TLSPrivateKeyDataInput struct {
-	Attributes    *TLSPrivateKeyDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                  `json:"relationships,omitempty"`
+type TLSPrivateKeyData struct {
+	Attributes    *TLSPrivateKeyDataAttributes        `json:"attributes,omitempty"`
+	Relationships *RelationshipsForTLSPrivateKeyInput `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSPrivateKey `json:"type,omitempty"`
+	Type *TypeTLSPrivateKey `default:"tls_private_key" json:"type"`
+}
+
+func (t TLSPrivateKeyData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSPrivateKeyData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSPrivateKeyData) GetAttributes() *TLSPrivateKeyDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSPrivateKeyData) GetRelationships() *RelationshipsForTLSPrivateKeyInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSPrivateKeyData) GetType() *TypeTLSPrivateKey {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

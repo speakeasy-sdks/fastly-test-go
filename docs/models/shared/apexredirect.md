@@ -1,7 +1,5 @@
 # ApexRedirect
 
-OK
-
 
 ## Fields
 

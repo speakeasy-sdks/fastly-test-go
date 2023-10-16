@@ -1,7 +1,5 @@
 # SnippetResponse
 
-OK
-
 
 ## Fields
 
