@@ -1,7 +1,5 @@
 # LoggingFtpResponse
 
-OK
-
 
 ## Fields
 

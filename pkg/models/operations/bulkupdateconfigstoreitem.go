@@ -7,14 +7,24 @@ import (
 	"net/http"
 )
 
-type BulkUpdateConfigStoreItemSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type BulkUpdateConfigStoreItemRequest struct {
 	BulkUpdateConfigStoreListRequest *shared.BulkUpdateConfigStoreListRequest `request:"mediaType=application/json"`
 	// An alphanumeric string identifying the config store.
 	ConfigStoreID string `pathParam:"style=simple,explode=false,name=config_store_id"`
+}
+
+func (o *BulkUpdateConfigStoreItemRequest) GetBulkUpdateConfigStoreListRequest() *shared.BulkUpdateConfigStoreListRequest {
+	if o == nil {
+		return nil
+	}
+	return o.BulkUpdateConfigStoreListRequest
+}
+
+func (o *BulkUpdateConfigStoreItemRequest) GetConfigStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConfigStoreID
 }
 
 // BulkUpdateConfigStoreItem200ApplicationJSON - OK
@@ -23,10 +33,48 @@ type BulkUpdateConfigStoreItem200ApplicationJSON struct {
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *BulkUpdateConfigStoreItem200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type BulkUpdateConfigStoreItemResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	BulkUpdateConfigStoreItem200ApplicationJSONObject *BulkUpdateConfigStoreItem200ApplicationJSON
+}
+
+func (o *BulkUpdateConfigStoreItemResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *BulkUpdateConfigStoreItemResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *BulkUpdateConfigStoreItemResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *BulkUpdateConfigStoreItemResponse) GetBulkUpdateConfigStoreItem200ApplicationJSONObject() *BulkUpdateConfigStoreItem200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.BulkUpdateConfigStoreItem200ApplicationJSONObject
 }

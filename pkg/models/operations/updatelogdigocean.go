@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateLogDigoceanSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogDigoceanRequest struct {
 	LoggingDigitaloceanInput *shared.LoggingDigitaloceanInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
@@ -21,10 +17,69 @@ type UpdateLogDigoceanRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogDigoceanRequest) GetLoggingDigitaloceanInput() *shared.LoggingDigitaloceanInput {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingDigitaloceanInput
+}
+
+func (o *UpdateLogDigoceanRequest) GetLoggingDigitaloceanName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingDigitaloceanName
+}
+
+func (o *UpdateLogDigoceanRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogDigoceanRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogDigoceanResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingDigitaloceanResponse *shared.LoggingDigitaloceanResponse
+}
+
+func (o *UpdateLogDigoceanResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogDigoceanResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogDigoceanResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogDigoceanResponse) GetLoggingDigitaloceanResponse() *shared.LoggingDigitaloceanResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingDigitaloceanResponse
 }

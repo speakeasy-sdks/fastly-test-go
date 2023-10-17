@@ -7,22 +7,70 @@ import (
 	"net/http"
 )
 
-type CreateWafRuleExclusionSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateWafRuleExclusionRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a WAF firewall version.
-	FirewallVersionNumber int64                     `pathParam:"style=simple,explode=false,name=firewall_version_number"`
-	WafExclusionInput     *shared.WafExclusionInput `request:"mediaType=application/vnd.api+json"`
+	FirewallVersionNumber int64                `pathParam:"style=simple,explode=false,name=firewall_version_number"`
+	WafExclusion          *shared.WafExclusion `request:"mediaType=application/vnd.api+json"`
+}
+
+func (o *CreateWafRuleExclusionRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *CreateWafRuleExclusionRequest) GetFirewallVersionNumber() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.FirewallVersionNumber
+}
+
+func (o *CreateWafRuleExclusionRequest) GetWafExclusion() *shared.WafExclusion {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusion
 }
 
 type CreateWafRuleExclusionResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// Created
 	WafExclusionResponse *shared.WafExclusionResponse
+}
+
+func (o *CreateWafRuleExclusionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateWafRuleExclusionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateWafRuleExclusionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateWafRuleExclusionResponse) GetWafExclusionResponse() *shared.WafExclusionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.WafExclusionResponse
 }

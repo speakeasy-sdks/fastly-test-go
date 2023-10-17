@@ -2,8 +2,21 @@
 
 package shared
 
-// WafRuleResponse - OK
 type WafRuleResponse struct {
-	Data     *WafRuleResponseData `json:"data,omitempty"`
-	Included []interface{}        `json:"included,omitempty"`
+	Data     *WafRuleResponseData      `json:"data,omitempty"`
+	Included []IncludedWithWafRuleItem `json:"included,omitempty"`
+}
+
+func (o *WafRuleResponse) GetData() *WafRuleResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *WafRuleResponse) GetIncluded() []IncludedWithWafRuleItem {
+	if o == nil {
+		return nil
+	}
+	return o.Included
 }

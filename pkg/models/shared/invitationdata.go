@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -46,9 +47,69 @@ type InvitationDataAttributes struct {
 	StatusCode *InvitationDataAttributesStatusCode `json:"status_code,omitempty"`
 }
 
+func (o *InvitationDataAttributes) GetEmail() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Email
+}
+
+func (o *InvitationDataAttributes) GetLimitServices() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.LimitServices
+}
+
+func (o *InvitationDataAttributes) GetRole() *RoleUser {
+	if o == nil {
+		return nil
+	}
+	return o.Role
+}
+
+func (o *InvitationDataAttributes) GetStatusCode() *InvitationDataAttributesStatusCode {
+	if o == nil {
+		return nil
+	}
+	return o.StatusCode
+}
+
 type InvitationDataInput struct {
 	Attributes    *InvitationDataAttributes                  `json:"attributes,omitempty"`
 	Relationships *RelationshipServiceInvitationsCreateInput `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeInvitation `json:"type,omitempty"`
+	Type *TypeInvitation `default:"invitation" json:"type"`
+}
+
+func (i InvitationDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(i, "", false)
+}
+
+func (i *InvitationDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &i, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *InvitationDataInput) GetAttributes() *InvitationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *InvitationDataInput) GetRelationships() *RelationshipServiceInvitationsCreateInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *InvitationDataInput) GetType() *TypeInvitation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

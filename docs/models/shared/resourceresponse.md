@@ -1,7 +1,5 @@
 # ResourceResponse
 
-OK
-
 
 ## Fields
 
