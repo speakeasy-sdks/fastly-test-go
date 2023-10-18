@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type UpdateConditionSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateConditionRequest struct {
 	ConditionInput *shared.ConditionInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Name of the condition. Required.
@@ -21,10 +17,69 @@ type UpdateConditionRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateConditionRequest) GetConditionInput() *shared.ConditionInput {
+	if o == nil {
+		return nil
+	}
+	return o.ConditionInput
+}
+
+func (o *UpdateConditionRequest) GetConditionName() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConditionName
+}
+
+func (o *UpdateConditionRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateConditionRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateConditionResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ConditionResponse *shared.ConditionResponse
+}
+
+func (o *UpdateConditionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateConditionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateConditionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateConditionResponse) GetConditionResponse() *shared.ConditionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConditionResponse
 }

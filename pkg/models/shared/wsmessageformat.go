@@ -9,3 +9,17 @@ type WsMessageFormat struct {
 	// The base64-encoded content of a WebSocket `BINARY` message.
 	ContentBin *string `json:"content-bin,omitempty"`
 }
+
+func (o *WsMessageFormat) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *WsMessageFormat) GetContentBin() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentBin
+}

@@ -19,6 +19,55 @@ type BillingAddressAttributesInput struct {
 	State *string `json:"state,omitempty"`
 }
 
+func (o *BillingAddressAttributesInput) GetAddress1() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address1
+}
+
+func (o *BillingAddressAttributesInput) GetAddress2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address2
+}
+
+func (o *BillingAddressAttributesInput) GetCity() *string {
+	if o == nil {
+		return nil
+	}
+	return o.City
+}
+
+func (o *BillingAddressAttributesInput) GetCountry() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Country
+}
+
+func (o *BillingAddressAttributesInput) GetLocality() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Locality
+}
+
+func (o *BillingAddressAttributesInput) GetPostalCode() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PostalCode
+}
+
+func (o *BillingAddressAttributesInput) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
+}
+
 type BillingAddressAttributes struct {
 	// The first address line.
 	Address1 *string `json:"address_1,omitempty"`
@@ -35,4 +84,60 @@ type BillingAddressAttributes struct {
 	PostalCode *string `json:"postal_code,omitempty"`
 	// The state or province name.
 	State *string `json:"state,omitempty"`
+}
+
+func (o *BillingAddressAttributes) GetAddress1() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address1
+}
+
+func (o *BillingAddressAttributes) GetAddress2() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address2
+}
+
+func (o *BillingAddressAttributes) GetCity() *string {
+	if o == nil {
+		return nil
+	}
+	return o.City
+}
+
+func (o *BillingAddressAttributes) GetCountry() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Country
+}
+
+func (o *BillingAddressAttributes) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *BillingAddressAttributes) GetLocality() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Locality
+}
+
+func (o *BillingAddressAttributes) GetPostalCode() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PostalCode
+}
+
+func (o *BillingAddressAttributes) GetState() *string {
+	if o == nil {
+		return nil
+	}
+	return o.State
 }

@@ -2,14 +2,61 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberWafFirewallVersion struct {
 	// Alphanumeric string identifying a Firewall version.
 	ID *string `json:"id,omitempty"`
 	// Resource type.
-	Type *TypeWafFirewallVersion `json:"type,omitempty"`
+	Type *TypeWafFirewallVersion `default:"waf_firewall_version" json:"type"`
+}
+
+func (r RelationshipMemberWafFirewallVersion) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafFirewallVersion) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafFirewallVersion) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberWafFirewallVersion) GetType() *TypeWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 type RelationshipMemberWafFirewallVersionInput struct {
 	// Resource type.
-	Type *TypeWafFirewallVersion `json:"type,omitempty"`
+	Type *TypeWafFirewallVersion `default:"waf_firewall_version" json:"type"`
+}
+
+func (r RelationshipMemberWafFirewallVersionInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberWafFirewallVersionInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberWafFirewallVersionInput) GetType() *TypeWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
