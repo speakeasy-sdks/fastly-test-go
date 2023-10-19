@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -67,7 +68,6 @@ func (e *LoggingPapertrailResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingPapertrailResponse - OK
 type LoggingPapertrailResponse struct {
 	// A hostname or IPv4 address.
 	Address *string `json:"address,omitempty"`
@@ -76,21 +76,116 @@ type LoggingPapertrailResponse struct {
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `json:"format,omitempty"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingPapertrailResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingPapertrailResponseFormatVersion `default:"2" json:"format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `json:"name,omitempty"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingPapertrailResponsePlacement `json:"placement,omitempty"`
 	// The port number.
-	Port *int64 `json:"port,omitempty"`
+	Port *int64 `default:"514" json:"port"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `json:"response_condition,omitempty"`
 	ServiceID         *string `json:"service_id,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
+}
+
+func (l LoggingPapertrailResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingPapertrailResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingPapertrailResponse) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingPapertrailResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingPapertrailResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingPapertrailResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingPapertrailResponse) GetFormatVersion() *LoggingPapertrailResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingPapertrailResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingPapertrailResponse) GetPlacement() *LoggingPapertrailResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingPapertrailResponse) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingPapertrailResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingPapertrailResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingPapertrailResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingPapertrailResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

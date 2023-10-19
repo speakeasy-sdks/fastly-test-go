@@ -5,3 +5,10 @@ package shared
 type ServiceInvitationInput struct {
 	Data *ServiceInvitationDataInput `json:"data,omitempty"`
 }
+
+func (o *ServiceInvitationInput) GetData() *ServiceInvitationDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

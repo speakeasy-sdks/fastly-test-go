@@ -7,12 +7,8 @@ import (
 	"net/http"
 )
 
-type UpdateLogSumologicSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogSumologicRequest struct {
-	LoggingSumologic2 *shared.LoggingSumologic2 `request:"mediaType=application/x-www-form-urlencoded"`
+	LoggingSumologic *shared.LoggingSumologic `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
 	LoggingSumologicName string `pathParam:"style=simple,explode=false,name=logging_sumologic_name"`
 	// Alphanumeric string identifying the service.
@@ -21,10 +17,69 @@ type UpdateLogSumologicRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogSumologicRequest) GetLoggingSumologic() *shared.LoggingSumologic {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSumologic
+}
+
+func (o *UpdateLogSumologicRequest) GetLoggingSumologicName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingSumologicName
+}
+
+func (o *UpdateLogSumologicRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogSumologicRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogSumologicResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingSumologicResponse *shared.LoggingSumologicResponse
+}
+
+func (o *UpdateLogSumologicResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogSumologicResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogSumologicResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogSumologicResponse) GetLoggingSumologicResponse() *shared.LoggingSumologicResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingSumologicResponse
 }
