@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -141,27 +142,143 @@ type LoggingAzureblobInput struct {
 	// The maximum number of bytes for each uploaded file. A value of 0 can be used to indicate there is no limit on the size of uploaded files, otherwise the minimum value is 1048576 bytes (1 MiB.)
 	FileMaxBytes *int64 `form:"name=file_max_bytes"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingAzureblobFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingAzureblobFormatVersion `default:"2" form:"name=format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `form:"name=gzip_level"`
+	GzipLevel *int64 `default:"0" form:"name=gzip_level"`
 	// How the message should be formatted.
-	MessageType *LoggingAzureblobMessageType `form:"name=message_type"`
+	MessageType *LoggingAzureblobMessageType `default:"classic" form:"name=message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// The path to upload logs to.
-	Path *string `form:"name=path"`
+	Path *string `default:"null" form:"name=path"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `form:"name=period"`
+	Period *int64 `default:"3600" form:"name=period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingAzureblobPlacement `form:"name=placement"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `form:"name=public_key"`
+	PublicKey *string `default:"null" form:"name=public_key"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// The Azure shared access signature providing write access to the blob service objects. Be sure to update your token before it expires or the logging functionality will not work. Required.
 	SasToken *string `form:"name=sas_token"`
+}
+
+func (l LoggingAzureblobInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingAzureblobInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingAzureblobInput) GetAccountName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccountName
+}
+
+func (o *LoggingAzureblobInput) GetCompressionCodec() *LoggingAzureblobCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingAzureblobInput) GetContainer() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Container
+}
+
+func (o *LoggingAzureblobInput) GetFileMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FileMaxBytes
+}
+
+func (o *LoggingAzureblobInput) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingAzureblobInput) GetFormatVersion() *LoggingAzureblobFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingAzureblobInput) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingAzureblobInput) GetMessageType() *LoggingAzureblobMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingAzureblobInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingAzureblobInput) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingAzureblobInput) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingAzureblobInput) GetPlacement() *LoggingAzureblobPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingAzureblobInput) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingAzureblobInput) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingAzureblobInput) GetSasToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SasToken
 }

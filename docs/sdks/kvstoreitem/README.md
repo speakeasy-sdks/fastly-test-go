@@ -1,4 +1,5 @@
 # KvStoreItem
+(*KvStoreItem*)
 
 ## Overview
 
@@ -24,20 +25,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.KvStoreItem.DeleteKeyFromStore(ctx, operations.DeleteKeyFromStoreRequest{
-        Force: sdk.Bool(false),
-        KeyName: "veritatis",
-        StoreID: "nobis",
-    }, operations.DeleteKeyFromStoreSecurity{
-        Token: "",
+        KeyName: "Supervisor",
+        StoreID: "Protactinium",
     })
     if err != nil {
         log.Fatal(err)
@@ -51,11 +52,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.DeleteKeyFromStoreRequest](../../models/operations/deletekeyfromstorerequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.DeleteKeyFromStoreSecurity](../../models/operations/deletekeyfromstoresecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.DeleteKeyFromStoreRequest](../../models/operations/deletekeyfromstorerequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
@@ -75,21 +75,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetKeys(ctx, operations.GetKeysRequest{
-        Cursor: sdk.String("quos"),
-        Limit: sdk.Int64(731694),
-        Prefix: sdk.String("cupiditate"),
-        StoreID: "aperiam",
-    }, operations.GetKeysSecurity{
-        Token: "",
+        StoreID: "Shoes",
     })
     if err != nil {
         log.Fatal(err)
@@ -103,11 +101,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
-| `request`                                                                | [operations.GetKeysRequest](../../models/operations/getkeysrequest.md)   | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `security`                                                               | [operations.GetKeysSecurity](../../models/operations/getkeyssecurity.md) | :heavy_check_mark:                                                       | The security requirements to use for the request.                        |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
+| `request`                                                              | [operations.GetKeysRequest](../../models/operations/getkeysrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
 
 
 ### Response
@@ -127,19 +124,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetValueForKey(ctx, operations.GetValueForKeyRequest{
-        KeyName: "delectus",
-        StoreID: "dolorem",
-    }, operations.GetValueForKeySecurity{
-        Token: "",
+        KeyName: "Volvo",
+        StoreID: "male",
     })
     if err != nil {
         log.Fatal(err)
@@ -153,11 +151,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetValueForKeyRequest](../../models/operations/getvalueforkeyrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetValueForKeySecurity](../../models/operations/getvalueforkeysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetValueForKeyRequest](../../models/operations/getvalueforkeyrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -177,27 +174,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.KvStoreItem.SetValueForKey(ctx, operations.SetValueForKeyRequest{
-        RequestBody: sdk.String("dolore"),
-        Add: sdk.Bool(false),
-        Append: sdk.Bool(false),
-        BackgroundFetch: sdk.Bool(false),
-        IfGenerationMatch: sdk.Int64(286915),
-        KeyName: "adipisci",
-        Metadata: sdk.String("dolorum"),
-        Prepend: sdk.Bool(false),
-        StoreID: "architecto",
-        TimeToLiveSec: sdk.Int64(63038),
-    }, operations.SetValueForKeySecurity{
-        Token: "",
+        KeyName: "compress",
+        StoreID: "neural",
     })
     if err != nil {
         log.Fatal(err)
@@ -211,11 +201,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.SetValueForKeyRequest](../../models/operations/setvalueforkeyrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.SetValueForKeySecurity](../../models/operations/setvalueforkeysecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.SetValueForKeyRequest](../../models/operations/setvalueforkeyrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response

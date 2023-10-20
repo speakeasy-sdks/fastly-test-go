@@ -1,4 +1,5 @@
 # Healthcheck
+(*Healthcheck*)
 
 ## Overview
 
@@ -25,39 +26,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Healthcheck.CreateHealthcheck(ctx, operations.CreateHealthcheckRequest{
         Healthcheck: &shared.Healthcheck{
-            CheckInterval: sdk.Int64(798047),
-            Comment: sdk.String("officiis"),
-            ExpectedResponse: sdk.Int64(185636),
+            Comment: fastly.String("The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients"),
             Headers: []string{
-                "a",
-                "esse",
-                "harum",
+                "Grady",
             },
-            Host: sdk.String("iusto"),
-            HTTPVersion: sdk.String("ipsum"),
-            Initial: sdk.Int64(788740),
-            Method: sdk.String("tenetur"),
-            Name: sdk.String("test-healthcheck"),
-            Path: sdk.String("amet"),
-            Threshold: sdk.Int64(730856),
-            Timeout: sdk.Int64(880298),
-            Window: sdk.Int64(253941),
+            Name: fastly.String("test-healthcheck"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateHealthcheckSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -71,11 +60,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.CreateHealthcheckRequest](../../models/operations/createhealthcheckrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.CreateHealthcheckSecurity](../../models/operations/createhealthchecksecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.CreateHealthcheckRequest](../../models/operations/createhealthcheckrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -95,20 +83,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Healthcheck.DeleteHealthcheck(ctx, operations.DeleteHealthcheckRequest{
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteHealthcheckSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -122,11 +111,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.DeleteHealthcheckRequest](../../models/operations/deletehealthcheckrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.DeleteHealthcheckSecurity](../../models/operations/deletehealthchecksecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.DeleteHealthcheckRequest](../../models/operations/deletehealthcheckrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -146,20 +134,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Healthcheck.GetHealthcheck(ctx, operations.GetHealthcheckRequest{
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetHealthcheckSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -173,11 +162,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.GetHealthcheckRequest](../../models/operations/gethealthcheckrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.GetHealthcheckSecurity](../../models/operations/gethealthchecksecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.GetHealthcheckRequest](../../models/operations/gethealthcheckrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -197,19 +185,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Healthcheck.ListHealthchecks(ctx, operations.ListHealthchecksRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListHealthchecksSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -223,11 +212,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.ListHealthchecksRequest](../../models/operations/listhealthchecksrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListHealthchecksSecurity](../../models/operations/listhealthcheckssecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.ListHealthchecksRequest](../../models/operations/listhealthchecksrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -247,40 +235,28 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Healthcheck.UpdateHealthcheck(ctx, operations.UpdateHealthcheckRequest{
         Healthcheck: &shared.Healthcheck{
-            CheckInterval: sdk.Int64(313692),
-            Comment: sdk.String("dolorem"),
-            ExpectedResponse: sdk.Int64(957451),
+            Comment: fastly.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
             Headers: []string{
-                "nihil",
-                "sit",
-                "expedita",
+                "Internal",
             },
-            Host: sdk.String("neque"),
-            HTTPVersion: sdk.String("sed"),
-            Initial: sdk.Int64(424685),
-            Method: sdk.String("libero"),
-            Name: sdk.String("test-healthcheck"),
-            Path: sdk.String("voluptas"),
-            Threshold: sdk.Int64(646265),
-            Timeout: sdk.Int64(463575),
-            Window: sdk.Int64(214880),
+            Name: fastly.String("test-healthcheck"),
         },
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateHealthcheckSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -294,11 +270,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.UpdateHealthcheckRequest](../../models/operations/updatehealthcheckrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateHealthcheckSecurity](../../models/operations/updatehealthchecksecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.UpdateHealthcheckRequest](../../models/operations/updatehealthcheckrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response

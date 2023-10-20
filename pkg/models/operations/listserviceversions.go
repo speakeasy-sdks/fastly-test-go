@@ -7,19 +7,53 @@ import (
 	"net/http"
 )
 
-type ListServiceVersionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type ListServiceVersionsRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
 }
 
+func (o *ListServiceVersionsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
 type ListServiceVersionsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	VersionResponses []shared.VersionResponse
+}
+
+func (o *ListServiceVersionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListServiceVersionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListServiceVersionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListServiceVersionsResponse) GetVersionResponses() []shared.VersionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.VersionResponses
 }

@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -46,16 +47,62 @@ type WafActiveRuleDataAttributes struct {
 	Status *WafActiveRuleDataAttributesStatus `json:"status,omitempty"`
 }
 
-type WafActiveRuleData struct {
-	Attributes    *WafActiveRuleDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                  `json:"relationships,omitempty"`
-	// Resource type.
-	Type *TypeWafActiveRule `json:"type,omitempty"`
+func (o *WafActiveRuleDataAttributes) GetModsecRuleID() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ModsecRuleID
 }
 
-type WafActiveRuleDataInput struct {
-	Attributes    *WafActiveRuleDataAttributes `json:"attributes,omitempty"`
-	Relationships interface{}                  `json:"relationships,omitempty"`
+func (o *WafActiveRuleDataAttributes) GetRevision() *WafRuleRevisionOrLatest {
+	if o == nil {
+		return nil
+	}
+	return o.Revision
+}
+
+func (o *WafActiveRuleDataAttributes) GetStatus() *WafActiveRuleDataAttributesStatus {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
+type WafActiveRuleData struct {
+	Attributes    *WafActiveRuleDataAttributes   `json:"attributes,omitempty"`
+	Relationships *RelationshipsForWafActiveRule `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafActiveRule `json:"type,omitempty"`
+	Type *TypeWafActiveRule `default:"waf_active_rule" json:"type"`
+}
+
+func (w WafActiveRuleData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafActiveRuleData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafActiveRuleData) GetAttributes() *WafActiveRuleDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafActiveRuleData) GetRelationships() *RelationshipsForWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafActiveRuleData) GetType() *TypeWafActiveRule {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

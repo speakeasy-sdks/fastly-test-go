@@ -1,7 +1,5 @@
 # DiffResponse
 
-OK
-
 
 ## Fields
 

@@ -2,19 +2,66 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type ServiceAuthorizationDataAttributes struct {
 	// The permission the user has in relation to the service.
-	Permission *Permission `json:"permission,omitempty"`
+	Permission *Permission `default:"full" json:"permission"`
+}
+
+func (s ServiceAuthorizationDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceAuthorizationDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceAuthorizationDataAttributes) GetPermission() *Permission {
+	if o == nil {
+		return nil
+	}
+	return o.Permission
 }
 
 type ServiceAuthorizationDataRelationshipsUserDataInput struct {
 	// Resource type
-	Type *TypeUser `json:"type,omitempty"`
+	Type *TypeUser `default:"user" json:"type"`
+}
+
+func (s ServiceAuthorizationDataRelationshipsUserDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceAuthorizationDataRelationshipsUserDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceAuthorizationDataRelationshipsUserDataInput) GetType() *TypeUser {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 // ServiceAuthorizationDataRelationshipsUserInput - The ID of the user being given access to the service.
 type ServiceAuthorizationDataRelationshipsUserInput struct {
 	Data *ServiceAuthorizationDataRelationshipsUserDataInput `json:"data,omitempty"`
+}
+
+func (o *ServiceAuthorizationDataRelationshipsUserInput) GetData() *ServiceAuthorizationDataRelationshipsUserDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }
 
 type ServiceAuthorizationDataRelationshipsInput struct {
@@ -23,9 +70,55 @@ type ServiceAuthorizationDataRelationshipsInput struct {
 	User *ServiceAuthorizationDataRelationshipsUserInput `json:"user,omitempty"`
 }
 
+func (o *ServiceAuthorizationDataRelationshipsInput) GetService() *RelationshipMemberServiceInput {
+	if o == nil {
+		return nil
+	}
+	return o.Service
+}
+
+func (o *ServiceAuthorizationDataRelationshipsInput) GetUser() *ServiceAuthorizationDataRelationshipsUserInput {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
 type ServiceAuthorizationDataInput struct {
 	Attributes    *ServiceAuthorizationDataAttributes         `json:"attributes,omitempty"`
 	Relationships *ServiceAuthorizationDataRelationshipsInput `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeServiceAuthorization `json:"type,omitempty"`
+	Type *TypeServiceAuthorization `default:"service_authorization" json:"type"`
+}
+
+func (s ServiceAuthorizationDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceAuthorizationDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceAuthorizationDataInput) GetAttributes() *ServiceAuthorizationDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *ServiceAuthorizationDataInput) GetRelationships() *ServiceAuthorizationDataRelationshipsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *ServiceAuthorizationDataInput) GetType() *TypeServiceAuthorization {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

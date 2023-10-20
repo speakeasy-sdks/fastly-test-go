@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// ACLResponse - OK
 type ACLResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
@@ -20,4 +20,64 @@ type ACLResponse struct {
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// String representing the number identifying a version of the service.
 	Version *string `json:"version,omitempty"`
+}
+
+func (a ACLResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *ACLResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ACLResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ACLResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ACLResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *ACLResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ACLResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ACLResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ACLResponse) GetVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }
