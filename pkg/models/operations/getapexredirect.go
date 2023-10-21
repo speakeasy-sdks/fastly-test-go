@@ -7,18 +7,52 @@ import (
 	"net/http"
 )
 
-type GetApexRedirectSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetApexRedirectRequest struct {
 	ApexRedirectID string `pathParam:"style=simple,explode=false,name=apex_redirect_id"`
 }
 
+func (o *GetApexRedirectRequest) GetApexRedirectID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ApexRedirectID
+}
+
 type GetApexRedirectResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ApexRedirect *shared.ApexRedirect
+}
+
+func (o *GetApexRedirectResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetApexRedirectResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetApexRedirectResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetApexRedirectResponse) GetApexRedirect() *shared.ApexRedirect {
+	if o == nil {
+		return nil
+	}
+	return o.ApexRedirect
 }

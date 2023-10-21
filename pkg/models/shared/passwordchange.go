@@ -8,3 +8,17 @@ type PasswordChange struct {
 	// The user's current password.
 	OldPassword *string `form:"name=old_password"`
 }
+
+func (o *PasswordChange) GetNewPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.NewPassword
+}
+
+func (o *PasswordChange) GetOldPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OldPassword
+}

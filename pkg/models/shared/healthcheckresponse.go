@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// HealthcheckResponse - OK
 type HealthcheckResponse struct {
 	// How often to run the health check in milliseconds.
 	CheckInterval *int64 `json:"check_interval,omitempty"`
@@ -42,4 +42,141 @@ type HealthcheckResponse struct {
 	Version   *int64     `json:"version,omitempty"`
 	// The number of most recent health check queries to keep for this health check.
 	Window *int64 `json:"window,omitempty"`
+}
+
+func (h HealthcheckResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(h, "", false)
+}
+
+func (h *HealthcheckResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &h, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *HealthcheckResponse) GetCheckInterval() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CheckInterval
+}
+
+func (o *HealthcheckResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *HealthcheckResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *HealthcheckResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *HealthcheckResponse) GetExpectedResponse() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ExpectedResponse
+}
+
+func (o *HealthcheckResponse) GetHeaders() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *HealthcheckResponse) GetHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Host
+}
+
+func (o *HealthcheckResponse) GetHTTPVersion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPVersion
+}
+
+func (o *HealthcheckResponse) GetInitial() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Initial
+}
+
+func (o *HealthcheckResponse) GetMethod() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Method
+}
+
+func (o *HealthcheckResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *HealthcheckResponse) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *HealthcheckResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *HealthcheckResponse) GetThreshold() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Threshold
+}
+
+func (o *HealthcheckResponse) GetTimeout() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Timeout
+}
+
+func (o *HealthcheckResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *HealthcheckResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *HealthcheckResponse) GetWindow() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Window
 }

@@ -12,3 +12,31 @@ type Gzip struct {
 	// Name of the gzip configuration.
 	Name *string `form:"name=name"`
 }
+
+func (o *Gzip) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *Gzip) GetContentTypes() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentTypes
+}
+
+func (o *Gzip) GetExtensions() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Extensions
+}
+
+func (o *Gzip) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
