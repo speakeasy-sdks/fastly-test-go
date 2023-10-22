@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -132,7 +133,6 @@ func (e *LoggingFtpResponsePlacement) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingFtpResponse - OK
 type LoggingFtpResponse struct {
 	// An hostname or IPv4 address.
 	Address *string `json:"address,omitempty"`
@@ -143,18 +143,18 @@ type LoggingFtpResponse struct {
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `json:"format,omitempty"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingFtpResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingFtpResponseFormatVersion `default:"2" json:"format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `json:"gzip_level,omitempty"`
+	GzipLevel *int64 `default:"0" json:"gzip_level"`
 	// Hostname used.
 	Hostname *string `json:"hostname,omitempty"`
 	// IPv4 address of the host.
 	Ipv4 *string `json:"ipv4,omitempty"`
 	// How the message should be formatted.
-	MessageType *LoggingFtpResponseMessageType `json:"message_type,omitempty"`
+	MessageType *LoggingFtpResponseMessageType `default:"classic" json:"message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `json:"name,omitempty"`
 	// The password for the server. For anonymous use an email address.
@@ -162,14 +162,14 @@ type LoggingFtpResponse struct {
 	// The path to upload log files to. If the path ends in `/` then it is treated as a directory.
 	Path *string `json:"path,omitempty"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `json:"period,omitempty"`
+	Period *int64 `default:"3600" json:"period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingFtpResponsePlacement `json:"placement,omitempty"`
 	// The port number.
-	Port *int64 `json:"port,omitempty"`
+	Port *int64 `default:"21" json:"port"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `json:"public_key,omitempty"`
+	PublicKey *string `default:"null" json:"public_key"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `json:"response_condition,omitempty"`
 	ServiceID         *string `json:"service_id,omitempty"`
@@ -180,4 +180,176 @@ type LoggingFtpResponse struct {
 	// The username for the server. Can be anonymous.
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
+}
+
+func (l LoggingFtpResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingFtpResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingFtpResponse) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingFtpResponse) GetCompressionCodec() *LoggingFtpResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingFtpResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingFtpResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingFtpResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingFtpResponse) GetFormatVersion() *LoggingFtpResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingFtpResponse) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingFtpResponse) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *LoggingFtpResponse) GetIpv4() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv4
+}
+
+func (o *LoggingFtpResponse) GetMessageType() *LoggingFtpResponseMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingFtpResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingFtpResponse) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingFtpResponse) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingFtpResponse) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingFtpResponse) GetPlacement() *LoggingFtpResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingFtpResponse) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingFtpResponse) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingFtpResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingFtpResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingFtpResponse) GetTimestampFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TimestampFormat
+}
+
+func (o *LoggingFtpResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingFtpResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingFtpResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

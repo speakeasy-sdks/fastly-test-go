@@ -1,7 +1,5 @@
 # DirectorResponse
 
-OK
-
 
 ## Fields
 

@@ -12,6 +12,27 @@ type PublishItemFormats struct {
 	WsMessage *WsMessageFormat `json:"ws-message,omitempty"`
 }
 
+func (o *PublishItemFormats) GetHTTPResponse() *HTTPResponseFormat {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPResponse
+}
+
+func (o *PublishItemFormats) GetHTTPStream() *HTTPStreamFormat {
+	if o == nil {
+		return nil
+	}
+	return o.HTTPStream
+}
+
+func (o *PublishItemFormats) GetWsMessage() *WsMessageFormat {
+	if o == nil {
+		return nil
+	}
+	return o.WsMessage
+}
+
 // PublishItem - An individual message.
 type PublishItem struct {
 	// The channel to publish the message on.
@@ -22,4 +43,32 @@ type PublishItem struct {
 	ID *string `json:"id,omitempty"`
 	// The ID of the previous message published on the same channel.
 	PrevID *string `json:"prev-id,omitempty"`
+}
+
+func (o *PublishItem) GetChannel() string {
+	if o == nil {
+		return ""
+	}
+	return o.Channel
+}
+
+func (o *PublishItem) GetFormats() PublishItemFormats {
+	if o == nil {
+		return PublishItemFormats{}
+	}
+	return o.Formats
+}
+
+func (o *PublishItem) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *PublishItem) GetPrevID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PrevID
 }

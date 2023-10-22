@@ -1,7 +1,5 @@
 # HistoricalUsageServiceResponse
 
-OK
-
 
 ## Fields
 

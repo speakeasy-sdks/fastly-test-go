@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -163,7 +164,6 @@ func (e *LoggingKafkaResponseRequiredAcks) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingKafkaResponse - OK
 type LoggingKafkaResponse struct {
 	// SASL authentication method.
 	AuthMethod *LoggingKafkaResponseAuthMethod `json:"auth_method,omitempty"`
@@ -176,10 +176,10 @@ type LoggingKafkaResponse struct {
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `json:"format,omitempty"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingKafkaResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingKafkaResponseFormatVersion `default:"2" json:"format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `json:"name,omitempty"`
 	// Enables parsing of key=value tuples from the beginning of a logline, turning them into [record headers](https://cwiki.apache.org/confluence/display/KAFKA/KIP-82+-+Add+Record+Headers).
@@ -190,27 +190,206 @@ type LoggingKafkaResponse struct {
 	//
 	Placement *LoggingKafkaResponsePlacement `json:"placement,omitempty"`
 	// The maximum number of bytes sent in one request. Defaults `0` (no limit).
-	RequestMaxBytes *int64 `json:"request_max_bytes,omitempty"`
+	RequestMaxBytes *int64 `default:"0" json:"request_max_bytes"`
 	// The number of acknowledgements a leader must receive before a write is considered successful.
-	RequiredAcks *LoggingKafkaResponseRequiredAcks `json:"required_acks,omitempty"`
+	RequiredAcks *LoggingKafkaResponseRequiredAcks `default:"1" json:"required_acks"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `json:"response_condition,omitempty"`
 	ServiceID         *string `json:"service_id,omitempty"`
 	// A secure certificate to authenticate a server with. Must be in PEM format.
-	TLSCaCert *string `json:"tls_ca_cert,omitempty"`
+	TLSCaCert *string `default:"null" json:"tls_ca_cert"`
 	// The client certificate used to make authenticated requests. Must be in PEM format.
-	TLSClientCert *string `json:"tls_client_cert,omitempty"`
+	TLSClientCert *string `default:"null" json:"tls_client_cert"`
 	// The client private key used to make authenticated requests. Must be in PEM format.
-	TLSClientKey *string `json:"tls_client_key,omitempty"`
+	TLSClientKey *string `default:"null" json:"tls_client_key"`
 	// The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported.
-	TLSHostname *string `json:"tls_hostname,omitempty"`
+	TLSHostname *string `default:"null" json:"tls_hostname"`
 	// The Kafka topic to send logs to. Required.
 	Topic *string `json:"topic,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// Whether to use TLS.
-	UseTLS *LoggingUseTLS `json:"use_tls,omitempty"`
+	UseTLS *LoggingUseTLS `default:"0" json:"use_tls"`
 	// SASL user.
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
+}
+
+func (l LoggingKafkaResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingKafkaResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingKafkaResponse) GetAuthMethod() *LoggingKafkaResponseAuthMethod {
+	if o == nil {
+		return nil
+	}
+	return o.AuthMethod
+}
+
+func (o *LoggingKafkaResponse) GetBrokers() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Brokers
+}
+
+func (o *LoggingKafkaResponse) GetCompressionCodec() *LoggingKafkaResponseCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingKafkaResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingKafkaResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingKafkaResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingKafkaResponse) GetFormatVersion() *LoggingKafkaResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingKafkaResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingKafkaResponse) GetParseLogKeyvals() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.ParseLogKeyvals
+}
+
+func (o *LoggingKafkaResponse) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingKafkaResponse) GetPlacement() *LoggingKafkaResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingKafkaResponse) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingKafkaResponse) GetRequiredAcks() *LoggingKafkaResponseRequiredAcks {
+	if o == nil {
+		return nil
+	}
+	return o.RequiredAcks
+}
+
+func (o *LoggingKafkaResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingKafkaResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingKafkaResponse) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingKafkaResponse) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingKafkaResponse) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingKafkaResponse) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingKafkaResponse) GetTopic() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Topic
+}
+
+func (o *LoggingKafkaResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingKafkaResponse) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}
+
+func (o *LoggingKafkaResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingKafkaResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

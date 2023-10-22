@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteConditionSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteConditionRequest struct {
 	// Name of the condition. Required.
 	ConditionName string `pathParam:"style=simple,explode=false,name=condition_name"`
@@ -19,16 +15,75 @@ type DeleteConditionRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteConditionRequest) GetConditionName() string {
+	if o == nil {
+		return ""
+	}
+	return o.ConditionName
+}
+
+func (o *DeleteConditionRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteConditionRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteCondition200ApplicationJSON - OK
 type DeleteCondition200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteCondition200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteConditionResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteCondition200ApplicationJSONObject *DeleteCondition200ApplicationJSON
+}
+
+func (o *DeleteConditionResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteConditionResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteConditionResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteConditionResponse) GetDeleteCondition200ApplicationJSONObject() *DeleteCondition200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteCondition200ApplicationJSONObject
 }

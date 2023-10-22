@@ -6,14 +6,42 @@ type RelationshipTLSActivationsTLSActivationsInput struct {
 	Data []RelationshipMemberTLSActivationInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipTLSActivationsTLSActivationsInput) GetData() []RelationshipMemberTLSActivationInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipTLSActivationsInput struct {
 	TLSActivations *RelationshipTLSActivationsTLSActivationsInput `json:"tls_activations,omitempty"`
+}
+
+func (o *RelationshipTLSActivationsInput) GetTLSActivations() *RelationshipTLSActivationsTLSActivationsInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSActivations
 }
 
 type RelationshipTLSActivationsTLSActivations struct {
 	Data []RelationshipMemberTLSActivation `json:"data,omitempty"`
 }
 
+func (o *RelationshipTLSActivationsTLSActivations) GetData() []RelationshipMemberTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipTLSActivations struct {
 	TLSActivations *RelationshipTLSActivationsTLSActivations `json:"tls_activations,omitempty"`
+}
+
+func (o *RelationshipTLSActivations) GetTLSActivations() *RelationshipTLSActivationsTLSActivations {
+	if o == nil {
+		return nil
+	}
+	return o.TLSActivations
 }

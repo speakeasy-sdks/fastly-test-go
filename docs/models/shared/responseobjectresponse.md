@@ -1,7 +1,5 @@
 # ResponseObjectResponse
 
-OK
-
 
 ## Fields
 
