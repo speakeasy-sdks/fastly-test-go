@@ -1,7 +1,5 @@
 # HeaderResponse
 
-OK
-
 
 ## Fields
 

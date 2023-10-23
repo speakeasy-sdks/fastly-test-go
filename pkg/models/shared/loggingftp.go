@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -137,18 +138,18 @@ type LoggingFtpInput struct {
 	// The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
 	CompressionCodec *LoggingFtpCompressionCodec `form:"name=compression_codec"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingFtpFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingFtpFormatVersion `default:"2" form:"name=format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `form:"name=gzip_level"`
+	GzipLevel *int64 `default:"0" form:"name=gzip_level"`
 	// Hostname used.
 	Hostname *string `form:"name=hostname"`
 	// IPv4 address of the host.
 	Ipv4 *string `form:"name=ipv4"`
 	// How the message should be formatted.
-	MessageType *LoggingFtpMessageType `form:"name=message_type"`
+	MessageType *LoggingFtpMessageType `default:"classic" form:"name=message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// The password for the server. For anonymous use an email address.
@@ -156,16 +157,146 @@ type LoggingFtpInput struct {
 	// The path to upload log files to. If the path ends in `/` then it is treated as a directory.
 	Path *string `form:"name=path"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `form:"name=period"`
+	Period *int64 `default:"3600" form:"name=period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingFtpPlacement `form:"name=placement"`
 	// The port number.
-	Port *int64 `form:"name=port"`
+	Port *int64 `default:"21" form:"name=port"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `form:"name=public_key"`
+	PublicKey *string `default:"null" form:"name=public_key"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// The username for the server. Can be anonymous.
 	User *string `form:"name=user"`
+}
+
+func (l LoggingFtpInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingFtpInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingFtpInput) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingFtpInput) GetCompressionCodec() *LoggingFtpCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingFtpInput) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingFtpInput) GetFormatVersion() *LoggingFtpFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingFtpInput) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingFtpInput) GetHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hostname
+}
+
+func (o *LoggingFtpInput) GetIpv4() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Ipv4
+}
+
+func (o *LoggingFtpInput) GetMessageType() *LoggingFtpMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingFtpInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingFtpInput) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingFtpInput) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingFtpInput) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingFtpInput) GetPlacement() *LoggingFtpPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingFtpInput) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingFtpInput) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingFtpInput) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingFtpInput) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
 }

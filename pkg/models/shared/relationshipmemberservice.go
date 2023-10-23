@@ -2,13 +2,60 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberServiceInput struct {
 	// Resource type
-	Type *TypeService `json:"type,omitempty"`
+	Type *TypeService `default:"service" json:"type"`
+}
+
+func (r RelationshipMemberServiceInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberServiceInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberServiceInput) GetType() *TypeService {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }
 
 type RelationshipMemberService struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
-	Type *TypeService `json:"type,omitempty"`
+	Type *TypeService `default:"service" json:"type"`
+}
+
+func (r RelationshipMemberService) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberService) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberService) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberService) GetType() *TypeService {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

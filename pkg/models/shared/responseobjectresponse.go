@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// ResponseObjectResponse - OK
 type ResponseObjectResponse struct {
 	// Name of the cache condition controlling when this configuration applies.
 	CacheCondition *string `json:"cache_condition,omitempty"`
@@ -23,11 +23,106 @@ type ResponseObjectResponse struct {
 	// Condition which, if met, will select this configuration during a request. Optional.
 	RequestCondition *string `json:"request_condition,omitempty"`
 	// The HTTP response.
-	Response  *string `json:"response,omitempty"`
+	Response  *string `default:"Ok" json:"response"`
 	ServiceID *string `json:"service_id,omitempty"`
 	// The HTTP status code.
-	Status *int64 `json:"status,omitempty"`
+	Status *int64 `default:"200" json:"status"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
+}
+
+func (r ResponseObjectResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *ResponseObjectResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ResponseObjectResponse) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *ResponseObjectResponse) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *ResponseObjectResponse) GetContentType() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ContentType
+}
+
+func (o *ResponseObjectResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ResponseObjectResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ResponseObjectResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *ResponseObjectResponse) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *ResponseObjectResponse) GetResponse() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Response
+}
+
+func (o *ResponseObjectResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ResponseObjectResponse) GetStatus() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
+func (o *ResponseObjectResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ResponseObjectResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

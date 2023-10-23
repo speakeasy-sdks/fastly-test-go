@@ -6,17 +6,44 @@ import (
 	"net/http"
 )
 
-type DeleteARoleSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteARoleRequest struct {
 	// Alphanumeric string identifying the role.
 	RoleID string `pathParam:"style=simple,explode=false,name=role_id"`
 }
 
+func (o *DeleteARoleRequest) GetRoleID() string {
+	if o == nil {
+		return ""
+	}
+	return o.RoleID
+}
+
 type DeleteARoleResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *DeleteARoleResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteARoleResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteARoleResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

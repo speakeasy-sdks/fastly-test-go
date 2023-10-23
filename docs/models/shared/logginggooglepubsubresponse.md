@@ -1,7 +1,5 @@
 # LoggingGooglePubsubResponse
 
-OK
-
 
 ## Fields
 

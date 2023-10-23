@@ -1,7 +1,5 @@
 # PackageResponse
 
-OK
-
 
 ## Fields
 

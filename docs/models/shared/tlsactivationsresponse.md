@@ -1,7 +1,5 @@
 # TLSActivationsResponse
 
-OK
-
 
 ## Fields
 
