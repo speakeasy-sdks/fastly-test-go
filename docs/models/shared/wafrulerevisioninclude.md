@@ -1,7 +1,5 @@
 # WafRuleRevisionInclude
 
-Include relationships. Optional.
-
 
 ## Values
 

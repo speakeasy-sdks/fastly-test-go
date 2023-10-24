@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// UserResponse - OK
 type UserResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt  *time.Time `json:"created_at,omitempty"`
@@ -33,4 +33,113 @@ type UserResponse struct {
 	TwoFactorSetupRequired *bool `json:"two_factor_setup_required,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (u UserResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(u, "", false)
+}
+
+func (u *UserResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &u, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *UserResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *UserResponse) GetCustomerID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerID
+}
+
+func (o *UserResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *UserResponse) GetEmailHash() *string {
+	if o == nil {
+		return nil
+	}
+	return o.EmailHash
+}
+
+func (o *UserResponse) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *UserResponse) GetLimitServices() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.LimitServices
+}
+
+func (o *UserResponse) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *UserResponse) GetLogin() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Login
+}
+
+func (o *UserResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *UserResponse) GetRequireNewPassword() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.RequireNewPassword
+}
+
+func (o *UserResponse) GetRole() *RoleUser {
+	if o == nil {
+		return nil
+	}
+	return o.Role
+}
+
+func (o *UserResponse) GetTwoFactorAuthEnabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.TwoFactorAuthEnabled
+}
+
+func (o *UserResponse) GetTwoFactorSetupRequired() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.TwoFactorSetupRequired
+}
+
+func (o *UserResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

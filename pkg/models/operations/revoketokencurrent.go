@@ -7,14 +7,41 @@ import (
 	"net/http"
 )
 
-type RevokeTokenCurrentSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type RevokeTokenCurrentResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// Token revocation error.
 	GenericTokenError *shared.GenericTokenError
+}
+
+func (o *RevokeTokenCurrentResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *RevokeTokenCurrentResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *RevokeTokenCurrentResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *RevokeTokenCurrentResponse) GetGenericTokenError() *shared.GenericTokenError {
+	if o == nil {
+		return nil
+	}
+	return o.GenericTokenError
 }

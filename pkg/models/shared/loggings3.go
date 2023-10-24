@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -143,35 +144,186 @@ type LoggingS3Input struct {
 	// The domain of the Amazon S3 endpoint.
 	Domain *string `form:"name=domain"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingS3FormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingS3FormatVersion `default:"2" form:"name=format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `form:"name=gzip_level"`
+	GzipLevel *int64 `default:"0" form:"name=gzip_level"`
 	// The Amazon Resource Name (ARN) for the IAM role granting Fastly access to S3. Not required if `access_key` and `secret_key` are provided.
 	IamRole *string `form:"name=iam_role"`
 	// How the message should be formatted.
-	MessageType *LoggingS3MessageType `form:"name=message_type"`
+	MessageType *LoggingS3MessageType `default:"classic" form:"name=message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// The path to upload logs to.
-	Path *string `form:"name=path"`
+	Path *string `default:"null" form:"name=path"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `form:"name=period"`
+	Period *int64 `default:"3600" form:"name=period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingS3Placement `form:"name=placement"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `form:"name=public_key"`
+	PublicKey *string `default:"null" form:"name=public_key"`
 	// The S3 redundancy level.
-	Redundancy *string `form:"name=redundancy"`
+	Redundancy *string `default:"null" form:"name=redundancy"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// The secret key for your S3 account. Not required if `iam_role` is provided.
 	SecretKey *string `form:"name=secret_key"`
 	// Set this to `AES256` or `aws:kms` to enable S3 Server Side Encryption.
-	ServerSideEncryption *string `form:"name=server_side_encryption"`
+	ServerSideEncryption *string `default:"null" form:"name=server_side_encryption"`
 	// Optional server-side KMS Key Id. Must be set if `server_side_encryption` is set to `aws:kms` or `AES256`.
-	ServerSideEncryptionKmsKeyID *string `form:"name=server_side_encryption_kms_key_id"`
+	ServerSideEncryptionKmsKeyID *string `default:"null" form:"name=server_side_encryption_kms_key_id"`
+}
+
+func (l LoggingS3Input) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingS3Input) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingS3Input) GetAccessKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.AccessKey
+}
+
+func (o *LoggingS3Input) GetACL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ACL
+}
+
+func (o *LoggingS3Input) GetBucketName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.BucketName
+}
+
+func (o *LoggingS3Input) GetCompressionCodec() *LoggingS3CompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingS3Input) GetDomain() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Domain
+}
+
+func (o *LoggingS3Input) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingS3Input) GetFormatVersion() *LoggingS3FormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingS3Input) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingS3Input) GetIamRole() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IamRole
+}
+
+func (o *LoggingS3Input) GetMessageType() *LoggingS3MessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingS3Input) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingS3Input) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingS3Input) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingS3Input) GetPlacement() *LoggingS3Placement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingS3Input) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingS3Input) GetRedundancy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Redundancy
+}
+
+func (o *LoggingS3Input) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingS3Input) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingS3Input) GetServerSideEncryption() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerSideEncryption
+}
+
+func (o *LoggingS3Input) GetServerSideEncryptionKmsKeyID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServerSideEncryptionKmsKeyID
 }

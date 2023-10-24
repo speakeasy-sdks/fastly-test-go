@@ -7,7 +7,6 @@ import (
 	"fmt"
 )
 
-// Sort - The order in which to list the results by creation date.
 type Sort string
 
 const (
