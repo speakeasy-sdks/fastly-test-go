@@ -2,6 +2,13 @@
 
 package shared
 
-type TLSBulkCertificateInput struct {
-	Data *TLSBulkCertificateDataInput `json:"data,omitempty"`
+type TLSBulkCertificate struct {
+	Data *TLSBulkCertificateData `json:"data,omitempty"`
+}
+
+func (o *TLSBulkCertificate) GetData() *TLSBulkCertificateData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

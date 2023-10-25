@@ -5,3 +5,10 @@ package shared
 type TLSCertificateInput struct {
 	Data *TLSCertificateDataInput `json:"data,omitempty"`
 }
+
+func (o *TLSCertificateInput) GetData() *TLSCertificateDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}

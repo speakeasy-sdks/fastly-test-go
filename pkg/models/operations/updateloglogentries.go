@@ -7,12 +7,8 @@ import (
 	"net/http"
 )
 
-type UpdateLogLogentriesSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateLogLogentriesRequest struct {
-	LoggingLogentries3 *shared.LoggingLogentries3 `request:"mediaType=application/x-www-form-urlencoded"`
+	LoggingLogentries *shared.LoggingLogentries `request:"mediaType=application/x-www-form-urlencoded"`
 	// The name for the real-time logging configuration.
 	LoggingLogentriesName string `pathParam:"style=simple,explode=false,name=logging_logentries_name"`
 	// Alphanumeric string identifying the service.
@@ -21,10 +17,69 @@ type UpdateLogLogentriesRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *UpdateLogLogentriesRequest) GetLoggingLogentries() *shared.LoggingLogentries {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogentries
+}
+
+func (o *UpdateLogLogentriesRequest) GetLoggingLogentriesName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingLogentriesName
+}
+
+func (o *UpdateLogLogentriesRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *UpdateLogLogentriesRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type UpdateLogLogentriesResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingLogentriesResponse *shared.LoggingLogentriesResponse
+}
+
+func (o *UpdateLogLogentriesResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateLogLogentriesResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateLogLogentriesResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateLogLogentriesResponse) GetLoggingLogentriesResponse() *shared.LoggingLogentriesResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingLogentriesResponse
 }

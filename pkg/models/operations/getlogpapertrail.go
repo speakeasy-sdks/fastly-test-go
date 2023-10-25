@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetLogPapertrailSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetLogPapertrailRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingPapertrailName string `pathParam:"style=simple,explode=false,name=logging_papertrail_name"`
@@ -20,10 +16,62 @@ type GetLogPapertrailRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *GetLogPapertrailRequest) GetLoggingPapertrailName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingPapertrailName
+}
+
+func (o *GetLogPapertrailRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetLogPapertrailRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type GetLogPapertrailResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	LoggingPapertrailResponse *shared.LoggingPapertrailResponse
+}
+
+func (o *GetLogPapertrailResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetLogPapertrailResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetLogPapertrailResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetLogPapertrailResponse) GetLoggingPapertrailResponse() *shared.LoggingPapertrailResponse {
+	if o == nil {
+		return nil
+	}
+	return o.LoggingPapertrailResponse
 }

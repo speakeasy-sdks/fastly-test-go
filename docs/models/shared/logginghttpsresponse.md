@@ -1,7 +1,5 @@
 # LoggingHTTPSResponse
 
-OK
-
 
 ## Fields
 
