@@ -6,18 +6,45 @@ import (
 	"net/http"
 )
 
-type ListPermissionsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 // ListPermissions200ApplicationJSON - OK
 type ListPermissions200ApplicationJSON struct {
 }
 
 type ListPermissionsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ListPermissions200ApplicationJSONObject *ListPermissions200ApplicationJSON
+}
+
+func (o *ListPermissionsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *ListPermissionsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *ListPermissionsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *ListPermissionsResponse) GetListPermissions200ApplicationJSONObject() *ListPermissions200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.ListPermissions200ApplicationJSONObject
 }

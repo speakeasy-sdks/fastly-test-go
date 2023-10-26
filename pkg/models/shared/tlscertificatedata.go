@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type TLSCertificateDataAttributes struct {
 	// The PEM-formatted certificate blob. Required.
 	CertBlob *string `json:"cert_blob,omitempty"`
@@ -9,9 +13,55 @@ type TLSCertificateDataAttributes struct {
 	Name *string `json:"name,omitempty"`
 }
 
+func (o *TLSCertificateDataAttributes) GetCertBlob() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CertBlob
+}
+
+func (o *TLSCertificateDataAttributes) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
 type TLSCertificateDataInput struct {
 	Attributes    *TLSCertificateDataAttributes `json:"attributes,omitempty"`
 	Relationships *RelationshipTLSDomainsInput  `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSCertificate `json:"type,omitempty"`
+	Type *TypeTLSCertificate `default:"tls_certificate" json:"type"`
+}
+
+func (t TLSCertificateDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSCertificateDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSCertificateDataInput) GetAttributes() *TLSCertificateDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSCertificateDataInput) GetRelationships() *RelationshipTLSDomainsInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSCertificateDataInput) GetType() *TypeTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

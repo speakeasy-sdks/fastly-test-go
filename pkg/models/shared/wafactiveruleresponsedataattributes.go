@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
@@ -17,4 +18,50 @@ type WafActiveRuleResponseDataAttributes struct {
 	Outdated *bool `json:"outdated,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (w WafActiveRuleResponseDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafActiveRuleResponseDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetLatestRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.LatestRevision
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetOutdated() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Outdated
+}
+
+func (o *WafActiveRuleResponseDataAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }
