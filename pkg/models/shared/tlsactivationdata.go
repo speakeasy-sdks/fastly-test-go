@@ -2,8 +2,37 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type TLSActivationDataInput struct {
 	Relationships *RelationshipsForTLSActivationInput `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeTLSActivation `json:"type,omitempty"`
+	Type *TypeTLSActivation `default:"tls_activation" json:"type"`
+}
+
+func (t TLSActivationDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSActivationDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSActivationDataInput) GetRelationships() *RelationshipsForTLSActivationInput {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSActivationDataInput) GetType() *TypeTLSActivation {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

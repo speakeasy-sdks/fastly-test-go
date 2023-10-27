@@ -1,7 +1,5 @@
 # TLSBulkCertificateResponse
 
-Created
-
 
 ## Fields
 

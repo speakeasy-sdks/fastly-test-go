@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteLogFtpSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteLogFtpRequest struct {
 	// The name for the real-time logging configuration.
 	LoggingFtpName string `pathParam:"style=simple,explode=false,name=logging_ftp_name"`
@@ -19,16 +15,75 @@ type DeleteLogFtpRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteLogFtpRequest) GetLoggingFtpName() string {
+	if o == nil {
+		return ""
+	}
+	return o.LoggingFtpName
+}
+
+func (o *DeleteLogFtpRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteLogFtpRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteLogFtp200ApplicationJSON - OK
 type DeleteLogFtp200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteLogFtp200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteLogFtpResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteLogFtp200ApplicationJSONObject *DeleteLogFtp200ApplicationJSON
+}
+
+func (o *DeleteLogFtpResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteLogFtpResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteLogFtpResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteLogFtpResponse) GetDeleteLogFtp200ApplicationJSONObject() *DeleteLogFtp200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteLogFtp200ApplicationJSONObject
 }

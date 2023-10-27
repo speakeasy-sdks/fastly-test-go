@@ -7,22 +7,70 @@ import (
 	"net/http"
 )
 
-type CreateWafActiveRulesTagSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateWafActiveRulesTagRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a service version.
-	VersionID          int64                      `pathParam:"style=simple,explode=false,name=version_id"`
-	WafActiveRuleInput *shared.WafActiveRuleInput `request:"mediaType=application/vnd.api+json"`
+	VersionID      int64                  `pathParam:"style=simple,explode=false,name=version_id"`
+	WafActiveRule1 *shared.WafActiveRule1 `request:"mediaType=application/vnd.api+json"`
 	// Name of the tag.
 	WafTagName string `pathParam:"style=simple,explode=false,name=waf_tag_name"`
 }
 
+func (o *CreateWafActiveRulesTagRequest) GetFirewallID() string {
+	if o == nil {
+		return ""
+	}
+	return o.FirewallID
+}
+
+func (o *CreateWafActiveRulesTagRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
+func (o *CreateWafActiveRulesTagRequest) GetWafActiveRule1() *shared.WafActiveRule1 {
+	if o == nil {
+		return nil
+	}
+	return o.WafActiveRule1
+}
+
+func (o *CreateWafActiveRulesTagRequest) GetWafTagName() string {
+	if o == nil {
+		return ""
+	}
+	return o.WafTagName
+}
+
 type CreateWafActiveRulesTagResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *CreateWafActiveRulesTagResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateWafActiveRulesTagResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateWafActiveRulesTagResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

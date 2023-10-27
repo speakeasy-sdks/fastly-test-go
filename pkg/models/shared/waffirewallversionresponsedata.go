@@ -2,11 +2,54 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type WafFirewallVersionResponseData struct {
 	Attributes *WafFirewallVersionResponseDataAttributes `json:"attributes,omitempty"`
 	// Alphanumeric string identifying a Firewall version.
-	ID            *string     `json:"id,omitempty"`
-	Relationships interface{} `json:"relationships,omitempty"`
+	ID            *string                             `json:"id,omitempty"`
+	Relationships *RelationshipsForWafFirewallVersion `json:"relationships,omitempty"`
 	// Resource type.
-	Type *TypeWafFirewallVersion `json:"type,omitempty"`
+	Type *TypeWafFirewallVersion `default:"waf_firewall_version" json:"type"`
+}
+
+func (w WafFirewallVersionResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafFirewallVersionResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafFirewallVersionResponseData) GetAttributes() *WafFirewallVersionResponseDataAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *WafFirewallVersionResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *WafFirewallVersionResponseData) GetRelationships() *RelationshipsForWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *WafFirewallVersionResponseData) GetType() *TypeWafFirewallVersion {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

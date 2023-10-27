@@ -5,3 +5,10 @@ package shared
 type ServiceAuthorizationInput struct {
 	Data *ServiceAuthorizationDataInput `json:"data,omitempty"`
 }
+
+func (o *ServiceAuthorizationInput) GetData() *ServiceAuthorizationDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
