@@ -6,6 +6,20 @@ type RelationshipWafTagsWafTags struct {
 	Data []RelationshipMemberWafTag `json:"data,omitempty"`
 }
 
+func (o *RelationshipWafTagsWafTags) GetData() []RelationshipMemberWafTag {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipWafTags struct {
 	WafTags *RelationshipWafTagsWafTags `json:"waf_tags,omitempty"`
+}
+
+func (o *RelationshipWafTags) GetWafTags() *RelationshipWafTagsWafTags {
+	if o == nil {
+		return nil
+	}
+	return o.WafTags
 }

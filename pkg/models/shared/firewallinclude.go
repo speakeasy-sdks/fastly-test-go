@@ -7,7 +7,6 @@ import (
 	"fmt"
 )
 
-// FirewallInclude - Include related objects. Optional.
 type FirewallInclude string
 
 const (

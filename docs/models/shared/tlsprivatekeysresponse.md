@@ -1,7 +1,5 @@
 # TLSPrivateKeysResponse
 
-OK
-
 
 ## Fields
 
