@@ -2,19 +2,83 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type Server struct {
 	// A hostname, IPv4, or IPv6 address for the server. Required.
 	Address *string `form:"name=address"`
 	// A freeform descriptive note.
 	Comment *string `form:"name=comment"`
 	// Allows servers to be enabled and disabled in a pool.
-	Disabled *bool `form:"name=disabled"`
+	Disabled *bool `default:"false" form:"name=disabled"`
 	// Maximum number of connections. If the value is `0`, it inherits the value from pool's `max_conn_default`.
-	MaxConn *int64 `form:"name=max_conn"`
+	MaxConn *int64 `default:"0" form:"name=max_conn"`
 	// The hostname to override the Host header. Defaults to `null` meaning no override of the Host header if not set. This setting can also be added to a Pool definition. However, the server setting will override the Pool setting.
-	OverrideHost *string `form:"name=override_host"`
+	OverrideHost *string `default:"null" form:"name=override_host"`
 	// Port number. Setting port `443` does not force TLS. Set `use_tls` in pool to force TLS.
-	Port *int64 `form:"name=port"`
+	Port *int64 `default:"80" form:"name=port"`
 	// Weight (`1-100`) used to load balance this server against others.
-	Weight *int64 `form:"name=weight"`
+	Weight *int64 `default:"100" form:"name=weight"`
+}
+
+func (s Server) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *Server) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Server) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *Server) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Server) GetDisabled() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Disabled
+}
+
+func (o *Server) GetMaxConn() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxConn
+}
+
+func (o *Server) GetOverrideHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.OverrideHost
+}
+
+func (o *Server) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *Server) GetWeight() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Weight
 }

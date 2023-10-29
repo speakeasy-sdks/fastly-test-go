@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -39,7 +40,6 @@ func (e *CacheSettingResponseAction) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// CacheSettingResponse - OK
 type CacheSettingResponse struct {
 	// If set, will cause vcl_fetch to terminate after processing this rule with the return state specified. If not set, other configuration logic in vcl_fetch with a lower priority will run after this rule.
 	//
@@ -60,4 +60,85 @@ type CacheSettingResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
+}
+
+func (c CacheSettingResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *CacheSettingResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *CacheSettingResponse) GetAction() *CacheSettingResponseAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *CacheSettingResponse) GetCacheCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.CacheCondition
+}
+
+func (o *CacheSettingResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *CacheSettingResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *CacheSettingResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *CacheSettingResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *CacheSettingResponse) GetStaleTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.StaleTTL
+}
+
+func (o *CacheSettingResponse) GetTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TTL
+}
+
+func (o *CacheSettingResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *CacheSettingResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

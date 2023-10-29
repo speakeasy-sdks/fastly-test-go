@@ -1,7 +1,5 @@
 # CustomerResponse
 
-OK
-
 
 ## Fields
 

@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-// Direction - Direction in which to sort results.
+// Direction in which to sort results.
 type Direction string
 
 const (

@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type GetServiceDetailSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type GetServiceDetailRequest struct {
 	// Alphanumeric string identifying the service.
 	ServiceID string `pathParam:"style=simple,explode=false,name=service_id"`
@@ -18,10 +14,55 @@ type GetServiceDetailRequest struct {
 	Version *int64 `queryParam:"style=form,explode=true,name=version"`
 }
 
+func (o *GetServiceDetailRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *GetServiceDetailRequest) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
 type GetServiceDetailResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ServiceDetail *shared.ServiceDetail
+}
+
+func (o *GetServiceDetailResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *GetServiceDetailResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *GetServiceDetailResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *GetServiceDetailResponse) GetServiceDetail() *shared.ServiceDetail {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceDetail
 }

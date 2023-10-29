@@ -2,6 +2,13 @@
 
 package shared
 
-type TLSSubscriptionInput struct {
-	Data *TLSSubscriptionDataInput `json:"data,omitempty"`
+type TLSSubscription struct {
+	Data *TLSSubscriptionData `json:"data,omitempty"`
+}
+
+func (o *TLSSubscription) GetData() *TLSSubscriptionData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

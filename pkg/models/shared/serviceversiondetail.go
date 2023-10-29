@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
@@ -13,9 +14,48 @@ type ServiceVersionDetailSettings struct {
 	// The default time-to-live (TTL) for the version.
 	GeneralDefaultTTL *int64 `json:"general.default_ttl,omitempty"`
 	// Enables serving a stale object if there is an error.
-	GeneralStaleIfError *bool `json:"general.stale_if_error,omitempty"`
+	GeneralStaleIfError *bool `default:"false" json:"general.stale_if_error"`
 	// The default time-to-live (TTL) for serving the stale object for the version.
-	GeneralStaleIfErrorTTL *int64 `json:"general.stale_if_error_ttl,omitempty"`
+	GeneralStaleIfErrorTTL *int64 `default:"43200" json:"general.stale_if_error_ttl"`
+}
+
+func (s ServiceVersionDetailSettings) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceVersionDetailSettings) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceVersionDetailSettings) GetGeneralDefaultHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralDefaultHost
+}
+
+func (o *ServiceVersionDetailSettings) GetGeneralDefaultTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralDefaultTTL
+}
+
+func (o *ServiceVersionDetailSettings) GetGeneralStaleIfError() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralStaleIfError
+}
+
+func (o *ServiceVersionDetailSettings) GetGeneralStaleIfErrorTTL() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeneralStaleIfErrorTTL
 }
 
 type ServiceVersionDetailWordpress struct {
@@ -23,7 +63,7 @@ type ServiceVersionDetailWordpress struct {
 
 type ServiceVersionDetail struct {
 	// Whether this is the active version or not.
-	Active *bool `json:"active,omitempty"`
+	Active *bool `default:"false" json:"active"`
 	// List of backends associated to this service.
 	Backends []BackendResponse `json:"backends,omitempty"`
 	// List of cache settings associated to this service.
@@ -49,7 +89,7 @@ type ServiceVersionDetail struct {
 	// List of healthchecks associated to this service.
 	Healthchecks []HealthcheckResponse `json:"healthchecks,omitempty"`
 	// Whether this version is locked or not. Objects can not be added or edited on locked versions.
-	Locked *bool `json:"locked,omitempty"`
+	Locked *bool `default:"false" json:"locked"`
 	// The number of this version.
 	Number *int64 `json:"number,omitempty"`
 	// List of request settings for this service.
@@ -62,13 +102,199 @@ type ServiceVersionDetail struct {
 	// List of VCL snippets for this service.
 	Snippets []SchemasSnippetResponse `json:"snippets,omitempty"`
 	// Unused at this time.
-	Staging *bool `json:"staging,omitempty"`
+	Staging *bool `default:"false" json:"staging"`
 	// Unused at this time.
-	Testing *bool `json:"testing,omitempty"`
+	Testing *bool `default:"false" json:"testing"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// List of VCL files for this service.
 	Vcls []SchemasVclResponse `json:"vcls,omitempty"`
 	// A list of Wordpress rules with this service.
 	Wordpress []ServiceVersionDetailWordpress `json:"wordpress,omitempty"`
+}
+
+func (s ServiceVersionDetail) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(s, "", false)
+}
+
+func (s *ServiceVersionDetail) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &s, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ServiceVersionDetail) GetActive() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Active
+}
+
+func (o *ServiceVersionDetail) GetBackends() []BackendResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Backends
+}
+
+func (o *ServiceVersionDetail) GetCacheSettings() []CacheSettingResponse {
+	if o == nil {
+		return nil
+	}
+	return o.CacheSettings
+}
+
+func (o *ServiceVersionDetail) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *ServiceVersionDetail) GetConditions() []ConditionResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Conditions
+}
+
+func (o *ServiceVersionDetail) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ServiceVersionDetail) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ServiceVersionDetail) GetDeployed() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Deployed
+}
+
+func (o *ServiceVersionDetail) GetDirectors() []Director {
+	if o == nil {
+		return nil
+	}
+	return o.Directors
+}
+
+func (o *ServiceVersionDetail) GetDomains() []DomainResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Domains
+}
+
+func (o *ServiceVersionDetail) GetGzips() []GzipResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Gzips
+}
+
+func (o *ServiceVersionDetail) GetHeaders() []HeaderResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Headers
+}
+
+func (o *ServiceVersionDetail) GetHealthchecks() []HealthcheckResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Healthchecks
+}
+
+func (o *ServiceVersionDetail) GetLocked() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Locked
+}
+
+func (o *ServiceVersionDetail) GetNumber() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Number
+}
+
+func (o *ServiceVersionDetail) GetRequestSettings() []RequestSettingsResponse {
+	if o == nil {
+		return nil
+	}
+	return o.RequestSettings
+}
+
+func (o *ServiceVersionDetail) GetResponseObjects() []ResponseObjectResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseObjects
+}
+
+func (o *ServiceVersionDetail) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ServiceVersionDetail) GetSettings() *ServiceVersionDetailSettings {
+	if o == nil {
+		return nil
+	}
+	return o.Settings
+}
+
+func (o *ServiceVersionDetail) GetSnippets() []SchemasSnippetResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Snippets
+}
+
+func (o *ServiceVersionDetail) GetStaging() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Staging
+}
+
+func (o *ServiceVersionDetail) GetTesting() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Testing
+}
+
+func (o *ServiceVersionDetail) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ServiceVersionDetail) GetVcls() []SchemasVclResponse {
+	if o == nil {
+		return nil
+	}
+	return o.Vcls
+}
+
+func (o *ServiceVersionDetail) GetWordpress() []ServiceVersionDetailWordpress {
+	if o == nil {
+		return nil
+	}
+	return o.Wordpress
 }
