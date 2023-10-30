@@ -19,3 +19,52 @@ type PackageMetadata struct {
 	// Size of the Compute@Edge package in bytes.
 	Size *int64 `json:"size,omitempty"`
 }
+
+func (o *PackageMetadata) GetAuthors() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Authors
+}
+
+func (o *PackageMetadata) GetDescription() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Description
+}
+
+func (o *PackageMetadata) GetFilesHash() *string {
+	if o == nil {
+		return nil
+	}
+	return o.FilesHash
+}
+
+func (o *PackageMetadata) GetHashsum() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Hashsum
+}
+
+func (o *PackageMetadata) GetLanguage() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Language
+}
+
+func (o *PackageMetadata) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *PackageMetadata) GetSize() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Size
+}

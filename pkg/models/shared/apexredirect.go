@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -51,7 +52,27 @@ type ApexRedirectInput struct {
 	StatusCode *ApexRedirectStatusCode `form:"name=status_code"`
 }
 
-// ApexRedirect - OK
+func (o *ApexRedirectInput) GetDomains() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Domains
+}
+
+func (o *ApexRedirectInput) GetFeatureRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FeatureRevision
+}
+
+func (o *ApexRedirectInput) GetStatusCode() *ApexRedirectStatusCode {
+	if o == nil {
+		return nil
+	}
+	return o.StatusCode
+}
+
 type ApexRedirect struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
@@ -67,4 +88,71 @@ type ApexRedirect struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
+}
+
+func (a ApexRedirect) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(a, "", false)
+}
+
+func (a *ApexRedirect) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &a, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ApexRedirect) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ApexRedirect) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ApexRedirect) GetDomains() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Domains
+}
+
+func (o *ApexRedirect) GetFeatureRevision() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.FeatureRevision
+}
+
+func (o *ApexRedirect) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *ApexRedirect) GetStatusCode() *ApexRedirectStatusCode {
+	if o == nil {
+		return nil
+	}
+	return o.StatusCode
+}
+
+func (o *ApexRedirect) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *ApexRedirect) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

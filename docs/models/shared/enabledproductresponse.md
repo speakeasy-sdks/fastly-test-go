@@ -1,7 +1,5 @@
 # EnabledProductResponse
 
-OK
-
 
 ## Fields
 

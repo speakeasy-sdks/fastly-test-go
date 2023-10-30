@@ -1,7 +1,5 @@
 # LoggingNewrelicResponse
 
-OK
-
 
 ## Fields
 

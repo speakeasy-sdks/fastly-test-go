@@ -1,7 +1,5 @@
 # Sort
 
-The order in which to list the results by creation date.
-
 
 ## Values
 

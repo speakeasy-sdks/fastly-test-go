@@ -1,7 +1,5 @@
 # WafTagsResponse
 
-OK
-
 
 ## Fields
 
