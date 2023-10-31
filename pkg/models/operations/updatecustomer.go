@@ -7,20 +7,61 @@ import (
 	"net/http"
 )
 
-type UpdateCustomerSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type UpdateCustomerRequest struct {
 	CustomerInput *shared.CustomerInput `request:"mediaType=application/x-www-form-urlencoded"`
 	// Alphanumeric string identifying the customer.
 	CustomerID string `pathParam:"style=simple,explode=false,name=customer_id"`
 }
 
+func (o *UpdateCustomerRequest) GetCustomerInput() *shared.CustomerInput {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerInput
+}
+
+func (o *UpdateCustomerRequest) GetCustomerID() string {
+	if o == nil {
+		return ""
+	}
+	return o.CustomerID
+}
+
 type UpdateCustomerResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	CustomerResponse *shared.CustomerResponse
+}
+
+func (o *UpdateCustomerResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *UpdateCustomerResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *UpdateCustomerResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *UpdateCustomerResponse) GetCustomerResponse() *shared.CustomerResponse {
+	if o == nil {
+		return nil
+	}
+	return o.CustomerResponse
 }

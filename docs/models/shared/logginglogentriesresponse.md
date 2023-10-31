@@ -1,7 +1,5 @@
 # LoggingLogentriesResponse
 
-OK
-
 
 ## Fields
 

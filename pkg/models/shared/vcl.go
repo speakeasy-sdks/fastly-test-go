@@ -10,3 +10,24 @@ type Vcl struct {
 	// The name of this VCL.
 	Name *string `form:"name=name"`
 }
+
+func (o *Vcl) GetContent() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Content
+}
+
+func (o *Vcl) GetMain() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Main
+}
+
+func (o *Vcl) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}

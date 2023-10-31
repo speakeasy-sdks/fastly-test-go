@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
@@ -30,4 +31,99 @@ type WafFirewallResponseDataAttributes struct {
 	ServiceID *string    `json:"service_id,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (w WafFirewallResponseDataAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(w, "", false)
+}
+
+func (w *WafFirewallResponseDataAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesFastlyBlockCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesFastlyBlockCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesFastlyLogCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesFastlyLogCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesFastlyScoreCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesFastlyScoreCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesOwaspBlockCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesOwaspBlockCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesOwaspLogCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesOwaspLogCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesOwaspScoreCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesOwaspScoreCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesTrustwaveBlockCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesTrustwaveBlockCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetActiveRulesTrustwaveLogCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ActiveRulesTrustwaveLogCount
+}
+
+func (o *WafFirewallResponseDataAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *WafFirewallResponseDataAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *WafFirewallResponseDataAttributes) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *WafFirewallResponseDataAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

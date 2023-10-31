@@ -2,6 +2,13 @@
 
 package shared
 
-type TLSConfigurationInput struct {
-	Data *TLSConfigurationDataInput `json:"data,omitempty"`
+type TLSConfiguration struct {
+	Data *TLSConfigurationData `json:"data,omitempty"`
+}
+
+func (o *TLSConfiguration) GetData() *TLSConfigurationData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
 }

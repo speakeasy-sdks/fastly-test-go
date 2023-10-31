@@ -1,7 +1,5 @@
 # ServerResponse
 
-OK
-
 
 ## Fields
 
