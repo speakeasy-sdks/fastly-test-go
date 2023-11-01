@@ -7,7 +7,6 @@ import (
 	"fmt"
 )
 
-// WafRuleRevisionInclude - Include relationships. Optional.
 type WafRuleRevisionInclude string
 
 const (

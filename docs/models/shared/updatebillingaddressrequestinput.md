@@ -1,7 +1,5 @@
 # UpdateBillingAddressRequestInput
 
-One or more billing address attributes
-
 
 ## Fields
 

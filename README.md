@@ -13,35 +13,36 @@ go get github.com/speakeasy-sdks/fastly-test-go
 ```go
 package main
 
-import(
-	"context"
-	"log"
-	"Fastly"
+import (
+	fastly "Fastly"
 	"Fastly/pkg/models/operations"
 	"Fastly/pkg/models/shared"
+	"context"
+	"log"
 )
 
 func main() {
-    s := sdk.New()
+	s := fastly.New(
+		fastly.WithSecurity(""),
+	)
 
-    ctx := context.Background()
-    res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
-        ACL: &shared.ACL{
-            Name: sdk.String("test-acl"),
-        },
-        ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        VersionID: 1,
-    }, operations.CreateACLSecurity{
-        Token: "",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
+	ctx := context.Background()
+	res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
+		ACL: &shared.ACL{
+			Name: fastly.String("test-acl"),
+		},
+		ServiceID: "SU1Z0isxPaozGVKXdv0eY",
+		VersionID: 1,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    if res.ACLResponse != nil {
-        // handle response
-    }
+	if res.ACLResponse != nil {
+		// handle response
+	}
 }
+
 ```
 <!-- End SDK Example Usage -->
 
@@ -776,6 +777,161 @@ func main() {
 
 * [~~ListWafTags~~](docs/sdks/waftags/README.md#listwaftags) - List tags :warning: **Deprecated**
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.fastly.com` | None |
+| 1 | `https://rt.fastly.com` | None |
+
+For example:
+
+
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New(
+		fastly.WithSecurity(""),
+		fastly.WithServerIndex(1),
+	)
+
+	ctx := context.Background()
+	res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
+		ACL: &shared.ACL{
+			Name: fastly.String("test-acl"),
+		},
+		ServiceID: "SU1Z0isxPaozGVKXdv0eY",
+		VersionID: 1,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.ACLResponse != nil {
+		// handle response
+	}
+}
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+
+
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/pkg/models/operations"
+	"Fastly/pkg/models/shared"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New(
+		fastly.WithSecurity(""),
+		fastly.WithServerURL("https://api.fastly.com"),
+	)
+
+	ctx := context.Background()
+	res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
+		ACL: &shared.ACL{
+			Name: fastly.String("test-acl"),
+		},
+		ServiceID: "SU1Z0isxPaozGVKXdv0eY",
+		VersionID: 1,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.ACLResponse != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
+
+```go
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+```
+
+The built-in `net/http` client satisfies this interface and a default client based on the built-in is provided by default. To replace this default with a client of your own, you can implement this interface yourself or provide your own client configured as desired. Here's a simple example, which adds a client with a 30 second timeout.
+
+```go
+import (
+	"net/http"
+	"time"
+	"github.com/myorg/your-go-sdk"
+)
+
+var (
+	httpClient = &http.Client{Timeout: 30 * time.Second}
+	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+)
+```
+
+This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
+<!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Go Types -->
+
+<!-- End Go Types -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

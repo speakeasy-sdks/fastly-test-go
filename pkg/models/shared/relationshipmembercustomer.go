@@ -2,8 +2,37 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type RelationshipMemberCustomer struct {
 	ID *string `json:"id,omitempty"`
 	// Resource type
-	Type *TypeCustomer `json:"type,omitempty"`
+	Type *TypeCustomer `default:"customer" json:"type"`
+}
+
+func (r RelationshipMemberCustomer) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RelationshipMemberCustomer) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RelationshipMemberCustomer) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *RelationshipMemberCustomer) GetType() *TypeCustomer {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

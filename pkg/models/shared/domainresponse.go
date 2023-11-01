@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// DomainResponse - OK
 type DomainResponse struct {
 	// A freeform descriptive note.
 	Comment *string `json:"comment,omitempty"`
@@ -20,4 +20,64 @@ type DomainResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	Version   *int64     `json:"version,omitempty"`
+}
+
+func (d DomainResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *DomainResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *DomainResponse) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *DomainResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *DomainResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *DomainResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *DomainResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *DomainResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *DomainResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }

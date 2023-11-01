@@ -7,14 +7,41 @@ import (
 	"net/http"
 )
 
-type CreateConfigStoreSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateConfigStoreResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	ConfigStoreResponse *shared.ConfigStoreResponse
+}
+
+func (o *CreateConfigStoreResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateConfigStoreResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateConfigStoreResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateConfigStoreResponse) GetConfigStoreResponse() *shared.ConfigStoreResponse {
+	if o == nil {
+		return nil
+	}
+	return o.ConfigStoreResponse
 }

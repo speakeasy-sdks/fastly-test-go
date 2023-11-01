@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -110,24 +111,23 @@ func (e *LoggingLogentriesResponseRegion) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// LoggingLogentriesResponse - OK
 type LoggingLogentriesResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `json:"format,omitempty"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingLogentriesResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingLogentriesResponseFormatVersion `default:"2" json:"format_version"`
 	// The name for the real-time logging configuration.
 	Name *string `json:"name,omitempty"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingLogentriesResponsePlacement `json:"placement,omitempty"`
 	// The port number.
-	Port *int64 `json:"port,omitempty"`
+	Port *int64 `default:"20000" json:"port"`
 	// The region to which to stream logs.
 	Region *LoggingLogentriesResponseRegion `json:"region,omitempty"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
@@ -138,6 +138,115 @@ type LoggingLogentriesResponse struct {
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// Whether to use TLS.
-	UseTLS  *LoggingUseTLS `json:"use_tls,omitempty"`
+	UseTLS  *LoggingUseTLS `default:"0" json:"use_tls"`
 	Version *int64         `json:"version,omitempty"`
+}
+
+func (l LoggingLogentriesResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingLogentriesResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingLogentriesResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingLogentriesResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingLogentriesResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingLogentriesResponse) GetFormatVersion() *LoggingLogentriesResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingLogentriesResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingLogentriesResponse) GetPlacement() *LoggingLogentriesResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingLogentriesResponse) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingLogentriesResponse) GetRegion() *LoggingLogentriesResponseRegion {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *LoggingLogentriesResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingLogentriesResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingLogentriesResponse) GetToken() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Token
+}
+
+func (o *LoggingLogentriesResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingLogentriesResponse) GetUseTLS() *LoggingUseTLS {
+	if o == nil {
+		return nil
+	}
+	return o.UseTLS
+}
+
+func (o *LoggingLogentriesResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }
