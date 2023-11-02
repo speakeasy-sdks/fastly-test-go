@@ -1,7 +1,5 @@
 # LoggingHoneycombResponse
 
-OK
-
 
 ## Fields
 

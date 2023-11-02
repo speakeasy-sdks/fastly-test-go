@@ -1,7 +1,5 @@
 # LoggingLogglyResponse
 
-OK
-
 
 ## Fields
 

@@ -10,7 +10,34 @@ type HistoricalRegionsResponseMeta struct {
 	To     *string `json:"to,omitempty"`
 }
 
-// HistoricalRegionsResponse - OK
+func (o *HistoricalRegionsResponseMeta) GetBy() *string {
+	if o == nil {
+		return nil
+	}
+	return o.By
+}
+
+func (o *HistoricalRegionsResponseMeta) GetFrom() *string {
+	if o == nil {
+		return nil
+	}
+	return o.From
+}
+
+func (o *HistoricalRegionsResponseMeta) GetRegion() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Region
+}
+
+func (o *HistoricalRegionsResponseMeta) GetTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.To
+}
+
 type HistoricalRegionsResponse struct {
 	Data []string `json:"data,omitempty"`
 	// Meta information about the scope of the query in a human readable format.
@@ -19,4 +46,32 @@ type HistoricalRegionsResponse struct {
 	Msg *string `json:"msg,omitempty"`
 	// Whether or not we were able to successfully execute the query.
 	Status *string `json:"status,omitempty"`
+}
+
+func (o *HistoricalRegionsResponse) GetData() []string {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *HistoricalRegionsResponse) GetMeta() *HistoricalRegionsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
+}
+
+func (o *HistoricalRegionsResponse) GetMsg() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Msg
+}
+
+func (o *HistoricalRegionsResponse) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
 }

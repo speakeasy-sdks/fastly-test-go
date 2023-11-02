@@ -1,7 +1,5 @@
 # TLSSubscriptionResponse
 
-Created
-
 
 ## Fields
 

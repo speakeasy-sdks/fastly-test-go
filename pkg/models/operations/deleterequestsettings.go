@@ -6,10 +6,6 @@ import (
 	"net/http"
 )
 
-type DeleteRequestSettingsSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteRequestSettingsRequest struct {
 	// Name for the request settings.
 	RequestSettingsName string `pathParam:"style=simple,explode=false,name=request_settings_name"`
@@ -19,16 +15,75 @@ type DeleteRequestSettingsRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *DeleteRequestSettingsRequest) GetRequestSettingsName() string {
+	if o == nil {
+		return ""
+	}
+	return o.RequestSettingsName
+}
+
+func (o *DeleteRequestSettingsRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *DeleteRequestSettingsRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 // DeleteRequestSettings200ApplicationJSON - OK
 type DeleteRequestSettings200ApplicationJSON struct {
 	// ok
 	Status *string `json:"status,omitempty"`
 }
 
+func (o *DeleteRequestSettings200ApplicationJSON) GetStatus() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Status
+}
+
 type DeleteRequestSettingsResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	DeleteRequestSettings200ApplicationJSONObject *DeleteRequestSettings200ApplicationJSON
+}
+
+func (o *DeleteRequestSettingsResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteRequestSettingsResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteRequestSettingsResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *DeleteRequestSettingsResponse) GetDeleteRequestSettings200ApplicationJSONObject() *DeleteRequestSettings200ApplicationJSON {
+	if o == nil {
+		return nil
+	}
+	return o.DeleteRequestSettings200ApplicationJSONObject
 }

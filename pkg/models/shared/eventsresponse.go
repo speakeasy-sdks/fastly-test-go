@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type EventsResponseLinks struct {
 	// The first page of data.
 	First *string `json:"first,omitempty"`
@@ -13,20 +17,107 @@ type EventsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *EventsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *EventsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *EventsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *EventsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type EventsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
 	// Number of records per page.
-	PerPage *int64 `json:"per_page,omitempty"`
+	PerPage *int64 `default:"20" json:"per_page"`
 	// Total records in result set.
 	RecordCount *int64 `json:"record_count,omitempty"`
 	// Total pages in result set.
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
-// EventsResponse - OK
+func (e EventsResponseMeta) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(e, "", false)
+}
+
+func (e *EventsResponseMeta) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &e, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *EventsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *EventsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *EventsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *EventsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 type EventsResponse struct {
 	Data  []Event              `json:"data,omitempty"`
 	Links *EventsResponseLinks `json:"links,omitempty"`
 	Meta  *EventsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *EventsResponse) GetData() []Event {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *EventsResponse) GetLinks() *EventsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *EventsResponse) GetMeta() *EventsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

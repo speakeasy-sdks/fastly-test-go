@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// ConfigStoreItemResponse - OK
 type ConfigStoreItemResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
@@ -19,4 +19,57 @@ type ConfigStoreItemResponse struct {
 	StoreID   *string `json:"store_id,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (c ConfigStoreItemResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(c, "", false)
+}
+
+func (c *ConfigStoreItemResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &c, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *ConfigStoreItemResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *ConfigStoreItemResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *ConfigStoreItemResponse) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *ConfigStoreItemResponse) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}
+
+func (o *ConfigStoreItemResponse) GetStoreID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.StoreID
+}
+
+func (o *ConfigStoreItemResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

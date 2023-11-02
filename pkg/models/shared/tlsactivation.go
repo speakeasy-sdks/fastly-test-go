@@ -5,3 +5,10 @@ package shared
 type TLSActivationInput struct {
 	Data *TLSActivationDataInput `json:"data,omitempty"`
 }
+
+func (o *TLSActivationInput) GetData() *TLSActivationDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
