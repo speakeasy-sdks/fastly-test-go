@@ -1,7 +1,5 @@
 # WafActiveRuleCreationResponse
 
-Created
-
 
 ## Supported Types
 

@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -137,35 +138,165 @@ type LoggingSftpInput struct {
 	// The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
 	CompressionCodec *LoggingSftpCompressionCodec `form:"name=compression_codec"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `form:"name=format"`
+	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingSftpFormatVersion `form:"name=format_version"`
+	FormatVersion *LoggingSftpFormatVersion `default:"2" form:"name=format_version"`
 	// The level of gzip encoding when sending logs (default `0`, no compression). Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.
-	GzipLevel *int64 `form:"name=gzip_level"`
+	GzipLevel *int64 `default:"0" form:"name=gzip_level"`
 	// How the message should be formatted.
-	MessageType *LoggingSftpMessageType `form:"name=message_type"`
+	MessageType *LoggingSftpMessageType `default:"classic" form:"name=message_type"`
 	// The name for the real-time logging configuration.
 	Name *string `form:"name=name"`
 	// The password for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference.
 	Password *string `form:"name=password"`
 	// The path to upload logs to.
-	Path *string `form:"name=path"`
+	Path *string `default:"null" form:"name=path"`
 	// How frequently log files are finalized so they can be available for reading (in seconds).
-	Period *int64 `form:"name=period"`
+	Period *int64 `default:"3600" form:"name=period"`
 	// Where in the generated VCL the logging call should be placed. If not set, endpoints with `format_version` of 2 are placed in `vcl_log` and those with `format_version` of 1 are placed in `vcl_deliver`.
 	//
 	Placement *LoggingSftpPlacement `form:"name=placement"`
 	// The port number.
-	Port *int64 `form:"name=port"`
+	Port *int64 `default:"22" form:"name=port"`
 	// A PGP public key that Fastly will use to encrypt your log files before writing them to disk.
-	PublicKey *string `form:"name=public_key"`
+	PublicKey *string `default:"null" form:"name=public_key"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `form:"name=response_condition"`
 	// The SSH private key for the server. If both `password` and `secret_key` are passed, `secret_key` will be used in preference.
-	SecretKey *string `form:"name=secret_key"`
+	SecretKey *string `default:"null" form:"name=secret_key"`
 	// A list of host keys for all hosts we can connect to over SFTP.
 	SSHKnownHosts *string `form:"name=ssh_known_hosts"`
 	// The username for the server.
 	User *string `form:"name=user"`
+}
+
+func (l LoggingSftpInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingSftpInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingSftpInput) GetAddress() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Address
+}
+
+func (o *LoggingSftpInput) GetCompressionCodec() *LoggingSftpCompressionCodec {
+	if o == nil {
+		return nil
+	}
+	return o.CompressionCodec
+}
+
+func (o *LoggingSftpInput) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingSftpInput) GetFormatVersion() *LoggingSftpFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingSftpInput) GetGzipLevel() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GzipLevel
+}
+
+func (o *LoggingSftpInput) GetMessageType() *LoggingSftpMessageType {
+	if o == nil {
+		return nil
+	}
+	return o.MessageType
+}
+
+func (o *LoggingSftpInput) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingSftpInput) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingSftpInput) GetPath() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Path
+}
+
+func (o *LoggingSftpInput) GetPeriod() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Period
+}
+
+func (o *LoggingSftpInput) GetPlacement() *LoggingSftpPlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingSftpInput) GetPort() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Port
+}
+
+func (o *LoggingSftpInput) GetPublicKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.PublicKey
+}
+
+func (o *LoggingSftpInput) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingSftpInput) GetSecretKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SecretKey
+}
+
+func (o *LoggingSftpInput) GetSSHKnownHosts() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SSHKnownHosts
+}
+
+func (o *LoggingSftpInput) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
 }

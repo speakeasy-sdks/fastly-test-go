@@ -1,4 +1,5 @@
 # EnabledProducts
+(*EnabledProducts*)
 
 ## Overview
 
@@ -23,19 +24,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.EnabledProducts.DisableProduct(ctx, operations.DisableProductRequest{
         ProductID: "origin_inspector",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.DisableProductSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -49,11 +51,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.DisableProductRequest](../../models/operations/disableproductrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DisableProductSecurity](../../models/operations/disableproductsecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.DisableProductRequest](../../models/operations/disableproductrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
@@ -73,19 +74,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.EnabledProducts.EnableProduct(ctx, operations.EnableProductRequest{
         ProductID: "origin_inspector",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.EnableProductSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -99,11 +101,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.EnableProductRequest](../../models/operations/enableproductrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.EnableProductSecurity](../../models/operations/enableproductsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.EnableProductRequest](../../models/operations/enableproductrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
@@ -123,19 +124,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.EnabledProducts.GetEnabledProduct(ctx, operations.GetEnabledProductRequest{
         ProductID: "origin_inspector",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-    }, operations.GetEnabledProductSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -149,11 +151,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.GetEnabledProductRequest](../../models/operations/getenabledproductrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.GetEnabledProductSecurity](../../models/operations/getenabledproductsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.GetEnabledProductRequest](../../models/operations/getenabledproductrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response

@@ -1,7 +1,5 @@
 # StarResponse
 
-OK
-
 
 ## Fields
 

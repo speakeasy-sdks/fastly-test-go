@@ -7,14 +7,41 @@ import (
 	"net/http"
 )
 
-type CreateInvitationSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type CreateInvitationResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	InvitationResponse *shared.InvitationResponse
+}
+
+func (o *CreateInvitationResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *CreateInvitationResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *CreateInvitationResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *CreateInvitationResponse) GetInvitationResponse() *shared.InvitationResponse {
+	if o == nil {
+		return nil
+	}
+	return o.InvitationResponse
 }
