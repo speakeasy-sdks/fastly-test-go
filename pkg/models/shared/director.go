@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 )
@@ -48,11 +49,78 @@ type Director struct {
 	// Name for the Director.
 	Name *string `json:"name,omitempty" form:"name=name"`
 	// The percentage of capacity that needs to be up for a director to be considered up. `0` to `100`.
-	Quorum *int64 `json:"quorum,omitempty" form:"name=quorum"`
+	Quorum *int64 `default:"75" json:"quorum" form:"name=quorum"`
 	// How many backends to search if it fails.
-	Retries *int64 `json:"retries,omitempty" form:"name=retries"`
+	Retries *int64 `default:"5" json:"retries" form:"name=retries"`
 	// Selected POP to serve as a shield for the backends. Defaults to `null` meaning no origin shielding if not set. Refer to the [POPs API endpoint](/reference/api/utils/pops/) to get a list of available POPs used for shielding.
-	Shield *string `json:"shield,omitempty" form:"name=shield"`
+	Shield *string `default:"null" json:"shield" form:"name=shield"`
 	// What type of load balance group to use.
-	Type *DirectorType `json:"type,omitempty" form:"name=type"`
+	Type *DirectorType `default:"1" json:"type" form:"name=type"`
+}
+
+func (d Director) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *Director) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *Director) GetBackends() []Backend {
+	if o == nil {
+		return nil
+	}
+	return o.Backends
+}
+
+func (o *Director) GetCapacity() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Capacity
+}
+
+func (o *Director) GetComment() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Comment
+}
+
+func (o *Director) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *Director) GetQuorum() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Quorum
+}
+
+func (o *Director) GetRetries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Retries
+}
+
+func (o *Director) GetShield() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Shield
+}
+
+func (o *Director) GetType() *DirectorType {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

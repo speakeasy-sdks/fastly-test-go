@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
@@ -19,4 +20,57 @@ type TLSBulkCertificateResponseAttributes struct {
 	Replace *bool `json:"replace,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (t TLSBulkCertificateResponseAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSBulkCertificateResponseAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSBulkCertificateResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSBulkCertificateResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSBulkCertificateResponseAttributes) GetNotAfter() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.NotAfter
+}
+
+func (o *TLSBulkCertificateResponseAttributes) GetNotBefore() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.NotBefore
+}
+
+func (o *TLSBulkCertificateResponseAttributes) GetReplace() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Replace
+}
+
+func (o *TLSBulkCertificateResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

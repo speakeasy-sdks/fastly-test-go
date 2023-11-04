@@ -1,7 +1,5 @@
 # LoggingKafkaResponse
 
-OK
-
 
 ## Fields
 

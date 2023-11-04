@@ -1,7 +1,5 @@
 # HistoricalResponse
 
-OK
-
 
 ## Fields
 

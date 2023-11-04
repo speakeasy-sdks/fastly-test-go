@@ -1,7 +1,5 @@
 # InvitationsResponse
 
-OK
-
 
 ## Fields
 

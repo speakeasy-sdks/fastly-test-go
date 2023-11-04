@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -73,7 +74,6 @@ func (e *RequestSettingsResponseXff) UnmarshalJSON(data []byte) error {
 	}
 }
 
-// RequestSettingsResponse - OK
 type RequestSettingsResponse struct {
 	// Allows you to terminate request handling and immediately perform an action.
 	Action *RequestSettingsResponseAction `json:"action,omitempty"`
@@ -107,4 +107,134 @@ type RequestSettingsResponse struct {
 	Version   *int64     `json:"version,omitempty"`
 	// Short for X-Forwarded-For.
 	Xff *RequestSettingsResponseXff `json:"xff,omitempty"`
+}
+
+func (r RequestSettingsResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(r, "", false)
+}
+
+func (r *RequestSettingsResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &r, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *RequestSettingsResponse) GetAction() *RequestSettingsResponseAction {
+	if o == nil {
+		return nil
+	}
+	return o.Action
+}
+
+func (o *RequestSettingsResponse) GetBypassBusyWait() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.BypassBusyWait
+}
+
+func (o *RequestSettingsResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *RequestSettingsResponse) GetDefaultHost() *string {
+	if o == nil {
+		return nil
+	}
+	return o.DefaultHost
+}
+
+func (o *RequestSettingsResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *RequestSettingsResponse) GetForceMiss() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ForceMiss
+}
+
+func (o *RequestSettingsResponse) GetForceSsl() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.ForceSsl
+}
+
+func (o *RequestSettingsResponse) GetGeoHeaders() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.GeoHeaders
+}
+
+func (o *RequestSettingsResponse) GetHashKeys() *string {
+	if o == nil {
+		return nil
+	}
+	return o.HashKeys
+}
+
+func (o *RequestSettingsResponse) GetMaxStaleAge() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.MaxStaleAge
+}
+
+func (o *RequestSettingsResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *RequestSettingsResponse) GetRequestCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.RequestCondition
+}
+
+func (o *RequestSettingsResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *RequestSettingsResponse) GetTimerSupport() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TimerSupport
+}
+
+func (o *RequestSettingsResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *RequestSettingsResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
+}
+
+func (o *RequestSettingsResponse) GetXff() *RequestSettingsResponseXff {
+	if o == nil {
+		return nil
+	}
+	return o.Xff
 }

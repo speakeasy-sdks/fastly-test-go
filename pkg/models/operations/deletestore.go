@@ -6,17 +6,51 @@ import (
 	"net/http"
 )
 
-type DeleteStoreSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type DeleteStoreRequest struct {
 	Force   *bool  `header:"style=simple,explode=false,name=force"`
 	StoreID string `pathParam:"style=simple,explode=false,name=store_id"`
 }
 
+func (o *DeleteStoreRequest) GetForce() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Force
+}
+
+func (o *DeleteStoreRequest) GetStoreID() string {
+	if o == nil {
+		return ""
+	}
+	return o.StoreID
+}
+
 type DeleteStoreResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
+}
+
+func (o *DeleteStoreResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *DeleteStoreResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *DeleteStoreResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
 }

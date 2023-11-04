@@ -3,10 +3,10 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
-// DictionaryItemResponse - OK
 type DictionaryItemResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
@@ -20,4 +20,64 @@ type DictionaryItemResponse struct {
 	ServiceID *string `json:"service_id,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (d DictionaryItemResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(d, "", false)
+}
+
+func (d *DictionaryItemResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &d, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *DictionaryItemResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *DictionaryItemResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *DictionaryItemResponse) GetDictionaryID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.DictionaryID
+}
+
+func (o *DictionaryItemResponse) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *DictionaryItemResponse) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}
+
+func (o *DictionaryItemResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *DictionaryItemResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

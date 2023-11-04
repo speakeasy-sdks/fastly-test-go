@@ -3,8 +3,7 @@
 package shared
 
 import (
-	"bytes"
-	"encoding/json"
+	"Fastly/pkg/utils"
 	"errors"
 )
 
@@ -41,22 +40,17 @@ func CreateWafRuleRevisionOrLatestStr(str string) WafRuleRevisionOrLatest {
 }
 
 func (u *WafRuleRevisionOrLatest) UnmarshalJSON(data []byte) error {
-	var d *json.Decoder
 
-	integer := new(int64)
-	d = json.NewDecoder(bytes.NewReader(data))
-	d.DisallowUnknownFields()
-	if err := d.Decode(&integer); err == nil {
-		u.Integer = integer
+	integer := int64(0)
+	if err := utils.UnmarshalJSON(data, &integer, "", true, true); err == nil {
+		u.Integer = &integer
 		u.Type = WafRuleRevisionOrLatestTypeInteger
 		return nil
 	}
 
-	str := new(string)
-	d = json.NewDecoder(bytes.NewReader(data))
-	d.DisallowUnknownFields()
-	if err := d.Decode(&str); err == nil {
-		u.Str = str
+	str := ""
+	if err := utils.UnmarshalJSON(data, &str, "", true, true); err == nil {
+		u.Str = &str
 		u.Type = WafRuleRevisionOrLatestTypeStr
 		return nil
 	}
@@ -66,12 +60,12 @@ func (u *WafRuleRevisionOrLatest) UnmarshalJSON(data []byte) error {
 
 func (u WafRuleRevisionOrLatest) MarshalJSON() ([]byte, error) {
 	if u.Integer != nil {
-		return json.Marshal(u.Integer)
+		return utils.MarshalJSON(u.Integer, "", true)
 	}
 
 	if u.Str != nil {
-		return json.Marshal(u.Str)
+		return utils.MarshalJSON(u.Str, "", true)
 	}
 
-	return nil, nil
+	return nil, errors.New("could not marshal union type: all fields are null")
 }

@@ -2,15 +2,57 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type BillingAddressRequestDataInput struct {
 	Attributes *BillingAddressAttributesInput `json:"attributes,omitempty"`
 	// Resource type
-	Type *TypeBillingAddress `json:"type,omitempty"`
+	Type *TypeBillingAddress `default:"billing_address" json:"type"`
 }
 
-// BillingAddressRequestInput - Billing address
+func (b BillingAddressRequestDataInput) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(b, "", false)
+}
+
+func (b *BillingAddressRequestDataInput) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &b, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *BillingAddressRequestDataInput) GetAttributes() *BillingAddressAttributesInput {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *BillingAddressRequestDataInput) GetType() *TypeBillingAddress {
+	if o == nil {
+		return nil
+	}
+	return o.Type
+}
+
 type BillingAddressRequestInput struct {
 	Data *BillingAddressRequestDataInput `json:"data,omitempty"`
 	// When set to true, the address will be saved without verification
 	SkipVerification *bool `json:"skip_verification,omitempty"`
+}
+
+func (o *BillingAddressRequestInput) GetData() *BillingAddressRequestDataInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *BillingAddressRequestInput) GetSkipVerification() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.SkipVerification
 }
