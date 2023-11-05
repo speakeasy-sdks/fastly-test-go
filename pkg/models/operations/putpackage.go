@@ -7,10 +7,6 @@ import (
 	"net/http"
 )
 
-type PutPackageSecurity struct {
-	Token string `security:"scheme,type=apiKey,subtype=header,name=Fastly-Key"`
-}
-
 type PutPackageRequest struct {
 	// We recommend using the Expect header because it may identify issues with the request based upon the headers alone instead of requiring you to wait until the entire binary package upload has completed.
 	Expect        *string               `header:"style=simple,explode=false,name=expect"`
@@ -21,10 +17,69 @@ type PutPackageRequest struct {
 	VersionID int64 `pathParam:"style=simple,explode=false,name=version_id"`
 }
 
+func (o *PutPackageRequest) GetExpect() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Expect
+}
+
+func (o *PutPackageRequest) GetPackageUpload() *shared.PackageUpload {
+	if o == nil {
+		return nil
+	}
+	return o.PackageUpload
+}
+
+func (o *PutPackageRequest) GetServiceID() string {
+	if o == nil {
+		return ""
+	}
+	return o.ServiceID
+}
+
+func (o *PutPackageRequest) GetVersionID() int64 {
+	if o == nil {
+		return 0
+	}
+	return o.VersionID
+}
+
 type PutPackageResponse struct {
+	// HTTP response content type for this operation
 	ContentType string
-	StatusCode  int
+	// HTTP response status code for this operation
+	StatusCode int
+	// Raw HTTP response; suitable for custom response parsing
 	RawResponse *http.Response
 	// OK
 	PackageResponse *shared.PackageResponse
+}
+
+func (o *PutPackageResponse) GetContentType() string {
+	if o == nil {
+		return ""
+	}
+	return o.ContentType
+}
+
+func (o *PutPackageResponse) GetStatusCode() int {
+	if o == nil {
+		return 0
+	}
+	return o.StatusCode
+}
+
+func (o *PutPackageResponse) GetRawResponse() *http.Response {
+	if o == nil {
+		return nil
+	}
+	return o.RawResponse
+}
+
+func (o *PutPackageResponse) GetPackageResponse() *shared.PackageResponse {
+	if o == nil {
+		return nil
+	}
+	return o.PackageResponse
 }

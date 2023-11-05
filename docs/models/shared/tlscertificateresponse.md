@@ -1,7 +1,5 @@
 # TLSCertificateResponse
 
-OK
-
 
 ## Fields
 

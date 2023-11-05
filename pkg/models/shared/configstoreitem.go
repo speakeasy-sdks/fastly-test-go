@@ -8,3 +8,17 @@ type ConfigStoreItem struct {
 	// Item value, maximum 8000 characters.
 	ItemValue *string `form:"name=item_value"`
 }
+
+func (o *ConfigStoreItem) GetItemKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemKey
+}
+
+func (o *ConfigStoreItem) GetItemValue() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ItemValue
+}

@@ -1,0 +1,10 @@
+# TLSSubscriptionData
+
+
+## Fields
+
+| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                         | [*TLSSubscriptionDataAttributes](../../models/shared/tlssubscriptiondataattributes.md)               | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `Relationships`                                                                                      | [*RelationshipsForTLSSubscriptionInput](../../models/shared/relationshipsfortlssubscriptioninput.md) | :heavy_minus_sign:                                                                                   | N/A                                                                                                  |
+| `Type`                                                                                               | [*TypeTLSSubscription](../../models/shared/typetlssubscription.md)                                   | :heavy_minus_sign:                                                                                   | Resource type                                                                                        |

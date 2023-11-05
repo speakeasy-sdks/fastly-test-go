@@ -2,6 +2,10 @@
 
 package shared
 
+import (
+	"Fastly/pkg/utils"
+)
+
 type MutualAuthenticationsResponseLinks struct {
 	// The first page of data.
 	First *string `json:"first,omitempty"`
@@ -13,20 +17,107 @@ type MutualAuthenticationsResponseLinks struct {
 	Prev *string `json:"prev,omitempty"`
 }
 
+func (o *MutualAuthenticationsResponseLinks) GetFirst() *string {
+	if o == nil {
+		return nil
+	}
+	return o.First
+}
+
+func (o *MutualAuthenticationsResponseLinks) GetLast() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Last
+}
+
+func (o *MutualAuthenticationsResponseLinks) GetNext() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Next
+}
+
+func (o *MutualAuthenticationsResponseLinks) GetPrev() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Prev
+}
+
 type MutualAuthenticationsResponseMeta struct {
 	// Current page.
 	CurrentPage *int64 `json:"current_page,omitempty"`
 	// Number of records per page.
-	PerPage *int64 `json:"per_page,omitempty"`
+	PerPage *int64 `default:"20" json:"per_page"`
 	// Total records in result set.
 	RecordCount *int64 `json:"record_count,omitempty"`
 	// Total pages in result set.
 	TotalPages *int64 `json:"total_pages,omitempty"`
 }
 
-// MutualAuthenticationsResponse - OK
+func (m MutualAuthenticationsResponseMeta) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(m, "", false)
+}
+
+func (m *MutualAuthenticationsResponseMeta) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &m, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *MutualAuthenticationsResponseMeta) GetCurrentPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.CurrentPage
+}
+
+func (o *MutualAuthenticationsResponseMeta) GetPerPage() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.PerPage
+}
+
+func (o *MutualAuthenticationsResponseMeta) GetRecordCount() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RecordCount
+}
+
+func (o *MutualAuthenticationsResponseMeta) GetTotalPages() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.TotalPages
+}
+
 type MutualAuthenticationsResponse struct {
 	Data  []MutualAuthenticationResponseData  `json:"data,omitempty"`
 	Links *MutualAuthenticationsResponseLinks `json:"links,omitempty"`
 	Meta  *MutualAuthenticationsResponseMeta  `json:"meta,omitempty"`
+}
+
+func (o *MutualAuthenticationsResponse) GetData() []MutualAuthenticationResponseData {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+func (o *MutualAuthenticationsResponse) GetLinks() *MutualAuthenticationsResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *MutualAuthenticationsResponse) GetMeta() *MutualAuthenticationsResponseMeta {
+	if o == nil {
+		return nil
+	}
+	return o.Meta
 }

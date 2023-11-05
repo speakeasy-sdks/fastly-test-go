@@ -7,7 +7,6 @@ import (
 	"fmt"
 )
 
-// QueryFormat - Optional method to format the diff field.
 type QueryFormat string
 
 const (

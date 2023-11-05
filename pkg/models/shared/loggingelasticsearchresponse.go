@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"encoding/json"
 	"fmt"
 	"time"
@@ -67,7 +68,6 @@ func (e *LoggingElasticsearchResponsePlacement) UnmarshalJSON(data []byte) error
 	}
 }
 
-// LoggingElasticsearchResponse - OK
 type LoggingElasticsearchResponse struct {
 	// Date and time in ISO 8601 format.
 	CreatedAt *time.Time `json:"created_at,omitempty"`
@@ -77,7 +77,7 @@ type LoggingElasticsearchResponse struct {
 	Format *string `json:"format,omitempty"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
-	FormatVersion *LoggingElasticsearchResponseFormatVersion `json:"format_version,omitempty"`
+	FormatVersion *LoggingElasticsearchResponseFormatVersion `default:"2" json:"format_version"`
 	// The name of the Elasticsearch index to send documents (logs) to. The index must follow the Elasticsearch [index format rules](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-create-index.html). We support [strftime](https://www.man7.org/linux/man-pages/man3/strftime.3.html) interpolated variables inside braces prefixed with a pound symbol. For example, `#{%F}` will interpolate as `YYYY-MM-DD` with today's date.
 	Index *string `json:"index,omitempty"`
 	// The name for the real-time logging configuration.
@@ -90,20 +90,20 @@ type LoggingElasticsearchResponse struct {
 	//
 	Placement *LoggingElasticsearchResponsePlacement `json:"placement,omitempty"`
 	// The maximum number of bytes sent in one request. Defaults `0` for unbounded.
-	RequestMaxBytes *int64 `json:"request_max_bytes,omitempty"`
+	RequestMaxBytes *int64 `default:"0" json:"request_max_bytes"`
 	// The maximum number of logs sent in one request. Defaults `0` for unbounded.
-	RequestMaxEntries *int64 `json:"request_max_entries,omitempty"`
+	RequestMaxEntries *int64 `default:"0" json:"request_max_entries"`
 	// The name of an existing condition in the configured endpoint, or leave blank to always execute.
 	ResponseCondition *string `json:"response_condition,omitempty"`
 	ServiceID         *string `json:"service_id,omitempty"`
 	// A secure certificate to authenticate a server with. Must be in PEM format.
-	TLSCaCert *string `json:"tls_ca_cert,omitempty"`
+	TLSCaCert *string `default:"null" json:"tls_ca_cert"`
 	// The client certificate used to make authenticated requests. Must be in PEM format.
-	TLSClientCert *string `json:"tls_client_cert,omitempty"`
+	TLSClientCert *string `default:"null" json:"tls_client_cert"`
 	// The client private key used to make authenticated requests. Must be in PEM format.
-	TLSClientKey *string `json:"tls_client_key,omitempty"`
+	TLSClientKey *string `default:"null" json:"tls_client_key"`
 	// The hostname to verify the server's certificate. This should be one of the Subject Alternative Name (SAN) fields for the certificate. Common Names (CN) are not supported.
-	TLSHostname *string `json:"tls_hostname,omitempty"`
+	TLSHostname *string `default:"null" json:"tls_hostname"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
 	// The URL to stream logs to. Must use HTTPS.
@@ -111,4 +111,162 @@ type LoggingElasticsearchResponse struct {
 	// Basic Auth username.
 	User    *string `json:"user,omitempty"`
 	Version *int64  `json:"version,omitempty"`
+}
+
+func (l LoggingElasticsearchResponse) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(l, "", false)
+}
+
+func (l *LoggingElasticsearchResponse) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &l, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *LoggingElasticsearchResponse) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *LoggingElasticsearchResponse) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *LoggingElasticsearchResponse) GetFormat() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Format
+}
+
+func (o *LoggingElasticsearchResponse) GetFormatVersion() *LoggingElasticsearchResponseFormatVersion {
+	if o == nil {
+		return nil
+	}
+	return o.FormatVersion
+}
+
+func (o *LoggingElasticsearchResponse) GetIndex() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Index
+}
+
+func (o *LoggingElasticsearchResponse) GetName() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Name
+}
+
+func (o *LoggingElasticsearchResponse) GetPassword() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Password
+}
+
+func (o *LoggingElasticsearchResponse) GetPipeline() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Pipeline
+}
+
+func (o *LoggingElasticsearchResponse) GetPlacement() *LoggingElasticsearchResponsePlacement {
+	if o == nil {
+		return nil
+	}
+	return o.Placement
+}
+
+func (o *LoggingElasticsearchResponse) GetRequestMaxBytes() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxBytes
+}
+
+func (o *LoggingElasticsearchResponse) GetRequestMaxEntries() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.RequestMaxEntries
+}
+
+func (o *LoggingElasticsearchResponse) GetResponseCondition() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ResponseCondition
+}
+
+func (o *LoggingElasticsearchResponse) GetServiceID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ServiceID
+}
+
+func (o *LoggingElasticsearchResponse) GetTLSCaCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCaCert
+}
+
+func (o *LoggingElasticsearchResponse) GetTLSClientCert() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientCert
+}
+
+func (o *LoggingElasticsearchResponse) GetTLSClientKey() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSClientKey
+}
+
+func (o *LoggingElasticsearchResponse) GetTLSHostname() *string {
+	if o == nil {
+		return nil
+	}
+	return o.TLSHostname
+}
+
+func (o *LoggingElasticsearchResponse) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
+}
+
+func (o *LoggingElasticsearchResponse) GetURL() *string {
+	if o == nil {
+		return nil
+	}
+	return o.URL
+}
+
+func (o *LoggingElasticsearchResponse) GetUser() *string {
+	if o == nil {
+		return nil
+	}
+	return o.User
+}
+
+func (o *LoggingElasticsearchResponse) GetVersion() *int64 {
+	if o == nil {
+		return nil
+	}
+	return o.Version
 }
