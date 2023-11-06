@@ -2,24 +2,53 @@
 
 package shared
 
-type TLSConfigurationResponseDataRelationships2DNSRecords struct {
-	Data []RelationshipMemberTLSDNSRecord `json:"data,omitempty"`
-}
-
-// TLSConfigurationResponseDataRelationships2 - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
-type TLSConfigurationResponseDataRelationships2 struct {
-	DNSRecords *TLSConfigurationResponseDataRelationships2DNSRecords `json:"dns_records,omitempty"`
-}
-
-// TLSConfigurationResponseDataRelationships1 - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
-type TLSConfigurationResponseDataRelationships1 struct {
-	Service *RelationshipMemberService `json:"service,omitempty"`
-}
+import (
+	"Fastly/pkg/utils"
+)
 
 type TLSConfigurationResponseData struct {
 	Attributes    *TLSConfigurationResponseAttributes `json:"attributes,omitempty"`
 	ID            *string                             `json:"id,omitempty"`
-	Relationships interface{}                         `json:"relationships,omitempty"`
+	Relationships *RelationshipsForTLSConfiguration   `json:"relationships,omitempty"`
 	// Resource type
-	Type *TypeTLSConfiguration `json:"type,omitempty"`
+	Type *TypeTLSConfiguration `default:"tls_configuration" json:"type"`
+}
+
+func (t TLSConfigurationResponseData) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSConfigurationResponseData) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSConfigurationResponseData) GetAttributes() *TLSConfigurationResponseAttributes {
+	if o == nil {
+		return nil
+	}
+	return o.Attributes
+}
+
+func (o *TLSConfigurationResponseData) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *TLSConfigurationResponseData) GetRelationships() *RelationshipsForTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.Relationships
+}
+
+func (o *TLSConfigurationResponseData) GetType() *TypeTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.Type
 }

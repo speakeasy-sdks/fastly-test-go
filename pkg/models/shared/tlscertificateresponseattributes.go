@@ -3,6 +3,7 @@
 package shared
 
 import (
+	"Fastly/pkg/utils"
 	"time"
 )
 
@@ -27,4 +28,85 @@ type TLSCertificateResponseAttributes struct {
 	SignatureAlgorithm *string `json:"signature_algorithm,omitempty"`
 	// Date and time in ISO 8601 format.
 	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+}
+
+func (t TLSCertificateResponseAttributes) MarshalJSON() ([]byte, error) {
+	return utils.MarshalJSON(t, "", false)
+}
+
+func (t *TLSCertificateResponseAttributes) UnmarshalJSON(data []byte) error {
+	if err := utils.UnmarshalJSON(data, &t, "", false, false); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (o *TLSCertificateResponseAttributes) GetCreatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.CreatedAt
+}
+
+func (o *TLSCertificateResponseAttributes) GetDeletedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.DeletedAt
+}
+
+func (o *TLSCertificateResponseAttributes) GetIssuedTo() *string {
+	if o == nil {
+		return nil
+	}
+	return o.IssuedTo
+}
+
+func (o *TLSCertificateResponseAttributes) GetIssuer() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Issuer
+}
+
+func (o *TLSCertificateResponseAttributes) GetNotAfter() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.NotAfter
+}
+
+func (o *TLSCertificateResponseAttributes) GetNotBefore() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.NotBefore
+}
+
+func (o *TLSCertificateResponseAttributes) GetReplace() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Replace
+}
+
+func (o *TLSCertificateResponseAttributes) GetSerialNumber() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SerialNumber
+}
+
+func (o *TLSCertificateResponseAttributes) GetSignatureAlgorithm() *string {
+	if o == nil {
+		return nil
+	}
+	return o.SignatureAlgorithm
+}
+
+func (o *TLSCertificateResponseAttributes) GetUpdatedAt() *time.Time {
+	if o == nil {
+		return nil
+	}
+	return o.UpdatedAt
 }

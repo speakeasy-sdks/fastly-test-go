@@ -9,11 +9,39 @@ type EnabledProductResponseLinks struct {
 	Service *string `json:"service,omitempty"`
 }
 
+func (o *EnabledProductResponseLinks) GetSelf() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Self
+}
+
+func (o *EnabledProductResponseLinks) GetService() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Service
+}
+
 type EnabledProductResponseProduct struct {
 	// Product identifier
 	ID *string `json:"id,omitempty"`
 	// Name of the object
 	Object *string `json:"object,omitempty"`
+}
+
+func (o *EnabledProductResponseProduct) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *EnabledProductResponseProduct) GetObject() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Object
 }
 
 type EnabledProductResponseService struct {
@@ -23,9 +51,43 @@ type EnabledProductResponseService struct {
 	Object *string `json:"object,omitempty"`
 }
 
-// EnabledProductResponse - OK
+func (o *EnabledProductResponseService) GetID() *string {
+	if o == nil {
+		return nil
+	}
+	return o.ID
+}
+
+func (o *EnabledProductResponseService) GetObject() *string {
+	if o == nil {
+		return nil
+	}
+	return o.Object
+}
+
 type EnabledProductResponse struct {
 	Links   *EnabledProductResponseLinks   `json:"_links,omitempty"`
 	Product *EnabledProductResponseProduct `json:"product,omitempty"`
 	Service *EnabledProductResponseService `json:"service,omitempty"`
+}
+
+func (o *EnabledProductResponse) GetLinks() *EnabledProductResponseLinks {
+	if o == nil {
+		return nil
+	}
+	return o.Links
+}
+
+func (o *EnabledProductResponse) GetProduct() *EnabledProductResponseProduct {
+	if o == nil {
+		return nil
+	}
+	return o.Product
+}
+
+func (o *EnabledProductResponse) GetService() *EnabledProductResponseService {
+	if o == nil {
+		return nil
+	}
+	return o.Service
 }

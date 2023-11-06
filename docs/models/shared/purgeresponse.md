@@ -1,7 +1,5 @@
 # PurgeResponse
 
-OK
-
 
 ## Fields
 

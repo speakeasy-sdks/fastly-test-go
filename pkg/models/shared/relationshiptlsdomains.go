@@ -6,14 +6,42 @@ type RelationshipTLSDomainsTLSDomainsInput struct {
 	Data []RelationshipMemberTLSDomainInput `json:"data,omitempty"`
 }
 
+func (o *RelationshipTLSDomainsTLSDomainsInput) GetData() []RelationshipMemberTLSDomainInput {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipTLSDomainsInput struct {
 	TLSDomains *RelationshipTLSDomainsTLSDomainsInput `json:"tls_domains,omitempty"`
+}
+
+func (o *RelationshipTLSDomainsInput) GetTLSDomains() *RelationshipTLSDomainsTLSDomainsInput {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomains
 }
 
 type RelationshipTLSDomainsTLSDomains struct {
 	Data []RelationshipMemberTLSDomain `json:"data,omitempty"`
 }
 
+func (o *RelationshipTLSDomainsTLSDomains) GetData() []RelationshipMemberTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
 type RelationshipTLSDomains struct {
 	TLSDomains *RelationshipTLSDomainsTLSDomains `json:"tls_domains,omitempty"`
+}
+
+func (o *RelationshipTLSDomains) GetTLSDomains() *RelationshipTLSDomainsTLSDomains {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomains
 }

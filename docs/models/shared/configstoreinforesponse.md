@@ -1,7 +1,5 @@
 # ConfigStoreInfoResponse
 
-OK
-
 
 ## Fields
 

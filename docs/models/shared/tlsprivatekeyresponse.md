@@ -1,7 +1,5 @@
 # TLSPrivateKeyResponse
 
-Created
-
 
 ## Fields
 

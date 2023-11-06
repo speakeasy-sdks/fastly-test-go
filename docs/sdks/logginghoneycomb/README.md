@@ -1,4 +1,5 @@
 # LoggingHoneycomb
+(*LoggingHoneycomb*)
 
 ## Overview
 
@@ -25,29 +26,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.CreateLogHoneycomb(ctx, operations.CreateLogHoneycombRequest{
-        LoggingHoneycomb2: &shared.LoggingHoneycomb2{
-            Dataset: sdk.String("accusamus"),
-            Format: sdk.String("aliquam"),
-            FormatVersion: shared.LoggingHoneycombFormatVersionOne.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
+        LoggingHoneycomb: &shared.LoggingHoneycomb{
+            FormatVersion: shared.LoggingHoneycombFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
             Placement: shared.LoggingHoneycombPlacementWafDebug.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("commodi"),
+            ResponseCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogHoneycombSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -61,11 +59,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.CreateLogHoneycombRequest](../../models/operations/createloghoneycombrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.CreateLogHoneycombSecurity](../../models/operations/createloghoneycombsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.CreateLogHoneycombRequest](../../models/operations/createloghoneycombrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
@@ -85,20 +82,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.DeleteLogHoneycomb(ctx, operations.DeleteLogHoneycombRequest{
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogHoneycombSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -112,11 +110,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.DeleteLogHoneycombRequest](../../models/operations/deleteloghoneycombrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.DeleteLogHoneycombSecurity](../../models/operations/deleteloghoneycombsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.DeleteLogHoneycombRequest](../../models/operations/deleteloghoneycombrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
@@ -136,20 +133,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.GetLogHoneycomb(ctx, operations.GetLogHoneycombRequest{
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogHoneycombSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -163,11 +161,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.GetLogHoneycombRequest](../../models/operations/getloghoneycombrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetLogHoneycombSecurity](../../models/operations/getloghoneycombsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.GetLogHoneycombRequest](../../models/operations/getloghoneycombrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -187,19 +184,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
+	fastly "Fastly"
+	"Fastly/pkg/models/shared"
 	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.ListLogHoneycomb(ctx, operations.ListLogHoneycombRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogHoneycombSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -213,11 +211,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.ListLogHoneycombRequest](../../models/operations/listloghoneycombrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.ListLogHoneycombSecurity](../../models/operations/listloghoneycombsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.ListLogHoneycombRequest](../../models/operations/listloghoneycombrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
@@ -237,30 +234,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
 	"Fastly/pkg/models/shared"
+	"Fastly/pkg/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.UpdateLogHoneycomb(ctx, operations.UpdateLogHoneycombRequest{
-        LoggingHoneycomb2: &shared.LoggingHoneycomb2{
-            Dataset: sdk.String("sapiente"),
-            Format: sdk.String("dolores"),
+        LoggingHoneycomb: &shared.LoggingHoneycomb{
             FormatVersion: shared.LoggingHoneycombFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingHoneycombPlacementWafDebug.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("accusantium"),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: shared.LoggingHoneycombPlacementNone.ToPointer(),
+            ResponseCondition: fastly.String("null"),
         },
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogHoneycombSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -274,11 +268,10 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.UpdateLogHoneycombRequest](../../models/operations/updateloghoneycombrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.UpdateLogHoneycombSecurity](../../models/operations/updateloghoneycombsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.UpdateLogHoneycombRequest](../../models/operations/updateloghoneycombrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
