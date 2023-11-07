@@ -1,7 +1,5 @@
 # StoreResponse
 
-Created
-
 
 ## Fields
 

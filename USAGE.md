@@ -1,35 +1,34 @@
 <!-- Start SDK Example Usage -->
+
+
 ```go
 package main
 
-import(
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
 )
 
 func main() {
-    s := sdk.New()
+	s := fastly.New(
+		fastly.WithSecurity(""),
+	)
 
-    ctx := context.Background()
-    res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
-        ACL: &shared.ACL{
-            Name: sdk.String("test-acl"),
-        },
-        ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        VersionID: 1,
-    }, operations.CreateACLSecurity{
-        Token: "",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
+	ctx := context.Background()
+	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
+		ApexRedirectID: "string",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    if res.ACLResponse != nil {
-        // handle response
-    }
+	if res.Object != nil {
+		// handle response
+	}
 }
+
 ```
 <!-- End SDK Example Usage -->

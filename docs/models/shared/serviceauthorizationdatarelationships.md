@@ -1,0 +1,9 @@
+# ServiceAuthorizationDataRelationships
+
+
+## Fields
+
+| Field                                                                                               | Type                                                                                                | Required                                                                                            | Description                                                                                         |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `Service`                                                                                           | [*components.RelationshipMemberServiceInput](../../models/shared/relationshipmemberserviceinput.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 |
+| `User`                                                                                              | [*components.ServiceAuthorizationDataUser](../../models/shared/serviceauthorizationdatauser.md)     | :heavy_minus_sign:                                                                                  | The ID of the user being given access to the service.                                               |

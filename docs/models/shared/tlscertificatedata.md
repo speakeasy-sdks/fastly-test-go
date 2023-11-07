@@ -1,0 +1,10 @@
+# TLSCertificateData
+
+
+## Fields
+
+| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                    | [*components.TLSCertificateDataAttributes](../../models/shared/tlscertificatedataattributes.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `Relationships`                                                                                 | [*components.RelationshipTLSDomainsInput](../../models/shared/relationshiptlsdomainsinput.md)   | :heavy_minus_sign:                                                                              | N/A                                                                                             |
+| `Type`                                                                                          | [*components.TypeTLSCertificate](../../models/shared/typetlscertificate.md)                     | :heavy_minus_sign:                                                                              | Resource type                                                                                   |
