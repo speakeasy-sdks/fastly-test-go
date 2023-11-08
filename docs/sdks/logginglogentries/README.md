@@ -1,4 +1,5 @@
 # LoggingLogentries
+(*.LoggingLogentries*)
 
 ## Overview
 
@@ -17,7 +18,7 @@ The Logentries integration has been discontinued.  No new Logentries endpoints c
 
 Create a Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -27,31 +28,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.CreateLogLogentries(ctx, operations.CreateLogLogentriesRequest{
-        LoggingLogentries3: &shared.LoggingLogentries3{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingLogentriesFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingLogentriesPlacementNone.ToPointer(),
-            Port: sdk.Int64(458139),
-            Region: shared.LoggingLogentriesRegionEu.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("provident"),
-            UseTLS: shared.LoggingUseTLSOne.ToPointer(),
+        LoggingLogentries: &components.LoggingLogentries{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: components.LoggingLogentriesFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: components.LoggingLogentriesPlacementLessThanNilGreaterThan.ToPointer(),
+            ResponseCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogLogentriesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -65,23 +62,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CreateLogLogentriesRequest](../../models/operations/createloglogentriesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateLogLogentriesSecurity](../../models/operations/createloglogentriessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateLogLogentriesRequest](../../models/operations/createloglogentriesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.CreateLogLogentriesResponse](../../models/operations/createloglogentriesresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ~~DeleteLogLogentries~~
 
 Delete the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -91,26 +89,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.DeleteLogLogentries(ctx, operations.DeleteLogLogentriesRequest{
         LoggingLogentriesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogLogentriesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.DeleteLogLogentries200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -118,23 +117,24 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.DeleteLogLogentriesRequest](../../models/operations/deleteloglogentriesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteLogLogentriesSecurity](../../models/operations/deleteloglogentriessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.DeleteLogLogentriesRequest](../../models/operations/deleteloglogentriesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.DeleteLogLogentriesResponse](../../models/operations/deleteloglogentriesresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ~~GetLogLogentries~~
 
 Get the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -144,26 +144,81 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.GetLogLogentries(ctx, operations.GetLogLogentriesRequest{
         LoggingLogentriesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogLogentriesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
     if res.LoggingLogentriesResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.GetLogLogentriesRequest](../../models/operations/getloglogentriesrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+
+
+### Response
+
+**[*operations.GetLogLogentriesResponse](../../models/operations/getloglogentriesresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
+
+## ~~ListLogLogentries~~
+
+List all of the Logentries for a particular service and version.
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	"log"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
+)
+
+func main() {
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
+
+    ctx := context.Background()
+    res, err := s.LoggingLogentries.ListLogLogentries(ctx, operations.ListLogLogentriesRequest{
+        ServiceID: "SU1Z0isxPaozGVKXdv0eY",
+        VersionID: 1,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -174,72 +229,21 @@ func main() {
 | Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
 | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.GetLogLogentriesRequest](../../models/operations/getloglogentriesrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetLogLogentriesSecurity](../../models/operations/getloglogentriessecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
-
-
-### Response
-
-**[*operations.GetLogLogentriesResponse](../../models/operations/getloglogentriesresponse.md), error**
-
-
-## ~~ListLogLogentries~~
-
-List all of the Logentries for a particular service and version.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-)
-
-func main() {
-    s := sdk.New()
-
-    ctx := context.Background()
-    res, err := s.LoggingLogentries.ListLogLogentries(ctx, operations.ListLogLogentriesRequest{
-        ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        VersionID: 1,
-    }, operations.ListLogLogentriesSecurity{
-        Token: "",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    if res.LoggingLogentriesResponses != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListLogLogentriesRequest](../../models/operations/listloglogentriesrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListLogLogentriesSecurity](../../models/operations/listloglogentriessecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| `request`                                                                                  | [operations.ListLogLogentriesRequest](../../models/operations/listloglogentriesrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
 **[*operations.ListLogLogentriesResponse](../../models/operations/listloglogentriesresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ~~UpdateLogLogentries~~
 
 Update the Logentry for a particular service and version.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -249,32 +253,28 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogentries.UpdateLogLogentries(ctx, operations.UpdateLogLogentriesRequest{
-        LoggingLogentries3: &shared.LoggingLogentries3{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingLogentriesFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingLogentriesPlacementWafDebug.ToPointer(),
-            Port: sdk.Int64(457223),
-            Region: shared.LoggingLogentriesRegionUs.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("a"),
-            UseTLS: shared.LoggingUseTLSOne.ToPointer(),
+        LoggingLogentries: &components.LoggingLogentries{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: components.LoggingLogentriesFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: components.LoggingLogentriesPlacementLessThanNilGreaterThan.ToPointer(),
+            ResponseCondition: fastly.String("null"),
         },
         LoggingLogentriesName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogLogentriesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -288,14 +288,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.UpdateLogLogentriesRequest](../../models/operations/updateloglogentriesrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateLogLogentriesSecurity](../../models/operations/updateloglogentriessecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.UpdateLogLogentriesRequest](../../models/operations/updateloglogentriesrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.UpdateLogLogentriesResponse](../../models/operations/updateloglogentriesresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

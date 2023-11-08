@@ -1,7 +1,5 @@
 # VclResponse
 
-OK
-
 
 ## Fields
 

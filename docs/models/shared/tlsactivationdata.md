@@ -1,0 +1,9 @@
+# TLSActivationData
+
+
+## Fields
+
+| Field                                                                                                       | Type                                                                                                        | Required                                                                                                    | Description                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `Relationships`                                                                                             | [*components.RelationshipsForTLSActivationInput](../../models/shared/relationshipsfortlsactivationinput.md) | :heavy_minus_sign:                                                                                          | N/A                                                                                                         |
+| `Type`                                                                                                      | [*components.TypeTLSActivation](../../models/shared/typetlsactivation.md)                                   | :heavy_minus_sign:                                                                                          | Resource type.                                                                                              |

@@ -1,0 +1,10 @@
+# TLSSubscriptionData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                          | [*components.TLSSubscriptionDataAttributes](../../models/shared/tlssubscriptiondataattributes.md)     | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Relationships`                                                                                       | [*components.RelationshipsForTLSSubscription](../../models/shared/relationshipsfortlssubscription.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Type`                                                                                                | [*components.TypeTLSSubscription](../../models/shared/typetlssubscription.md)                         | :heavy_minus_sign:                                                                                    | Resource type                                                                                         |

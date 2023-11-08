@@ -1,4 +1,5 @@
 # TLSDomains
+(*.TLSDomains*)
 
 ## Overview
 
@@ -21,25 +22,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.TLSDomains.ListTLSDomains(ctx, operations.ListTLSDomainsRequest{
-        FilterInUse: sdk.String("dicta"),
-        FilterTLSCertificatesID: sdk.String("minima"),
-        FilterTLSSubscriptionsID: sdk.String("beatae"),
-        Include: sdk.String("cupiditate"),
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-        Sort: shared.SortMinusCreatedAt.ToPointer(),
-    }, operations.ListTLSDomainsSecurity{
-        Token: "",
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -53,14 +49,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.ListTLSDomainsRequest](../../models/operations/listtlsdomainsrequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.ListTLSDomainsSecurity](../../models/operations/listtlsdomainssecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.ListTLSDomainsRequest](../../models/operations/listtlsdomainsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.ListTLSDomainsResponse](../../models/operations/listtlsdomainsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
