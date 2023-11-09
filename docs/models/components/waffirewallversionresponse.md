@@ -1,0 +1,9 @@
+# WafFirewallVersionResponse
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                           | [*components.WafFirewallVersionResponseData](../../models/components/waffirewallversionresponsedata.md)          | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `Included`                                                                                                       | [][components.IncludedWithWafFirewallVersionItem](../../models/components/includedwithwaffirewallversionitem.md) | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

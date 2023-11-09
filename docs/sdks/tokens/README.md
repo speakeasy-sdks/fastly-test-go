@@ -1,4 +1,5 @@
 # Tokens
+(*Tokens*)
 
 ## Overview
 
@@ -25,17 +26,17 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
-    res, err := s.Tokens.GetTokenCurrent(ctx, operations.GetTokenCurrentSecurity{
-        Token: "",
-    })
+    res, err := s.Tokens.GetTokenCurrent(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -48,16 +49,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `security`                                                                               | [operations.GetTokenCurrentSecurity](../../models/operations/gettokencurrentsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
 
 
 ### Response
 
 **[*operations.GetTokenCurrentResponse](../../models/operations/gettokencurrentresponse.md), error**
-
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| sdkerrors.GenericTokenError | 401,403                     | application/json            |
+| sdkerrors.SDKError          | 400-600                     | */*                         |
 
 ## ListTokensCustomer
 
@@ -71,24 +74,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Tokens.ListTokensCustomer(ctx, operations.ListTokensCustomerRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-    }, operations.ListTokensCustomerSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.TokenResponses != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -96,17 +100,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ListTokensCustomerRequest](../../models/operations/listtokenscustomerrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListTokensCustomerSecurity](../../models/operations/listtokenscustomersecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ListTokensCustomerRequest](../../models/operations/listtokenscustomerrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
 **[*operations.ListTokensCustomerResponse](../../models/operations/listtokenscustomerresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListTokensUser
 
@@ -120,22 +125,22 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
-    res, err := s.Tokens.ListTokensUser(ctx, operations.ListTokensUserSecurity{
-        Token: "",
-    })
+    res, err := s.Tokens.ListTokensUser(ctx)
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.TokenResponses != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -143,16 +148,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `security`                                                                             | [operations.ListTokensUserSecurity](../../models/operations/listtokensusersecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
 
 
 ### Response
 
 **[*operations.ListTokensUserResponse](../../models/operations/listtokensuserresponse.md), error**
-
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| sdkerrors.GenericTokenError | 401,403                     | application/json            |
+| sdkerrors.SDKError          | 400-600                     | */*                         |
 
 ## RevokeToken
 
@@ -166,18 +173,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Tokens.RevokeToken(ctx, operations.RevokeTokenRequest{
         TokenID: "5Yo3XXnrQpjc20u0ybrf2g",
-    }, operations.RevokeTokenSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -191,17 +199,19 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.RevokeTokenRequest](../../models/operations/revoketokenrequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.RevokeTokenSecurity](../../models/operations/revoketokensecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [operations.RevokeTokenRequest](../../models/operations/revoketokenrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
 
 **[*operations.RevokeTokenResponse](../../models/operations/revoketokenresponse.md), error**
-
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| sdkerrors.GenericTokenError | 400,401,403,404             | application/json            |
+| sdkerrors.SDKError          | 400-600                     | */*                         |
 
 ## RevokeTokenCurrent
 
@@ -215,17 +225,17 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
-    res, err := s.Tokens.RevokeTokenCurrent(ctx, operations.RevokeTokenCurrentSecurity{
-        Token: "",
-    })
+    res, err := s.Tokens.RevokeTokenCurrent(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -238,13 +248,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `security`                                                                                     | [operations.RevokeTokenCurrentSecurity](../../models/operations/revoketokencurrentsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                             | Type                                                  | Required                                              | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| `ctx`                                                 | [context.Context](https://pkg.go.dev/context#Context) | :heavy_check_mark:                                    | The context to use for the request.                   |
 
 
 ### Response
 
 **[*operations.RevokeTokenCurrentResponse](../../models/operations/revoketokencurrentresponse.md), error**
-
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| sdkerrors.GenericTokenError | 400,401,403                 | application/json            |
+| sdkerrors.SDKError          | 400-600                     | */*                         |

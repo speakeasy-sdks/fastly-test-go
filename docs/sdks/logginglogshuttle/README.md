@@ -1,4 +1,5 @@
 # LoggingLogshuttle
+(*LoggingLogshuttle*)
 
 ## Overview
 
@@ -25,29 +26,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.CreateLogLogshuttle(ctx, operations.CreateLogLogshuttleRequest{
-        LoggingLogshuttle2: &shared.LoggingLogshuttle2{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingLogshuttleFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingLogshuttlePlacementNone.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("consequuntur"),
-            URL: sdk.String("quasi"),
+        LoggingLogshuttle: &components.LoggingLogshuttle{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: components.LoggingLogshuttleFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: components.LoggingLogshuttlePlacementNone.ToPointer(),
+            ResponseCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogLogshuttleSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -61,17 +60,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.CreateLogLogshuttleRequest](../../models/operations/createloglogshuttlerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateLogLogshuttleSecurity](../../models/operations/createloglogshuttlesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.CreateLogLogshuttleRequest](../../models/operations/createloglogshuttlerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.CreateLogLogshuttleResponse](../../models/operations/createloglogshuttleresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteLogLogshuttle
 
@@ -85,26 +85,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.DeleteLogLogshuttle(ctx, operations.DeleteLogLogshuttleRequest{
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogLogshuttleSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.DeleteLogLogshuttle200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -112,17 +113,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.DeleteLogLogshuttleRequest](../../models/operations/deleteloglogshuttlerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteLogLogshuttleSecurity](../../models/operations/deleteloglogshuttlesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.DeleteLogLogshuttleRequest](../../models/operations/deleteloglogshuttlerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.DeleteLogLogshuttleResponse](../../models/operations/deleteloglogshuttleresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetLogLogshuttle
 
@@ -136,20 +138,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.GetLogLogshuttle(ctx, operations.GetLogLogshuttleRequest{
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogLogshuttleSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -163,17 +166,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.GetLogLogshuttleRequest](../../models/operations/getloglogshuttlerequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetLogLogshuttleSecurity](../../models/operations/getloglogshuttlesecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.GetLogLogshuttleRequest](../../models/operations/getloglogshuttlerequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
 **[*operations.GetLogLogshuttleResponse](../../models/operations/getloglogshuttleresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListLogLogshuttle
 
@@ -187,25 +191,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.ListLogLogshuttle(ctx, operations.ListLogLogshuttleRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogLogshuttleSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.LoggingLogshuttleResponses != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -213,17 +218,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListLogLogshuttleRequest](../../models/operations/listloglogshuttlerequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListLogLogshuttleSecurity](../../models/operations/listloglogshuttlesecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ListLogLogshuttleRequest](../../models/operations/listloglogshuttlerequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
 **[*operations.ListLogLogshuttleResponse](../../models/operations/listloglogshuttleresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateLogLogshuttle
 
@@ -237,30 +243,28 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.UpdateLogLogshuttle(ctx, operations.UpdateLogLogshuttleRequest{
-        LoggingLogshuttle2: &shared.LoggingLogshuttle2{
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingLogshuttleFormatVersionTwo.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Placement: shared.LoggingLogshuttlePlacementWafDebug.ToPointer(),
-            ResponseCondition: sdk.String("null"),
-            Token: sdk.String("aliquid"),
-            URL: sdk.String("tenetur"),
+        LoggingLogshuttle: &components.LoggingLogshuttle{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: components.LoggingLogshuttleFormatVersionTwo.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Placement: components.LoggingLogshuttlePlacementNone.ToPointer(),
+            ResponseCondition: fastly.String("null"),
         },
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogLogshuttleSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -274,14 +278,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.UpdateLogLogshuttleRequest](../../models/operations/updateloglogshuttlerequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateLogLogshuttleSecurity](../../models/operations/updateloglogshuttlesecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.UpdateLogLogshuttleRequest](../../models/operations/updateloglogshuttlerequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.UpdateLogLogshuttleResponse](../../models/operations/updateloglogshuttleresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

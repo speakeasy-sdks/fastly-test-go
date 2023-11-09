@@ -1,0 +1,9 @@
+# UpdateBillingAddressRequestData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                          | [*components.BillingAddressAttributesInput](../../models/components/billingaddressattributesinput.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Type`                                                                                                | [*components.TypeBillingAddress](../../models/components/typebillingaddress.md)                       | :heavy_minus_sign:                                                                                    | Resource type                                                                                         |

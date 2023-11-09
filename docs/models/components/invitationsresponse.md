@@ -1,0 +1,10 @@
+# InvitationsResponse
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `Data`                                                                                      | [][components.InvitationResponseData](../../models/components/invitationresponsedata.md)    | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Links`                                                                                     | [*components.InvitationsResponseLinks](../../models/components/invitationsresponselinks.md) | :heavy_minus_sign:                                                                          | N/A                                                                                         |
+| `Meta`                                                                                      | [*components.InvitationsResponseMeta](../../models/components/invitationsresponsemeta.md)   | :heavy_minus_sign:                                                                          | N/A                                                                                         |

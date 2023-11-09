@@ -1,4 +1,5 @@
 # MutualAuthentication
+(*MutualAuthentication*)
 
 ## Overview
 
@@ -25,35 +26,29 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/shared"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
-    res, err := s.MutualAuthentication.CreateMutualTLSAuthentication(ctx, shared.MutualAuthenticationInput{
-        Data: &shared.MutualAuthenticationDataInput{
-            Attributes: &shared.MutualAuthenticationDataAttributes{
-                CertBundle: sdk.String("in"),
-                Enforced: sdk.Bool(false),
-                Name: sdk.String("Suzanne Torphy"),
-            },
-            Relationships: &shared.RelationshipTLSActivationsInput{
-                TLSActivations: &shared.RelationshipTLSActivationsTLSActivationsInput{
-                    Data: []shared.RelationshipMemberTLSActivationInput{
-                        shared.RelationshipMemberTLSActivationInput{
-                            Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
+    res, err := s.MutualAuthentication.CreateMutualTLSAuthentication(ctx, &components.MutualAuthentication{
+        Data: &components.MutualAuthenticationData{
+            Attributes: &components.MutualAuthenticationDataAttributes{},
+            Relationships: components.CreateRelationshipsForMutualAuthenticationInputRelationshipTLSActivationsInput(
+                    components.RelationshipTLSActivationsInput{
+                        TLSActivations: &components.RelationshipTLSActivationsTLSActivations{
+                            Data: []components.RelationshipMemberTLSActivationInput{
+                                components.RelationshipMemberTLSActivationInput{},
+                            },
                         },
                     },
-                },
-            },
-            Type: shared.TypeMutualAuthenticationMutualAuthentication.ToPointer(),
+            ),
         },
-    }, operations.CreateMutualTLSAuthenticationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -67,17 +62,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                                | :heavy_check_mark:                                                                                                   | The context to use for the request.                                                                                  |
-| `request`                                                                                                            | [shared.MutualAuthenticationInput](../../models/shared/mutualauthenticationinput.md)                                 | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
-| `security`                                                                                                           | [operations.CreateMutualTLSAuthenticationSecurity](../../models/operations/createmutualtlsauthenticationsecurity.md) | :heavy_check_mark:                                                                                                   | The security requirements to use for the request.                                                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [components.MutualAuthentication](../../models/components/mutualauthentication.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
 **[*operations.CreateMutualTLSAuthenticationResponse](../../models/operations/createmutualtlsauthenticationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteMutualTLS
 
@@ -91,18 +87,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.DeleteMutualTLS(ctx, operations.DeleteMutualTLSRequest{
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
-    }, operations.DeleteMutualTLSSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -116,17 +113,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.DeleteMutualTLSRequest](../../models/operations/deletemutualtlsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.DeleteMutualTLSSecurity](../../models/operations/deletemutualtlssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.DeleteMutualTLSRequest](../../models/operations/deletemutualtlsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
 **[*operations.DeleteMutualTLSResponse](../../models/operations/deletemutualtlsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetMutualAuthentication
 
@@ -140,19 +138,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.GetMutualAuthentication(ctx, operations.GetMutualAuthenticationRequest{
-        Include: sdk.String("cum"),
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
-    }, operations.GetMutualAuthenticationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -166,17 +164,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
-| `request`                                                                                                | [operations.GetMutualAuthenticationRequest](../../models/operations/getmutualauthenticationrequest.md)   | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `security`                                                                                               | [operations.GetMutualAuthenticationSecurity](../../models/operations/getmutualauthenticationsecurity.md) | :heavy_check_mark:                                                                                       | The security requirements to use for the request.                                                        |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                                  | :heavy_check_mark:                                                                                     | The context to use for the request.                                                                    |
+| `request`                                                                                              | [operations.GetMutualAuthenticationRequest](../../models/operations/getmutualauthenticationrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
 
 
 ### Response
 
 **[*operations.GetMutualAuthenticationResponse](../../models/operations/getmutualauthenticationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListMutualAuthentications
 
@@ -190,20 +189,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.ListMutualAuthentications(ctx, operations.ListMutualAuthenticationsRequest{
-        Include: sdk.String("blanditiis"),
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-    }, operations.ListMutualAuthenticationsSecurity{
-        Token: "",
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -217,17 +216,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
-| `request`                                                                                                    | [operations.ListMutualAuthenticationsRequest](../../models/operations/listmutualauthenticationsrequest.md)   | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `security`                                                                                                   | [operations.ListMutualAuthenticationsSecurity](../../models/operations/listmutualauthenticationssecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `request`                                                                                                  | [operations.ListMutualAuthenticationsRequest](../../models/operations/listmutualauthenticationsrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
 
 
 ### Response
 
 **[*operations.ListMutualAuthenticationsResponse](../../models/operations/listmutualauthenticationsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PatchMutualAuthentication
 
@@ -241,44 +241,33 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.PatchMutualAuthentication(ctx, operations.PatchMutualAuthenticationRequest{
-        MutualAuthenticationInput: &shared.MutualAuthenticationInput{
-            Data: &shared.MutualAuthenticationDataInput{
-                Attributes: &shared.MutualAuthenticationDataAttributes{
-                    CertBundle: sdk.String("quas"),
-                    Enforced: sdk.Bool(false),
-                    Name: sdk.String("Danny Nader"),
-                },
-                Relationships: &shared.RelationshipTLSActivationsInput{
-                    TLSActivations: &shared.RelationshipTLSActivationsTLSActivationsInput{
-                        Data: []shared.RelationshipMemberTLSActivationInput{
-                            shared.RelationshipMemberTLSActivationInput{
-                                Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSActivationInput{
-                                Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
-                            },
-                            shared.RelationshipMemberTLSActivationInput{
-                                Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
+        MutualAuthentication: &components.MutualAuthentication{
+            Data: &components.MutualAuthenticationData{
+                Attributes: &components.MutualAuthenticationDataAttributes{},
+                Relationships: components.CreateRelationshipsForMutualAuthenticationInputRelationshipTLSActivationsInput(
+                        components.RelationshipTLSActivationsInput{
+                            TLSActivations: &components.RelationshipTLSActivationsTLSActivations{
+                                Data: []components.RelationshipMemberTLSActivationInput{
+                                    components.RelationshipMemberTLSActivationInput{},
+                                },
                             },
                         },
-                    },
-                },
-                Type: shared.TypeMutualAuthenticationMutualAuthentication.ToPointer(),
+                ),
             },
         },
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
-    }, operations.PatchMutualAuthenticationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -292,14 +281,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
-| `request`                                                                                                    | [operations.PatchMutualAuthenticationRequest](../../models/operations/patchmutualauthenticationrequest.md)   | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `security`                                                                                                   | [operations.PatchMutualAuthenticationSecurity](../../models/operations/patchmutualauthenticationsecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
+| `request`                                                                                                  | [operations.PatchMutualAuthenticationRequest](../../models/operations/patchmutualauthenticationrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
 
 
 ### Response
 
 **[*operations.PatchMutualAuthenticationResponse](../../models/operations/patchmutualauthenticationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

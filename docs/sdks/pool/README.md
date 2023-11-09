@@ -1,4 +1,5 @@
 # Pool
+(*Pool*)
 
 ## Overview
 
@@ -25,43 +26,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.CreateServerPool(ctx, operations.CreateServerPoolRequest{
-        Pool2: &shared.Pool2{
-            Comment: sdk.String("sit"),
-            ConnectTimeout: sdk.Int64(699575),
-            FirstByteTimeout: sdk.Int64(148829),
-            Healthcheck: sdk.String("reiciendis"),
-            MaxConnDefault: sdk.Int64(131852),
-            MaxTLSVersion: sdk.Int64(994401),
-            MinTLSVersion: sdk.Int64(707918),
-            Name: sdk.String("my-pool"),
-            OverrideHost: sdk.String("voluptate"),
-            Quorum: sdk.Int64(709072),
-            RequestCondition: sdk.String("null"),
-            Shield: sdk.String("ab"),
-            TLSCaCert: sdk.String("iste"),
-            TLSCertHostname: sdk.String("dolore"),
-            TLSCheckCert: sdk.Int64(671907),
-            TLSCiphers: sdk.String("sed"),
-            TLSClientCert: sdk.String("in"),
-            TLSClientKey: sdk.String("commodi"),
-            TLSSniHostname: sdk.String("quidem"),
-            Type: shared.PoolTypeRandom.ToPointer(),
-            UseTLS: shared.PoolUseTLSZero.ToPointer(),
+        Pool: &components.Pool{
+            Comment: fastly.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
+            Name: fastly.String("my-pool"),
+            RequestCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -75,17 +58,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.CreateServerPoolRequest](../../models/operations/createserverpoolrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.CreateServerPoolSecurity](../../models/operations/createserverpoolsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.CreateServerPoolRequest](../../models/operations/createserverpoolrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
 **[*operations.CreateServerPoolResponse](../../models/operations/createserverpoolresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteServerPool
 
@@ -99,26 +83,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.DeleteServerPool(ctx, operations.DeleteServerPoolRequest{
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.DeleteServerPool200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -126,17 +111,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.DeleteServerPoolRequest](../../models/operations/deleteserverpoolrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.DeleteServerPoolSecurity](../../models/operations/deleteserverpoolsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.DeleteServerPoolRequest](../../models/operations/deleteserverpoolrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
 **[*operations.DeleteServerPoolResponse](../../models/operations/deleteserverpoolresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetServerPool
 
@@ -150,20 +136,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.GetServerPool(ctx, operations.GetServerPoolRequest{
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -177,17 +164,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.GetServerPoolRequest](../../models/operations/getserverpoolrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.GetServerPoolSecurity](../../models/operations/getserverpoolsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.GetServerPoolRequest](../../models/operations/getserverpoolrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
 **[*operations.GetServerPoolResponse](../../models/operations/getserverpoolresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListServerPools
 
@@ -201,25 +189,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.ListServerPools(ctx, operations.ListServerPoolsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListServerPoolsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.PoolResponses != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -227,17 +216,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.ListServerPoolsRequest](../../models/operations/listserverpoolsrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.ListServerPoolsSecurity](../../models/operations/listserverpoolssecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.ListServerPoolsRequest](../../models/operations/listserverpoolsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
 **[*operations.ListServerPoolsResponse](../../models/operations/listserverpoolsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateServerPool
 
@@ -251,44 +241,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Pool.UpdateServerPool(ctx, operations.UpdateServerPoolRequest{
-        Pool2: &shared.Pool2{
-            Comment: sdk.String("unde"),
-            ConnectTimeout: sdk.Int64(100032),
-            FirstByteTimeout: sdk.Int64(382808),
-            Healthcheck: sdk.String("sapiente"),
-            MaxConnDefault: sdk.Int64(895386),
-            MaxTLSVersion: sdk.Int64(72434),
-            MinTLSVersion: sdk.Int64(967795),
-            Name: sdk.String("my-pool"),
-            OverrideHost: sdk.String("perferendis"),
-            Quorum: sdk.Int64(546885),
-            RequestCondition: sdk.String("null"),
-            Shield: sdk.String("maiores"),
-            TLSCaCert: sdk.String("incidunt"),
-            TLSCertHostname: sdk.String("sed"),
-            TLSCheckCert: sdk.Int64(592231),
-            TLSCiphers: sdk.String("eius"),
-            TLSClientCert: sdk.String("necessitatibus"),
-            TLSClientKey: sdk.String("ipsum"),
-            TLSSniHostname: sdk.String("ea"),
-            Type: shared.PoolTypeHash.ToPointer(),
-            UseTLS: shared.PoolUseTLSOne.ToPointer(),
+        Pool: &components.Pool{
+            Comment: fastly.String("Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"),
+            Name: fastly.String("my-pool"),
+            RequestCondition: fastly.String("null"),
         },
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateServerPoolSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -302,14 +274,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.UpdateServerPoolRequest](../../models/operations/updateserverpoolrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.UpdateServerPoolSecurity](../../models/operations/updateserverpoolsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.UpdateServerPoolRequest](../../models/operations/updateserverpoolrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
 **[*operations.UpdateServerPoolResponse](../../models/operations/updateserverpoolresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
