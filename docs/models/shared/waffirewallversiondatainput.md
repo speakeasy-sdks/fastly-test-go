@@ -1,9 +1,0 @@
-# WafFirewallVersionDataInput
-
-
-## Fields
-
-| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `Attributes`                                                                                           | [*WafFirewallVersionDataAttributesInput](../../models/shared/waffirewallversiondataattributesinput.md) | :heavy_minus_sign:                                                                                     | N/A                                                                                                    |
-| `Type`                                                                                                 | [*TypeWafFirewallVersion](../../models/shared/typewaffirewallversion.md)                               | :heavy_minus_sign:                                                                                     | Resource type.                                                                                         |

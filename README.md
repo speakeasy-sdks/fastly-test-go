@@ -10,61 +10,43 @@ go get github.com/speakeasy-sdks/fastly-test-go
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```go
 package main
 
-import(
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
 )
 
 func main() {
-    s := sdk.New()
+	s := fastly.New(
+		fastly.WithSecurity(""),
+	)
 
-    ctx := context.Background()
-    res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
-        ACL: &shared.ACL{
-            Name: sdk.String("test-acl"),
-        },
-        ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        VersionID: 1,
-    }, operations.CreateACLSecurity{
-        Token: "",
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
+	ctx := context.Background()
+	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
+		ApexRedirectID: "string",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
 
-    if res.ACLResponse != nil {
-        // handle response
-    }
+	if res.Object != nil {
+		// handle response
+	}
 }
+
 ```
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
 ## Available Resources and Operations
 
-
-### [ACL](docs/sdks/acl/README.md)
-
-* [CreateACL](docs/sdks/acl/README.md#createacl) - Create a new ACL
-* [DeleteACL](docs/sdks/acl/README.md#deleteacl) - Delete an ACL
-* [GetACL](docs/sdks/acl/README.md#getacl) - Describe an ACL
-* [ListAcls](docs/sdks/acl/README.md#listacls) - List ACLs
-* [UpdateACL](docs/sdks/acl/README.md#updateacl) - Update an ACL
-
-### [ACLEntry](docs/sdks/aclentry/README.md)
-
-* [BulkUpdateACLEntries](docs/sdks/aclentry/README.md#bulkupdateaclentries) - Update multiple ACL entries
-* [CreateACLEntry](docs/sdks/aclentry/README.md#createaclentry) - Create an ACL entry
-* [DeleteACLEntry](docs/sdks/aclentry/README.md#deleteaclentry) - Delete an ACL entry
-* [GetACLEntry](docs/sdks/aclentry/README.md#getaclentry) - Describe an ACL entry
-* [ListACLEntries](docs/sdks/aclentry/README.md#listaclentries) - List ACL entries
-* [UpdateACLEntry](docs/sdks/aclentry/README.md#updateaclentry) - Update an ACL entry
 
 ### [ApexRedirect](docs/sdks/apexredirect/README.md)
 
@@ -73,19 +55,33 @@ func main() {
 * [ListApexRedirects](docs/sdks/apexredirect/README.md#listapexredirects) - List apex redirects
 * [UpdateApexRedirect](docs/sdks/apexredirect/README.md#updateapexredirect) - Update an apex redirect
 
-### [Backend](docs/sdks/backend/README.md)
-
-* [CreateBackend](docs/sdks/backend/README.md#createbackend) - Create a backend
-* [DeleteBackend](docs/sdks/backend/README.md#deletebackend) - Delete a backend
-* [GetBackend](docs/sdks/backend/README.md#getbackend) - Describe a backend
-* [ListBackends](docs/sdks/backend/README.md#listbackends) - List backends
-* [UpdateBackend](docs/sdks/backend/README.md#updatebackend) - Update a backend
-
 ### [Billing](docs/sdks/billing/README.md)
 
 * [GetInvoice](docs/sdks/billing/README.md#getinvoice) - Get an invoice
 * [GetInvoiceByID](docs/sdks/billing/README.md#getinvoicebyid) - Get an invoice
 * [GetInvoiceMtd](docs/sdks/billing/README.md#getinvoicemtd) - Get month-to-date billing estimate
+
+### [Content](docs/sdks/content/README.md)
+
+* [ContentCheck](docs/sdks/content/README.md#contentcheck) - Check status of content in each POP's cache
+
+### [Customer](docs/sdks/customer/README.md)
+
+* [DeleteCustomer](docs/sdks/customer/README.md#deletecustomer) - Delete a customer
+* [GetCustomer](docs/sdks/customer/README.md#getcustomer) - Get a customer
+* [GetLoggedInCustomer](docs/sdks/customer/README.md#getloggedincustomer) - Get the logged in customer
+* [ListUsers](docs/sdks/customer/README.md#listusers) - List users
+* [UpdateCustomer](docs/sdks/customer/README.md#updatecustomer) - Update a customer
+
+### [User](docs/sdks/user/README.md)
+
+* [CreateUser](docs/sdks/user/README.md#createuser) - Create a user
+* [DeleteUser](docs/sdks/user/README.md#deleteuser) - Delete a user
+* [GetCurrentUser](docs/sdks/user/README.md#getcurrentuser) - Get the current user
+* [GetUser](docs/sdks/user/README.md#getuser) - Get a user
+* [RequestPasswordReset](docs/sdks/user/README.md#requestpasswordreset) - Request a password reset
+* [UpdateUser](docs/sdks/user/README.md#updateuser) - Update a user
+* [UpdateUserPassword](docs/sdks/user/README.md#updateuserpassword) - Update the user's password
 
 ### [BillingAddress](docs/sdks/billingaddress/README.md)
 
@@ -94,21 +90,63 @@ func main() {
 * [GetBillingAddr](docs/sdks/billingaddress/README.md#getbillingaddr) - Get a billing address
 * [UpdateBillingAddr](docs/sdks/billingaddress/README.md#updatebillingaddr) - Update a billing address
 
-### [CacheSettings](docs/sdks/cachesettings/README.md)
+### [Contact](docs/sdks/contact/README.md)
 
-* [CreateCacheSettings](docs/sdks/cachesettings/README.md#createcachesettings) - Create a cache settings object
-* [DeleteCacheSettings](docs/sdks/cachesettings/README.md#deletecachesettings) - Delete a cache settings object
-* [GetCacheSettings](docs/sdks/cachesettings/README.md#getcachesettings) - Get a cache settings object
-* [ListCacheSettings](docs/sdks/cachesettings/README.md#listcachesettings) - List cache settings objects
-* [UpdateCacheSettings](docs/sdks/cachesettings/README.md#updatecachesettings) - Update a cache settings object
+* [DeleteContact](docs/sdks/contact/README.md#deletecontact) - Delete a contact
+* [ListContacts](docs/sdks/contact/README.md#listcontacts) - List contacts
 
-### [Condition](docs/sdks/condition/README.md)
+### [Tokens](docs/sdks/tokens/README.md)
 
-* [CreateCondition](docs/sdks/condition/README.md#createcondition) - Create a condition
-* [DeleteCondition](docs/sdks/condition/README.md#deletecondition) - Delete a condition
-* [GetCondition](docs/sdks/condition/README.md#getcondition) - Describe a condition
-* [ListConditions](docs/sdks/condition/README.md#listconditions) - List conditions
-* [UpdateCondition](docs/sdks/condition/README.md#updatecondition) - Update a condition
+* [GetTokenCurrent](docs/sdks/tokens/README.md#gettokencurrent) - Get the current token
+* [ListTokensCustomer](docs/sdks/tokens/README.md#listtokenscustomer) - List tokens for a customer
+* [ListTokensUser](docs/sdks/tokens/README.md#listtokensuser) - List tokens for the authenticated user
+* [RevokeToken](docs/sdks/tokens/README.md#revoketoken) - Revoke a token
+* [RevokeTokenCurrent](docs/sdks/tokens/README.md#revoketokencurrent) - Revoke the current token
+
+### [Pop](docs/sdks/pop/README.md)
+
+* [ListPops](docs/sdks/pop/README.md#listpops) - List Fastly POPs
+
+### [DomainOwnerships](docs/sdks/domainownerships/README.md)
+
+* [ListDomainOwnerships](docs/sdks/domainownerships/README.md#listdomainownerships) - List domain-ownerships
+
+### [EnabledProducts](docs/sdks/enabledproducts/README.md)
+
+* [DisableProduct](docs/sdks/enabledproducts/README.md#disableproduct) - Disable a product
+* [EnableProduct](docs/sdks/enabledproducts/README.md#enableproduct) - Enable a product
+* [GetEnabledProduct](docs/sdks/enabledproducts/README.md#getenabledproduct) - Get enabled product
+
+### [Events](docs/sdks/events/README.md)
+
+* [GetEvent](docs/sdks/events/README.md#getevent) - Get an event
+* [ListEvents](docs/sdks/events/README.md#listevents) - List events
+
+### [Invitations](docs/sdks/invitations/README.md)
+
+* [CreateInvitation](docs/sdks/invitations/README.md#createinvitation) - Create an invitation
+* [DeleteInvitation](docs/sdks/invitations/README.md#deleteinvitation) - Delete an invitation
+* [ListInvitations](docs/sdks/invitations/README.md#listinvitations) - List invitations
+
+### [IamPermissions](docs/sdks/iampermissions/README.md)
+
+* [ListPermissions](docs/sdks/iampermissions/README.md#listpermissions) - List permissions
+
+### [PublicIPList](docs/sdks/publiciplist/README.md)
+
+* [ListFastlyIps](docs/sdks/publiciplist/README.md#listfastlyips) - List Fastly's public IPs
+
+### [Purge](docs/sdks/purge/README.md)
+
+* [PurgeAll](docs/sdks/purge/README.md#purgeall) - Purge everything from a service
+* [PurgeSingleURL](docs/sdks/purge/README.md#purgesingleurl) - Purge a URL
+* [PurgeTag](docs/sdks/purge/README.md#purgetag) - Purge by surrogate key tag
+
+### [RateLimiter](docs/sdks/ratelimiter/README.md)
+
+* [DeleteRateLimiter](docs/sdks/ratelimiter/README.md#deleteratelimiter) - Delete a rate limiter
+* [GetRateLimiter](docs/sdks/ratelimiter/README.md#getratelimiter) - Get a rate limiter
+* [ListRateLimiters](docs/sdks/ratelimiter/README.md#listratelimiters) - List rate limiters
 
 ### [ConfigStore](docs/sdks/configstore/README.md)
 
@@ -130,34 +168,61 @@ func main() {
 * [UpdateConfigStoreItem](docs/sdks/configstoreitem/README.md#updateconfigstoreitem) - Update an entry in a config store
 * [UpsertConfigStoreItem](docs/sdks/configstoreitem/README.md#upsertconfigstoreitem) - Insert or update an entry in a config store
 
-### [Contact](docs/sdks/contact/README.md)
+### [KvStore](docs/sdks/kvstore/README.md)
 
-* [DeleteContact](docs/sdks/contact/README.md#deletecontact) - Delete a contact
-* [ListContacts](docs/sdks/contact/README.md#listcontacts) - List contacts
+* [CreateStore](docs/sdks/kvstore/README.md#createstore) - Create an kv store.
+* [DeleteStore](docs/sdks/kvstore/README.md#deletestore) - Delete an kv store.
+* [GetStore](docs/sdks/kvstore/README.md#getstore) - Describe an kv store.
+* [GetStores](docs/sdks/kvstore/README.md#getstores) - List kv stores.
 
-### [Content](docs/sdks/content/README.md)
+### [KvStoreItem](docs/sdks/kvstoreitem/README.md)
 
-* [ContentCheck](docs/sdks/content/README.md#contentcheck) - Check status of content in each POP's cache
+* [DeleteKeyFromStore](docs/sdks/kvstoreitem/README.md#deletekeyfromstore) - Delete kv store item.
+* [GetKeys](docs/sdks/kvstoreitem/README.md#getkeys) - List kv store keys.
+* [GetValueForKey](docs/sdks/kvstoreitem/README.md#getvalueforkey) - Get the value of an kv store item
+* [SetValueForKey](docs/sdks/kvstoreitem/README.md#setvalueforkey) - Insert an item into an kv store
 
-### [Customer](docs/sdks/customer/README.md)
+### [IamRoles](docs/sdks/iamroles/README.md)
 
-* [DeleteCustomer](docs/sdks/customer/README.md#deletecustomer) - Delete a customer
-* [GetCustomer](docs/sdks/customer/README.md#getcustomer) - Get a customer
-* [GetLoggedInCustomer](docs/sdks/customer/README.md#getloggedincustomer) - Get the logged in customer
-* [ListUsers](docs/sdks/customer/README.md#listusers) - List users
-* [UpdateCustomer](docs/sdks/customer/README.md#updatecustomer) - Update a customer
+* [DeleteARole](docs/sdks/iamroles/README.md#deletearole) - Delete a role
+* [GetARole](docs/sdks/iamroles/README.md#getarole) - Get a role
+* [ListRolePermissions](docs/sdks/iamroles/README.md#listrolepermissions) - List permissions in a role
+* [ListRoles](docs/sdks/iamroles/README.md#listroles) - List roles
 
-### [Dictionary](docs/sdks/dictionary/README.md)
+### [Service](docs/sdks/service/README.md)
 
-* [CreateDictionary](docs/sdks/dictionary/README.md#createdictionary) - Create an edge dictionary
-* [DeleteDictionary](docs/sdks/dictionary/README.md#deletedictionary) - Delete an edge dictionary
-* [GetDictionary](docs/sdks/dictionary/README.md#getdictionary) - Get an edge dictionary
-* [ListDictionaries](docs/sdks/dictionary/README.md#listdictionaries) - List edge dictionaries
-* [UpdateDictionary](docs/sdks/dictionary/README.md#updatedictionary) - Update an edge dictionary
+* [CreateService](docs/sdks/service/README.md#createservice) - Create a service
+* [DeleteService](docs/sdks/service/README.md#deleteservice) - Delete a service
+* [GetService](docs/sdks/service/README.md#getservice) - Get a service
+* [GetServiceDetail](docs/sdks/service/README.md#getservicedetail) - Get service details
+* [ListServiceDomains](docs/sdks/service/README.md#listservicedomains) - List the domains within a service
+* [ListServices](docs/sdks/service/README.md#listservices) - List services
+* [SearchService](docs/sdks/service/README.md#searchservice) - Search for a service by name
+* [UpdateService](docs/sdks/service/README.md#updateservice) - Update a service
 
-### [DictionaryInfo](docs/sdks/dictionaryinfo/README.md)
+### [ServiceAuthorizations](docs/sdks/serviceauthorizations/README.md)
 
-* [GetDictionaryInfo](docs/sdks/dictionaryinfo/README.md#getdictionaryinfo) - Get edge dictionary metadata
+* [CreateServiceAuthorization](docs/sdks/serviceauthorizations/README.md#createserviceauthorization) - Create service authorization
+* [DeleteServiceAuthorization](docs/sdks/serviceauthorizations/README.md#deleteserviceauthorization) - Delete service authorization
+* [ListServiceAuthorization](docs/sdks/serviceauthorizations/README.md#listserviceauthorization) - List service authorizations
+* [ShowServiceAuthorization](docs/sdks/serviceauthorizations/README.md#showserviceauthorization) - Show service authorization
+* [UpdateServiceAuthorization](docs/sdks/serviceauthorizations/README.md#updateserviceauthorization) - Update service authorization
+
+### [IamServiceGroups](docs/sdks/iamservicegroups/README.md)
+
+* [DeleteAServiceGroup](docs/sdks/iamservicegroups/README.md#deleteaservicegroup) - Delete a service group
+* [GetAServiceGroup](docs/sdks/iamservicegroups/README.md#getaservicegroup) - Get a service group
+* [ListServiceGroupServices](docs/sdks/iamservicegroups/README.md#listservicegroupservices) - List services to a service group
+* [ListServiceGroups](docs/sdks/iamservicegroups/README.md#listservicegroups) - List service groups
+
+### [ACLEntry](docs/sdks/aclentry/README.md)
+
+* [BulkUpdateACLEntries](docs/sdks/aclentry/README.md#bulkupdateaclentries) - Update multiple ACL entries
+* [CreateACLEntry](docs/sdks/aclentry/README.md#createaclentry) - Create an ACL entry
+* [DeleteACLEntry](docs/sdks/aclentry/README.md#deleteaclentry) - Delete an ACL entry
+* [GetACLEntry](docs/sdks/aclentry/README.md#getaclentry) - Describe an ACL entry
+* [ListACLEntries](docs/sdks/aclentry/README.md#listaclentries) - List ACL entries
+* [UpdateACLEntry](docs/sdks/aclentry/README.md#updateaclentry) - Update an ACL entry
 
 ### [DictionaryItem](docs/sdks/dictionaryitem/README.md)
 
@@ -172,6 +237,103 @@ func main() {
 ### [Diff](docs/sdks/diff/README.md)
 
 * [DiffServiceVersions](docs/sdks/diff/README.md#diffserviceversions) - Diff two service versions
+
+### [Server](docs/sdks/server/README.md)
+
+* [CreatePoolServer](docs/sdks/server/README.md#createpoolserver) - Add a server to a pool
+* [DeletePoolServer](docs/sdks/server/README.md#deletepoolserver) - Delete a server from a pool
+* [GetPoolServer](docs/sdks/server/README.md#getpoolserver) - Get a pool server
+* [ListPoolServers](docs/sdks/server/README.md#listpoolservers) - List servers in a pool
+* [UpdatePoolServer](docs/sdks/server/README.md#updatepoolserver) - Update a server
+
+### [Publish](docs/sdks/publish/README.md)
+
+* [Publish](docs/sdks/publish/README.md#publish) - Send messages to Fanout subscribers
+
+### [Snippet](docs/sdks/snippet/README.md)
+
+* [CreateSnippet](docs/sdks/snippet/README.md#createsnippet) - Create a snippet
+* [DeleteSnippet](docs/sdks/snippet/README.md#deletesnippet) - Delete a snippet
+* [GetSnippet](docs/sdks/snippet/README.md#getsnippet) - Get a versioned snippet
+* [GetSnippetDynamic](docs/sdks/snippet/README.md#getsnippetdynamic) - Get a dynamic snippet
+* [ListSnippets](docs/sdks/snippet/README.md#listsnippets) - List snippets
+* [UpdateSnippetDynamic](docs/sdks/snippet/README.md#updatesnippetdynamic) - Update a dynamic snippet
+
+### [Stats](docs/sdks/stats/README.md)
+
+* [GetServiceStats](docs/sdks/stats/README.md#getservicestats) - Get stats for a service
+
+### [VclDiff](docs/sdks/vcldiff/README.md)
+
+* [VclDiffServiceVersions](docs/sdks/vcldiff/README.md#vcldiffserviceversions) - Get a comparison of the VCL changes between two service versions
+
+### [Version](docs/sdks/version/README.md)
+
+* [ActivateServiceVersion](docs/sdks/version/README.md#activateserviceversion) - Activate a service version
+* [CloneServiceVersion](docs/sdks/version/README.md#cloneserviceversion) - Clone a service version
+* [CreateServiceVersion](docs/sdks/version/README.md#createserviceversion) - Create a service version
+* [DeactivateServiceVersion](docs/sdks/version/README.md#deactivateserviceversion) - Deactivate a service version
+* [GetServiceVersion](docs/sdks/version/README.md#getserviceversion) - Get a version of a service
+* [ListServiceVersions](docs/sdks/version/README.md#listserviceversions) - List versions of a service
+* [LockServiceVersion](docs/sdks/version/README.md#lockserviceversion) - Lock a service version
+* [UpdateServiceVersion](docs/sdks/version/README.md#updateserviceversion) - Update a service version
+* [ValidateServiceVersion](docs/sdks/version/README.md#validateserviceversion) - Validate a service version
+
+### [ACL](docs/sdks/acl/README.md)
+
+* [CreateACL](docs/sdks/acl/README.md#createacl) - Create a new ACL
+* [DeleteACL](docs/sdks/acl/README.md#deleteacl) - Delete an ACL
+* [GetACL](docs/sdks/acl/README.md#getacl) - Describe an ACL
+* [ListAcls](docs/sdks/acl/README.md#listacls) - List ACLs
+* [UpdateACL](docs/sdks/acl/README.md#updateacl) - Update an ACL
+
+### [Backend](docs/sdks/backend/README.md)
+
+* [CreateBackend](docs/sdks/backend/README.md#createbackend) - Create a backend
+* [DeleteBackend](docs/sdks/backend/README.md#deletebackend) - Delete a backend
+* [GetBackend](docs/sdks/backend/README.md#getbackend) - Describe a backend
+* [ListBackends](docs/sdks/backend/README.md#listbackends) - List backends
+* [UpdateBackend](docs/sdks/backend/README.md#updatebackend) - Update a backend
+
+### [Vcl](docs/sdks/vcl/README.md)
+
+* [CreateCustomVcl](docs/sdks/vcl/README.md#createcustomvcl) - Create a custom VCL file
+* [DeleteCustomVcl](docs/sdks/vcl/README.md#deletecustomvcl) - Delete a custom VCL file
+* [GetCustomVcl](docs/sdks/vcl/README.md#getcustomvcl) - Get a custom VCL file
+* [GetCustomVclBoilerplate](docs/sdks/vcl/README.md#getcustomvclboilerplate) - Get boilerplate VCL
+* [GetCustomVclGenerated](docs/sdks/vcl/README.md#getcustomvclgenerated) - Get the generated VCL for a service
+* [GetCustomVclRaw](docs/sdks/vcl/README.md#getcustomvclraw) - Download a custom VCL file
+* [ListCustomVcl](docs/sdks/vcl/README.md#listcustomvcl) - List custom VCL files
+* [SetCustomVclMain](docs/sdks/vcl/README.md#setcustomvclmain) - Set a custom VCL file as main
+* [UpdateCustomVcl](docs/sdks/vcl/README.md#updatecustomvcl) - Update a custom VCL file
+
+### [CacheSettings](docs/sdks/cachesettings/README.md)
+
+* [CreateCacheSettings](docs/sdks/cachesettings/README.md#createcachesettings) - Create a cache settings object
+* [DeleteCacheSettings](docs/sdks/cachesettings/README.md#deletecachesettings) - Delete a cache settings object
+* [GetCacheSettings](docs/sdks/cachesettings/README.md#getcachesettings) - Get a cache settings object
+* [ListCacheSettings](docs/sdks/cachesettings/README.md#listcachesettings) - List cache settings objects
+* [UpdateCacheSettings](docs/sdks/cachesettings/README.md#updatecachesettings) - Update a cache settings object
+
+### [Condition](docs/sdks/condition/README.md)
+
+* [CreateCondition](docs/sdks/condition/README.md#createcondition) - Create a condition
+* [DeleteCondition](docs/sdks/condition/README.md#deletecondition) - Delete a condition
+* [GetCondition](docs/sdks/condition/README.md#getcondition) - Describe a condition
+* [ListConditions](docs/sdks/condition/README.md#listconditions) - List conditions
+* [UpdateCondition](docs/sdks/condition/README.md#updatecondition) - Update a condition
+
+### [Dictionary](docs/sdks/dictionary/README.md)
+
+* [CreateDictionary](docs/sdks/dictionary/README.md#createdictionary) - Create an edge dictionary
+* [DeleteDictionary](docs/sdks/dictionary/README.md#deletedictionary) - Delete an edge dictionary
+* [GetDictionary](docs/sdks/dictionary/README.md#getdictionary) - Get an edge dictionary
+* [ListDictionaries](docs/sdks/dictionary/README.md#listdictionaries) - List edge dictionaries
+* [UpdateDictionary](docs/sdks/dictionary/README.md#updatedictionary) - Update an edge dictionary
+
+### [DictionaryInfo](docs/sdks/dictionaryinfo/README.md)
+
+* [GetDictionaryInfo](docs/sdks/dictionaryinfo/README.md#getdictionaryinfo) - Get edge dictionary metadata
 
 ### [Director](docs/sdks/director/README.md)
 
@@ -195,21 +357,6 @@ func main() {
 * [GetDomain](docs/sdks/domain/README.md#getdomain) - Describe a domain
 * [ListDomains](docs/sdks/domain/README.md#listdomains) - List domains
 * [UpdateDomain](docs/sdks/domain/README.md#updatedomain) - Update a domain
-
-### [DomainOwnerships](docs/sdks/domainownerships/README.md)
-
-* [ListDomainOwnerships](docs/sdks/domainownerships/README.md#listdomainownerships) - List domain-ownerships
-
-### [EnabledProducts](docs/sdks/enabledproducts/README.md)
-
-* [DisableProduct](docs/sdks/enabledproducts/README.md#disableproduct) - Disable a product
-* [EnableProduct](docs/sdks/enabledproducts/README.md#enableproduct) - Enable a product
-* [GetEnabledProduct](docs/sdks/enabledproducts/README.md#getenabledproduct) - Get enabled product
-
-### [Events](docs/sdks/events/README.md)
-
-* [GetEvent](docs/sdks/events/README.md#getevent) - Get an event
-* [ListEvents](docs/sdks/events/README.md#listevents) - List events
 
 ### [Gzip](docs/sdks/gzip/README.md)
 
@@ -235,70 +382,11 @@ func main() {
 * [ListHealthchecks](docs/sdks/healthcheck/README.md#listhealthchecks) - List health checks
 * [UpdateHealthcheck](docs/sdks/healthcheck/README.md#updatehealthcheck) - Update a health check
 
-### [Historical](docs/sdks/historical/README.md)
-
-* [GetHistStats](docs/sdks/historical/README.md#gethiststats) - Get historical stats
-* [GetHistStatsAggregated](docs/sdks/historical/README.md#gethiststatsaggregated) - Get aggregated historical stats
-* [GetHistStatsField](docs/sdks/historical/README.md#gethiststatsfield) - Get historical stats for a single field
-* [GetHistStatsService](docs/sdks/historical/README.md#gethiststatsservice) - Get historical stats for a single service
-* [GetHistStatsServiceField](docs/sdks/historical/README.md#gethiststatsservicefield) - Get historical stats for a single service/field combination
-* [GetRegions](docs/sdks/historical/README.md#getregions) - Get region codes
-* [GetUsage](docs/sdks/historical/README.md#getusage) - Get usage statistics
-* [GetUsageMonth](docs/sdks/historical/README.md#getusagemonth) - Get month-to-date usage statistics
-* [GetUsageService](docs/sdks/historical/README.md#getusageservice) - Get usage statistics per service
-
 ### [Http3](docs/sdks/http3/README.md)
 
 * [CreateHttp3](docs/sdks/http3/README.md#createhttp3) - Enable support for HTTP/3
 * [DeleteHttp3](docs/sdks/http3/README.md#deletehttp3) - Disable support for HTTP/3
 * [GetHttp3](docs/sdks/http3/README.md#gethttp3) - Get HTTP/3 status
-
-### [IamPermissions](docs/sdks/iampermissions/README.md)
-
-* [ListPermissions](docs/sdks/iampermissions/README.md#listpermissions) - List permissions
-
-### [IamRoles](docs/sdks/iamroles/README.md)
-
-* [DeleteARole](docs/sdks/iamroles/README.md#deletearole) - Delete a role
-* [GetARole](docs/sdks/iamroles/README.md#getarole) - Get a role
-* [ListRolePermissions](docs/sdks/iamroles/README.md#listrolepermissions) - List permissions in a role
-* [ListRoles](docs/sdks/iamroles/README.md#listroles) - List roles
-
-### [IamServiceGroups](docs/sdks/iamservicegroups/README.md)
-
-* [DeleteAServiceGroup](docs/sdks/iamservicegroups/README.md#deleteaservicegroup) - Delete a service group
-* [GetAServiceGroup](docs/sdks/iamservicegroups/README.md#getaservicegroup) - Get a service group
-* [ListServiceGroupServices](docs/sdks/iamservicegroups/README.md#listservicegroupservices) - List services to a service group
-* [ListServiceGroups](docs/sdks/iamservicegroups/README.md#listservicegroups) - List service groups
-
-### [IamUserGroups](docs/sdks/iamusergroups/README.md)
-
-* [DeleteAUserGroup](docs/sdks/iamusergroups/README.md#deleteausergroup) - Delete a user group
-* [GetAUserGroup](docs/sdks/iamusergroups/README.md#getausergroup) - Get a user group
-* [ListUserGroupMembers](docs/sdks/iamusergroups/README.md#listusergroupmembers) - List members of a user group
-* [ListUserGroupRoles](docs/sdks/iamusergroups/README.md#listusergrouproles) - List roles in a user group
-* [ListUserGroupServiceGroups](docs/sdks/iamusergroups/README.md#listusergroupservicegroups) - List service groups in a user group
-* [ListUserGroups](docs/sdks/iamusergroups/README.md#listusergroups) - List user groups
-
-### [Invitations](docs/sdks/invitations/README.md)
-
-* [CreateInvitation](docs/sdks/invitations/README.md#createinvitation) - Create an invitation
-* [DeleteInvitation](docs/sdks/invitations/README.md#deleteinvitation) - Delete an invitation
-* [ListInvitations](docs/sdks/invitations/README.md#listinvitations) - List invitations
-
-### [KvStore](docs/sdks/kvstore/README.md)
-
-* [CreateStore](docs/sdks/kvstore/README.md#createstore) - Create an kv store.
-* [DeleteStore](docs/sdks/kvstore/README.md#deletestore) - Delete an kv store.
-* [GetStore](docs/sdks/kvstore/README.md#getstore) - Describe an kv store.
-* [GetStores](docs/sdks/kvstore/README.md#getstores) - List kv stores.
-
-### [KvStoreItem](docs/sdks/kvstoreitem/README.md)
-
-* [DeleteKeyFromStore](docs/sdks/kvstoreitem/README.md#deletekeyfromstore) - Delete kv store item.
-* [GetKeys](docs/sdks/kvstoreitem/README.md#getkeys) - List kv store keys.
-* [GetValueForKey](docs/sdks/kvstoreitem/README.md#getvalueforkey) - Get the value of an kv store item
-* [SetValueForKey](docs/sdks/kvstoreitem/README.md#setvalueforkey) - Insert an item into an kv store
 
 ### [LoggingAzureblob](docs/sdks/loggingazureblob/README.md)
 
@@ -506,14 +594,6 @@ func main() {
 * [ListLogSyslog](docs/sdks/loggingsyslog/README.md#listlogsyslog) - List Syslog log endpoints
 * [UpdateLogSyslog](docs/sdks/loggingsyslog/README.md#updatelogsyslog) - Update a syslog log endpoint
 
-### [MutualAuthentication](docs/sdks/mutualauthentication/README.md)
-
-* [CreateMutualTLSAuthentication](docs/sdks/mutualauthentication/README.md#createmutualtlsauthentication) - Create a Mutual Authentication
-* [DeleteMutualTLS](docs/sdks/mutualauthentication/README.md#deletemutualtls) - Delete a Mutual TLS
-* [GetMutualAuthentication](docs/sdks/mutualauthentication/README.md#getmutualauthentication) - Get a Mutual Authentication
-* [ListMutualAuthentications](docs/sdks/mutualauthentication/README.md#listmutualauthentications) - List Mutual Authentications
-* [PatchMutualAuthentication](docs/sdks/mutualauthentication/README.md#patchmutualauthentication) - Update a Mutual Authentication
-
 ### [Package](docs/sdks/package/README.md)
 
 * [GetPackage](docs/sdks/package/README.md#getpackage) - Get details of the service's Compute@Edge package.
@@ -526,36 +606,6 @@ func main() {
 * [GetServerPool](docs/sdks/pool/README.md#getserverpool) - Get a server pool
 * [ListServerPools](docs/sdks/pool/README.md#listserverpools) - List server pools
 * [UpdateServerPool](docs/sdks/pool/README.md#updateserverpool) - Update a server pool
-
-### [Pop](docs/sdks/pop/README.md)
-
-* [ListPops](docs/sdks/pop/README.md#listpops) - List Fastly POPs
-
-### [PublicIPList](docs/sdks/publiciplist/README.md)
-
-* [ListFastlyIps](docs/sdks/publiciplist/README.md#listfastlyips) - List Fastly's public IPs
-
-### [Publish](docs/sdks/publish/README.md)
-
-* [Publish](docs/sdks/publish/README.md#publish) - Send messages to Fanout subscribers
-
-### [Purge](docs/sdks/purge/README.md)
-
-* [PurgeAll](docs/sdks/purge/README.md#purgeall) - Purge everything from a service
-* [PurgeSingleURL](docs/sdks/purge/README.md#purgesingleurl) - Purge a URL
-* [PurgeTag](docs/sdks/purge/README.md#purgetag) - Purge by surrogate key tag
-
-### [RateLimiter](docs/sdks/ratelimiter/README.md)
-
-* [DeleteRateLimiter](docs/sdks/ratelimiter/README.md#deleteratelimiter) - Delete a rate limiter
-* [GetRateLimiter](docs/sdks/ratelimiter/README.md#getratelimiter) - Get a rate limiter
-* [ListRateLimiters](docs/sdks/ratelimiter/README.md#listratelimiters) - List rate limiters
-
-### [Realtime](docs/sdks/realtime/README.md)
-
-* [GetStatsLast120Seconds](docs/sdks/realtime/README.md#getstatslast120seconds) - Get real-time data for the last 120 seconds
-* [GetStatsLast120SecondsLimitEntries](docs/sdks/realtime/README.md#getstatslast120secondslimitentries) - Get a limited number of real-time data entries
-* [GetStatsLastSecond](docs/sdks/realtime/README.md#getstatslastsecond) - Get real-time data from specified time
 
 ### [RequestSettings](docs/sdks/requestsettings/README.md)
 
@@ -578,46 +628,10 @@ func main() {
 * [GetResponseObject](docs/sdks/responseobject/README.md#getresponseobject) - Get a Response object
 * [ListResponseObjects](docs/sdks/responseobject/README.md#listresponseobjects) - List Response objects
 
-### [Server](docs/sdks/server/README.md)
-
-* [CreatePoolServer](docs/sdks/server/README.md#createpoolserver) - Add a server to a pool
-* [DeletePoolServer](docs/sdks/server/README.md#deletepoolserver) - Delete a server from a pool
-* [GetPoolServer](docs/sdks/server/README.md#getpoolserver) - Get a pool server
-* [ListPoolServers](docs/sdks/server/README.md#listpoolservers) - List servers in a pool
-* [UpdatePoolServer](docs/sdks/server/README.md#updatepoolserver) - Update a server
-
-### [Service](docs/sdks/service/README.md)
-
-* [CreateService](docs/sdks/service/README.md#createservice) - Create a service
-* [DeleteService](docs/sdks/service/README.md#deleteservice) - Delete a service
-* [GetService](docs/sdks/service/README.md#getservice) - Get a service
-* [GetServiceDetail](docs/sdks/service/README.md#getservicedetail) - Get service details
-* [ListServiceDomains](docs/sdks/service/README.md#listservicedomains) - List the domains within a service
-* [ListServices](docs/sdks/service/README.md#listservices) - List services
-* [SearchService](docs/sdks/service/README.md#searchservice) - Search for a service by name
-* [UpdateService](docs/sdks/service/README.md#updateservice) - Update a service
-
-### [ServiceAuthorizations](docs/sdks/serviceauthorizations/README.md)
-
-* [CreateServiceAuthorization](docs/sdks/serviceauthorizations/README.md#createserviceauthorization) - Create service authorization
-* [DeleteServiceAuthorization](docs/sdks/serviceauthorizations/README.md#deleteserviceauthorization) - Delete service authorization
-* [ListServiceAuthorization](docs/sdks/serviceauthorizations/README.md#listserviceauthorization) - List service authorizations
-* [ShowServiceAuthorization](docs/sdks/serviceauthorizations/README.md#showserviceauthorization) - Show service authorization
-* [UpdateServiceAuthorization](docs/sdks/serviceauthorizations/README.md#updateserviceauthorization) - Update service authorization
-
 ### [Settings](docs/sdks/settings/README.md)
 
 * [GetServiceSettings](docs/sdks/settings/README.md#getservicesettings) - Get service settings
 * [UpdateServiceSettings](docs/sdks/settings/README.md#updateservicesettings) - Update service settings
-
-### [Snippet](docs/sdks/snippet/README.md)
-
-* [CreateSnippet](docs/sdks/snippet/README.md#createsnippet) - Create a snippet
-* [DeleteSnippet](docs/sdks/snippet/README.md#deletesnippet) - Delete a snippet
-* [GetSnippet](docs/sdks/snippet/README.md#getsnippet) - Get a versioned snippet
-* [GetSnippetDynamic](docs/sdks/snippet/README.md#getsnippetdynamic) - Get a dynamic snippet
-* [ListSnippets](docs/sdks/snippet/README.md#listsnippets) - List snippets
-* [UpdateSnippetDynamic](docs/sdks/snippet/README.md#updatesnippetdynamic) - Update a dynamic snippet
 
 ### [Star](docs/sdks/star/README.md)
 
@@ -626,9 +640,17 @@ func main() {
 * [GetServiceStar](docs/sdks/star/README.md#getservicestar) - Get a star
 * [ListServiceStars](docs/sdks/star/README.md#listservicestars) - List stars
 
-### [Stats](docs/sdks/stats/README.md)
+### [Historical](docs/sdks/historical/README.md)
 
-* [GetServiceStats](docs/sdks/stats/README.md#getservicestats) - Get stats for a service
+* [GetHistStats](docs/sdks/historical/README.md#gethiststats) - Get historical stats
+* [GetHistStatsAggregated](docs/sdks/historical/README.md#gethiststatsaggregated) - Get aggregated historical stats
+* [GetHistStatsField](docs/sdks/historical/README.md#gethiststatsfield) - Get historical stats for a single field
+* [GetHistStatsService](docs/sdks/historical/README.md#gethiststatsservice) - Get historical stats for a single service
+* [GetHistStatsServiceField](docs/sdks/historical/README.md#gethiststatsservicefield) - Get historical stats for a single service/field combination
+* [GetRegions](docs/sdks/historical/README.md#getregions) - Get region codes
+* [GetUsage](docs/sdks/historical/README.md#getusage) - Get usage statistics
+* [GetUsageMonth](docs/sdks/historical/README.md#getusagemonth) - Get month-to-date usage statistics
+* [GetUsageService](docs/sdks/historical/README.md#getusageservice) - Get usage statistics per service
 
 ### [TLSActivations](docs/sdks/tlsactivations/README.md)
 
@@ -664,6 +686,14 @@ func main() {
 
 * [ListTLSDomains](docs/sdks/tlsdomains/README.md#listtlsdomains) - List TLS domains
 
+### [MutualAuthentication](docs/sdks/mutualauthentication/README.md)
+
+* [CreateMutualTLSAuthentication](docs/sdks/mutualauthentication/README.md#createmutualtlsauthentication) - Create a Mutual Authentication
+* [DeleteMutualTLS](docs/sdks/mutualauthentication/README.md#deletemutualtls) - Delete a Mutual TLS
+* [GetMutualAuthentication](docs/sdks/mutualauthentication/README.md#getmutualauthentication) - Get a Mutual Authentication
+* [ListMutualAuthentications](docs/sdks/mutualauthentication/README.md#listmutualauthentications) - List Mutual Authentications
+* [PatchMutualAuthentication](docs/sdks/mutualauthentication/README.md#patchmutualauthentication) - Update a Mutual Authentication
+
 ### [TLSPrivateKeys](docs/sdks/tlsprivatekeys/README.md)
 
 * [CreateTLSKey](docs/sdks/tlsprivatekeys/README.md#createtlskey) - Create a TLS private key
@@ -681,51 +711,45 @@ func main() {
 * [ListTLSSubs](docs/sdks/tlssubscriptions/README.md#listtlssubs) - List TLS subscriptions
 * [PatchTLSSub](docs/sdks/tlssubscriptions/README.md#patchtlssub) - Update a TLS subscription
 
-### [Tokens](docs/sdks/tokens/README.md)
+### [IamUserGroups](docs/sdks/iamusergroups/README.md)
 
-* [GetTokenCurrent](docs/sdks/tokens/README.md#gettokencurrent) - Get the current token
-* [ListTokensCustomer](docs/sdks/tokens/README.md#listtokenscustomer) - List tokens for a customer
-* [ListTokensUser](docs/sdks/tokens/README.md#listtokensuser) - List tokens for the authenticated user
-* [RevokeToken](docs/sdks/tokens/README.md#revoketoken) - Revoke a token
-* [RevokeTokenCurrent](docs/sdks/tokens/README.md#revoketokencurrent) - Revoke the current token
+* [DeleteAUserGroup](docs/sdks/iamusergroups/README.md#deleteausergroup) - Delete a user group
+* [GetAUserGroup](docs/sdks/iamusergroups/README.md#getausergroup) - Get a user group
+* [ListUserGroupMembers](docs/sdks/iamusergroups/README.md#listusergroupmembers) - List members of a user group
+* [ListUserGroupRoles](docs/sdks/iamusergroups/README.md#listusergrouproles) - List roles in a user group
+* [ListUserGroupServiceGroups](docs/sdks/iamusergroups/README.md#listusergroupservicegroups) - List service groups in a user group
+* [ListUserGroups](docs/sdks/iamusergroups/README.md#listusergroups) - List user groups
 
-### [User](docs/sdks/user/README.md)
+### [Realtime](docs/sdks/realtime/README.md)
 
-* [CreateUser](docs/sdks/user/README.md#createuser) - Create a user
-* [DeleteUser](docs/sdks/user/README.md#deleteuser) - Delete a user
-* [GetCurrentUser](docs/sdks/user/README.md#getcurrentuser) - Get the current user
-* [GetUser](docs/sdks/user/README.md#getuser) - Get a user
-* [RequestPasswordReset](docs/sdks/user/README.md#requestpasswordreset) - Request a password reset
-* [UpdateUser](docs/sdks/user/README.md#updateuser) - Update a user
-* [UpdateUserPassword](docs/sdks/user/README.md#updateuserpassword) - Update the user's password
+* [GetStatsLast120Seconds](docs/sdks/realtime/README.md#getstatslast120seconds) - Get real-time data for the last 120 seconds
+* [GetStatsLast120SecondsLimitEntries](docs/sdks/realtime/README.md#getstatslast120secondslimitentries) - Get a limited number of real-time data entries
+* [GetStatsLastSecond](docs/sdks/realtime/README.md#getstatslastsecond) - Get real-time data from specified time
 
-### [Vcl](docs/sdks/vcl/README.md)
+### [WafFirewalls](docs/sdks/waffirewalls/README.md)
 
-* [CreateCustomVcl](docs/sdks/vcl/README.md#createcustomvcl) - Create a custom VCL file
-* [DeleteCustomVcl](docs/sdks/vcl/README.md#deletecustomvcl) - Delete a custom VCL file
-* [GetCustomVcl](docs/sdks/vcl/README.md#getcustomvcl) - Get a custom VCL file
-* [GetCustomVclBoilerplate](docs/sdks/vcl/README.md#getcustomvclboilerplate) - Get boilerplate VCL
-* [GetCustomVclGenerated](docs/sdks/vcl/README.md#getcustomvclgenerated) - Get the generated VCL for a service
-* [GetCustomVclRaw](docs/sdks/vcl/README.md#getcustomvclraw) - Download a custom VCL file
-* [ListCustomVcl](docs/sdks/vcl/README.md#listcustomvcl) - List custom VCL files
-* [SetCustomVclMain](docs/sdks/vcl/README.md#setcustomvclmain) - Set a custom VCL file as main
-* [UpdateCustomVcl](docs/sdks/vcl/README.md#updatecustomvcl) - Update a custom VCL file
+* [~~CreateWafFirewall~~](docs/sdks/waffirewalls/README.md#createwaffirewall) - Create a firewall :warning: **Deprecated**
+* [~~DeleteWafFirewall~~](docs/sdks/waffirewalls/README.md#deletewaffirewall) - Delete a firewall :warning: **Deprecated**
+* [~~GetWafFirewall~~](docs/sdks/waffirewalls/README.md#getwaffirewall) - Get a firewall :warning: **Deprecated**
+* [~~ListWafFirewalls~~](docs/sdks/waffirewalls/README.md#listwaffirewalls) - List firewalls :warning: **Deprecated**
+* [~~UpdateWafFirewall~~](docs/sdks/waffirewalls/README.md#updatewaffirewall) - Update a firewall :warning: **Deprecated**
 
-### [VclDiff](docs/sdks/vcldiff/README.md)
+### [WafFirewallVersions](docs/sdks/waffirewallversions/README.md)
 
-* [VclDiffServiceVersions](docs/sdks/vcldiff/README.md#vcldiffserviceversions) - Get a comparison of the VCL changes between two service versions
+* [~~CloneWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#clonewaffirewallversion) - Clone a firewall version :warning: **Deprecated**
+* [~~CreateWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#createwaffirewallversion) - Create a firewall version :warning: **Deprecated**
+* [~~DeployActivateWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#deployactivatewaffirewallversion) - Deploy or activate a firewall version :warning: **Deprecated**
+* [~~GetWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#getwaffirewallversion) - Get a firewall version :warning: **Deprecated**
+* [~~ListWafFirewallVersions~~](docs/sdks/waffirewallversions/README.md#listwaffirewallversions) - List firewall versions :warning: **Deprecated**
+* [~~UpdateWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#updatewaffirewallversion) - Update a firewall version :warning: **Deprecated**
 
-### [Version](docs/sdks/version/README.md)
+### [WafExclusions](docs/sdks/wafexclusions/README.md)
 
-* [ActivateServiceVersion](docs/sdks/version/README.md#activateserviceversion) - Activate a service version
-* [CloneServiceVersion](docs/sdks/version/README.md#cloneserviceversion) - Clone a service version
-* [CreateServiceVersion](docs/sdks/version/README.md#createserviceversion) - Create a service version
-* [DeactivateServiceVersion](docs/sdks/version/README.md#deactivateserviceversion) - Deactivate a service version
-* [GetServiceVersion](docs/sdks/version/README.md#getserviceversion) - Get a version of a service
-* [ListServiceVersions](docs/sdks/version/README.md#listserviceversions) - List versions of a service
-* [LockServiceVersion](docs/sdks/version/README.md#lockserviceversion) - Lock a service version
-* [UpdateServiceVersion](docs/sdks/version/README.md#updateserviceversion) - Update a service version
-* [ValidateServiceVersion](docs/sdks/version/README.md#validateserviceversion) - Validate a service version
+* [~~CreateWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#createwafruleexclusion) - Create a WAF rule exclusion :warning: **Deprecated**
+* [~~DeleteWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#deletewafruleexclusion) - Delete a WAF rule exclusion :warning: **Deprecated**
+* [~~GetWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#getwafruleexclusion) - Get a WAF rule exclusion :warning: **Deprecated**
+* [~~ListWafRuleExclusions~~](docs/sdks/wafexclusions/README.md#listwafruleexclusions) - List WAF rule exclusions :warning: **Deprecated**
+* [~~UpdateWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#updatewafruleexclusion) - Update a WAF rule exclusion :warning: **Deprecated**
 
 ### [WafActiveRules](docs/sdks/wafactiverules/README.md)
 
@@ -737,45 +761,295 @@ func main() {
 * [~~ListWafActiveRules~~](docs/sdks/wafactiverules/README.md#listwafactiverules) - List active rules on a WAF :warning: **Deprecated**
 * [~~UpdateWafActiveRule~~](docs/sdks/wafactiverules/README.md#updatewafactiverule) - Update an active rule :warning: **Deprecated**
 
-### [WafExclusions](docs/sdks/wafexclusions/README.md)
+### [WafRules](docs/sdks/wafrules/README.md)
 
-* [~~CreateWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#createwafruleexclusion) - Create a WAF rule exclusion :warning: **Deprecated**
-* [~~DeleteWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#deletewafruleexclusion) - Delete a WAF rule exclusion :warning: **Deprecated**
-* [~~GetWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#getwafruleexclusion) - Get a WAF rule exclusion :warning: **Deprecated**
-* [~~ListWafRuleExclusions~~](docs/sdks/wafexclusions/README.md#listwafruleexclusions) - List WAF rule exclusions :warning: **Deprecated**
-* [~~UpdateWafRuleExclusion~~](docs/sdks/wafexclusions/README.md#updatewafruleexclusion) - Update a WAF rule exclusion :warning: **Deprecated**
-
-### [WafFirewallVersions](docs/sdks/waffirewallversions/README.md)
-
-* [~~CloneWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#clonewaffirewallversion) - Clone a firewall version :warning: **Deprecated**
-* [~~CreateWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#createwaffirewallversion) - Create a firewall version :warning: **Deprecated**
-* [~~DeployActivateWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#deployactivatewaffirewallversion) - Deploy or activate a firewall version :warning: **Deprecated**
-* [~~GetWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#getwaffirewallversion) - Get a firewall version :warning: **Deprecated**
-* [~~ListWafFirewallVersions~~](docs/sdks/waffirewallversions/README.md#listwaffirewallversions) - List firewall versions :warning: **Deprecated**
-* [~~UpdateWafFirewallVersion~~](docs/sdks/waffirewallversions/README.md#updatewaffirewallversion) - Update a firewall version :warning: **Deprecated**
-
-### [WafFirewalls](docs/sdks/waffirewalls/README.md)
-
-* [~~CreateWafFirewall~~](docs/sdks/waffirewalls/README.md#createwaffirewall) - Create a firewall :warning: **Deprecated**
-* [~~DeleteWafFirewall~~](docs/sdks/waffirewalls/README.md#deletewaffirewall) - Delete a firewall :warning: **Deprecated**
-* [~~GetWafFirewall~~](docs/sdks/waffirewalls/README.md#getwaffirewall) - Get a firewall :warning: **Deprecated**
-* [~~ListWafFirewalls~~](docs/sdks/waffirewalls/README.md#listwaffirewalls) - List firewalls :warning: **Deprecated**
-* [~~UpdateWafFirewall~~](docs/sdks/waffirewalls/README.md#updatewaffirewall) - Update a firewall :warning: **Deprecated**
+* [~~GetWafRule~~](docs/sdks/wafrules/README.md#getwafrule) - Get a rule :warning: **Deprecated**
+* [~~ListWafRules~~](docs/sdks/wafrules/README.md#listwafrules) - List available WAF rules :warning: **Deprecated**
 
 ### [WafRuleRevisions](docs/sdks/wafrulerevisions/README.md)
 
 * [~~GetWafRuleRevision~~](docs/sdks/wafrulerevisions/README.md#getwafrulerevision) - Get a revision of a rule :warning: **Deprecated**
 * [~~ListWafRuleRevisions~~](docs/sdks/wafrulerevisions/README.md#listwafrulerevisions) - List revisions for a rule :warning: **Deprecated**
 
-### [WafRules](docs/sdks/wafrules/README.md)
-
-* [~~GetWafRule~~](docs/sdks/wafrules/README.md#getwafrule) - Get a rule :warning: **Deprecated**
-* [~~ListWafRules~~](docs/sdks/wafrules/README.md#listwafrules) - List available WAF rules :warning: **Deprecated**
-
 ### [WafTags](docs/sdks/waftags/README.md)
 
 * [~~ListWafTags~~](docs/sdks/waftags/README.md#listwaftags) - List tags :warning: **Deprecated**
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Error Handling -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+| Error Object                                      | Status Code                                       | Content Type                                      |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| sdkerrors.BillingAddressVerificationErrorResponse | 400                                               | application/vnd.api+json                          |
+| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+
+### Example
+
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New(
+		fastly.WithSecurity(""),
+	)
+
+	ctx := context.Background()
+	res, err := s.BillingAddress.AddBillingAddr(ctx, operations.AddBillingAddrRequest{
+		BillingAddressRequest: &components.BillingAddressRequest{
+			Data: &components.BillingAddressRequestData{
+				Attributes: &components.BillingAddressAttributesInput{
+					Address1:   fastly.String("80719 Dorothea Mountain"),
+					Address2:   fastly.String("Apt. 652"),
+					City:       fastly.String("New Rasheedville"),
+					Country:    fastly.String("US"),
+					Locality:   fastly.String("New Castle"),
+					PostalCode: fastly.String("53538-5902"),
+					State:      fastly.String("DE"),
+				},
+			},
+		},
+		CustomerID: "x4xCwxxJxGCx123Rx5xTx",
+	})
+	if err != nil {
+
+		var e *sdkerrors.BillingAddressVerificationErrorResponse
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
+		var e *sdkerrors.SDKError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+	}
+}
+
+```
+
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally using the `WithServerIndex` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.fastly.com` | None |
+| 1 | `https://rt.fastly.com` | None |
+
+#### Example
+
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New(
+		fastly.WithServerIndex(1),
+		fastly.WithSecurity(""),
+	)
+
+	ctx := context.Background()
+	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
+		ApexRedirectID: "string",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
+
+
+### Override Server URL Per-Client
+
+The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New(
+		fastly.WithServerURL("https://api.fastly.com"),
+		fastly.WithSecurity(""),
+	)
+
+	ctx := context.Background()
+	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
+		ApexRedirectID: "string",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+## Custom HTTP Client
+
+The Go SDK makes API calls that wrap an internal HTTP client. The requirements for the HTTP client are very simple. It must match this interface:
+
+```go
+type HTTPClient interface {
+	Do(req *http.Request) (*http.Response, error)
+}
+```
+
+The built-in `net/http` client satisfies this interface and a default client based on the built-in is provided by default. To replace this default with a client of your own, you can implement this interface yourself or provide your own client configured as desired. Here's a simple example, which adds a client with a 30 second timeout.
+
+```go
+import (
+	"net/http"
+	"time"
+	"github.com/myorg/your-go-sdk"
+)
+
+var (
+	httpClient = &http.Client{Timeout: 30 * time.Second}
+	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+)
+```
+
+This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
+<!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name    | Type    | Scheme  |
+| ------- | ------- | ------- |
+| `Token` | apiKey  | API key |
+
+You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New(
+		fastly.WithSecurity(""),
+	)
+
+	ctx := context.Background()
+	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
+		ApexRedirectID: "string",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.Object != nil {
+		// handle response
+	}
+}
+
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```go
+package main
+
+import (
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
+	"context"
+	"log"
+)
+
+func main() {
+	s := fastly.New()
+
+	operationSecurity := operations.UpdateUserPasswordSecurity{
+		Password: "",
+		Username: "",
+	}
+
+	ctx := context.Background()
+	res, err := s.User.UpdateUserPassword(ctx, &components.PasswordChange{}, operationSecurity)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.UserResponse != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Authentication -->
+
+
+
+<!-- Start Go Types -->
+
+<!-- End Go Types -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

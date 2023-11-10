@@ -1,4 +1,5 @@
 # ServiceAuthorizations
+(*ServiceAuthorizations*)
 
 ## Overview
 
@@ -25,34 +26,28 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/shared"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
-    res, err := s.ServiceAuthorizations.CreateServiceAuthorization(ctx, shared.ServiceAuthorizationInput{
-        Data: &shared.ServiceAuthorizationDataInput{
-            Attributes: &shared.ServiceAuthorizationDataAttributes{
-                Permission: shared.PermissionFull.ToPointer(),
+    res, err := s.ServiceAuthorizations.CreateServiceAuthorization(ctx, &components.ServiceAuthorization{
+        Data: &components.ServiceAuthorizationData{
+            Attributes: &components.ServiceAuthorizationDataAttributes{
+                Permission: components.PermissionFull.ToPointer(),
             },
-            Relationships: &shared.ServiceAuthorizationDataRelationshipsInput{
-                Service: &shared.RelationshipMemberServiceInput{
-                    Type: shared.TypeServiceService.ToPointer(),
-                },
-                User: &shared.ServiceAuthorizationDataRelationshipsUserInput{
-                    Data: &shared.ServiceAuthorizationDataRelationshipsUserDataInput{
-                        Type: shared.TypeUserUser.ToPointer(),
-                    },
+            Relationships: &components.ServiceAuthorizationDataRelationships{
+                Service: &components.RelationshipMemberServiceInput{},
+                User: &components.ServiceAuthorizationDataUser{
+                    Data: &components.ServiceAuthorizationDataData{},
                 },
             },
-            Type: shared.TypeServiceAuthorizationServiceAuthorization.ToPointer(),
         },
-    }, operations.CreateServiceAuthorizationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -66,17 +61,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [shared.ServiceAuthorizationInput](../../models/shared/serviceauthorizationinput.md)                           | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.CreateServiceAuthorizationSecurity](../../models/operations/createserviceauthorizationsecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [components.ServiceAuthorization](../../models/components/serviceauthorization.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
 **[*operations.CreateServiceAuthorizationResponse](../../models/operations/createserviceauthorizationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteServiceAuthorization
 
@@ -90,18 +86,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.DeleteServiceAuthorization(ctx, operations.DeleteServiceAuthorizationRequest{
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.DeleteServiceAuthorizationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -115,17 +112,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.DeleteServiceAuthorizationRequest](../../models/operations/deleteserviceauthorizationrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.DeleteServiceAuthorizationSecurity](../../models/operations/deleteserviceauthorizationsecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.DeleteServiceAuthorizationRequest](../../models/operations/deleteserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
 
 **[*operations.DeleteServiceAuthorizationResponse](../../models/operations/deleteserviceauthorizationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListServiceAuthorization
 
@@ -139,19 +137,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.ListServiceAuthorization(ctx, operations.ListServiceAuthorizationRequest{
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-    }, operations.ListServiceAuthorizationSecurity{
-        Token: "",
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -165,17 +164,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `request`                                                                                                  | [operations.ListServiceAuthorizationRequest](../../models/operations/listserviceauthorizationrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.ListServiceAuthorizationSecurity](../../models/operations/listserviceauthorizationsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.ListServiceAuthorizationRequest](../../models/operations/listserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
 
 **[*operations.ListServiceAuthorizationResponse](../../models/operations/listserviceauthorizationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ShowServiceAuthorization
 
@@ -189,18 +189,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.ShowServiceAuthorization(ctx, operations.ShowServiceAuthorizationRequest{
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.ShowServiceAuthorizationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -214,17 +215,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                                      | :heavy_check_mark:                                                                                         | The context to use for the request.                                                                        |
-| `request`                                                                                                  | [operations.ShowServiceAuthorizationRequest](../../models/operations/showserviceauthorizationrequest.md)   | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `security`                                                                                                 | [operations.ShowServiceAuthorizationSecurity](../../models/operations/showserviceauthorizationsecurity.md) | :heavy_check_mark:                                                                                         | The security requirements to use for the request.                                                          |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                                    | :heavy_check_mark:                                                                                       | The context to use for the request.                                                                      |
+| `request`                                                                                                | [operations.ShowServiceAuthorizationRequest](../../models/operations/showserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
 
 
 ### Response
 
 **[*operations.ShowServiceAuthorizationResponse](../../models/operations/showserviceauthorizationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateServiceAuthorization
 
@@ -238,37 +240,32 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.UpdateServiceAuthorization(ctx, operations.UpdateServiceAuthorizationRequest{
-        ServiceAuthorizationInput: &shared.ServiceAuthorizationInput{
-            Data: &shared.ServiceAuthorizationDataInput{
-                Attributes: &shared.ServiceAuthorizationDataAttributes{
-                    Permission: shared.PermissionFull.ToPointer(),
+        ServiceAuthorization: &components.ServiceAuthorization{
+            Data: &components.ServiceAuthorizationData{
+                Attributes: &components.ServiceAuthorizationDataAttributes{
+                    Permission: components.PermissionFull.ToPointer(),
                 },
-                Relationships: &shared.ServiceAuthorizationDataRelationshipsInput{
-                    Service: &shared.RelationshipMemberServiceInput{
-                        Type: shared.TypeServiceService.ToPointer(),
-                    },
-                    User: &shared.ServiceAuthorizationDataRelationshipsUserInput{
-                        Data: &shared.ServiceAuthorizationDataRelationshipsUserDataInput{
-                            Type: shared.TypeUserUser.ToPointer(),
-                        },
+                Relationships: &components.ServiceAuthorizationDataRelationships{
+                    Service: &components.RelationshipMemberServiceInput{},
+                    User: &components.ServiceAuthorizationDataUser{
+                        Data: &components.ServiceAuthorizationDataData{},
                     },
                 },
-                Type: shared.TypeServiceAuthorizationServiceAuthorization.ToPointer(),
             },
         },
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
-    }, operations.UpdateServiceAuthorizationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -282,14 +279,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                                          | :heavy_check_mark:                                                                                             | The context to use for the request.                                                                            |
-| `request`                                                                                                      | [operations.UpdateServiceAuthorizationRequest](../../models/operations/updateserviceauthorizationrequest.md)   | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `security`                                                                                                     | [operations.UpdateServiceAuthorizationSecurity](../../models/operations/updateserviceauthorizationsecurity.md) | :heavy_check_mark:                                                                                             | The security requirements to use for the request.                                                              |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                        | :heavy_check_mark:                                                                                           | The context to use for the request.                                                                          |
+| `request`                                                                                                    | [operations.UpdateServiceAuthorizationRequest](../../models/operations/updateserviceauthorizationrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
 
 
 ### Response
 
 **[*operations.UpdateServiceAuthorizationResponse](../../models/operations/updateserviceauthorizationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

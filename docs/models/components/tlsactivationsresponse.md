@@ -1,0 +1,10 @@
+# TLSActivationsResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                            | [][components.TLSActivationResponseData](../../models/components/tlsactivationresponsedata.md)    | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Links`                                                                                           | [*components.TLSActivationsResponseLinks](../../models/components/tlsactivationsresponselinks.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Meta`                                                                                            | [*components.TLSActivationsResponseMeta](../../models/components/tlsactivationsresponsemeta.md)   | :heavy_minus_sign:                                                                                | N/A                                                                                               |

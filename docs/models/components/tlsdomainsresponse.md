@@ -1,0 +1,10 @@
+# TLSDomainsResponse
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `Data`                                                                                    | [][components.TLSDomainData](../../models/components/tlsdomaindata.md)                    | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Links`                                                                                   | [*components.TLSDomainsResponseLinks](../../models/components/tlsdomainsresponselinks.md) | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `Meta`                                                                                    | [*components.TLSDomainsResponseMeta](../../models/components/tlsdomainsresponsemeta.md)   | :heavy_minus_sign:                                                                        | N/A                                                                                       |

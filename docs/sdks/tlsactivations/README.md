@@ -1,4 +1,5 @@
 # TLSActivations
+(*TLSActivations*)
 
 ## Overview
 
@@ -25,33 +26,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/shared"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
-    res, err := s.TLSActivations.CreateTLSActivation(ctx, shared.TLSActivationInput{
-        Data: &shared.TLSActivationDataInput{
-            Relationships: &shared.RelationshipsForTLSActivationInput{
-                TLSCertificate: &shared.RelationshipsForTLSActivationTLSCertificateInput{
-                    Data: &shared.RelationshipMemberTLSCertificateInput{
-                        Type: shared.TypeTLSCertificateTLSCertificate.ToPointer(),
-                    },
+    res, err := s.TLSActivations.CreateTLSActivation(ctx, &components.TLSActivation{
+        Data: &components.TLSActivationData{
+            Relationships: &components.RelationshipsForTLSActivationInput{
+                TLSCertificate: &components.RelationshipsForTLSActivationTLSCertificateInput{
+                    Data: &components.RelationshipMemberTLSCertificateInput{},
                 },
-                TLSDomain: &shared.RelationshipsForTLSActivationTLSDomainInput{
-                    Data: &shared.RelationshipMemberTLSDomainInput{
-                        Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                    },
+                TLSDomain: &components.RelationshipsForTLSActivationTLSDomain{
+                    Data: &components.RelationshipMemberTLSDomainInput{},
                 },
             },
-            Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
         },
-    }, operations.CreateTLSActivationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -65,17 +60,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [shared.TLSActivationInput](../../models/shared/tlsactivationinput.md)                           | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.CreateTLSActivationSecurity](../../models/operations/createtlsactivationsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `ctx`                                                                | [context.Context](https://pkg.go.dev/context#Context)                | :heavy_check_mark:                                                   | The context to use for the request.                                  |
+| `request`                                                            | [components.TLSActivation](../../models/components/tlsactivation.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
 
 
 ### Response
 
 **[*operations.CreateTLSActivationResponse](../../models/operations/createtlsactivationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteTLSActivation
 
@@ -89,18 +85,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.TLSActivations.DeleteTLSActivation(ctx, operations.DeleteTLSActivationRequest{
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",
-    }, operations.DeleteTLSActivationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -114,17 +111,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.DeleteTLSActivationRequest](../../models/operations/deletetlsactivationrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.DeleteTLSActivationSecurity](../../models/operations/deletetlsactivationsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.DeleteTLSActivationRequest](../../models/operations/deletetlsactivationrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.DeleteTLSActivationResponse](../../models/operations/deletetlsactivationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetTLSActivation
 
@@ -138,19 +136,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.TLSActivations.GetTLSActivation(ctx, operations.GetTLSActivationRequest{
-        Include: sdk.String("tls_certificate,tls_configuration,tls_domain"),
+        Include: fastly.String("tls_certificate,tls_configuration,tls_domain"),
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",
-    }, operations.GetTLSActivationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -164,17 +163,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
-| `request`                                                                                  | [operations.GetTLSActivationRequest](../../models/operations/gettlsactivationrequest.md)   | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `security`                                                                                 | [operations.GetTLSActivationSecurity](../../models/operations/gettlsactivationsecurity.md) | :heavy_check_mark:                                                                         | The security requirements to use for the request.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
+| `request`                                                                                | [operations.GetTLSActivationRequest](../../models/operations/gettlsactivationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
 
 
 ### Response
 
 **[*operations.GetTLSActivationResponse](../../models/operations/gettlsactivationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListTLSActivations
 
@@ -188,23 +188,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.TLSActivations.ListTLSActivations(ctx, operations.ListTLSActivationsRequest{
-        FilterTLSCertificateID: sdk.String("mollitia"),
-        FilterTLSConfigurationID: sdk.String("provident"),
-        FilterTLSDomainID: sdk.String("possimus"),
-        Include: sdk.String("tls_certificate,tls_configuration,tls_domain"),
-        PageNumber: sdk.Int64(1),
-        PageSize: sdk.Int64(20),
-    }, operations.ListTLSActivationsSecurity{
-        Token: "",
+        Include: fastly.String("tls_certificate,tls_configuration,tls_domain"),
+        PageNumber: fastly.Int64(1),
+        PageSize: fastly.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -218,17 +216,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.ListTLSActivationsRequest](../../models/operations/listtlsactivationsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ListTLSActivationsSecurity](../../models/operations/listtlsactivationssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.ListTLSActivationsRequest](../../models/operations/listtlsactivationsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
 **[*operations.ListTLSActivationsResponse](../../models/operations/listtlsactivationsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateTLSActivation
 
@@ -242,36 +241,31 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.TLSActivations.UpdateTLSActivation(ctx, operations.UpdateTLSActivationRequest{
-        TLSActivationInput: &shared.TLSActivationInput{
-            Data: &shared.TLSActivationDataInput{
-                Relationships: &shared.RelationshipsForTLSActivationInput{
-                    TLSCertificate: &shared.RelationshipsForTLSActivationTLSCertificateInput{
-                        Data: &shared.RelationshipMemberTLSCertificateInput{
-                            Type: shared.TypeTLSCertificateTLSCertificate.ToPointer(),
-                        },
+        TLSActivation: &components.TLSActivation{
+            Data: &components.TLSActivationData{
+                Relationships: &components.RelationshipsForTLSActivationInput{
+                    TLSCertificate: &components.RelationshipsForTLSActivationTLSCertificateInput{
+                        Data: &components.RelationshipMemberTLSCertificateInput{},
                     },
-                    TLSDomain: &shared.RelationshipsForTLSActivationTLSDomainInput{
-                        Data: &shared.RelationshipMemberTLSDomainInput{
-                            Type: shared.TypeTLSDomainTLSDomain.ToPointer(),
-                        },
+                    TLSDomain: &components.RelationshipsForTLSActivationTLSDomain{
+                        Data: &components.RelationshipMemberTLSDomainInput{},
                     },
                 },
-                Type: shared.TypeTLSActivationTLSActivation.ToPointer(),
             },
         },
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",
-    }, operations.UpdateTLSActivationSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -285,14 +279,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `ctx`                                                                                            | [context.Context](https://pkg.go.dev/context#Context)                                            | :heavy_check_mark:                                                                               | The context to use for the request.                                                              |
-| `request`                                                                                        | [operations.UpdateTLSActivationRequest](../../models/operations/updatetlsactivationrequest.md)   | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `security`                                                                                       | [operations.UpdateTLSActivationSecurity](../../models/operations/updatetlsactivationsecurity.md) | :heavy_check_mark:                                                                               | The security requirements to use for the request.                                                |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [operations.UpdateTLSActivationRequest](../../models/operations/updatetlsactivationrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
 
 
 ### Response
 
 **[*operations.UpdateTLSActivationResponse](../../models/operations/updatetlsactivationresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
