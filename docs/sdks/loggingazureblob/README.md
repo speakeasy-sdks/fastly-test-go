@@ -1,4 +1,5 @@
 # LoggingAzureblob
+(*LoggingAzureblob*)
 
 ## Overview
 
@@ -25,40 +26,34 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.CreateLogAzure(ctx, operations.CreateLogAzureRequest{
-        LoggingAzureblobInput: &shared.LoggingAzureblobInput{
-            AccountName: sdk.String("aut"),
-            CompressionCodec: shared.LoggingAzureblobCompressionCodecSnappy.ToPointer(),
-            Container: sdk.String("itaque"),
-            FileMaxBytes: sdk.Int64(9240),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingAzureblobFormatVersionTwo.ToPointer(),
-            GzipLevel: sdk.Int64(0),
-            MessageType: shared.LoggingAzureblobMessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("repellendus"),
-            Period: sdk.Int64(3600),
-            Placement: shared.LoggingAzureblobPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+        LoggingAzureblob: &components.LoggingAzureblob{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: components.FormatVersionTwo.ToPointer(),
+            GzipLevel: fastly.Int64(0),
+            MessageType: components.MessageTypeClassic.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Period: fastly.Int64(3600),
+            Placement: components.PlacementWafDebug.ToPointer(),
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: sdk.String("null"),
-            SasToken: sdk.String("doloribus"),
+            ResponseCondition: fastly.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateLogAzureSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -72,17 +67,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.CreateLogAzureRequest](../../models/operations/createlogazurerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateLogAzureSecurity](../../models/operations/createlogazuresecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.CreateLogAzureRequest](../../models/operations/createlogazurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.CreateLogAzureResponse](../../models/operations/createlogazureresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteLogAzure
 
@@ -96,26 +92,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.DeleteLogAzure(ctx, operations.DeleteLogAzureRequest{
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteLogAzureSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.DeleteLogAzure200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -123,17 +120,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.DeleteLogAzureRequest](../../models/operations/deletelogazurerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteLogAzureSecurity](../../models/operations/deletelogazuresecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.DeleteLogAzureRequest](../../models/operations/deletelogazurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.DeleteLogAzureResponse](../../models/operations/deletelogazureresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetLogAzure
 
@@ -147,20 +145,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.GetLogAzure(ctx, operations.GetLogAzureRequest{
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetLogAzureSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -174,17 +173,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.GetLogAzureRequest](../../models/operations/getlogazurerequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetLogAzureSecurity](../../models/operations/getlogazuresecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [operations.GetLogAzureRequest](../../models/operations/getlogazurerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
 
 **[*operations.GetLogAzureResponse](../../models/operations/getlogazureresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListLogAzure
 
@@ -198,25 +198,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.ListLogAzure(ctx, operations.ListLogAzureRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListLogAzureSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.LoggingAzureblobResponses != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -224,17 +225,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [operations.ListLogAzureRequest](../../models/operations/listlogazurerequest.md)   | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `security`                                                                         | [operations.ListLogAzureSecurity](../../models/operations/listlogazuresecurity.md) | :heavy_check_mark:                                                                 | The security requirements to use for the request.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [operations.ListLogAzureRequest](../../models/operations/listlogazurerequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
 
 
 ### Response
 
 **[*operations.ListLogAzureResponse](../../models/operations/listlogazureresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateLogAzure
 
@@ -248,41 +250,35 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.UpdateLogAzure(ctx, operations.UpdateLogAzureRequest{
-        LoggingAzureblobInput: &shared.LoggingAzureblobInput{
-            AccountName: sdk.String("ut"),
-            CompressionCodec: shared.LoggingAzureblobCompressionCodecGzip.ToPointer(),
-            Container: sdk.String("cupiditate"),
-            FileMaxBytes: sdk.Int64(181631),
-            Format: sdk.String("%h %l %u %t "%r" %&gt;s %b"),
-            FormatVersion: shared.LoggingAzureblobFormatVersionOne.ToPointer(),
-            GzipLevel: sdk.Int64(0),
-            MessageType: shared.LoggingAzureblobMessageTypeClassic.ToPointer(),
-            Name: sdk.String("test-log-endpoint"),
-            Path: sdk.String("laudantium"),
-            Period: sdk.Int64(3600),
-            Placement: shared.LoggingAzureblobPlacementWafDebug.ToPointer(),
-            PublicKey: sdk.String("-----BEGIN PRIVATE KEY-----
+        LoggingAzureblob: &components.LoggingAzureblob{
+            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            FormatVersion: components.FormatVersionTwo.ToPointer(),
+            GzipLevel: fastly.Int64(0),
+            MessageType: components.MessageTypeClassic.ToPointer(),
+            Name: fastly.String("test-log-endpoint"),
+            Period: fastly.Int64(3600),
+            Placement: components.PlacementLessThanNilGreaterThan.ToPointer(),
+            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: sdk.String("null"),
-            SasToken: sdk.String("occaecati"),
+            ResponseCondition: fastly.String("null"),
         },
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateLogAzureSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -296,14 +292,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.UpdateLogAzureRequest](../../models/operations/updatelogazurerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateLogAzureSecurity](../../models/operations/updatelogazuresecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.UpdateLogAzureRequest](../../models/operations/updatelogazurerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.UpdateLogAzureResponse](../../models/operations/updatelogazureresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

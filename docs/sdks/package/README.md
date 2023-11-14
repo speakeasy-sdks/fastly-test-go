@@ -1,4 +1,5 @@
 # Package
+(*Package*)
 
 ## Overview
 
@@ -23,19 +24,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Package.GetPackage(ctx, operations.GetPackageRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetPackageSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -49,17 +51,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.GetPackageRequest](../../models/operations/getpackagerequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.GetPackageSecurity](../../models/operations/getpackagesecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.GetPackageRequest](../../models/operations/getpackagerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
 **[*operations.GetPackageResponse](../../models/operations/getpackageresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## PutPackage
 
@@ -73,27 +76,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Package.PutPackage(ctx, operations.PutPackageRequest{
-        Expect: sdk.String("hic"),
-        PackageUpload: &shared.PackageUpload{
-            Package: &shared.PackageUploadPackage{
-                Content: []byte("exercitationem"),
-                Package: "nobis",
+        PackageUpload: &components.PackageUpload{
+            Package: &components.Package{
+                Content: []byte("0xbb336eEdCd"),
+                FileName: "industrial.pdf",
             },
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.PutPackageSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -107,14 +109,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [operations.PutPackageRequest](../../models/operations/putpackagerequest.md)   | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `security`                                                                     | [operations.PutPackageSecurity](../../models/operations/putpackagesecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `ctx`                                                                        | [context.Context](https://pkg.go.dev/context#Context)                        | :heavy_check_mark:                                                           | The context to use for the request.                                          |
+| `request`                                                                    | [operations.PutPackageRequest](../../models/operations/putpackagerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
 
 
 ### Response
 
 **[*operations.PutPackageResponse](../../models/operations/putpackageresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

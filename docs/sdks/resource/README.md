@@ -1,4 +1,5 @@
 # Resource
+(*Resource*)
 
 ## Overview
 
@@ -25,24 +26,24 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Resource.CreateResource(ctx, operations.CreateResourceRequest{
-        Resource: &shared.Resource{
-            Name: sdk.String("test-resource"),
-            ResourceID: sdk.String("3vjTN8v1O7nOAY7aNDGOL"),
+        Resource: &components.Resource{
+            Name: fastly.String("test-resource"),
+            ResourceID: fastly.String("3vjTN8v1O7nOAY7aNDGOL"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.CreateResourceSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -56,17 +57,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.CreateResourceRequest](../../models/operations/createresourcerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.CreateResourceSecurity](../../models/operations/createresourcesecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.CreateResourceRequest](../../models/operations/createresourcerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.CreateResourceResponse](../../models/operations/createresourceresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## DeleteResource
 
@@ -80,26 +82,27 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Resource.DeleteResource(ctx, operations.DeleteResourceRequest{
         ID: "7Lsb7Y76rChV9hSrv3KgFl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.DeleteResourceSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.DeleteResource200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -107,17 +110,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.DeleteResourceRequest](../../models/operations/deleteresourcerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.DeleteResourceSecurity](../../models/operations/deleteresourcesecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.DeleteResourceRequest](../../models/operations/deleteresourcerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.DeleteResourceResponse](../../models/operations/deleteresourceresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetResource
 
@@ -131,20 +135,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Resource.GetResource(ctx, operations.GetResourceRequest{
         ID: "7Lsb7Y76rChV9hSrv3KgFl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetResourceSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -158,17 +163,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [operations.GetResourceRequest](../../models/operations/getresourcerequest.md)   | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `security`                                                                       | [operations.GetResourceSecurity](../../models/operations/getresourcesecurity.md) | :heavy_check_mark:                                                               | The security requirements to use for the request.                                |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [operations.GetResourceRequest](../../models/operations/getresourcerequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 
 
 ### Response
 
 **[*operations.GetResourceResponse](../../models/operations/getresourceresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListResources
 
@@ -182,25 +188,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Resource.ListResources(ctx, operations.ListResourcesRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListResourcesSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ResourceResponses != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -208,17 +215,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [operations.ListResourcesRequest](../../models/operations/listresourcesrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.ListResourcesSecurity](../../models/operations/listresourcessecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [operations.ListResourcesRequest](../../models/operations/listresourcesrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response
 
 **[*operations.ListResourcesResponse](../../models/operations/listresourcesresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateResource
 
@@ -232,25 +240,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Resource.UpdateResource(ctx, operations.UpdateResourceRequest{
         ID: "7Lsb7Y76rChV9hSrv3KgFl",
-        Resource: &shared.Resource{
-            Name: sdk.String("test-resource"),
-            ResourceID: sdk.String("3vjTN8v1O7nOAY7aNDGOL"),
+        Resource: &components.Resource{
+            Name: fastly.String("test-resource"),
+            ResourceID: fastly.String("3vjTN8v1O7nOAY7aNDGOL"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.UpdateResourceSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -264,14 +272,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
-| `request`                                                                              | [operations.UpdateResourceRequest](../../models/operations/updateresourcerequest.md)   | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `security`                                                                             | [operations.UpdateResourceSecurity](../../models/operations/updateresourcesecurity.md) | :heavy_check_mark:                                                                     | The security requirements to use for the request.                                      |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [operations.UpdateResourceRequest](../../models/operations/updateresourcerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
 
 
 ### Response
 
 **[*operations.UpdateResourceResponse](../../models/operations/updateresourceresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

@@ -1,0 +1,10 @@
+# Event
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               | Example                                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `Attributes`                                                              | [*components.EventAttributes](../../models/components/eventattributes.md) | :heavy_minus_sign:                                                        | N/A                                                                       |                                                                           |
+| `ID`                                                                      | **string*                                                                 | :heavy_minus_sign:                                                        | N/A                                                                       | 1PTzLK8g1NRKMGu5kUb8SC                                                    |
+| `Type`                                                                    | [*components.TypeEvent](../../models/components/typeevent.md)             | :heavy_minus_sign:                                                        | Resource type                                                             |                                                                           |

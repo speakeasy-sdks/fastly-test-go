@@ -1,4 +1,5 @@
 # Settings
+(*Settings*)
 
 ## Overview
 
@@ -22,19 +23,20 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Settings.GetServiceSettings(ctx, operations.GetServiceSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.GetServiceSettingsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -48,17 +50,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.GetServiceSettingsRequest](../../models/operations/getservicesettingsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.GetServiceSettingsSecurity](../../models/operations/getservicesettingssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.GetServiceSettingsRequest](../../models/operations/getservicesettingsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
 **[*operations.GetServiceSettingsResponse](../../models/operations/getservicesettingsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateServiceSettings
 
@@ -73,26 +76,21 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.Settings.UpdateServiceSettings(ctx, operations.UpdateServiceSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Settings: &shared.Settings{
-            GeneralDefaultHost: sdk.String("quis"),
-            GeneralDefaultTTL: sdk.Int64(431785),
-            GeneralStaleIfError: sdk.Bool(false),
-            GeneralStaleIfErrorTTL: sdk.Int64(970494),
-        },
+        Settings: &components.Settings{},
         VersionID: 1,
-    }, operations.UpdateServiceSettingsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
@@ -106,14 +104,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                                | :heavy_check_mark:                                                                                   | The context to use for the request.                                                                  |
-| `request`                                                                                            | [operations.UpdateServiceSettingsRequest](../../models/operations/updateservicesettingsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.UpdateServiceSettingsSecurity](../../models/operations/updateservicesettingssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                              | [context.Context](https://pkg.go.dev/context#Context)                                              | :heavy_check_mark:                                                                                 | The context to use for the request.                                                                |
+| `request`                                                                                          | [operations.UpdateServiceSettingsRequest](../../models/operations/updateservicesettingsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
 
 **[*operations.UpdateServiceSettingsResponse](../../models/operations/updateservicesettingsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

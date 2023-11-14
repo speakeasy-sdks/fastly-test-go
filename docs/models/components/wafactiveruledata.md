@@ -1,0 +1,10 @@
+# WafActiveRuleData
+
+
+## Fields
+
+| Field                                                                                                 | Type                                                                                                  | Required                                                                                              | Description                                                                                           |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `Attributes`                                                                                          | [*components.WafActiveRuleDataAttributes](../../models/components/wafactiveruledataattributes.md)     | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Relationships`                                                                                       | [*components.RelationshipsForWafActiveRule](../../models/components/relationshipsforwafactiverule.md) | :heavy_minus_sign:                                                                                    | N/A                                                                                                   |
+| `Type`                                                                                                | [*components.TypeWafActiveRule](../../models/components/typewafactiverule.md)                         | :heavy_minus_sign:                                                                                    | Resource type.                                                                                        |

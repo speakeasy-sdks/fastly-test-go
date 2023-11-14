@@ -1,0 +1,10 @@
+# TLSPrivateKeysResponse
+
+
+## Fields
+
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                            | [][components.TLSPrivateKeyResponseData](../../models/components/tlsprivatekeyresponsedata.md)    | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Links`                                                                                           | [*components.TLSPrivateKeysResponseLinks](../../models/components/tlsprivatekeysresponselinks.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |
+| `Meta`                                                                                            | [*components.TLSPrivateKeysResponseMeta](../../models/components/tlsprivatekeysresponsemeta.md)   | :heavy_minus_sign:                                                                                | N/A                                                                                               |

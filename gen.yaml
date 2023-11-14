@@ -2,32 +2,38 @@ configVersion: 1.0.0
 management:
   docChecksum: 751bdf7393ba568b37b599aaf063bcf1
   docVersion: 1.0.0
-  speakeasyVersion: 1.49.0
-  generationVersion: 2.41.4
+  speakeasyVersion: 1.118.3
+  generationVersion: 2.187.7
 generation:
-  comments:
-    disableComments: false
-    omitDescriptionIfSummaryPresent: false
-  baseServerURL: ""
-  flattenGlobalSecurity: true
-  repoURL: https://github.com/speakeasy-sdks/test-bar.git
-  sdkClassName: fastly
-  singleTagPerOp: false
-  tagNamespacingDisabled: false
+  comments: {}
+  sdkClassName: SDK
+  repoURL: https://github.com/speakeasy-sdks/fastly-test-go.git
   usageSnippets:
     optionalPropertyRendering: withExample
+features:
+  go:
+    additionalProperties: 0.1.1
+    constsAndDefaults: 0.1.1
+    core: 3.1.4
+    deprecations: 2.81.1
+    downloadStreams: 0.1.1
+    globalSecurity: 2.82.2
+    globalServerURLs: 2.82.0
+    inputOutputModels: 2.82.0
+    methodSecurity: 2.82.1
+    unions: 2.85.0
 go:
-  version: 1.0.0
+  version: 1.1.0
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
-      callbacks: pkg/models/callbacks
-      errors: pkg/models/sdkerrors
-      operations: pkg/models/operations
-      shared: pkg/models/shared
-      webhooks: pkg/models/webhooks
+      callbacks: models/callbacks
+      errors: models/sdkerrors
+      operations: models/operations
+      shared: models/components
+      webhooks: models/webhooks
   inputModelSuffix: input
   installationURL: https://github.com/speakeasy-sdks/fastly-test-go
   maxMethodParams: 0

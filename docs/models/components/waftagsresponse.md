@@ -1,0 +1,11 @@
+# WafTagsResponse
+
+
+## Fields
+
+| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `Data`                                                                                     | [][components.WafTagsResponseDataItem](../../models/components/waftagsresponsedataitem.md) | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `Included`                                                                                 | [][components.WafRule](../../models/components/wafrule.md)                                 | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `Links`                                                                                    | [*components.WafTagsResponseLinks](../../models/components/waftagsresponselinks.md)        | :heavy_minus_sign:                                                                         | N/A                                                                                        |
+| `Meta`                                                                                     | [*components.WafTagsResponseMeta](../../models/components/waftagsresponsemeta.md)          | :heavy_minus_sign:                                                                         | N/A                                                                                        |

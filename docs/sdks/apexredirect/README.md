@@ -1,4 +1,5 @@
 # ApexRedirect
+(*ApexRedirect*)
 
 ## Overview
 
@@ -24,24 +25,25 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
-        ApexRedirectID: "debitis",
-    }, operations.DeleteApexRedirectSecurity{
-        Token: "",
+        ApexRedirectID: "string",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.DeleteApexRedirect200ApplicationJSONObject != nil {
+    if res.Object != nil {
         // handle response
     }
 }
@@ -49,17 +51,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.DeleteApexRedirectRequest](../../models/operations/deleteapexredirectrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.DeleteApexRedirectSecurity](../../models/operations/deleteapexredirectsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.DeleteApexRedirectRequest](../../models/operations/deleteapexredirectrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
 **[*operations.DeleteApexRedirectResponse](../../models/operations/deleteapexredirectresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## GetApexRedirect
 
@@ -73,18 +76,19 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ApexRedirect.GetApexRedirect(ctx, operations.GetApexRedirectRequest{
-        ApexRedirectID: "ipsa",
-    }, operations.GetApexRedirectSecurity{
-        Token: "",
+        ApexRedirectID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -98,17 +102,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `ctx`                                                                                    | [context.Context](https://pkg.go.dev/context#Context)                                    | :heavy_check_mark:                                                                       | The context to use for the request.                                                      |
-| `request`                                                                                | [operations.GetApexRedirectRequest](../../models/operations/getapexredirectrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.GetApexRedirectSecurity](../../models/operations/getapexredirectsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `ctx`                                                                                  | [context.Context](https://pkg.go.dev/context#Context)                                  | :heavy_check_mark:                                                                     | The context to use for the request.                                                    |
+| `request`                                                                              | [operations.GetApexRedirectRequest](../../models/operations/getapexredirectrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
 
 **[*operations.GetApexRedirectResponse](../../models/operations/getapexredirectresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## ListApexRedirects
 
@@ -122,25 +127,26 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ApexRedirect.ListApexRedirects(ctx, operations.ListApexRedirectsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
-    }, operations.ListApexRedirectsSecurity{
-        Token: "",
     })
     if err != nil {
         log.Fatal(err)
     }
 
-    if res.ApexRedirects != nil {
+    if res.Classes != nil {
         // handle response
     }
 }
@@ -148,17 +154,18 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
-| `request`                                                                                    | [operations.ListApexRedirectsRequest](../../models/operations/listapexredirectsrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.ListApexRedirectsSecurity](../../models/operations/listapexredirectssecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `ctx`                                                                                      | [context.Context](https://pkg.go.dev/context#Context)                                      | :heavy_check_mark:                                                                         | The context to use for the request.                                                        |
+| `request`                                                                                  | [operations.ListApexRedirectsRequest](../../models/operations/listapexredirectsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
 
 **[*operations.ListApexRedirectsResponse](../../models/operations/listapexredirectsresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
 
 ## UpdateApexRedirect
 
@@ -172,29 +179,24 @@ package main
 import(
 	"context"
 	"log"
-	"Fastly"
-	"Fastly/pkg/models/operations"
-	"Fastly/pkg/models/shared"
+	fastly "Fastly"
+	"Fastly/models/components"
+	"Fastly/models/operations"
 )
 
 func main() {
-    s := sdk.New()
+    s := fastly.New(
+        fastly.WithSecurity(""),
+    )
 
     ctx := context.Background()
     res, err := s.ApexRedirect.UpdateApexRedirect(ctx, operations.UpdateApexRedirectRequest{
-        ApexRedirectInput: &shared.ApexRedirectInput{
+        ApexRedirect: &components.ApexRedirectInput{
             Domains: []string{
-                "tempora",
-                "suscipit",
-                "molestiae",
-                "minus",
+                "string",
             },
-            FeatureRevision: sdk.Int64(812169),
-            StatusCode: shared.ApexRedirectStatusCodeThreeHundredAndSeven.ToPointer(),
         },
-        ApexRedirectID: "iusto",
-    }, operations.UpdateApexRedirectSecurity{
-        Token: "",
+        ApexRedirectID: "string",
     })
     if err != nil {
         log.Fatal(err)
@@ -208,14 +210,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
-| `request`                                                                                      | [operations.UpdateApexRedirectRequest](../../models/operations/updateapexredirectrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.UpdateApexRedirectSecurity](../../models/operations/updateapexredirectsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                        | :heavy_check_mark:                                                                           | The context to use for the request.                                                          |
+| `request`                                                                                    | [operations.UpdateApexRedirectRequest](../../models/operations/updateapexredirectrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
 
 **[*operations.UpdateApexRedirectResponse](../../models/operations/updateapexredirectresponse.md), error**
-
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

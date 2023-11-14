@@ -1,0 +1,10 @@
+# TLSConfigurationsResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `Data`                                                                                                  | [][components.TLSConfigurationResponseData](../../models/components/tlsconfigurationresponsedata.md)    | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `Links`                                                                                                 | [*components.TLSConfigurationsResponseLinks](../../models/components/tlsconfigurationsresponselinks.md) | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
+| `Meta`                                                                                                  | [*components.TLSConfigurationsResponseMeta](../../models/components/tlsconfigurationsresponsemeta.md)   | :heavy_minus_sign:                                                                                      | N/A                                                                                                     |
