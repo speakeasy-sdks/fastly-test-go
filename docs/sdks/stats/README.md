@@ -22,23 +22,23 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Stats.GetServiceStats(ctx, operations.GetServiceStatsRequest{
-        EndTime: fastly.Int64(1608560817),
-        Month: fastly.String("05"),
+        EndTime: fastlytestgo.Int64(1608560817),
+        Month: fastlytestgo.String("05"),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        StartTime: fastly.Int64(1608560817),
-        Year: fastly.String("2020"),
+        StartTime: fastlytestgo.Int64(1608560817),
+        Year: fastlytestgo.String("2020"),
     })
     if err != nil {
         log.Fatal(err)

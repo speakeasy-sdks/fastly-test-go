@@ -24,21 +24,21 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.WafTags.ListWafTags(ctx, operations.ListWafTagsRequest{
         Include: components.WafTagIncludeWafRules.ToPointer(),
-        PageNumber: fastly.Int64(1),
-        PageSize: fastly.Int64(20),
+        PageNumber: fastlytestgo.Int64(1),
+        PageSize: fastlytestgo.Int64(20),
     })
     if err != nil {
         log.Fatal(err)

@@ -3,9 +3,9 @@
 package components
 
 import (
-	"Fastly/internal/utils"
 	"encoding/json"
 	"fmt"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 // LoggingLogglyFormatVersion - The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.

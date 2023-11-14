@@ -3,9 +3,9 @@
 package components
 
 import (
-	"Fastly/internal/utils"
 	"encoding/json"
 	"fmt"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 // CertificateAuthority - The entity that issues and certifies the TLS certificates for your subscription.

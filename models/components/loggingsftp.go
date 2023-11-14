@@ -3,9 +3,9 @@
 package components
 
 import (
-	"Fastly/internal/utils"
 	"encoding/json"
 	"fmt"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 // LoggingSftpCompressionCodec - The codec used for compressing your logs. Valid values are `zstd`, `snappy`, and `gzip`. Specifying both `compression_codec` and `gzip_level` in the same API request will result in an error.

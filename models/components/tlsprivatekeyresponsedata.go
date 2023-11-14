@@ -3,7 +3,7 @@
 package components
 
 import (
-	"Fastly/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 type TLSPrivateKeyResponseData struct {

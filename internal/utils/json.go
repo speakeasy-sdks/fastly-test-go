@@ -12,7 +12,7 @@ import (
 	"time"
 	"unsafe"
 
-	"Fastly/types"
+	"github.com/speakeasy-sdks/fastly-test-go/types"
 
 	"github.com/ericlagergren/decimal"
 )

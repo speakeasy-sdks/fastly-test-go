@@ -3,8 +3,8 @@
 package components
 
 import (
-	"Fastly/internal/utils"
 	"errors"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 type DomainCheckItemType string

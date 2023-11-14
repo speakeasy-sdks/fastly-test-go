@@ -1,4 +1,4 @@
-module Fastly
+module github.com/speakeasy-sdks/fastly-test-go
 
 go 1.14
 

@@ -28,14 +28,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -43,8 +43,8 @@ func main() {
         BulkUpdateDictionaryListRequest: &components.BulkUpdateDictionaryListRequest{
             Items: []components.BulkUpdateDictionaryItem{
                 components.BulkUpdateDictionaryItem{
-                    ItemKey: fastly.String("test-key"),
-                    ItemValue: fastly.String("test-value"),
+                    ItemKey: fastlytestgo.String("test-key"),
+                    ItemValue: fastlytestgo.String("test-value"),
                 },
             },
         },
@@ -88,22 +88,22 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.CreateDictionaryItem(ctx, operations.CreateDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItem: &components.DictionaryItem{
-            ItemKey: fastly.String("test-key"),
-            ItemValue: fastly.String("test-value"),
+            ItemKey: fastlytestgo.String("test-key"),
+            ItemValue: fastlytestgo.String("test-value"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
@@ -144,14 +144,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -197,14 +197,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -250,24 +250,24 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.ListDictionaryItems(ctx, operations.ListDictionaryItemsRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         Direction: components.DirectionAscend.ToPointer(),
-        Page: fastly.Int64(1),
-        PerPage: fastly.Int64(20),
+        Page: fastlytestgo.Int64(1),
+        PerPage: fastlytestgo.Int64(20),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Sort: fastly.String("created"),
+        Sort: fastlytestgo.String("created"),
     })
     if err != nil {
         log.Fatal(err)
@@ -306,22 +306,22 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.UpdateDictionaryItem(ctx, operations.UpdateDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItem: &components.DictionaryItem{
-            ItemKey: fastly.String("test-key"),
-            ItemValue: fastly.String("test-value"),
+            ItemKey: fastlytestgo.String("test-key"),
+            ItemValue: fastlytestgo.String("test-value"),
         },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -363,22 +363,22 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.DictionaryItem.UpsertDictionaryItem(ctx, operations.UpsertDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         DictionaryItem: &components.DictionaryItem{
-            ItemKey: fastly.String("test-key"),
-            ItemValue: fastly.String("test-value"),
+            ItemKey: fastlytestgo.String("test-key"),
+            ItemValue: fastlytestgo.String("test-value"),
         },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

@@ -3,9 +3,9 @@
 package components
 
 import (
-	"Fastly/internal/utils"
 	"encoding/json"
 	"fmt"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 // PoolType - What type of load balance group to use.
