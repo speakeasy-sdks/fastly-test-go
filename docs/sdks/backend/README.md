@@ -26,21 +26,21 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Backend.CreateBackend(ctx, operations.CreateBackendRequest{
         Backend: &components.Backend{
-            Comment: fastly.String("The Football Is Good For Training And Recreational Purposes"),
-            Name: fastly.String("test-backend"),
+            Comment: fastlytestgo.String("The Football Is Good For Training And Recreational Purposes"),
+            Name: fastlytestgo.String("test-backend"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -82,14 +82,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -135,14 +135,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -188,14 +188,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -240,21 +240,21 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Backend.UpdateBackend(ctx, operations.UpdateBackendRequest{
         Backend: &components.Backend{
-            Comment: fastly.String("Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"),
-            Name: fastly.String("test-backend"),
+            Comment: fastlytestgo.String("Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"),
+            Name: fastlytestgo.String("test-backend"),
         },
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

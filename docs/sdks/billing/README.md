@@ -24,14 +24,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -76,14 +76,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -128,21 +128,21 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Billing.GetInvoiceMtd(ctx, operations.GetInvoiceMtdRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-        Month: fastly.String("05"),
-        Year: fastly.String("2020"),
+        Month: fastlytestgo.String("05"),
+        Year: fastlytestgo.String("2020"),
     })
     if err != nil {
         log.Fatal(err)

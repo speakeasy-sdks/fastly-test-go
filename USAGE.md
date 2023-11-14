@@ -3,16 +3,16 @@
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New(
-		fastly.WithSecurity(""),
+	s := fastlytestgo.New(
+		fastlytestgo.WithSecurity(""),
 	)
 
 	ctx := context.Background()

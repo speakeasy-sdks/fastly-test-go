@@ -26,31 +26,31 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.CreateLogOpenstack(ctx, operations.CreateLogOpenstackRequest{
         LoggingOpenstack: &components.LoggingOpenstack{
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingOpenstackFormatVersionTwo.ToPointer(),
-            GzipLevel: fastly.Int64(0),
+            GzipLevel: fastlytestgo.Int64(0),
             MessageType: components.LoggingOpenstackMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
-            Period: fastly.Int64(3600),
+            Name: fastlytestgo.String("test-log-endpoint"),
+            Period: fastlytestgo.Int64(3600),
             Placement: components.LoggingOpenstackPlacementWafDebug.ToPointer(),
-            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
+            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -92,14 +92,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -145,14 +145,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -198,14 +198,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -250,31 +250,31 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.UpdateLogOpenstack(ctx, operations.UpdateLogOpenstackRequest{
         LoggingOpenstack: &components.LoggingOpenstack{
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingOpenstackFormatVersionTwo.ToPointer(),
-            GzipLevel: fastly.Int64(0),
+            GzipLevel: fastlytestgo.Int64(0),
             MessageType: components.LoggingOpenstackMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
-            Period: fastly.Int64(3600),
+            Name: fastlytestgo.String("test-log-endpoint"),
+            Period: fastlytestgo.Int64(3600),
             Placement: components.LoggingOpenstackPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
+            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         LoggingOpenstackName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

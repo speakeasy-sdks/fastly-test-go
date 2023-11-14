@@ -26,23 +26,23 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Header.CreateHeaderObject(ctx, operations.CreateHeaderObjectRequest{
         Header: &components.Header{
-            CacheCondition: fastly.String("null"),
-            Name: fastly.String("test-header"),
-            RequestCondition: fastly.String("null"),
-            ResponseCondition: fastly.String("null"),
+            CacheCondition: fastlytestgo.String("null"),
+            Name: fastlytestgo.String("test-header"),
+            RequestCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -84,14 +84,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -137,14 +137,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -190,14 +190,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -242,23 +242,23 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.Header.UpdateHeaderObject(ctx, operations.UpdateHeaderObjectRequest{
         Header: &components.Header{
-            CacheCondition: fastly.String("null"),
-            Name: fastly.String("test-header"),
-            RequestCondition: fastly.String("null"),
-            ResponseCondition: fastly.String("null"),
+            CacheCondition: fastlytestgo.String("null"),
+            Name: fastlytestgo.String("test-header"),
+            RequestCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         HeaderName: "test-header",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

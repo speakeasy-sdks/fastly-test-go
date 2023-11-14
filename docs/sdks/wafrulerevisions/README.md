@@ -25,19 +25,19 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.WafRuleRevisions.GetWafRuleRevision(ctx, operations.GetWafRuleRevisionRequest{
-        Include: fastly.String("source,vcl,waf_rule"),
+        Include: fastlytestgo.String("source,vcl,waf_rule"),
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
         WafRuleRevisionNumber: 2,
     })
@@ -80,21 +80,21 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.WafRuleRevisions.ListWafRuleRevisions(ctx, operations.ListWafRuleRevisionsRequest{
         Include: components.WafRuleRevisionIncludeWafRule.ToPointer(),
-        PageNumber: fastly.Int64(1),
-        PageSize: fastly.Int64(20),
+        PageNumber: fastlytestgo.Int64(1),
+        PageSize: fastlytestgo.Int64(20),
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
     })
     if err != nil {

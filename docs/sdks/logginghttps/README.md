@@ -26,25 +26,25 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.CreateLogHTTPS(ctx, operations.CreateLogHTTPSRequest{
         LoggingHTTPS: &components.LoggingHTTPS{
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingHTTPSFormatVersionTwo.ToPointer(),
             MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
+            Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingHTTPSPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -86,14 +86,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -139,14 +139,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -192,14 +192,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -244,25 +244,25 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.UpdateLogHTTPS(ctx, operations.UpdateLogHTTPSRequest{
         LoggingHTTPS: &components.LoggingHTTPS{
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingHTTPSFormatVersionTwo.ToPointer(),
             MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
+            Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingHTTPSPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         LoggingHTTPSName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

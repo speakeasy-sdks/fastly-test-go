@@ -24,19 +24,19 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.GetTLSConfig(ctx, operations.GetTLSConfigRequest{
-        Include: fastly.String("dns_records"),
+        Include: fastlytestgo.String("dns_records"),
         TLSConfigurationID: "t7CguUGZzb2W9Euo5FoKa",
     })
     if err != nil {
@@ -76,21 +76,21 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.ListTLSConfigs(ctx, operations.ListTLSConfigsRequest{
-        Include: fastly.String("dns_records"),
-        PageNumber: fastly.Int64(1),
-        PageSize: fastly.Int64(20),
+        Include: fastlytestgo.String("dns_records"),
+        PageNumber: fastlytestgo.Int64(1),
+        PageSize: fastlytestgo.Int64(20),
     })
     if err != nil {
         log.Fatal(err)
@@ -129,14 +129,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()

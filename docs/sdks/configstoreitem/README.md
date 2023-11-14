@@ -28,14 +28,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -43,8 +43,8 @@ func main() {
         BulkUpdateConfigStoreListRequest: &components.BulkUpdateConfigStoreListRequest{
             Items: []components.BulkUpdateConfigStoreItem{
                 components.BulkUpdateConfigStoreItem{
-                    ItemKey: fastly.String("test-key"),
-                    ItemValue: fastly.String("test-value"),
+                    ItemKey: fastlytestgo.String("test-key"),
+                    ItemValue: fastlytestgo.String("test-value"),
                 },
             },
         },
@@ -87,22 +87,22 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.CreateConfigStoreItem(ctx, operations.CreateConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
         ConfigStoreItem: &components.ConfigStoreItem{
-            ItemKey: fastly.String("test-key"),
-            ItemValue: fastly.String("test-value"),
+            ItemKey: fastlytestgo.String("test-key"),
+            ItemValue: fastlytestgo.String("test-value"),
         },
     })
     if err != nil {
@@ -142,14 +142,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -194,14 +194,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -246,14 +246,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -297,22 +297,22 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.UpdateConfigStoreItem(ctx, operations.UpdateConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
         ConfigStoreItem: &components.ConfigStoreItem{
-            ItemKey: fastly.String("test-key"),
-            ItemValue: fastly.String("test-value"),
+            ItemKey: fastlytestgo.String("test-key"),
+            ItemValue: fastlytestgo.String("test-value"),
         },
         ConfigStoreItemKey: "test-key",
     })
@@ -353,22 +353,22 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.UpsertConfigStoreItem(ctx, operations.UpsertConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
         ConfigStoreItem: &components.ConfigStoreItem{
-            ItemKey: fastly.String("test-key"),
-            ItemValue: fastly.String("test-value"),
+            ItemKey: fastlytestgo.String("test-key"),
+            ItemValue: fastlytestgo.String("test-value"),
         },
         ConfigStoreItemKey: "test-key",
     })

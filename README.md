@@ -16,16 +16,16 @@ go get github.com/speakeasy-sdks/fastly-test-go
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New(
-		fastly.WithSecurity(""),
+	s := fastlytestgo.New(
+		fastlytestgo.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -794,16 +794,16 @@ Handling errors in this SDK should largely match your expectations.  All operati
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New(
-		fastly.WithSecurity(""),
+	s := fastlytestgo.New(
+		fastlytestgo.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -811,13 +811,13 @@ func main() {
 		BillingAddressRequest: &components.BillingAddressRequest{
 			Data: &components.BillingAddressRequestData{
 				Attributes: &components.BillingAddressAttributesInput{
-					Address1:   fastly.String("80719 Dorothea Mountain"),
-					Address2:   fastly.String("Apt. 652"),
-					City:       fastly.String("New Rasheedville"),
-					Country:    fastly.String("US"),
-					Locality:   fastly.String("New Castle"),
-					PostalCode: fastly.String("53538-5902"),
-					State:      fastly.String("DE"),
+					Address1:   fastlytestgo.String("80719 Dorothea Mountain"),
+					Address2:   fastlytestgo.String("Apt. 652"),
+					City:       fastlytestgo.String("New Rasheedville"),
+					Country:    fastlytestgo.String("US"),
+					Locality:   fastlytestgo.String("New Castle"),
+					PostalCode: fastlytestgo.String("53538-5902"),
+					State:      fastlytestgo.String("DE"),
 				},
 			},
 		},
@@ -840,7 +840,6 @@ func main() {
 }
 
 ```
-
 <!-- End Error Handling -->
 
 
@@ -863,17 +862,17 @@ You can override the default server globally using the `WithServerIndex` option 
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New(
-		fastly.WithServerIndex(1),
-		fastly.WithSecurity(""),
+	s := fastlytestgo.New(
+		fastlytestgo.WithServerIndex(1),
+		fastlytestgo.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -899,17 +898,17 @@ The default server can also be overridden globally using the `WithServerURL` opt
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New(
-		fastly.WithServerURL("https://api.fastly.com"),
-		fastly.WithSecurity(""),
+	s := fastlytestgo.New(
+		fastlytestgo.WithServerURL("https://api.fastly.com"),
+		fastlytestgo.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -962,7 +961,6 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -978,16 +976,16 @@ You can configure it using the `WithSecurity` option when initializing the SDK c
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New(
-		fastly.WithSecurity(""),
+	s := fastlytestgo.New(
+		fastlytestgo.WithSecurity(""),
 	)
 
 	ctx := context.Background()
@@ -1012,15 +1010,15 @@ Some operations in this SDK require the security scheme to be specified at the r
 package main
 
 import (
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
 	"context"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
 
 func main() {
-	s := fastly.New()
+	s := fastlytestgo.New()
 
 	operationSecurity := operations.UpdateUserPasswordSecurity{
 		Password: "",

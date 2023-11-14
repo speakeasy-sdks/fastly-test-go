@@ -3,7 +3,7 @@
 package operations
 
 import (
-	"Fastly/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 	"net/http"
 )
 

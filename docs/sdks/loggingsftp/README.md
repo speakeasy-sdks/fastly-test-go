@@ -26,32 +26,32 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingSftp.CreateLogSftp(ctx, operations.CreateLogSftpRequest{
         LoggingSftp: &components.LoggingSftp{
-            Address: fastly.String("example.com"),
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Address: fastlytestgo.String("example.com"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingSftpFormatVersionTwo.ToPointer(),
-            GzipLevel: fastly.Int64(0),
+            GzipLevel: fastlytestgo.Int64(0),
             MessageType: components.LoggingSftpMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
-            Period: fastly.Int64(3600),
+            Name: fastlytestgo.String("test-log-endpoint"),
+            Period: fastlytestgo.Int64(3600),
             Placement: components.LoggingSftpPlacementNone.ToPointer(),
-            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
+            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -93,14 +93,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -146,14 +146,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -199,14 +199,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -251,32 +251,32 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingSftp.UpdateLogSftp(ctx, operations.UpdateLogSftpRequest{
         LoggingSftp: &components.LoggingSftp{
-            Address: fastly.String("example.com"),
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Address: fastlytestgo.String("example.com"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingSftpFormatVersionTwo.ToPointer(),
-            GzipLevel: fastly.Int64(0),
+            GzipLevel: fastlytestgo.Int64(0),
             MessageType: components.LoggingSftpMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
-            Period: fastly.Int64(3600),
+            Name: fastlytestgo.String("test-log-endpoint"),
+            Period: fastlytestgo.Int64(3600),
             Placement: components.LoggingSftpPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: fastly.String("-----BEGIN PRIVATE KEY-----
+            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         LoggingSftpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

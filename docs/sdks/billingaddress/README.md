@@ -25,14 +25,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -40,13 +40,13 @@ func main() {
         BillingAddressRequest: &components.BillingAddressRequest{
             Data: &components.BillingAddressRequestData{
                 Attributes: &components.BillingAddressAttributesInput{
-                    Address1: fastly.String("80719 Dorothea Mountain"),
-                    Address2: fastly.String("Apt. 652"),
-                    City: fastly.String("New Rasheedville"),
-                    Country: fastly.String("US"),
-                    Locality: fastly.String("New Castle"),
-                    PostalCode: fastly.String("53538-5902"),
-                    State: fastly.String("DE"),
+                    Address1: fastlytestgo.String("80719 Dorothea Mountain"),
+                    Address2: fastlytestgo.String("Apt. 652"),
+                    City: fastlytestgo.String("New Rasheedville"),
+                    Country: fastlytestgo.String("US"),
+                    Locality: fastlytestgo.String("New Castle"),
+                    PostalCode: fastlytestgo.String("53538-5902"),
+                    State: fastlytestgo.String("DE"),
                 },
             },
         },
@@ -90,14 +90,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -141,14 +141,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -192,14 +192,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -208,13 +208,13 @@ func main() {
         UpdateBillingAddressRequest: &components.UpdateBillingAddressRequest{
             Data: &components.UpdateBillingAddressRequestData{
                 Attributes: &components.BillingAddressAttributesInput{
-                    Address1: fastly.String("80719 Dorothea Mountain"),
-                    Address2: fastly.String("Apt. 652"),
-                    City: fastly.String("New Rasheedville"),
-                    Country: fastly.String("US"),
-                    Locality: fastly.String("New Castle"),
-                    PostalCode: fastly.String("53538-5902"),
-                    State: fastly.String("DE"),
+                    Address1: fastlytestgo.String("80719 Dorothea Mountain"),
+                    Address2: fastlytestgo.String("Apt. 652"),
+                    City: fastlytestgo.String("New Rasheedville"),
+                    Country: fastlytestgo.String("US"),
+                    Locality: fastlytestgo.String("New Castle"),
+                    PostalCode: fastlytestgo.String("53538-5902"),
+                    State: fastlytestgo.String("DE"),
                 },
             },
         },

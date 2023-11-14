@@ -26,26 +26,26 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.CreateLogSyslog(ctx, operations.CreateLogSyslogRequest{
         LoggingSyslog: &components.LoggingSyslog{
-            Address: fastly.String("example.com"),
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Address: fastlytestgo.String("example.com"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingSyslogFormatVersionTwo.ToPointer(),
             MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
+            Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingSyslogPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -87,14 +87,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -140,14 +140,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -193,14 +193,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -245,26 +245,26 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.UpdateLogSyslog(ctx, operations.UpdateLogSyslogRequest{
         LoggingSyslog: &components.LoggingSyslog{
-            Address: fastly.String("example.com"),
-            Format: fastly.String("%h %l %u %t \"%r\" %&gt;s %b"),
+            Address: fastlytestgo.String("example.com"),
+            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
             FormatVersion: components.LoggingSyslogFormatVersionTwo.ToPointer(),
             MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastly.String("test-log-endpoint"),
+            Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingSyslogPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastly.String("null"),
+            ResponseCondition: fastlytestgo.String("null"),
         },
         LoggingSyslogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

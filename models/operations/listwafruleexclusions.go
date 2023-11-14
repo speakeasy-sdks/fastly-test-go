@@ -3,10 +3,10 @@
 package operations
 
 import (
-	"Fastly/internal/utils"
-	"Fastly/models/components"
 	"encoding/json"
 	"fmt"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 	"net/http"
 )
 

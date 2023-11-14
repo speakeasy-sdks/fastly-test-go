@@ -28,14 +28,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -44,10 +44,10 @@ func main() {
         BulkUpdateACLEntriesRequest: &components.BulkUpdateACLEntriesRequest{
             Entries: []components.BulkUpdateACLEntry{
                 components.BulkUpdateACLEntry{
-                    Comment: fastly.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
-                    IP: fastly.String("127.0.0.1"),
+                    Comment: fastlytestgo.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
+                    IP: fastlytestgo.String("127.0.0.1"),
                     Negated: components.BulkUpdateACLEntryNegatedOne.ToPointer(),
-                    Subnet: fastly.Int64(8),
+                    Subnet: fastlytestgo.Int64(8),
                 },
             },
         },
@@ -90,23 +90,23 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.ACLEntry.CreateACLEntry(ctx, operations.CreateACLEntryRequest{
         ACLEntry: &components.ACLEntry{
-            Comment: fastly.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
-            IP: fastly.String("127.0.0.1"),
+            Comment: fastlytestgo.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
+            IP: fastlytestgo.String("127.0.0.1"),
             Negated: components.NegatedOne.ToPointer(),
-            Subnet: fastly.Int64(8),
+            Subnet: fastlytestgo.Int64(8),
         },
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -148,14 +148,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -201,14 +201,14 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
@@ -254,24 +254,24 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.ACLEntry.ListACLEntries(ctx, operations.ListACLEntriesRequest{
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         Direction: components.DirectionAscend.ToPointer(),
-        Page: fastly.Int64(1),
-        PerPage: fastly.Int64(20),
+        Page: fastlytestgo.Int64(1),
+        PerPage: fastlytestgo.Int64(20),
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Sort: fastly.String("created"),
+        Sort: fastlytestgo.String("created"),
     })
     if err != nil {
         log.Fatal(err)
@@ -310,23 +310,23 @@ package main
 import(
 	"context"
 	"log"
-	fastly "Fastly"
-	"Fastly/models/components"
-	"Fastly/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 )
 
 func main() {
-    s := fastly.New(
-        fastly.WithSecurity(""),
+    s := fastlytestgo.New(
+        fastlytestgo.WithSecurity(""),
     )
 
     ctx := context.Background()
     res, err := s.ACLEntry.UpdateACLEntry(ctx, operations.UpdateACLEntryRequest{
         ACLEntry: &components.ACLEntry{
-            Comment: fastly.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
-            IP: fastly.String("127.0.0.1"),
+            Comment: fastlytestgo.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
+            IP: fastlytestgo.String("127.0.0.1"),
             Negated: components.NegatedZero.ToPointer(),
-            Subnet: fastly.Int64(8),
+            Subnet: fastlytestgo.Int64(8),
         },
         ACLEntryID: "6yxNzlOpW1V7JfSwvLGtOc",
         ACLID: "6tUXdegLTf5BCig0zGFrU3",

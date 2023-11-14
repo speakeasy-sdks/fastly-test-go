@@ -3,8 +3,8 @@
 package operations
 
 import (
-	"Fastly/internal/utils"
 	"errors"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
 )
 
 var ErrUnsupportedOption = errors.New("unsupported option")
