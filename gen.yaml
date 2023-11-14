@@ -38,6 +38,6 @@ go:
   installationURL: https://github.com/speakeasy-sdks/fastly-test-go
   maxMethodParams: 0
   outputModelSuffix: output
-  packageName: Fastly
+  packageName: github.com/speakeasy-sdks/fastly-test-go
   published: true
   repoSubDirectory: .
