@@ -32,7 +32,7 @@ import(
 
 func main() {
     s := fastlytestgo.New(
-        fastlytestgo.WithSecurity(""),
+        fastlytestgo.WithSecurity("YOUR-API-KEY"),
     )
 
     ctx := context.Background()
@@ -81,7 +81,7 @@ import(
 
 func main() {
     s := fastlytestgo.New(
-        fastlytestgo.WithSecurity(""),
+        fastlytestgo.WithSecurity("YOUR-API-KEY"),
     )
 
     ctx := context.Background()
@@ -131,7 +131,7 @@ import(
 
 func main() {
     s := fastlytestgo.New(
-        fastlytestgo.WithSecurity(""),
+        fastlytestgo.WithSecurity("YOUR-API-KEY"),
     )
 
     ctx := context.Background()
@@ -180,7 +180,7 @@ import(
 
 func main() {
     s := fastlytestgo.New(
-        fastlytestgo.WithSecurity(""),
+        fastlytestgo.WithSecurity("YOUR-API-KEY"),
     )
 
     ctx := context.Background()
@@ -231,7 +231,7 @@ import(
 
 func main() {
     s := fastlytestgo.New(
-        fastlytestgo.WithSecurity(""),
+        fastlytestgo.WithSecurity("YOUR-API-KEY"),
     )
 
     ctx := context.Background()
