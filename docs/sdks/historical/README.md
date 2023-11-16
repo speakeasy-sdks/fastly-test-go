@@ -28,11 +28,11 @@ Fetches historical stats for each of your Fastly services and groups the results
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -80,11 +80,11 @@ Fetches historical stats information aggregated across all of your Fastly servic
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -132,11 +132,11 @@ Fetches the specified field from the historical stats for each of your services 
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -185,11 +185,11 @@ Fetches historical stats for a given service.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -238,11 +238,11 @@ Fetches the specified field from the historical stats for a given service.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -292,10 +292,10 @@ Fetches the list of codes for regions that are covered by the Fastly CDN service
 package main
 
 import(
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"context"
 	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 )
 
 func main() {
@@ -339,11 +339,11 @@ Returns usage information aggregated across all Fastly services and grouped by r
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -388,11 +388,11 @@ Returns month-to-date usage details for a given month and year. Usage details ar
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -441,11 +441,11 @@ Returns usage information aggregated by service and grouped by service and regio
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {

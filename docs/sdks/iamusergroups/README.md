@@ -25,11 +25,12 @@ Delete a user group.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
@@ -76,11 +77,11 @@ Get a user group.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -127,11 +128,11 @@ List members of a user group.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -180,11 +181,11 @@ List roles in a user group.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -233,11 +234,11 @@ List service groups in a user group.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -286,11 +287,11 @@ List all user groups.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {

@@ -23,11 +23,11 @@ Delete an apex redirect by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -74,11 +74,11 @@ Get an apex redirect by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -125,11 +125,11 @@ List all apex redirects for a particular service and version.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -177,11 +177,11 @@ Update an apex redirect by its ID.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {

@@ -24,11 +24,11 @@ Delete a customer.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -75,11 +75,11 @@ Get a specific customer.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -126,10 +126,10 @@ Get the logged in customer.
 package main
 
 import(
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"context"
 	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 )
 
 func main() {
@@ -173,11 +173,11 @@ List all users from a specified customer id.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -224,11 +224,11 @@ Update a customer.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {

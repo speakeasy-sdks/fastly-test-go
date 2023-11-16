@@ -23,11 +23,11 @@ Add a billing address to a customer.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -88,11 +88,12 @@ Delete a customer's billing address.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
+	"net/http"
 )
 
 func main() {
@@ -139,11 +140,11 @@ Get a customer's billing address.
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {
@@ -190,11 +191,11 @@ Update a customer's billing address. You may update only part of the customer's 
 package main
 
 import(
-	"context"
-	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"log"
 )
 
 func main() {

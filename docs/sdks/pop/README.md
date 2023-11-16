@@ -20,10 +20,10 @@ Get a list of all Fastly POPs.
 package main
 
 import(
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"context"
 	"log"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 )
 
 func main() {

@@ -97,7 +97,7 @@ func (o *ListDictionaryItemsResponse) GetContentType() string {
 
 func (o *ListDictionaryItemsResponse) GetHeaders() map[string][]string {
 	if o == nil {
-		return nil
+		return map[string][]string{}
 	}
 	return o.Headers
 }

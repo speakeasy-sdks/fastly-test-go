@@ -794,9 +794,11 @@ package main
 
 import (
 	"context"
+	"errors"
 	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
 	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/models/sdkerrors"
 	"log"
 )
 
@@ -977,7 +979,6 @@ package main
 import (
 	"context"
 	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
 	"log"
 )
