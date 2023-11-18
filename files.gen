@@ -938,7 +938,6 @@ internal/utils/utils.go
 /models/components/waftaginclude.go
 /models/components/security.go
 /models/sdkerrors/billingaddressverificationerrorresponse.go
-/models/sdkerrors/billingaddressattributes.go
 /models/sdkerrors/generictokenerror.go
 USAGE.md
 docs/models/operations/deleteapexredirectrequest.md
@@ -2628,7 +2627,6 @@ docs/models/components/waftaginclude.md
 docs/models/components/security.md
 docs/models/sdkerrors/errors.md
 docs/models/sdkerrors/billingaddressverificationerrorresponse.md
-docs/models/sdkerrors/billingaddressattributes.md
 docs/models/sdkerrors/generictokenerror.md
 docs/sdks/sdk/README.md
 docs/sdks/apexredirect/README.md

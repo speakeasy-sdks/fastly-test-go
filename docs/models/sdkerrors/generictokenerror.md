@@ -1,5 +1,7 @@
 # GenericTokenError
 
+Missing or expired token.
+
 
 ## Fields
 

@@ -1,5 +1,7 @@
 # BillingAddressVerificationErrorResponse
 
+Could not validate address
+
 
 ## Fields
 

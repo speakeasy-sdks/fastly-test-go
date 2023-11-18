@@ -4,18 +4,19 @@ package sdkerrors
 
 import (
 	"encoding/json"
+	"github.com/speakeasy-sdks/fastly-test-go/models/components"
 )
 
 type Errors struct {
-	Candidates []BillingAddressAttributes `json:"candidates,omitempty"`
-	Detail     string                     `json:"detail"`
-	Status     float64                    `json:"status"`
-	Title      string                     `json:"title"`
+	Candidates []components.BillingAddressAttributes `json:"candidates,omitempty"`
+	Detail     string                                `json:"detail"`
+	Status     float64                               `json:"status"`
+	Title      string                                `json:"title"`
 	// The error type.
 	Type string `json:"type"`
 }
 
-func (o *Errors) GetCandidates() []BillingAddressAttributes {
+func (o *Errors) GetCandidates() []components.BillingAddressAttributes {
 	if o == nil {
 		return nil
 	}
@@ -50,6 +51,7 @@ func (o *Errors) GetType() string {
 	return o.Type
 }
 
+// BillingAddressVerificationErrorResponse - Could not validate address
 type BillingAddressVerificationErrorResponse struct {
 	Errors []Errors `json:"errors,omitempty"`
 }
