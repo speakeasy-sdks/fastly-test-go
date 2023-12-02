@@ -57,3 +57,13 @@ Based on:
 - [go v1.3.2] .
 ### Releases
 - [Go v1.3.2] https://github.com/speakeasy-sdks/fastly-test-go/releases/tag/v1.3.2 - .
+
+## 2023-12-02 01:00:48
+### Changes
+Based on:
+- OpenAPI Doc 1.0.0 
+- Speakeasy CLI 1.124.3 (2.207.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v1.3.3] .
+### Releases
+- [Go v1.3.3] https://github.com/speakeasy-sdks/fastly-test-go/releases/tag/v1.3.3 - .

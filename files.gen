@@ -939,7 +939,6 @@ internal/utils/utils.go
 /models/components/security.go
 /models/sdkerrors/billingaddressverificationerrorresponse.go
 /models/sdkerrors/generictokenerror.go
-USAGE.md
 docs/models/operations/deleteapexredirectrequest.md
 docs/models/operations/deleteapexredirectresponsebody.md
 docs/models/operations/deleteapexredirectresponse.md
@@ -2728,5 +2727,6 @@ docs/sdks/wafactiverules/README.md
 docs/sdks/wafrules/README.md
 docs/sdks/wafrulerevisions/README.md
 docs/sdks/waftags/README.md
+USAGE.md
 models/operations/options.go
 .gitattributes
