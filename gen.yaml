@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 2560877811d6492729fc79e82f6ddc52
   docVersion: 1.0.0
-  speakeasyVersion: 1.124.3
-  generationVersion: 2.207.1
+  speakeasyVersion: 1.125.1
+  generationVersion: 2.210.3
 generation:
   comments: {}
   sdkClassName: SDK
@@ -13,7 +13,7 @@ generation:
 features:
   go:
     additionalProperties: 0.1.2
-    constsAndDefaults: 0.1.1
+    constsAndDefaults: 0.1.2
     core: 3.1.5
     deprecations: 2.81.1
     downloadStreams: 0.1.1
@@ -24,7 +24,7 @@ features:
     methodSecurity: 2.82.1
     unions: 2.85.0
 go:
-  version: 1.3.3
+  version: 1.3.4
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:
