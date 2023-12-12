@@ -42,7 +42,7 @@ func main() {
             FormatVersion: components.LoggingKafkaFormatVersionTwo.ToPointer(),
             Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingKafkaPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

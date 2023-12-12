@@ -39,10 +39,10 @@ func main() {
     ctx := context.Background()
     res, err := s.Header.CreateHeaderObject(ctx, operations.CreateHeaderObjectRequest{
         Header: &components.Header{
-            CacheCondition: fastlytestgo.String("null"),
+            CacheCondition: fastlytestgo.String("string"),
             Name: fastlytestgo.String("test-header"),
-            RequestCondition: fastlytestgo.String("null"),
-            ResponseCondition: fastlytestgo.String("null"),
+            RequestCondition: fastlytestgo.String("string"),
+            ResponseCondition: fastlytestgo.String("string"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -255,10 +255,10 @@ func main() {
     ctx := context.Background()
     res, err := s.Header.UpdateHeaderObject(ctx, operations.UpdateHeaderObjectRequest{
         Header: &components.Header{
-            CacheCondition: fastlytestgo.String("null"),
+            CacheCondition: fastlytestgo.String("string"),
             Name: fastlytestgo.String("test-header"),
-            RequestCondition: fastlytestgo.String("null"),
-            ResponseCondition: fastlytestgo.String("null"),
+            RequestCondition: fastlytestgo.String("string"),
+            ResponseCondition: fastlytestgo.String("string"),
         },
         HeaderName: "test-header",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

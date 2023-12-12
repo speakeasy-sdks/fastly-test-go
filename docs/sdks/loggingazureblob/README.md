@@ -50,7 +50,7 @@ func main() {
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
@@ -274,7 +274,7 @@ func main() {
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
         },
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

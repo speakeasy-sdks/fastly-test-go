@@ -52,7 +52,7 @@ func main() {
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
             SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
@@ -283,7 +283,7 @@ func main() {
         ...
         -----END PRIVATE KEY-----
         "),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
             SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----

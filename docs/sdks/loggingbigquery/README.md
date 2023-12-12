@@ -43,7 +43,7 @@ func main() {
             FormatVersion: components.LoggingBigqueryFormatVersionTwo.ToPointer(),
             Placement: components.LoggingBigqueryPlacementNone.ToPointer(),
             ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
             SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
@@ -265,7 +265,7 @@ func main() {
             FormatVersion: components.LoggingBigqueryFormatVersionTwo.ToPointer(),
             Placement: components.LoggingBigqueryPlacementWafDebug.ToPointer(),
             ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
             SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----

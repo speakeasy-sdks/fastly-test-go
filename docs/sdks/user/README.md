@@ -342,8 +342,8 @@ func main() {
 
 
     operationSecurity := operations.UpdateUserPasswordSecurity{
-            Password: "",
-            Username: "",
+            Password: "<YOUR_PASSWORD_HERE>",
+            Username: "<YOUR_USERNAME_HERE>",
         }
 
     ctx := context.Background()

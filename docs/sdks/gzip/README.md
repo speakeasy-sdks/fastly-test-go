@@ -39,7 +39,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Gzip.CreateGzipConfig(ctx, operations.CreateGzipConfigRequest{
         Gzip: &components.Gzip{
-            CacheCondition: fastlytestgo.String("null"),
+            CacheCondition: fastlytestgo.String("string"),
             Name: fastlytestgo.String("test-gzip"),
         },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
@@ -253,7 +253,7 @@ func main() {
     ctx := context.Background()
     res, err := s.Gzip.UpdateGzipConfig(ctx, operations.UpdateGzipConfigRequest{
         Gzip: &components.Gzip{
-            CacheCondition: fastlytestgo.String("null"),
+            CacheCondition: fastlytestgo.String("string"),
             Name: fastlytestgo.String("test-gzip"),
         },
         GzipName: "test-gzip",

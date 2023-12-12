@@ -1,6 +1,6 @@
 # GenericTokenError
 
-Missing or expired token.
+Token revocation error.
 
 
 ## Fields

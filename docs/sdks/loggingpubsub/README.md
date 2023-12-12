@@ -45,7 +45,7 @@ func main() {
             Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingGooglePubsubPlacementNone.ToPointer(),
             ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
             SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----
@@ -269,7 +269,7 @@ func main() {
             Name: fastlytestgo.String("test-log-endpoint"),
             Placement: components.LoggingGooglePubsubPlacementNone.ToPointer(),
             ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("null"),
+            ResponseCondition: fastlytestgo.String("string"),
             SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
         ...
         -----END PRIVATE KEY-----

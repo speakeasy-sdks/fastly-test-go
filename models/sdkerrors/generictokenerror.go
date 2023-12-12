@@ -6,7 +6,7 @@ import (
 	"encoding/json"
 )
 
-// GenericTokenError - Missing or expired token.
+// GenericTokenError - Token revocation error.
 type GenericTokenError struct {
 	Msg *string `json:"msg,omitempty"`
 }
