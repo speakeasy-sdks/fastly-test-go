@@ -3,9 +3,17 @@
 The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                             | Type                                                                                                                              | Required                                                                                                                          | Description                                                                                                                       |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `TLSCertificate`                                                                                                                  | [*components.RelationshipsForTLSActivationTLSCertificate](../../models/components/relationshipsfortlsactivationtlscertificate.md) | :heavy_minus_sign:                                                                                                                | N/A                                                                                                                               |
-| `TLSDomain`                                                                                                                       | [*components.TLSDomain](../../models/components/tlsdomain.md)                                                                     | :heavy_minus_sign:                                                                                                                | N/A                                                                                                                               |
+### One
+
+```go
+relationshipsForTLSActivation := components.CreateRelationshipsForTLSActivationOne(components.One{/* values here */})
+```
+
+### Two
+
+```go
+relationshipsForTLSActivation := components.CreateRelationshipsForTLSActivationTwo(components.Two{/* values here */})
+```
+

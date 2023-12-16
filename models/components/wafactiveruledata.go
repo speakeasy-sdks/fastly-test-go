@@ -107,39 +107,39 @@ func (o *WafActiveRuleData) GetType() *TypeWafActiveRule {
 	return o.Type
 }
 
-type WafActiveRuleData1 struct {
+type WafActiveRuleDataInput struct {
 	Attributes    *WafActiveRuleDataAttributes        `json:"attributes,omitempty"`
 	Relationships *RelationshipsForWafActiveRuleInput `json:"relationships,omitempty"`
 	// Resource type.
 	Type *TypeWafActiveRule `default:"waf_active_rule" json:"type"`
 }
 
-func (w WafActiveRuleData1) MarshalJSON() ([]byte, error) {
+func (w WafActiveRuleDataInput) MarshalJSON() ([]byte, error) {
 	return utils.MarshalJSON(w, "", false)
 }
 
-func (w *WafActiveRuleData1) UnmarshalJSON(data []byte) error {
+func (w *WafActiveRuleDataInput) UnmarshalJSON(data []byte) error {
 	if err := utils.UnmarshalJSON(data, &w, "", false, false); err != nil {
 		return err
 	}
 	return nil
 }
 
-func (o *WafActiveRuleData1) GetAttributes() *WafActiveRuleDataAttributes {
+func (o *WafActiveRuleDataInput) GetAttributes() *WafActiveRuleDataAttributes {
 	if o == nil {
 		return nil
 	}
 	return o.Attributes
 }
 
-func (o *WafActiveRuleData1) GetRelationships() *RelationshipsForWafActiveRuleInput {
+func (o *WafActiveRuleDataInput) GetRelationships() *RelationshipsForWafActiveRuleInput {
 	if o == nil {
 		return nil
 	}
 	return o.Relationships
 }
 
-func (o *WafActiveRuleData1) GetType() *TypeWafActiveRule {
+func (o *WafActiveRuleDataInput) GetType() *TypeWafActiveRule {
 	if o == nil {
 		return nil
 	}

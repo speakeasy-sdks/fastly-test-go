@@ -2,11 +2,68 @@
 
 package components
 
+import (
+	"errors"
+	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
+)
+
 type RelationshipsForTLSActivationTLSCertificate struct {
 	Data *RelationshipMemberTLSCertificate `json:"data,omitempty"`
 }
 
 func (o *RelationshipsForTLSActivationTLSCertificate) GetData() *RelationshipMemberTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+type RelationshipsForTLSActivationTLSDomain struct {
+	Data *RelationshipMemberTLSDomain `json:"data,omitempty"`
+}
+
+func (o *RelationshipsForTLSActivationTLSDomain) GetData() *RelationshipMemberTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+type Two struct {
+	TLSCertificate *RelationshipsForTLSActivationTLSCertificate `json:"tls_certificate,omitempty"`
+	TLSDomain      *RelationshipsForTLSActivationTLSDomain      `json:"tls_domain,omitempty"`
+}
+
+func (o *Two) GetTLSCertificate() *RelationshipsForTLSActivationTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.TLSCertificate
+}
+
+func (o *Two) GetTLSDomain() *RelationshipsForTLSActivationTLSDomain {
+	if o == nil {
+		return nil
+	}
+	return o.TLSDomain
+}
+
+type RelationshipsForTLSActivationSchemasTLSCertificate struct {
+	Data *RelationshipMemberTLSCertificate `json:"data,omitempty"`
+}
+
+func (o *RelationshipsForTLSActivationSchemasTLSCertificate) GetData() *RelationshipMemberTLSCertificate {
+	if o == nil {
+		return nil
+	}
+	return o.Data
+}
+
+type RelationshipsForTLSActivationTLSConfiguration struct {
+	Data *RelationshipMemberTLSConfiguration `json:"data,omitempty"`
+}
+
+func (o *RelationshipsForTLSActivationTLSConfiguration) GetData() *RelationshipMemberTLSConfiguration {
 	if o == nil {
 		return nil
 	}
@@ -24,22 +81,94 @@ func (o *TLSDomain) GetData() *RelationshipMemberTLSDomain {
 	return o.Data
 }
 
-// RelationshipsForTLSActivation - The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
-type RelationshipsForTLSActivation struct {
-	TLSCertificate *RelationshipsForTLSActivationTLSCertificate `json:"tls_certificate,omitempty"`
-	TLSDomain      *TLSDomain                                   `json:"tls_domain,omitempty"`
+// One - The [TLS configuration](/reference/api/tls/custom-certs/configuration/) being used to terminate TLS traffic. Optional.
+type One struct {
+	TLSCertificate   *RelationshipsForTLSActivationSchemasTLSCertificate `json:"tls_certificate,omitempty"`
+	TLSConfiguration *RelationshipsForTLSActivationTLSConfiguration      `json:"tls_configuration,omitempty"`
+	TLSDomain        *TLSDomain                                          `json:"tls_domain,omitempty"`
 }
 
-func (o *RelationshipsForTLSActivation) GetTLSCertificate() *RelationshipsForTLSActivationTLSCertificate {
+func (o *One) GetTLSCertificate() *RelationshipsForTLSActivationSchemasTLSCertificate {
 	if o == nil {
 		return nil
 	}
 	return o.TLSCertificate
 }
 
-func (o *RelationshipsForTLSActivation) GetTLSDomain() *TLSDomain {
+func (o *One) GetTLSConfiguration() *RelationshipsForTLSActivationTLSConfiguration {
+	if o == nil {
+		return nil
+	}
+	return o.TLSConfiguration
+}
+
+func (o *One) GetTLSDomain() *TLSDomain {
 	if o == nil {
 		return nil
 	}
 	return o.TLSDomain
+}
+
+type RelationshipsForTLSActivationType string
+
+const (
+	RelationshipsForTLSActivationTypeOne RelationshipsForTLSActivationType = "1"
+	RelationshipsForTLSActivationTypeTwo RelationshipsForTLSActivationType = "2"
+)
+
+// RelationshipsForTLSActivation - The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
+type RelationshipsForTLSActivation struct {
+	One *One
+	Two *Two
+
+	Type RelationshipsForTLSActivationType
+}
+
+func CreateRelationshipsForTLSActivationOne(one One) RelationshipsForTLSActivation {
+	typ := RelationshipsForTLSActivationTypeOne
+
+	return RelationshipsForTLSActivation{
+		One:  &one,
+		Type: typ,
+	}
+}
+
+func CreateRelationshipsForTLSActivationTwo(two Two) RelationshipsForTLSActivation {
+	typ := RelationshipsForTLSActivationTypeTwo
+
+	return RelationshipsForTLSActivation{
+		Two:  &two,
+		Type: typ,
+	}
+}
+
+func (u *RelationshipsForTLSActivation) UnmarshalJSON(data []byte) error {
+
+	two := Two{}
+	if err := utils.UnmarshalJSON(data, &two, "", true, true); err == nil {
+		u.Two = &two
+		u.Type = RelationshipsForTLSActivationTypeTwo
+		return nil
+	}
+
+	one := One{}
+	if err := utils.UnmarshalJSON(data, &one, "", true, true); err == nil {
+		u.One = &one
+		u.Type = RelationshipsForTLSActivationTypeOne
+		return nil
+	}
+
+	return errors.New("could not unmarshal into supported union types")
+}
+
+func (u RelationshipsForTLSActivation) MarshalJSON() ([]byte, error) {
+	if u.One != nil {
+		return utils.MarshalJSON(u.One, "", true)
+	}
+
+	if u.Two != nil {
+		return utils.MarshalJSON(u.Two, "", true)
+	}
+
+	return nil, errors.New("could not marshal union type: all fields are null")
 }

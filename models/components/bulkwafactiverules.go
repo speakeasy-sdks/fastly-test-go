@@ -3,10 +3,10 @@
 package components
 
 type BulkWafActiveRules struct {
-	Data []WafActiveRuleData1 `json:"data,omitempty"`
+	Data []WafActiveRuleDataInput `json:"data,omitempty"`
 }
 
-func (o *BulkWafActiveRules) GetData() []WafActiveRuleData1 {
+func (o *BulkWafActiveRules) GetData() []WafActiveRuleDataInput {
 	if o == nil {
 		return nil
 	}

@@ -11,8 +11,8 @@ type UpdateWafActiveRuleRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a service version.
-	VersionID     int64                      `pathParam:"style=simple,explode=false,name=version_id"`
-	WafActiveRule *components.WafActiveRule1 `request:"mediaType=application/vnd.api+json"`
+	VersionID     int64                          `pathParam:"style=simple,explode=false,name=version_id"`
+	WafActiveRule *components.WafActiveRuleInput `request:"mediaType=application/vnd.api+json"`
 	// Alphanumeric string identifying a WAF rule.
 	WafRuleID string `pathParam:"style=simple,explode=false,name=waf_rule_id"`
 }
@@ -31,7 +31,7 @@ func (o *UpdateWafActiveRuleRequest) GetVersionID() int64 {
 	return o.VersionID
 }
 
-func (o *UpdateWafActiveRuleRequest) GetWafActiveRule() *components.WafActiveRule1 {
+func (o *UpdateWafActiveRuleRequest) GetWafActiveRule() *components.WafActiveRuleInput {
 	if o == nil {
 		return nil
 	}

@@ -6,7 +6,7 @@ package components
 type RealtimeEntryMissHistogram struct {
 }
 
-// MeasurementsDataModel - Statistics that have occurred since the last request.
+// MeasurementsDataModel - Aggregates [measurements](#measurements-data-model) across all Fastly POPs.
 type MeasurementsDataModel struct {
 	// Total body bytes received from requests that triggered a WAF rule that was blocked.
 	AttackBlockedReqBodyBytes *int64 `json:"attack_blocked_req_body_bytes,omitempty"`

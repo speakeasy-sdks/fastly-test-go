@@ -11,8 +11,8 @@ type CreateWafActiveRulesTagRequest struct {
 	// Alphanumeric string identifying a WAF Firewall.
 	FirewallID string `pathParam:"style=simple,explode=false,name=firewall_id"`
 	// Integer identifying a service version.
-	VersionID     int64                      `pathParam:"style=simple,explode=false,name=version_id"`
-	WafActiveRule *components.WafActiveRule1 `request:"mediaType=application/vnd.api+json"`
+	VersionID     int64                          `pathParam:"style=simple,explode=false,name=version_id"`
+	WafActiveRule *components.WafActiveRuleInput `request:"mediaType=application/vnd.api+json"`
 	// Name of the tag.
 	WafTagName string `pathParam:"style=simple,explode=false,name=waf_tag_name"`
 }
@@ -31,7 +31,7 @@ func (o *CreateWafActiveRulesTagRequest) GetVersionID() int64 {
 	return o.VersionID
 }
 
-func (o *CreateWafActiveRulesTagRequest) GetWafActiveRule() *components.WafActiveRule1 {
+func (o *CreateWafActiveRulesTagRequest) GetWafActiveRule() *components.WafActiveRuleInput {
 	if o == nil {
 		return nil
 	}

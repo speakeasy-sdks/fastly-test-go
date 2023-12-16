@@ -18,24 +18,24 @@ func (o *DNSRecords) GetData() []RelationshipMemberTLSDNSRecord {
 	return o.Data
 }
 
-// Two - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
-type Two struct {
+// RelationshipsForTLSConfiguration2 - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
+type RelationshipsForTLSConfiguration2 struct {
 	DNSRecords *DNSRecords `json:"dns_records,omitempty"`
 }
 
-func (o *Two) GetDNSRecords() *DNSRecords {
+func (o *RelationshipsForTLSConfiguration2) GetDNSRecords() *DNSRecords {
 	if o == nil {
 		return nil
 	}
 	return o.DNSRecords
 }
 
-// One - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
-type One struct {
+// RelationshipsForTLSConfiguration1 - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
+type RelationshipsForTLSConfiguration1 struct {
 	Service *RelationshipMemberService `json:"service,omitempty"`
 }
 
-func (o *One) GetService() *RelationshipMemberService {
+func (o *RelationshipsForTLSConfiguration1) GetService() *RelationshipMemberService {
 	if o == nil {
 		return nil
 	}
@@ -45,48 +45,48 @@ func (o *One) GetService() *RelationshipMemberService {
 type RelationshipsForTLSConfigurationType string
 
 const (
-	RelationshipsForTLSConfigurationTypeOne RelationshipsForTLSConfigurationType = "1"
-	RelationshipsForTLSConfigurationTypeTwo RelationshipsForTLSConfigurationType = "2"
+	RelationshipsForTLSConfigurationTypeRelationshipsForTLSConfiguration1 RelationshipsForTLSConfigurationType = "relationships_for_tls_configuration_1"
+	RelationshipsForTLSConfigurationTypeRelationshipsForTLSConfiguration2 RelationshipsForTLSConfigurationType = "relationships_for_tls_configuration_2"
 )
 
 type RelationshipsForTLSConfiguration struct {
-	One *One
-	Two *Two
+	RelationshipsForTLSConfiguration1 *RelationshipsForTLSConfiguration1
+	RelationshipsForTLSConfiguration2 *RelationshipsForTLSConfiguration2
 
 	Type RelationshipsForTLSConfigurationType
 }
 
-func CreateRelationshipsForTLSConfigurationOne(one One) RelationshipsForTLSConfiguration {
-	typ := RelationshipsForTLSConfigurationTypeOne
+func CreateRelationshipsForTLSConfigurationRelationshipsForTLSConfiguration1(relationshipsForTLSConfiguration1 RelationshipsForTLSConfiguration1) RelationshipsForTLSConfiguration {
+	typ := RelationshipsForTLSConfigurationTypeRelationshipsForTLSConfiguration1
 
 	return RelationshipsForTLSConfiguration{
-		One:  &one,
-		Type: typ,
+		RelationshipsForTLSConfiguration1: &relationshipsForTLSConfiguration1,
+		Type:                              typ,
 	}
 }
 
-func CreateRelationshipsForTLSConfigurationTwo(two Two) RelationshipsForTLSConfiguration {
-	typ := RelationshipsForTLSConfigurationTypeTwo
+func CreateRelationshipsForTLSConfigurationRelationshipsForTLSConfiguration2(relationshipsForTLSConfiguration2 RelationshipsForTLSConfiguration2) RelationshipsForTLSConfiguration {
+	typ := RelationshipsForTLSConfigurationTypeRelationshipsForTLSConfiguration2
 
 	return RelationshipsForTLSConfiguration{
-		Two:  &two,
-		Type: typ,
+		RelationshipsForTLSConfiguration2: &relationshipsForTLSConfiguration2,
+		Type:                              typ,
 	}
 }
 
 func (u *RelationshipsForTLSConfiguration) UnmarshalJSON(data []byte) error {
 
-	one := One{}
-	if err := utils.UnmarshalJSON(data, &one, "", true, true); err == nil {
-		u.One = &one
-		u.Type = RelationshipsForTLSConfigurationTypeOne
+	relationshipsForTLSConfiguration1 := RelationshipsForTLSConfiguration1{}
+	if err := utils.UnmarshalJSON(data, &relationshipsForTLSConfiguration1, "", true, true); err == nil {
+		u.RelationshipsForTLSConfiguration1 = &relationshipsForTLSConfiguration1
+		u.Type = RelationshipsForTLSConfigurationTypeRelationshipsForTLSConfiguration1
 		return nil
 	}
 
-	two := Two{}
-	if err := utils.UnmarshalJSON(data, &two, "", true, true); err == nil {
-		u.Two = &two
-		u.Type = RelationshipsForTLSConfigurationTypeTwo
+	relationshipsForTLSConfiguration2 := RelationshipsForTLSConfiguration2{}
+	if err := utils.UnmarshalJSON(data, &relationshipsForTLSConfiguration2, "", true, true); err == nil {
+		u.RelationshipsForTLSConfiguration2 = &relationshipsForTLSConfiguration2
+		u.Type = RelationshipsForTLSConfigurationTypeRelationshipsForTLSConfiguration2
 		return nil
 	}
 
@@ -94,12 +94,12 @@ func (u *RelationshipsForTLSConfiguration) UnmarshalJSON(data []byte) error {
 }
 
 func (u RelationshipsForTLSConfiguration) MarshalJSON() ([]byte, error) {
-	if u.One != nil {
-		return utils.MarshalJSON(u.One, "", true)
+	if u.RelationshipsForTLSConfiguration1 != nil {
+		return utils.MarshalJSON(u.RelationshipsForTLSConfiguration1, "", true)
 	}
 
-	if u.Two != nil {
-		return utils.MarshalJSON(u.Two, "", true)
+	if u.RelationshipsForTLSConfiguration2 != nil {
+		return utils.MarshalJSON(u.RelationshipsForTLSConfiguration2, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")

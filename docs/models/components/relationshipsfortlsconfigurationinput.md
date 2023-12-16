@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### RelationshipsForTLSConfiguration1
+### RelationshipsForTLSConfiguration1Input
 
 ```go
-relationshipsForTLSConfigurationInput := components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1(components.RelationshipsForTLSConfiguration1{/* values here */})
+relationshipsForTLSConfigurationInput := components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1Input(components.RelationshipsForTLSConfiguration1Input{/* values here */})
 ```
 
-### RelationshipsForTLSConfiguration2
+### RelationshipsForTLSConfiguration2Input
 
 ```go
-relationshipsForTLSConfigurationInput := components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration2(components.RelationshipsForTLSConfiguration2{/* values here */})
+relationshipsForTLSConfigurationInput := components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration2Input(components.RelationshipsForTLSConfiguration2Input{/* values here */})
 ```
 

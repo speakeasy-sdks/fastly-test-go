@@ -3,9 +3,17 @@
 The [TLS domain](/reference/api/tls/custom-certs/domains/) being enabled for TLS traffic. Required.
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                                                       | Type                                                                                                                                        | Required                                                                                                                                    | Description                                                                                                                                 |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `TLSCertificate`                                                                                                                            | [*components.RelationshipsForTLSActivationTLSCertificateInput](../../models/components/relationshipsfortlsactivationtlscertificateinput.md) | :heavy_minus_sign:                                                                                                                          | N/A                                                                                                                                         |
-| `TLSDomain`                                                                                                                                 | [*components.RelationshipsForTLSActivationTLSDomain](../../models/components/relationshipsfortlsactivationtlsdomain.md)                     | :heavy_minus_sign:                                                                                                                          | N/A                                                                                                                                         |
+### RelationshipsForTLSActivation1
+
+```go
+relationshipsForTLSActivationInput := components.CreateRelationshipsForTLSActivationInputRelationshipsForTLSActivation1(components.RelationshipsForTLSActivation1{/* values here */})
+```
+
+### RelationshipsForTLSActivation2
+
+```go
+relationshipsForTLSActivationInput := components.CreateRelationshipsForTLSActivationInputRelationshipsForTLSActivation2(components.RelationshipsForTLSActivation2{/* values here */})
+```
+

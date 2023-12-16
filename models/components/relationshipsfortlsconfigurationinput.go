@@ -18,24 +18,24 @@ func (o *RelationshipsForTLSConfigurationDNSRecords) GetData() []RelationshipMem
 	return o.Data
 }
 
-// RelationshipsForTLSConfiguration2 - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
-type RelationshipsForTLSConfiguration2 struct {
+// RelationshipsForTLSConfiguration2Input - The [DNS records](/reference/api/tls/custom-certs/dns-records/) to use for this configuration.
+type RelationshipsForTLSConfiguration2Input struct {
 	DNSRecords *RelationshipsForTLSConfigurationDNSRecords `json:"dns_records,omitempty"`
 }
 
-func (o *RelationshipsForTLSConfiguration2) GetDNSRecords() *RelationshipsForTLSConfigurationDNSRecords {
+func (o *RelationshipsForTLSConfiguration2Input) GetDNSRecords() *RelationshipsForTLSConfigurationDNSRecords {
 	if o == nil {
 		return nil
 	}
 	return o.DNSRecords
 }
 
-// RelationshipsForTLSConfiguration1 - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
-type RelationshipsForTLSConfiguration1 struct {
+// RelationshipsForTLSConfiguration1Input - The [Fastly Service](/reference/api/services/service/) that is automatically selected when this TLS Configuration is used.
+type RelationshipsForTLSConfiguration1Input struct {
 	Service *RelationshipMemberServiceInput `json:"service,omitempty"`
 }
 
-func (o *RelationshipsForTLSConfiguration1) GetService() *RelationshipMemberServiceInput {
+func (o *RelationshipsForTLSConfiguration1Input) GetService() *RelationshipMemberServiceInput {
 	if o == nil {
 		return nil
 	}
@@ -45,48 +45,48 @@ func (o *RelationshipsForTLSConfiguration1) GetService() *RelationshipMemberServ
 type RelationshipsForTLSConfigurationInputType string
 
 const (
-	RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration1 RelationshipsForTLSConfigurationInputType = "relationships_for_tls_configuration_1"
-	RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration2 RelationshipsForTLSConfigurationInputType = "relationships_for_tls_configuration_2"
+	RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration1Input RelationshipsForTLSConfigurationInputType = "relationships_for_tls_configuration_1_input"
+	RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration2Input RelationshipsForTLSConfigurationInputType = "relationships_for_tls_configuration_2_input"
 )
 
 type RelationshipsForTLSConfigurationInput struct {
-	RelationshipsForTLSConfiguration1 *RelationshipsForTLSConfiguration1
-	RelationshipsForTLSConfiguration2 *RelationshipsForTLSConfiguration2
+	RelationshipsForTLSConfiguration1Input *RelationshipsForTLSConfiguration1Input
+	RelationshipsForTLSConfiguration2Input *RelationshipsForTLSConfiguration2Input
 
 	Type RelationshipsForTLSConfigurationInputType
 }
 
-func CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1(relationshipsForTLSConfiguration1 RelationshipsForTLSConfiguration1) RelationshipsForTLSConfigurationInput {
-	typ := RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration1
+func CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1Input(relationshipsForTLSConfiguration1Input RelationshipsForTLSConfiguration1Input) RelationshipsForTLSConfigurationInput {
+	typ := RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration1Input
 
 	return RelationshipsForTLSConfigurationInput{
-		RelationshipsForTLSConfiguration1: &relationshipsForTLSConfiguration1,
-		Type:                              typ,
+		RelationshipsForTLSConfiguration1Input: &relationshipsForTLSConfiguration1Input,
+		Type:                                   typ,
 	}
 }
 
-func CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration2(relationshipsForTLSConfiguration2 RelationshipsForTLSConfiguration2) RelationshipsForTLSConfigurationInput {
-	typ := RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration2
+func CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration2Input(relationshipsForTLSConfiguration2Input RelationshipsForTLSConfiguration2Input) RelationshipsForTLSConfigurationInput {
+	typ := RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration2Input
 
 	return RelationshipsForTLSConfigurationInput{
-		RelationshipsForTLSConfiguration2: &relationshipsForTLSConfiguration2,
-		Type:                              typ,
+		RelationshipsForTLSConfiguration2Input: &relationshipsForTLSConfiguration2Input,
+		Type:                                   typ,
 	}
 }
 
 func (u *RelationshipsForTLSConfigurationInput) UnmarshalJSON(data []byte) error {
 
-	relationshipsForTLSConfiguration1 := RelationshipsForTLSConfiguration1{}
-	if err := utils.UnmarshalJSON(data, &relationshipsForTLSConfiguration1, "", true, true); err == nil {
-		u.RelationshipsForTLSConfiguration1 = &relationshipsForTLSConfiguration1
-		u.Type = RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration1
+	relationshipsForTLSConfiguration1Input := RelationshipsForTLSConfiguration1Input{}
+	if err := utils.UnmarshalJSON(data, &relationshipsForTLSConfiguration1Input, "", true, true); err == nil {
+		u.RelationshipsForTLSConfiguration1Input = &relationshipsForTLSConfiguration1Input
+		u.Type = RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration1Input
 		return nil
 	}
 
-	relationshipsForTLSConfiguration2 := RelationshipsForTLSConfiguration2{}
-	if err := utils.UnmarshalJSON(data, &relationshipsForTLSConfiguration2, "", true, true); err == nil {
-		u.RelationshipsForTLSConfiguration2 = &relationshipsForTLSConfiguration2
-		u.Type = RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration2
+	relationshipsForTLSConfiguration2Input := RelationshipsForTLSConfiguration2Input{}
+	if err := utils.UnmarshalJSON(data, &relationshipsForTLSConfiguration2Input, "", true, true); err == nil {
+		u.RelationshipsForTLSConfiguration2Input = &relationshipsForTLSConfiguration2Input
+		u.Type = RelationshipsForTLSConfigurationInputTypeRelationshipsForTLSConfiguration2Input
 		return nil
 	}
 
@@ -94,12 +94,12 @@ func (u *RelationshipsForTLSConfigurationInput) UnmarshalJSON(data []byte) error
 }
 
 func (u RelationshipsForTLSConfigurationInput) MarshalJSON() ([]byte, error) {
-	if u.RelationshipsForTLSConfiguration1 != nil {
-		return utils.MarshalJSON(u.RelationshipsForTLSConfiguration1, "", true)
+	if u.RelationshipsForTLSConfiguration1Input != nil {
+		return utils.MarshalJSON(u.RelationshipsForTLSConfiguration1Input, "", true)
 	}
 
-	if u.RelationshipsForTLSConfiguration2 != nil {
-		return utils.MarshalJSON(u.RelationshipsForTLSConfiguration2, "", true)
+	if u.RelationshipsForTLSConfiguration2Input != nil {
+		return utils.MarshalJSON(u.RelationshipsForTLSConfiguration2Input, "", true)
 	}
 
 	return nil, errors.New("could not marshal union type: all fields are null")

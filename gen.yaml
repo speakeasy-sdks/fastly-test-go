@@ -2,29 +2,31 @@ configVersion: 1.0.0
 management:
   docChecksum: 2560877811d6492729fc79e82f6ddc52
   docVersion: 1.0.0
-  speakeasyVersion: 1.126.0
-  generationVersion: 2.213.3
+  speakeasyVersion: 1.126.4
+  generationVersion: 2.214.10
 generation:
   comments: {}
   sdkClassName: SDK
   repoURL: https://github.com/speakeasy-sdks/fastly-test-go.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
 features:
   go:
     additionalProperties: 0.1.2
     constsAndDefaults: 0.1.2
-    core: 3.2.0
+    core: 3.2.2
     deprecations: 2.81.1
     downloadStreams: 0.1.1
     examples: 2.81.3
     globalSecurity: 2.82.3
     globalServerURLs: 2.82.1
-    inputOutputModels: 2.82.0
+    inputOutputModels: 2.83.0
     methodSecurity: 2.82.1
-    unions: 2.85.0
+    unions: 2.85.2
 go:
-  version: 1.4.0
+  version: 1.5.0
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: true
   imports:

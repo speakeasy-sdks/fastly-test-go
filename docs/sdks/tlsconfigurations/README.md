@@ -144,8 +144,8 @@ func main() {
         TLSConfiguration: &components.TLSConfiguration{
             Data: &components.TLSConfigurationData{
                 Attributes: &components.TLSConfigurationDataAttributes{},
-                Relationships: components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1(
-                        components.RelationshipsForTLSConfiguration1{
+                Relationships: components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1Input(
+                        components.RelationshipsForTLSConfiguration1Input{
                             Service: &components.RelationshipMemberServiceInput{},
                         },
                 ),

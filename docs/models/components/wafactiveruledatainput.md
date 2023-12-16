@@ -1,4 +1,4 @@
-# WafActiveRuleData1
+# WafActiveRuleDataInput
 
 
 ## Fields

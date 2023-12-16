@@ -38,14 +38,19 @@ func main() {
     ctx := context.Background()
     res, err := s.TLSActivations.CreateTLSActivation(ctx, &components.TLSActivation{
         Data: &components.TLSActivationData{
-            Relationships: &components.RelationshipsForTLSActivationInput{
-                TLSCertificate: &components.RelationshipsForTLSActivationTLSCertificateInput{
-                    Data: &components.RelationshipMemberTLSCertificateInput{},
-                },
-                TLSDomain: &components.RelationshipsForTLSActivationTLSDomain{
-                    Data: &components.RelationshipMemberTLSDomainInput{},
-                },
-            },
+            Relationships: components.CreateRelationshipsForTLSActivationInputRelationshipsForTLSActivation1(
+                    components.RelationshipsForTLSActivation1{
+                        TLSCertificate: &components.RelationshipsForTLSActivationSchemasTLSCertificateInput{
+                            Data: &components.RelationshipMemberTLSCertificateInput{},
+                        },
+                        TLSConfiguration: &components.RelationshipsForTLSActivationTLSConfigurationInput{
+                            Data: &components.RelationshipMemberTLSConfigurationInput{},
+                        },
+                        TLSDomain: &components.RelationshipsForTLSActivationSchemasTLSDomainInput{
+                            Data: &components.RelationshipMemberTLSDomainInput{},
+                        },
+                    },
+            ),
         },
     })
     if err != nil {
@@ -256,14 +261,16 @@ func main() {
     res, err := s.TLSActivations.UpdateTLSActivation(ctx, operations.UpdateTLSActivationRequest{
         TLSActivation: &components.TLSActivation{
             Data: &components.TLSActivationData{
-                Relationships: &components.RelationshipsForTLSActivationInput{
-                    TLSCertificate: &components.RelationshipsForTLSActivationTLSCertificateInput{
-                        Data: &components.RelationshipMemberTLSCertificateInput{},
-                    },
-                    TLSDomain: &components.RelationshipsForTLSActivationTLSDomain{
-                        Data: &components.RelationshipMemberTLSDomainInput{},
-                    },
-                },
+                Relationships: components.CreateRelationshipsForTLSActivationInputRelationshipsForTLSActivation2(
+                        components.RelationshipsForTLSActivation2{
+                            TLSCertificate: &components.RelationshipsForTLSActivationTLSCertificateInput{
+                                Data: &components.RelationshipMemberTLSCertificateInput{},
+                            },
+                            TLSDomain: &components.RelationshipsForTLSActivationTLSDomainInput{
+                                Data: &components.RelationshipMemberTLSDomainInput{},
+                            },
+                        },
+                ),
             },
         },
         TLSActivationID: "aCtguUGZzb2W9Euo4moOR",

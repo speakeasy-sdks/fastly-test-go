@@ -1,6 +1,6 @@
 # MeasurementsDataModel
 
-Statistics that have occurred since the last request.
+Aggregates [measurements](#measurements-data-model) across all Fastly POPs.
 
 
 ## Fields

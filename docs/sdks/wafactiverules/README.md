@@ -114,8 +114,8 @@ func main() {
     ctx := context.Background()
     res, err := s.WafActiveRules.CreateWafActiveRule(ctx, operations.CreateWafActiveRuleRequest{
         BulkWafActiveRules: &components.BulkWafActiveRules{
-            Data: []components.WafActiveRuleData1{
-                components.WafActiveRuleData1{
+            Data: []components.WafActiveRuleDataInput{
+                components.WafActiveRuleDataInput{
                     Attributes: &components.WafActiveRuleDataAttributes{
                         Revision: components.CreateWafRuleRevisionOrLatestStr(
                         "latest",
@@ -190,8 +190,8 @@ func main() {
     res, err := s.WafActiveRules.CreateWafActiveRulesTag(ctx, operations.CreateWafActiveRulesTagRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
-        WafActiveRule: &components.WafActiveRule1{
-            Data: &components.WafActiveRuleData1{
+        WafActiveRule: &components.WafActiveRuleInput{
+            Data: &components.WafActiveRuleDataInput{
                 Attributes: &components.WafActiveRuleDataAttributes{
                     Revision: components.CreateWafRuleRevisionOrLatestStr(
                     "latest",
@@ -432,8 +432,8 @@ func main() {
     res, err := s.WafActiveRules.UpdateWafActiveRule(ctx, operations.UpdateWafActiveRuleRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
-        WafActiveRule: &components.WafActiveRule1{
-            Data: &components.WafActiveRuleData1{
+        WafActiveRule: &components.WafActiveRuleInput{
+            Data: &components.WafActiveRuleDataInput{
                 Attributes: &components.WafActiveRuleDataAttributes{
                     Revision: components.CreateWafRuleRevisionOrLatestStr(
                     "latest",
