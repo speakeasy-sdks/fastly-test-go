@@ -64,7 +64,7 @@ func main() {
 **[*operations.CreateUserResponse](../../models/operations/createuserresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteUser
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.DeleteUserResponse](../../models/operations/deleteuserresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCurrentUser
 
@@ -162,7 +162,7 @@ func main() {
 **[*operations.GetCurrentUserResponse](../../models/operations/getcurrentuserresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetUser
 
@@ -213,7 +213,7 @@ func main() {
 **[*operations.GetUserResponse](../../models/operations/getuserresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## RequestPasswordReset
 
@@ -264,7 +264,7 @@ func main() {
 **[*operations.RequestPasswordResetResponse](../../models/operations/requestpasswordresetresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateUser
 
@@ -318,7 +318,7 @@ func main() {
 **[*operations.UpdateUserResponse](../../models/operations/updateuserresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateUserPassword
 
@@ -372,4 +372,4 @@ func main() {
 **[*operations.UpdateUserPasswordResponse](../../models/operations/updateuserpasswordresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

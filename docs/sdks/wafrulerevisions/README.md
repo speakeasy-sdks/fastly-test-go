@@ -64,7 +64,7 @@ func main() {
 **[*operations.GetWafRuleRevisionResponse](../../models/operations/getwafrulerevisionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~ListWafRuleRevisions~~
 
@@ -120,4 +120,4 @@ func main() {
 **[*operations.ListWafRuleRevisionsResponse](../../models/operations/listwafrulerevisionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

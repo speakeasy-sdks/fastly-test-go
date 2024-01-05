@@ -76,7 +76,7 @@ func main() {
 **[*operations.BulkUpdateACLEntriesResponse](../../models/operations/bulkupdateaclentriesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateACLEntry
 
@@ -134,7 +134,7 @@ func main() {
 **[*operations.CreateACLEntryResponse](../../models/operations/createaclentryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteACLEntry
 
@@ -187,7 +187,7 @@ func main() {
 **[*operations.DeleteACLEntryResponse](../../models/operations/deleteaclentryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetACLEntry
 
@@ -240,7 +240,7 @@ func main() {
 **[*operations.GetACLEntryResponse](../../models/operations/getaclentryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListACLEntries
 
@@ -296,7 +296,7 @@ func main() {
 **[*operations.ListACLEntriesResponse](../../models/operations/listaclentriesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateACLEntry
 
@@ -355,4 +355,4 @@ func main() {
 **[*operations.UpdateACLEntryResponse](../../models/operations/updateaclentryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

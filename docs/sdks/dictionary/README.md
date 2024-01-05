@@ -67,7 +67,7 @@ func main() {
 **[*operations.CreateDictionaryResponse](../../models/operations/createdictionaryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteDictionary
 
@@ -120,7 +120,7 @@ func main() {
 **[*operations.DeleteDictionaryResponse](../../models/operations/deletedictionaryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetDictionary
 
@@ -173,7 +173,7 @@ func main() {
 **[*operations.GetDictionaryResponse](../../models/operations/getdictionaryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListDictionaries
 
@@ -225,7 +225,7 @@ func main() {
 **[*operations.ListDictionariesResponse](../../models/operations/listdictionariesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateDictionary
 
@@ -281,4 +281,4 @@ func main() {
 **[*operations.UpdateDictionaryResponse](../../models/operations/updatedictionaryresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

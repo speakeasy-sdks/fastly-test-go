@@ -68,7 +68,7 @@ func main() {
 **[*operations.CreateServiceStarResponse](../../models/operations/createservicestarresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteServiceStar
 
@@ -120,7 +120,7 @@ func main() {
 **[*operations.DeleteServiceStarResponse](../../models/operations/deleteservicestarresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetServiceStar
 
@@ -171,7 +171,7 @@ func main() {
 **[*operations.GetServiceStarResponse](../../models/operations/getservicestarresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServiceStars
 
@@ -218,4 +218,4 @@ func main() {
 **[*operations.ListServiceStarsResponse](../../models/operations/listservicestarsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

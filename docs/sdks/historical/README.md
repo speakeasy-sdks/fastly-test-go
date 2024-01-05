@@ -68,7 +68,7 @@ func main() {
 **[*operations.GetHistStatsResponse](../../models/operations/gethiststatsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHistStatsAggregated
 
@@ -120,7 +120,7 @@ func main() {
 **[*operations.GetHistStatsAggregatedResponse](../../models/operations/gethiststatsaggregatedresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHistStatsField
 
@@ -173,7 +173,7 @@ func main() {
 **[*operations.GetHistStatsFieldResponse](../../models/operations/gethiststatsfieldresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHistStatsService
 
@@ -226,7 +226,7 @@ func main() {
 **[*operations.GetHistStatsServiceResponse](../../models/operations/gethiststatsserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHistStatsServiceField
 
@@ -280,7 +280,7 @@ func main() {
 **[*operations.GetHistStatsServiceFieldResponse](../../models/operations/gethiststatsservicefieldresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetRegions
 
@@ -327,7 +327,7 @@ func main() {
 **[*operations.GetRegionsResponse](../../models/operations/getregionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetUsage
 
@@ -376,7 +376,7 @@ func main() {
 **[*operations.GetUsageResponse](../../models/operations/getusageresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetUsageMonth
 
@@ -429,7 +429,7 @@ func main() {
 **[*operations.GetUsageMonthResponse](../../models/operations/getusagemonthresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetUsageService
 
@@ -478,4 +478,4 @@ func main() {
 **[*operations.GetUsageServiceResponse](../../models/operations/getusageserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

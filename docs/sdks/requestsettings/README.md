@@ -64,7 +64,7 @@ func main() {
 **[*operations.DeleteRequestSettingsResponse](../../models/operations/deleterequestsettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetRequestSettings
 
@@ -117,7 +117,7 @@ func main() {
 **[*operations.GetRequestSettingsResponse](../../models/operations/getrequestsettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListRequestSettings
 
@@ -169,7 +169,7 @@ func main() {
 **[*operations.ListRequestSettingsResponse](../../models/operations/listrequestsettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateRequestSettings
 
@@ -226,4 +226,4 @@ func main() {
 **[*operations.UpdateRequestSettingsResponse](../../models/operations/updaterequestsettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

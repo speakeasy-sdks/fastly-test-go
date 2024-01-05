@@ -70,7 +70,7 @@ func main() {
 **[*operations.CreateLogElasticsearchResponse](../../models/operations/createlogelasticsearchresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogElasticsearch
 
@@ -123,7 +123,7 @@ func main() {
 **[*operations.DeleteLogElasticsearchResponse](../../models/operations/deletelogelasticsearchresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogElasticsearch
 
@@ -176,7 +176,7 @@ func main() {
 **[*operations.GetLogElasticsearchResponse](../../models/operations/getlogelasticsearchresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogElasticsearch
 
@@ -228,7 +228,7 @@ func main() {
 **[*operations.ListLogElasticsearchResponse](../../models/operations/listlogelasticsearchresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogElasticsearch
 
@@ -287,4 +287,4 @@ func main() {
 **[*operations.UpdateLogElasticsearchResponse](../../models/operations/updatelogelasticsearchresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

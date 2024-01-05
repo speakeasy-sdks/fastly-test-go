@@ -68,7 +68,7 @@ func main() {
 **[*operations.CreateLogKinesisResponse](../../models/operations/createlogkinesisresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogKinesis
 
@@ -121,7 +121,7 @@ func main() {
 **[*operations.DeleteLogKinesisResponse](../../models/operations/deletelogkinesisresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogKinesis
 
@@ -174,7 +174,7 @@ func main() {
 **[*operations.GetLogKinesisResponse](../../models/operations/getlogkinesisresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogKinesis
 
@@ -226,4 +226,4 @@ func main() {
 **[*operations.ListLogKinesisResponse](../../models/operations/listlogkinesisresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

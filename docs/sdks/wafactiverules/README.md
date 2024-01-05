@@ -85,7 +85,7 @@ func main() {
 **[*operations.BulkUpdateWafActiveRulesResponse](../../models/operations/bulkupdatewafactiverulesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~CreateWafActiveRule~~
 
@@ -159,7 +159,7 @@ func main() {
 **[*operations.CreateWafActiveRuleResponse](../../models/operations/createwafactiveruleresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~CreateWafActiveRulesTag~~
 
@@ -233,7 +233,7 @@ func main() {
 **[*operations.CreateWafActiveRulesTagResponse](../../models/operations/createwafactiverulestagresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~DeleteWafActiveRule~~
 
@@ -289,7 +289,7 @@ func main() {
 **[*operations.DeleteWafActiveRuleResponse](../../models/operations/deletewafactiveruleresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~GetWafActiveRule~~
 
@@ -345,7 +345,7 @@ func main() {
 **[*operations.GetWafActiveRuleResponse](../../models/operations/getwafactiveruleresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~ListWafActiveRules~~
 
@@ -402,7 +402,7 @@ func main() {
 **[*operations.ListWafActiveRulesResponse](../../models/operations/listwafactiverulesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~UpdateWafActiveRule~~
 
@@ -475,4 +475,4 @@ func main() {
 **[*operations.UpdateWafActiveRuleResponse](../../models/operations/updatewafactiveruleresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

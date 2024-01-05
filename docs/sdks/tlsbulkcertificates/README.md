@@ -64,7 +64,7 @@ func main() {
 **[*operations.DeleteBulkTLSCertResponse](../../models/operations/deletebulktlscertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetTLSBulkCert
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.GetTLSBulkCertResponse](../../models/operations/gettlsbulkcertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListTLSBulkCerts
 
@@ -167,7 +167,7 @@ func main() {
 **[*operations.ListTLSBulkCertsResponse](../../models/operations/listtlsbulkcertsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateBulkTLSCert
 
@@ -232,7 +232,7 @@ func main() {
 **[*operations.UpdateBulkTLSCertResponse](../../models/operations/updatebulktlscertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UploadTLSBulkCert
 
@@ -291,4 +291,4 @@ func main() {
 **[*operations.UploadTLSBulkCertResponse](../../models/operations/uploadtlsbulkcertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

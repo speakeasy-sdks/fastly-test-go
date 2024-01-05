@@ -62,7 +62,7 @@ func main() {
 **[*operations.GetTLSConfigResponse](../../models/operations/gettlsconfigresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListTLSConfigs
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.ListTLSConfigsResponse](../../models/operations/listtlsconfigsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateTLSConfig
 
@@ -176,4 +176,4 @@ func main() {
 **[*operations.UpdateTLSConfigResponse](../../models/operations/updatetlsconfigresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

@@ -71,7 +71,7 @@ func main() {
 **[*operations.CreateTLSCertResponse](../../models/operations/createtlscertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteTLSCert
 
@@ -123,7 +123,7 @@ func main() {
 **[*operations.DeleteTLSCertResponse](../../models/operations/deletetlscertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetTLSCert
 
@@ -174,7 +174,7 @@ func main() {
 **[*operations.GetTLSCertResponse](../../models/operations/gettlscertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListTLSCerts
 
@@ -226,7 +226,7 @@ func main() {
 **[*operations.ListTLSCertsResponse](../../models/operations/listtlscertsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateTLSCert
 
@@ -289,4 +289,4 @@ func main() {
 **[*operations.UpdateTLSCertResponse](../../models/operations/updatetlscertresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

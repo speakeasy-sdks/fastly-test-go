@@ -64,7 +64,7 @@ func main() {
 **[*operations.CreateDirectorBackendResponse](../../models/operations/createdirectorbackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteDirectorBackend
 
@@ -118,7 +118,7 @@ func main() {
 **[*operations.DeleteDirectorBackendResponse](../../models/operations/deletedirectorbackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetDirectorBackend
 
@@ -172,4 +172,4 @@ func main() {
 **[*operations.GetDirectorBackendResponse](../../models/operations/getdirectorbackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

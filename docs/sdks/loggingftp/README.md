@@ -78,7 +78,7 @@ func main() {
 **[*operations.CreateLogFtpResponse](../../models/operations/createlogftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogFtp
 
@@ -131,7 +131,7 @@ func main() {
 **[*operations.DeleteLogFtpResponse](../../models/operations/deletelogftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogFtp
 
@@ -184,7 +184,7 @@ func main() {
 **[*operations.GetLogFtpResponse](../../models/operations/getlogftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogFtp
 
@@ -236,7 +236,7 @@ func main() {
 **[*operations.ListLogFtpResponse](../../models/operations/listlogftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogFtp
 
@@ -303,4 +303,4 @@ func main() {
 **[*operations.UpdateLogFtpResponse](../../models/operations/updatelogftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

@@ -63,7 +63,7 @@ func main() {
 **[*operations.DeleteARoleResponse](../../models/operations/deletearoleresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetARole
 
@@ -114,7 +114,7 @@ func main() {
 **[*operations.GetARoleResponse](../../models/operations/getaroleresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListRolePermissions
 
@@ -165,7 +165,7 @@ func main() {
 **[*operations.ListRolePermissionsResponse](../../models/operations/listrolepermissionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListRoles
 
@@ -217,4 +217,4 @@ func main() {
 **[*operations.ListRolesResponse](../../models/operations/listrolesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

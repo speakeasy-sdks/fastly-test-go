@@ -63,7 +63,7 @@ func main() {
 **[*operations.DeleteCustomerResponse](../../models/operations/deletecustomerresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCustomer
 
@@ -114,7 +114,7 @@ func main() {
 **[*operations.GetCustomerResponse](../../models/operations/getcustomerresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLoggedInCustomer
 
@@ -161,7 +161,7 @@ func main() {
 **[*operations.GetLoggedInCustomerResponse](../../models/operations/getloggedincustomerresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListUsers
 
@@ -212,7 +212,7 @@ func main() {
 **[*operations.ListUsersResponse](../../models/operations/listusersresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateCustomer
 
@@ -264,4 +264,4 @@ func main() {
 **[*operations.UpdateCustomerResponse](../../models/operations/updatecustomerresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

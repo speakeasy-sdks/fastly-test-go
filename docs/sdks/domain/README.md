@@ -67,7 +67,7 @@ func main() {
 **[*operations.CheckDomainResponse](../../models/operations/checkdomainresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CheckDomains
 
@@ -119,7 +119,7 @@ func main() {
 **[*operations.CheckDomainsResponse](../../models/operations/checkdomainsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateDomain
 
@@ -175,7 +175,7 @@ func main() {
 **[*operations.CreateDomainResponse](../../models/operations/createdomainresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteDomain
 
@@ -228,7 +228,7 @@ func main() {
 **[*operations.DeleteDomainResponse](../../models/operations/deletedomainresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetDomain
 
@@ -281,7 +281,7 @@ func main() {
 **[*operations.GetDomainResponse](../../models/operations/getdomainresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListDomains
 
@@ -333,7 +333,7 @@ func main() {
 **[*operations.ListDomainsResponse](../../models/operations/listdomainsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateDomain
 
@@ -390,4 +390,4 @@ func main() {
 **[*operations.UpdateDomainResponse](../../models/operations/updatedomainresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

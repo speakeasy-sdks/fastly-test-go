@@ -68,7 +68,7 @@ func main() {
 **[*operations.CreateResourceResponse](../../models/operations/createresourceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteResource
 
@@ -121,7 +121,7 @@ func main() {
 **[*operations.DeleteResourceResponse](../../models/operations/deleteresourceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetResource
 
@@ -174,7 +174,7 @@ func main() {
 **[*operations.GetResourceResponse](../../models/operations/getresourceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListResources
 
@@ -226,7 +226,7 @@ func main() {
 **[*operations.ListResourcesResponse](../../models/operations/listresourcesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateResource
 
@@ -283,4 +283,4 @@ func main() {
 **[*operations.UpdateResourceResponse](../../models/operations/updateresourceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

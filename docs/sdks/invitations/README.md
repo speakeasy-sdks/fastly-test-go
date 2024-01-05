@@ -78,7 +78,7 @@ func main() {
 **[*operations.CreateInvitationResponse](../../models/operations/createinvitationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteInvitation
 
@@ -130,7 +130,7 @@ func main() {
 **[*operations.DeleteInvitationResponse](../../models/operations/deleteinvitationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListInvitations
 
@@ -182,4 +182,4 @@ func main() {
 **[*operations.ListInvitationsResponse](../../models/operations/listinvitationsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

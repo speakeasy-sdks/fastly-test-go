@@ -71,7 +71,7 @@ func main() {
 **[*operations.CreateHealthcheckResponse](../../models/operations/createhealthcheckresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteHealthcheck
 
@@ -124,7 +124,7 @@ func main() {
 **[*operations.DeleteHealthcheckResponse](../../models/operations/deletehealthcheckresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHealthcheck
 
@@ -177,7 +177,7 @@ func main() {
 **[*operations.GetHealthcheckResponse](../../models/operations/gethealthcheckresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListHealthchecks
 
@@ -229,7 +229,7 @@ func main() {
 **[*operations.ListHealthchecksResponse](../../models/operations/listhealthchecksresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateHealthcheck
 
@@ -289,4 +289,4 @@ func main() {
 **[*operations.UpdateHealthcheckResponse](../../models/operations/updatehealthcheckresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

@@ -63,7 +63,7 @@ func main() {
 **[*operations.DeleteAServiceGroupResponse](../../models/operations/deleteaservicegroupresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetAServiceGroup
 
@@ -114,7 +114,7 @@ func main() {
 **[*operations.GetAServiceGroupResponse](../../models/operations/getaservicegroupresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServiceGroupServices
 
@@ -167,7 +167,7 @@ func main() {
 **[*operations.ListServiceGroupServicesResponse](../../models/operations/listservicegroupservicesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServiceGroups
 
@@ -219,4 +219,4 @@ func main() {
 **[*operations.ListServiceGroupsResponse](../../models/operations/listservicegroupsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

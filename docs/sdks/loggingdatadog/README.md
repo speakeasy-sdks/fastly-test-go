@@ -70,7 +70,7 @@ func main() {
 **[*operations.CreateLogDatadogResponse](../../models/operations/createlogdatadogresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogDatadog
 
@@ -123,7 +123,7 @@ func main() {
 **[*operations.DeleteLogDatadogResponse](../../models/operations/deletelogdatadogresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogDatadog
 
@@ -176,7 +176,7 @@ func main() {
 **[*operations.GetLogDatadogResponse](../../models/operations/getlogdatadogresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogDatadog
 
@@ -228,7 +228,7 @@ func main() {
 **[*operations.ListLogDatadogResponse](../../models/operations/listlogdatadogresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogDatadog
 
@@ -287,4 +287,4 @@ func main() {
 **[*operations.UpdateLogDatadogResponse](../../models/operations/updatelogdatadogresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

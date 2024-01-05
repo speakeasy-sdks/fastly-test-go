@@ -70,7 +70,7 @@ func main() {
 **[*operations.CreateLogNewrelicResponse](../../models/operations/createlognewrelicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogNewrelic
 
@@ -123,7 +123,7 @@ func main() {
 **[*operations.DeleteLogNewrelicResponse](../../models/operations/deletelognewrelicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogNewrelic
 
@@ -176,7 +176,7 @@ func main() {
 **[*operations.GetLogNewrelicResponse](../../models/operations/getlognewrelicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogNewrelic
 
@@ -228,7 +228,7 @@ func main() {
 **[*operations.ListLogNewrelicResponse](../../models/operations/listlognewrelicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogNewrelic
 
@@ -287,4 +287,4 @@ func main() {
 **[*operations.UpdateLogNewrelicResponse](../../models/operations/updatelognewrelicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

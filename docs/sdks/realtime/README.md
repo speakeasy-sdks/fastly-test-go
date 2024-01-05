@@ -61,7 +61,7 @@ func main() {
 **[*operations.GetStatsLast120SecondsResponse](../../models/operations/getstatslast120secondsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetStatsLast120SecondsLimitEntries
 
@@ -113,7 +113,7 @@ func main() {
 **[*operations.GetStatsLast120SecondsLimitEntriesResponse](../../models/operations/getstatslast120secondslimitentriesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetStatsLastSecond
 
@@ -165,4 +165,4 @@ func main() {
 **[*operations.GetStatsLastSecondResponse](../../models/operations/getstatslastsecondresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

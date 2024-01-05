@@ -78,7 +78,7 @@ func main() {
 **[*operations.CreateLogAwsS3Response](../../models/operations/createlogawss3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogAwsS3
 
@@ -131,7 +131,7 @@ func main() {
 **[*operations.DeleteLogAwsS3Response](../../models/operations/deletelogawss3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogAwsS3
 
@@ -184,7 +184,7 @@ func main() {
 **[*operations.GetLogAwsS3Response](../../models/operations/getlogawss3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogAwsS3
 
@@ -236,7 +236,7 @@ func main() {
 **[*operations.ListLogAwsS3Response](../../models/operations/listlogawss3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogAwsS3
 
@@ -303,4 +303,4 @@ func main() {
 **[*operations.UpdateLogAwsS3Response](../../models/operations/updatelogawss3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

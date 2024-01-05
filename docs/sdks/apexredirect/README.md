@@ -62,7 +62,7 @@ func main() {
 **[*operations.DeleteApexRedirectResponse](../../models/operations/deleteapexredirectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetApexRedirect
 
@@ -113,7 +113,7 @@ func main() {
 **[*operations.GetApexRedirectResponse](../../models/operations/getapexredirectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListApexRedirects
 
@@ -165,7 +165,7 @@ func main() {
 **[*operations.ListApexRedirectsResponse](../../models/operations/listapexredirectsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateApexRedirect
 
@@ -221,4 +221,4 @@ func main() {
 **[*operations.UpdateApexRedirectResponse](../../models/operations/updateapexredirectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

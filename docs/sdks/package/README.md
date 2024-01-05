@@ -62,7 +62,7 @@ func main() {
 **[*operations.GetPackageResponse](../../models/operations/getpackageresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## PutPackage
 
@@ -120,4 +120,4 @@ func main() {
 **[*operations.PutPackageResponse](../../models/operations/putpackageresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

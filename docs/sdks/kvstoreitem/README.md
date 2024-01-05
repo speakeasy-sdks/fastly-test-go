@@ -64,7 +64,7 @@ func main() {
 **[*operations.DeleteKeyFromStoreResponse](../../models/operations/deletekeyfromstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetKeys
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.GetKeysResponse](../../models/operations/getkeysresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetValueForKey
 
@@ -167,7 +167,7 @@ func main() {
 **[*operations.GetValueForKeyResponse](../../models/operations/getvalueforkeyresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## SetValueForKey
 
@@ -219,4 +219,4 @@ func main() {
 **[*operations.SetValueForKeyResponse](../../models/operations/setvalueforkeyresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

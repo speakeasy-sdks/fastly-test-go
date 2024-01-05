@@ -70,7 +70,7 @@ func main() {
 **[*operations.CreateHeaderObjectResponse](../../models/operations/createheaderobjectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteHeaderObject
 
@@ -123,7 +123,7 @@ func main() {
 **[*operations.DeleteHeaderObjectResponse](../../models/operations/deleteheaderobjectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHeaderObject
 
@@ -176,7 +176,7 @@ func main() {
 **[*operations.GetHeaderObjectResponse](../../models/operations/getheaderobjectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListHeaderObjects
 
@@ -228,7 +228,7 @@ func main() {
 **[*operations.ListHeaderObjectsResponse](../../models/operations/listheaderobjectsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateHeaderObject
 
@@ -287,4 +287,4 @@ func main() {
 **[*operations.UpdateHeaderObjectResponse](../../models/operations/updateheaderobjectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

@@ -63,7 +63,7 @@ func main() {
 **[*operations.DisableProductResponse](../../models/operations/disableproductresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## EnableProduct
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.EnableProductResponse](../../models/operations/enableproductresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetEnabledProduct
 
@@ -167,4 +167,4 @@ func main() {
 **[*operations.GetEnabledProductResponse](../../models/operations/getenabledproductresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

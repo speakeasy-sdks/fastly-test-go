@@ -67,7 +67,7 @@ func main() {
 **[*operations.CreateServiceResponse](../../models/operations/createserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteService
 
@@ -118,7 +118,7 @@ func main() {
 **[*operations.DeleteServiceResponse](../../models/operations/deleteserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetService
 
@@ -169,7 +169,7 @@ func main() {
 **[*operations.GetServiceResponse](../../models/operations/getserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetServiceDetail
 
@@ -221,7 +221,7 @@ func main() {
 **[*operations.GetServiceDetailResponse](../../models/operations/getservicedetailresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServiceDomains
 
@@ -272,7 +272,7 @@ func main() {
 **[*operations.ListServiceDomainsResponse](../../models/operations/listservicedomainsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServices
 
@@ -326,7 +326,7 @@ func main() {
 **[*operations.ListServicesResponse](../../models/operations/listservicesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## SearchService
 
@@ -377,7 +377,7 @@ func main() {
 **[*operations.SearchServiceResponse](../../models/operations/searchserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateService
 
@@ -433,4 +433,4 @@ func main() {
 **[*operations.UpdateServiceResponse](../../models/operations/updateserviceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

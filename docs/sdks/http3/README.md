@@ -63,7 +63,7 @@ func main() {
 **[*operations.CreateHttp3Response](../../models/operations/createhttp3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteHttp3
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.DeleteHttp3Response](../../models/operations/deletehttp3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetHttp3
 
@@ -167,4 +167,4 @@ func main() {
 **[*operations.GetHttp3Response](../../models/operations/gethttp3response.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

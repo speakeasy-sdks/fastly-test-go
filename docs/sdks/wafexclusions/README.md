@@ -83,7 +83,7 @@ func main() {
 **[*operations.CreateWafRuleExclusionResponse](../../models/operations/createwafruleexclusionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~DeleteWafRuleExclusion~~
 
@@ -139,7 +139,7 @@ func main() {
 **[*operations.DeleteWafRuleExclusionResponse](../../models/operations/deletewafruleexclusionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~GetWafRuleExclusion~~
 
@@ -194,7 +194,7 @@ func main() {
 **[*operations.GetWafRuleExclusionResponse](../../models/operations/getwafruleexclusionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~ListWafRuleExclusions~~
 
@@ -251,7 +251,7 @@ func main() {
 **[*operations.ListWafRuleExclusionsResponse](../../models/operations/listwafruleexclusionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~UpdateWafRuleExclusion~~
 
@@ -322,4 +322,4 @@ func main() {
 **[*operations.UpdateWafRuleExclusionResponse](../../models/operations/updatewafruleexclusionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

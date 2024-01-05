@@ -63,7 +63,7 @@ func main() {
 **[*operations.DeleteResponseObjectResponse](../../models/operations/deleteresponseobjectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetResponseObject
 
@@ -116,7 +116,7 @@ func main() {
 **[*operations.GetResponseObjectResponse](../../models/operations/getresponseobjectresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListResponseObjects
 
@@ -168,4 +168,4 @@ func main() {
 **[*operations.ListResponseObjectsResponse](../../models/operations/listresponseobjectsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

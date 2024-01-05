@@ -61,7 +61,7 @@ func main() {
 **[*operations.DeleteContactResponse](../../models/operations/deletecontactresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListContacts
 
@@ -112,4 +112,4 @@ func main() {
 **[*operations.ListContactsResponse](../../models/operations/listcontactsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

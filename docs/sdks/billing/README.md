@@ -62,7 +62,7 @@ func main() {
 **[*operations.GetInvoiceResponse](../../models/operations/getinvoiceresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetInvoiceByID
 
@@ -114,7 +114,7 @@ func main() {
 **[*operations.GetInvoiceByIDResponse](../../models/operations/getinvoicebyidresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetInvoiceMtd
 
@@ -167,4 +167,4 @@ func main() {
 **[*operations.GetInvoiceMtdResponse](../../models/operations/getinvoicemtdresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

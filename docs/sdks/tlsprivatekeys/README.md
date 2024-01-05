@@ -72,7 +72,7 @@ func main() {
 **[*operations.CreateTLSKeyResponse](../../models/operations/createtlskeyresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteTLSKey
 
@@ -124,7 +124,7 @@ func main() {
 **[*operations.DeleteTLSKeyResponse](../../models/operations/deletetlskeyresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetTLSKey
 
@@ -175,7 +175,7 @@ func main() {
 **[*operations.GetTLSKeyResponse](../../models/operations/gettlskeyresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListTLSKeys
 
@@ -227,4 +227,4 @@ func main() {
 **[*operations.ListTLSKeysResponse](../../models/operations/listtlskeysresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

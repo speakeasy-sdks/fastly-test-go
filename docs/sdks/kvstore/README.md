@@ -62,7 +62,7 @@ func main() {
 **[*operations.CreateStoreResponse](../../models/operations/createstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteStore
 
@@ -114,7 +114,7 @@ func main() {
 **[*operations.DeleteStoreResponse](../../models/operations/deletestoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetStore
 
@@ -165,7 +165,7 @@ func main() {
 **[*operations.GetStoreResponse](../../models/operations/getstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetStores
 
@@ -214,4 +214,4 @@ func main() {
 **[*operations.GetStoresResponse](../../models/operations/getstoresresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

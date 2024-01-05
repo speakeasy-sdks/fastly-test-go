@@ -65,7 +65,7 @@ func main() {
 **[*operations.DeleteAUserGroupResponse](../../models/operations/deleteausergroupresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetAUserGroup
 
@@ -116,7 +116,7 @@ func main() {
 **[*operations.GetAUserGroupResponse](../../models/operations/getausergroupresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListUserGroupMembers
 
@@ -169,7 +169,7 @@ func main() {
 **[*operations.ListUserGroupMembersResponse](../../models/operations/listusergroupmembersresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListUserGroupRoles
 
@@ -222,7 +222,7 @@ func main() {
 **[*operations.ListUserGroupRolesResponse](../../models/operations/listusergrouprolesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListUserGroupServiceGroups
 
@@ -275,7 +275,7 @@ func main() {
 **[*operations.ListUserGroupServiceGroupsResponse](../../models/operations/listusergroupservicegroupsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListUserGroups
 
@@ -327,4 +327,4 @@ func main() {
 **[*operations.ListUserGroupsResponse](../../models/operations/listusergroupsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

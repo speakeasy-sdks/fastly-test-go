@@ -76,7 +76,7 @@ func main() {
 **[*operations.CreateTLSActivationResponse](../../models/operations/createtlsactivationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteTLSActivation
 
@@ -128,7 +128,7 @@ func main() {
 **[*operations.DeleteTLSActivationResponse](../../models/operations/deletetlsactivationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetTLSActivation
 
@@ -180,7 +180,7 @@ func main() {
 **[*operations.GetTLSActivationResponse](../../models/operations/gettlsactivationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListTLSActivations
 
@@ -233,7 +233,7 @@ func main() {
 **[*operations.ListTLSActivationsResponse](../../models/operations/listtlsactivationsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateTLSActivation
 
@@ -298,4 +298,4 @@ func main() {
 **[*operations.UpdateTLSActivationResponse](../../models/operations/updatetlsactivationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

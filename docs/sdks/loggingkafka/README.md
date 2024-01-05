@@ -70,7 +70,7 @@ func main() {
 **[*operations.CreateLogKafkaResponse](../../models/operations/createlogkafkaresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogKafka
 
@@ -123,7 +123,7 @@ func main() {
 **[*operations.DeleteLogKafkaResponse](../../models/operations/deletelogkafkaresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogKafka
 
@@ -176,7 +176,7 @@ func main() {
 **[*operations.GetLogKafkaResponse](../../models/operations/getlogkafkaresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogKafka
 
@@ -228,4 +228,4 @@ func main() {
 **[*operations.ListLogKafkaResponse](../../models/operations/listlogkafkaresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

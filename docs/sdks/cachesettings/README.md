@@ -68,7 +68,7 @@ func main() {
 **[*operations.CreateCacheSettingsResponse](../../models/operations/createcachesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteCacheSettings
 
@@ -121,7 +121,7 @@ func main() {
 **[*operations.DeleteCacheSettingsResponse](../../models/operations/deletecachesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCacheSettings
 
@@ -174,7 +174,7 @@ func main() {
 **[*operations.GetCacheSettingsResponse](../../models/operations/getcachesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListCacheSettings
 
@@ -226,7 +226,7 @@ func main() {
 **[*operations.ListCacheSettingsResponse](../../models/operations/listcachesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateCacheSettings
 
@@ -283,4 +283,4 @@ func main() {
 **[*operations.UpdateCacheSettingsResponse](../../models/operations/updatecachesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

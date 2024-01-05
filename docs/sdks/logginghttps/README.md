@@ -72,7 +72,7 @@ func main() {
 **[*operations.CreateLogHTTPSResponse](../../models/operations/createloghttpsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogHTTPS
 
@@ -125,7 +125,7 @@ func main() {
 **[*operations.DeleteLogHTTPSResponse](../../models/operations/deleteloghttpsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogHTTPS
 
@@ -178,7 +178,7 @@ func main() {
 **[*operations.GetLogHTTPSResponse](../../models/operations/getloghttpsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogHTTPS
 
@@ -230,7 +230,7 @@ func main() {
 **[*operations.ListLogHTTPSResponse](../../models/operations/listloghttpsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogHTTPS
 
@@ -291,4 +291,4 @@ func main() {
 **[*operations.UpdateLogHTTPSResponse](../../models/operations/updateloghttpsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

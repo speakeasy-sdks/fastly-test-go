@@ -74,7 +74,7 @@ func main() {
 **[*operations.BulkUpdateDictionaryItemResponse](../../models/operations/bulkupdatedictionaryitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateDictionaryItem
 
@@ -130,7 +130,7 @@ func main() {
 **[*operations.CreateDictionaryItemResponse](../../models/operations/createdictionaryitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteDictionaryItem
 
@@ -183,7 +183,7 @@ func main() {
 **[*operations.DeleteDictionaryItemResponse](../../models/operations/deletedictionaryitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetDictionaryItem
 
@@ -236,7 +236,7 @@ func main() {
 **[*operations.GetDictionaryItemResponse](../../models/operations/getdictionaryitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListDictionaryItems
 
@@ -292,7 +292,7 @@ func main() {
 **[*operations.ListDictionaryItemsResponse](../../models/operations/listdictionaryitemsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateDictionaryItem
 
@@ -349,7 +349,7 @@ func main() {
 **[*operations.UpdateDictionaryItemResponse](../../models/operations/updatedictionaryitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpsertDictionaryItem
 
@@ -406,4 +406,4 @@ func main() {
 **[*operations.UpsertDictionaryItemResponse](../../models/operations/upsertdictionaryitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

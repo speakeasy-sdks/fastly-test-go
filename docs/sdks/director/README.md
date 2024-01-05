@@ -73,7 +73,7 @@ func main() {
 **[*operations.CreateDirectorResponse](../../models/operations/createdirectorresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteDirector
 
@@ -126,7 +126,7 @@ func main() {
 **[*operations.DeleteDirectorResponse](../../models/operations/deletedirectorresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetDirector
 
@@ -179,7 +179,7 @@ func main() {
 **[*operations.GetDirectorResponse](../../models/operations/getdirectorresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListDirectors
 
@@ -231,4 +231,4 @@ func main() {
 **[*operations.ListDirectorsResponse](../../models/operations/listdirectorsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

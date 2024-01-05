@@ -72,7 +72,7 @@ func main() {
 **[*operations.CreateServiceAuthorizationResponse](../../models/operations/createserviceauthorizationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteServiceAuthorization
 
@@ -124,7 +124,7 @@ func main() {
 **[*operations.DeleteServiceAuthorizationResponse](../../models/operations/deleteserviceauthorizationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServiceAuthorization
 
@@ -176,7 +176,7 @@ func main() {
 **[*operations.ListServiceAuthorizationResponse](../../models/operations/listserviceauthorizationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ShowServiceAuthorization
 
@@ -227,7 +227,7 @@ func main() {
 **[*operations.ShowServiceAuthorizationResponse](../../models/operations/showserviceauthorizationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateServiceAuthorization
 
@@ -291,4 +291,4 @@ func main() {
 **[*operations.UpdateServiceAuthorizationResponse](../../models/operations/updateserviceauthorizationresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

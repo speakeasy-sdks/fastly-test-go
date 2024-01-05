@@ -61,7 +61,7 @@ func main() {
 **[*operations.DeleteRateLimiterResponse](../../models/operations/deleteratelimiterresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetRateLimiter
 
@@ -112,7 +112,7 @@ func main() {
 **[*operations.GetRateLimiterResponse](../../models/operations/getratelimiterresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListRateLimiters
 
@@ -164,4 +164,4 @@ func main() {
 **[*operations.ListRateLimitersResponse](../../models/operations/listratelimitersresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

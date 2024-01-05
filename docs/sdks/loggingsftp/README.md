@@ -79,7 +79,7 @@ func main() {
 **[*operations.CreateLogSftpResponse](../../models/operations/createlogsftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogSftp
 
@@ -132,7 +132,7 @@ func main() {
 **[*operations.DeleteLogSftpResponse](../../models/operations/deletelogsftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogSftp
 
@@ -185,7 +185,7 @@ func main() {
 **[*operations.GetLogSftpResponse](../../models/operations/getlogsftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogSftp
 
@@ -237,7 +237,7 @@ func main() {
 **[*operations.ListLogSftpResponse](../../models/operations/listlogsftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogSftp
 
@@ -305,4 +305,4 @@ func main() {
 **[*operations.UpdateLogSftpResponse](../../models/operations/updatelogsftpresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

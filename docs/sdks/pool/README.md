@@ -69,7 +69,7 @@ func main() {
 **[*operations.CreateServerPoolResponse](../../models/operations/createserverpoolresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteServerPool
 
@@ -122,7 +122,7 @@ func main() {
 **[*operations.DeleteServerPoolResponse](../../models/operations/deleteserverpoolresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetServerPool
 
@@ -175,7 +175,7 @@ func main() {
 **[*operations.GetServerPoolResponse](../../models/operations/getserverpoolresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServerPools
 
@@ -227,7 +227,7 @@ func main() {
 **[*operations.ListServerPoolsResponse](../../models/operations/listserverpoolsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateServerPool
 
@@ -285,4 +285,4 @@ func main() {
 **[*operations.UpdateServerPoolResponse](../../models/operations/updateserverpoolresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

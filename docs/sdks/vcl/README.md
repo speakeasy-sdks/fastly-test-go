@@ -71,7 +71,7 @@ func main() {
 **[*operations.CreateCustomVclResponse](../../models/operations/createcustomvclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteCustomVcl
 
@@ -124,7 +124,7 @@ func main() {
 **[*operations.DeleteCustomVclResponse](../../models/operations/deletecustomvclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCustomVcl
 
@@ -177,7 +177,7 @@ func main() {
 **[*operations.GetCustomVclResponse](../../models/operations/getcustomvclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCustomVclBoilerplate
 
@@ -229,7 +229,7 @@ func main() {
 **[*operations.GetCustomVclBoilerplateResponse](../../models/operations/getcustomvclboilerplateresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCustomVclGenerated
 
@@ -281,7 +281,7 @@ func main() {
 **[*operations.GetCustomVclGeneratedResponse](../../models/operations/getcustomvclgeneratedresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetCustomVclRaw
 
@@ -334,7 +334,7 @@ func main() {
 **[*operations.GetCustomVclRawResponse](../../models/operations/getcustomvclrawresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListCustomVcl
 
@@ -386,7 +386,7 @@ func main() {
 **[*operations.ListCustomVclResponse](../../models/operations/listcustomvclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## SetCustomVclMain
 
@@ -439,7 +439,7 @@ func main() {
 **[*operations.SetCustomVclMainResponse](../../models/operations/setcustomvclmainresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateCustomVcl
 
@@ -495,4 +495,4 @@ func main() {
 **[*operations.UpdateCustomVclResponse](../../models/operations/updatecustomvclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

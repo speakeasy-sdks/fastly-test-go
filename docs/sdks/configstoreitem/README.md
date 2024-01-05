@@ -73,7 +73,7 @@ func main() {
 **[*operations.BulkUpdateConfigStoreItemResponse](../../models/operations/bulkupdateconfigstoreitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateConfigStoreItem
 
@@ -128,7 +128,7 @@ func main() {
 **[*operations.CreateConfigStoreItemResponse](../../models/operations/createconfigstoreitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteConfigStoreItem
 
@@ -180,7 +180,7 @@ func main() {
 **[*operations.DeleteConfigStoreItemResponse](../../models/operations/deleteconfigstoreitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetConfigStoreItem
 
@@ -232,7 +232,7 @@ func main() {
 **[*operations.GetConfigStoreItemResponse](../../models/operations/getconfigstoreitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListConfigStoreItems
 
@@ -283,7 +283,7 @@ func main() {
 **[*operations.ListConfigStoreItemsResponse](../../models/operations/listconfigstoreitemsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateConfigStoreItem
 
@@ -339,7 +339,7 @@ func main() {
 **[*operations.UpdateConfigStoreItemResponse](../../models/operations/updateconfigstoreitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpsertConfigStoreItem
 
@@ -395,4 +395,4 @@ func main() {
 **[*operations.UpsertConfigStoreItemResponse](../../models/operations/upsertconfigstoreitemresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

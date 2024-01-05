@@ -67,7 +67,7 @@ func main() {
 **[*operations.CreateWafFirewallResponse](../../models/operations/createwaffirewallresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~DeleteWafFirewall~~
 
@@ -127,7 +127,7 @@ func main() {
 **[*operations.DeleteWafFirewallResponse](../../models/operations/deletewaffirewallresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~GetWafFirewall~~
 
@@ -180,7 +180,7 @@ func main() {
 **[*operations.GetWafFirewallResponse](../../models/operations/getwaffirewallresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~ListWafFirewalls~~
 
@@ -234,7 +234,7 @@ func main() {
 **[*operations.ListWafFirewallsResponse](../../models/operations/listwaffirewallsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~UpdateWafFirewall~~
 
@@ -293,4 +293,4 @@ func main() {
 **[*operations.UpdateWafFirewallResponse](../../models/operations/updatewaffirewallresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

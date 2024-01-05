@@ -68,7 +68,7 @@ func main() {
 **[*operations.ActivateServiceVersionResponse](../../models/operations/activateserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CloneServiceVersion
 
@@ -120,7 +120,7 @@ func main() {
 **[*operations.CloneServiceVersionResponse](../../models/operations/cloneserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## CreateServiceVersion
 
@@ -171,7 +171,7 @@ func main() {
 **[*operations.CreateServiceVersionResponse](../../models/operations/createserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeactivateServiceVersion
 
@@ -223,7 +223,7 @@ func main() {
 **[*operations.DeactivateServiceVersionResponse](../../models/operations/deactivateserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetServiceVersion
 
@@ -275,7 +275,7 @@ func main() {
 **[*operations.GetServiceVersionResponse](../../models/operations/getserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListServiceVersions
 
@@ -326,7 +326,7 @@ func main() {
 **[*operations.ListServiceVersionsResponse](../../models/operations/listserviceversionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## LockServiceVersion
 
@@ -378,7 +378,7 @@ func main() {
 **[*operations.LockServiceVersionResponse](../../models/operations/lockserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateServiceVersion
 
@@ -433,7 +433,7 @@ func main() {
 **[*operations.UpdateServiceVersionResponse](../../models/operations/updateserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ValidateServiceVersion
 
@@ -485,4 +485,4 @@ func main() {
 **[*operations.ValidateServiceVersionResponse](../../models/operations/validateserviceversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

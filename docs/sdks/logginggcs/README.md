@@ -85,7 +85,7 @@ func main() {
 **[*operations.CreateLogGcsResponse](../../models/operations/createloggcsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteLogGcs
 
@@ -138,7 +138,7 @@ func main() {
 **[*operations.DeleteLogGcsResponse](../../models/operations/deleteloggcsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetLogGcs
 
@@ -191,7 +191,7 @@ func main() {
 **[*operations.GetLogGcsResponse](../../models/operations/getloggcsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListLogGcs
 
@@ -243,7 +243,7 @@ func main() {
 **[*operations.ListLogGcsResponse](../../models/operations/listloggcsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateLogGcs
 
@@ -317,4 +317,4 @@ func main() {
 **[*operations.UpdateLogGcsResponse](../../models/operations/updateloggcsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

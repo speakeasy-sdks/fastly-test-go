@@ -61,7 +61,7 @@ func main() {
 **[*operations.GetServiceSettingsResponse](../../models/operations/getservicesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateServiceSettings
 
@@ -115,4 +115,4 @@ func main() {
 **[*operations.UpdateServiceSettingsResponse](../../models/operations/updateservicesettingsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

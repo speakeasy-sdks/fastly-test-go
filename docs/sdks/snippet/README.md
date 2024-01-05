@@ -69,7 +69,7 @@ func main() {
 **[*operations.CreateSnippetResponse](../../models/operations/createsnippetresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteSnippet
 
@@ -122,7 +122,7 @@ func main() {
 **[*operations.DeleteSnippetResponse](../../models/operations/deletesnippetresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetSnippet
 
@@ -175,7 +175,7 @@ func main() {
 **[*operations.GetSnippetResponse](../../models/operations/getsnippetresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetSnippetDynamic
 
@@ -227,7 +227,7 @@ func main() {
 **[*operations.GetSnippetDynamicResponse](../../models/operations/getsnippetdynamicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListSnippets
 
@@ -279,7 +279,7 @@ func main() {
 **[*operations.ListSnippetsResponse](../../models/operations/listsnippetsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateSnippetDynamic
 
@@ -335,4 +335,4 @@ func main() {
 **[*operations.UpdateSnippetDynamicResponse](../../models/operations/updatesnippetdynamicresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

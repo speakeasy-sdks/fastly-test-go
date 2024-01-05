@@ -67,7 +67,7 @@ func main() {
 **[*operations.CreateACLResponse](../../models/operations/createaclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteACL
 
@@ -120,7 +120,7 @@ func main() {
 **[*operations.DeleteACLResponse](../../models/operations/deleteaclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetACL
 
@@ -173,7 +173,7 @@ func main() {
 **[*operations.GetACLResponse](../../models/operations/getaclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListAcls
 
@@ -225,7 +225,7 @@ func main() {
 **[*operations.ListAclsResponse](../../models/operations/listaclsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateACL
 
@@ -281,4 +281,4 @@ func main() {
 **[*operations.UpdateACLResponse](../../models/operations/updateaclresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

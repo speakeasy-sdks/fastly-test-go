@@ -64,7 +64,7 @@ func main() {
 **[*operations.PurgeAllResponse](../../models/operations/purgeallresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## PurgeSingleURL
 
@@ -116,7 +116,7 @@ func main() {
 **[*operations.PurgeSingleURLResponse](../../models/operations/purgesingleurlresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## PurgeTag
 
@@ -169,4 +169,4 @@ func main() {
 **[*operations.PurgeTagResponse](../../models/operations/purgetagresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

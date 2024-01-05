@@ -68,7 +68,7 @@ func main() {
 **[*operations.CreateBackendResponse](../../models/operations/createbackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteBackend
 
@@ -121,7 +121,7 @@ func main() {
 **[*operations.DeleteBackendResponse](../../models/operations/deletebackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetBackend
 
@@ -174,7 +174,7 @@ func main() {
 **[*operations.GetBackendResponse](../../models/operations/getbackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListBackends
 
@@ -226,7 +226,7 @@ func main() {
 **[*operations.ListBackendsResponse](../../models/operations/listbackendsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateBackend
 
@@ -283,4 +283,4 @@ func main() {
 **[*operations.UpdateBackendResponse](../../models/operations/updatebackendresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

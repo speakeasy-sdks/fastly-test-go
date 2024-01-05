@@ -64,7 +64,7 @@ func main() {
 **[*operations.CreateConfigStoreResponse](../../models/operations/createconfigstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteConfigStore
 
@@ -115,7 +115,7 @@ func main() {
 **[*operations.DeleteConfigStoreResponse](../../models/operations/deleteconfigstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetConfigStore
 
@@ -166,7 +166,7 @@ func main() {
 **[*operations.GetConfigStoreResponse](../../models/operations/getconfigstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetConfigStoreInfo
 
@@ -217,7 +217,7 @@ func main() {
 **[*operations.GetConfigStoreInfoResponse](../../models/operations/getconfigstoreinforesponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListConfigStoreServices
 
@@ -268,7 +268,7 @@ func main() {
 **[*operations.ListConfigStoreServicesResponse](../../models/operations/listconfigstoreservicesresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListConfigStores
 
@@ -315,7 +315,7 @@ func main() {
 **[*operations.ListConfigStoresResponse](../../models/operations/listconfigstoresresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateConfigStore
 
@@ -369,4 +369,4 @@ func main() {
 **[*operations.UpdateConfigStoreResponse](../../models/operations/updateconfigstoreresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

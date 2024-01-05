@@ -68,7 +68,7 @@ func main() {
 **[*operations.CreateGzipConfigResponse](../../models/operations/creategzipconfigresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## DeleteGzipConfig
 
@@ -121,7 +121,7 @@ func main() {
 **[*operations.DeleteGzipConfigResponse](../../models/operations/deletegzipconfigresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetGzipConfigs
 
@@ -174,7 +174,7 @@ func main() {
 **[*operations.GetGzipConfigsResponse](../../models/operations/getgzipconfigsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ListGzipConfigs
 
@@ -226,7 +226,7 @@ func main() {
 **[*operations.ListGzipConfigsResponse](../../models/operations/listgzipconfigsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateGzipConfig
 
@@ -283,4 +283,4 @@ func main() {
 **[*operations.UpdateGzipConfigResponse](../../models/operations/updategzipconfigresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

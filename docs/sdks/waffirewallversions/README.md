@@ -67,7 +67,7 @@ func main() {
 **[*operations.CloneWafFirewallVersionResponse](../../models/operations/clonewaffirewallversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~CreateWafFirewallVersion~~
 
@@ -127,7 +127,7 @@ func main() {
 **[*operations.CreateWafFirewallVersionResponse](../../models/operations/createwaffirewallversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~DeployActivateWafFirewallVersion~~
 
@@ -181,7 +181,7 @@ func main() {
 **[*operations.DeployActivateWafFirewallVersionResponse](../../models/operations/deployactivatewaffirewallversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~GetWafFirewallVersion~~
 
@@ -236,7 +236,7 @@ func main() {
 **[*operations.GetWafFirewallVersionResponse](../../models/operations/getwaffirewallversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~ListWafFirewallVersions~~
 
@@ -292,7 +292,7 @@ func main() {
 **[*operations.ListWafFirewallVersionsResponse](../../models/operations/listwaffirewallversionsresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## ~~UpdateWafFirewallVersion~~
 
@@ -353,4 +353,4 @@ func main() {
 **[*operations.UpdateWafFirewallVersionResponse](../../models/operations/updatewaffirewallversionresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |

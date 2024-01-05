@@ -76,7 +76,7 @@ func main() {
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | sdkerrors.BillingAddressVerificationErrorResponse | 400                                               | application/vnd.api+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
 
 ## DeleteBillingAddr
 
@@ -128,7 +128,7 @@ func main() {
 **[*operations.DeleteBillingAddrResponse](../../models/operations/deletebillingaddrresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## GetBillingAddr
 
@@ -179,7 +179,7 @@ func main() {
 **[*operations.GetBillingAddrResponse](../../models/operations/getbillingaddrresponse.md), error**
 | Error Object       | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.SDKError | 400-600            | */*                |
+| sdkerrors.SDKError | 4xx-5xx            | */*                |
 
 ## UpdateBillingAddr
 
@@ -244,4 +244,4 @@ func main() {
 | Error Object                                      | Status Code                                       | Content Type                                      |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
 | sdkerrors.BillingAddressVerificationErrorResponse | 400                                               | application/vnd.api+json                          |
-| sdkerrors.SDKError                                | 400-600                                           | */*                                               |
+| sdkerrors.SDKError                                | 4xx-5xx                                           | */*                                               |
