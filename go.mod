@@ -1,4 +1,4 @@
-module github.com/speakeasy-sdks/fastly-test-go
+module github.com/speakeasy-sdks/fastly-test-go/v2
 
 go 1.20
 

@@ -25,10 +25,10 @@ Create a snippet for a particular service and version.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -81,10 +81,10 @@ Delete a specific snippet for a particular service and version.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -134,10 +134,10 @@ Get a single snippet for a particular service and version.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -187,10 +187,10 @@ Get a single dynamic snippet for a particular service.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -239,10 +239,10 @@ List all snippets for a particular service and version.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -291,10 +291,10 @@ Update a dynamic snippet for a particular service.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 

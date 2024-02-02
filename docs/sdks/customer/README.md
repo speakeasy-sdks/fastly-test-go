@@ -24,10 +24,10 @@ Delete a customer.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -75,10 +75,10 @@ Get a specific customer.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -126,8 +126,8 @@ Get the logged in customer.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
 	"log"
 )
@@ -173,10 +173,10 @@ List all users from a specified customer id.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -224,10 +224,10 @@ Update a customer.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 

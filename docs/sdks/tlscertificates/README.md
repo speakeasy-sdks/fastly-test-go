@@ -24,8 +24,8 @@ Create a TLS certificate.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
 	"log"
 )
@@ -83,10 +83,10 @@ Destroy a TLS certificate. TLS certificates already enabled for a domain cannot 
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 	"net/http"
 )
@@ -135,10 +135,10 @@ Show a TLS certificate.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -186,10 +186,10 @@ List all TLS certificates.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -238,10 +238,10 @@ Replace a TLS certificate with a newly reissued TLS certificate, or update a TLS
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 

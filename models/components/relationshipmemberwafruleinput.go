@@ -3,7 +3,7 @@
 package components
 
 import (
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
 )
 
 type RelationshipMemberWafRuleInput struct {

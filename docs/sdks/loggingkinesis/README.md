@@ -23,10 +23,10 @@ Create an Amazon Kinesis Data Streams logging object for a particular service an
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -80,10 +80,10 @@ Delete an Amazon Kinesis Data Streams logging object for a particular service an
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -133,10 +133,10 @@ Get the details for an Amazon Kinesis Data Streams logging object for a particul
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -186,10 +186,10 @@ List all of the Amazon Kinesis Data Streams logging objects for a particular ser
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 

@@ -5,8 +5,8 @@ package operations
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
 	"net/http"
 )
 

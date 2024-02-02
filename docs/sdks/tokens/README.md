@@ -24,8 +24,8 @@ Get a single token based on the access_token used in the request.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
 	"log"
 )
@@ -72,10 +72,10 @@ List all tokens belonging to a specific customer.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -123,8 +123,8 @@ List all tokens belonging to the authenticated user.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
 	"log"
 )
@@ -171,10 +171,10 @@ Revoke a specific token by its id.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 	"net/http"
 )
@@ -224,8 +224,8 @@ Revoke a token that is used to authenticate the request.
 package main
 
 import(
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
 	"context"
 	"log"
 	"net/http"

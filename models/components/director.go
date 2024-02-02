@@ -5,7 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
 )
 
 // DirectorType - What type of load balance group to use.

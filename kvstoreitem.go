@@ -6,9 +6,9 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
-	"github.com/speakeasy-sdks/fastly-test-go/models/sdkerrors"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/sdkerrors"
 	"io"
 	"net/http"
 )

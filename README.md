@@ -18,8 +18,8 @@ package main
 
 import (
 	"context"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
 	"log"
 )
 
@@ -795,10 +795,10 @@ package main
 import (
 	"context"
 	"errors"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
-	"github.com/speakeasy-sdks/fastly-test-go/models/sdkerrors"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/sdkerrors"
 	"log"
 )
 
@@ -864,9 +864,9 @@ package main
 
 import (
 	"context"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -900,9 +900,9 @@ package main
 
 import (
 	"context"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -978,8 +978,8 @@ package main
 
 import (
 	"context"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 
@@ -1011,9 +1011,9 @@ package main
 
 import (
 	"context"
-	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
-	"github.com/speakeasy-sdks/fastly-test-go/models/operations"
+	fastlytestgo "github.com/speakeasy-sdks/fastly-test-go/v2"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
 )
 

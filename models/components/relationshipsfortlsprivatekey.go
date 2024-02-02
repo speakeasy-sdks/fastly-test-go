@@ -4,7 +4,7 @@ package components
 
 import (
 	"errors"
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
 )
 
 type RelationshipsForTLSPrivateKeyType string

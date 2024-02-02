@@ -5,7 +5,7 @@ package components
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
 )
 
 // WafRuleRevisionResponseDataState - The state, indicating if the revision is the most recent version of the rule.

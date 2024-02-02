@@ -4,7 +4,7 @@ package sdkerrors
 
 import (
 	"encoding/json"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
 )
 
 type Errors struct {

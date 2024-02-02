@@ -5,8 +5,8 @@ package fastlytestgo
 import (
 	"context"
 	"fmt"
-	"github.com/speakeasy-sdks/fastly-test-go/internal/utils"
-	"github.com/speakeasy-sdks/fastly-test-go/models/components"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/internal/utils"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/models/components"
 	"net/http"
 	"time"
 )
@@ -543,9 +543,9 @@ func New(opts ...SDKOption) *SDK {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "1.5.3",
-			GenVersion:        "2.245.1",
-			UserAgent:         "speakeasy-sdk/go 1.5.3 2.245.1 1.0.0 github.com/speakeasy-sdks/fastly-test-go",
+			SDKVersion:        "2.0.0",
+			GenVersion:        "2.248.1",
+			UserAgent:         "speakeasy-sdk/go 2.0.0 2.248.1 1.0.0 github.com/speakeasy-sdks/fastly-test-go",
 		},
 	}
 	for _, opt := range opts {

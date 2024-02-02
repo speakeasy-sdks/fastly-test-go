@@ -13,7 +13,7 @@ import (
 
 	"github.com/ericlagergren/decimal"
 
-	"github.com/speakeasy-sdks/fastly-test-go/types"
+	"github.com/speakeasy-sdks/fastly-test-go/v2/types"
 )
 
 func GenerateURL(ctx context.Context, serverURL, path string, pathParams interface{}, globals map[string]map[string]map[string]interface{}) (string, error) {
