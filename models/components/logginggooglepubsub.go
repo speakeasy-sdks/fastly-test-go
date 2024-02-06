@@ -71,7 +71,7 @@ type LoggingGooglePubsub struct {
 	// The name of the Google Cloud Platform service account associated with the target log collection service. Not required if `user` and `secret_key` are provided.
 	AccountName *string `form:"name=account_name"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
+	Format *string `default:"%h %l %u %t \"%r\" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
 	FormatVersion *LoggingGooglePubsubFormatVersion `default:"2" form:"name=format_version"`

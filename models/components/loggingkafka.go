@@ -171,7 +171,7 @@ type LoggingKafka struct {
 	// The codec used for compression of your logs.
 	CompressionCodec *LoggingKafkaCompressionCodec `form:"name=compression_codec"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" form:"name=format"`
+	Format *string `default:"%h %l %u %t \"%r\" %&gt;s %b" form:"name=format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
 	FormatVersion *LoggingKafkaFormatVersion `default:"2" form:"name=format_version"`

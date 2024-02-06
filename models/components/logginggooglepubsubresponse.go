@@ -76,7 +76,7 @@ type LoggingGooglePubsubResponse struct {
 	// Date and time in ISO 8601 format.
 	DeletedAt *time.Time `json:"deleted_at,omitempty"`
 	// A Fastly [log format string](https://docs.fastly.com/en/guides/custom-log-formats).
-	Format *string `default:"%h %l %u %t "%r" %&gt;s %b" json:"format"`
+	Format *string `default:"%h %l %u %t \"%r\" %&gt;s %b" json:"format"`
 	// The version of the custom logging format used for the configured endpoint. The logging call gets placed by default in `vcl_log` if `format_version` is set to `2` and in `vcl_deliver` if `format_version` is set to `1`.
 	//
 	FormatVersion *LoggingGooglePubsubResponseFormatVersion `default:"2" json:"format_version"`
