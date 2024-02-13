@@ -34,27 +34,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Invitations.CreateInvitation(ctx, &components.Invitation{
-        Data: &components.InvitationData{
-            Attributes: &components.InvitationDataAttributes{
-                Role: components.RoleUserUser.ToPointer(),
-            },
-            Relationships: &components.RelationshipServiceInvitationsCreate{
-                ServiceInvitations: &components.RelationshipServiceInvitationsCreateServiceInvitations{
-                    Data: []components.ServiceInvitation{
-                        components.ServiceInvitation{
-                            Data: &components.ServiceInvitationData{
-                                Attributes: &components.ServiceInvitationDataAttributes{},
-                                Relationships: &components.ServiceInvitationDataRelationships{
-                                    Service: &components.RelationshipMemberServiceInput{},
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-        },
-    })
+    res, err := s.Invitations.CreateInvitation(ctx, &components.Invitation{})
     if err != nil {
         log.Fatal(err)
     }

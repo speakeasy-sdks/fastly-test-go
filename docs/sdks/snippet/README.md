@@ -40,10 +40,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Snippet.CreateSnippet(ctx, operations.CreateSnippetRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Snippet: &components.Snippet{
-            Name: fastlytestgo.String("test-snippet"),
-            Priority: fastlytestgo.String("10"),
-        },
         VersionID: 1,
     })
     if err != nil {
@@ -306,10 +302,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Snippet.UpdateSnippetDynamic(ctx, operations.UpdateSnippetDynamicRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Snippet: &components.Snippet{
-            Name: fastlytestgo.String("test-snippet"),
-            Priority: fastlytestgo.String("10"),
-        },
         SnippetID: "62Yd1WfiCBPENLloXfXmlO",
     })
     if err != nil {

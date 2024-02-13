@@ -41,16 +41,6 @@ func main() {
     ctx := context.Background()
     res, err := s.ACLEntry.BulkUpdateACLEntries(ctx, operations.BulkUpdateACLEntriesRequest{
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
-        BulkUpdateACLEntriesRequest: &components.BulkUpdateACLEntriesRequest{
-            Entries: []components.BulkUpdateACLEntry{
-                components.BulkUpdateACLEntry{
-                    Comment: fastlytestgo.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
-                    IP: fastlytestgo.String("127.0.0.1"),
-                    Negated: components.BulkUpdateACLEntryNegatedOne.ToPointer(),
-                    Subnet: fastlytestgo.Int64(8),
-                },
-            },
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
     if err != nil {
@@ -102,12 +92,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ACLEntry.CreateACLEntry(ctx, operations.CreateACLEntryRequest{
-        ACLEntry: &components.ACLEntry{
-            Comment: fastlytestgo.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
-            IP: fastlytestgo.String("127.0.0.1"),
-            Negated: components.NegatedOne.ToPointer(),
-            Subnet: fastlytestgo.Int64(8),
-        },
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
@@ -322,12 +306,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ACLEntry.UpdateACLEntry(ctx, operations.UpdateACLEntryRequest{
-        ACLEntry: &components.ACLEntry{
-            Comment: fastlytestgo.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
-            IP: fastlytestgo.String("127.0.0.1"),
-            Negated: components.NegatedZero.ToPointer(),
-            Subnet: fastlytestgo.Int64(8),
-        },
         ACLEntryID: "6yxNzlOpW1V7JfSwvLGtOc",
         ACLID: "6tUXdegLTf5BCig0zGFrU3",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",

@@ -39,11 +39,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.WafFirewalls.CreateWafFirewall(ctx, &components.WafFirewall{
-        Data: &components.WafFirewallData{
-            Attributes: &components.WafFirewallDataAttributes{},
-        },
-    })
+    res, err := s.WafFirewalls.CreateWafFirewall(ctx, &components.WafFirewall{})
     if err != nil {
         log.Fatal(err)
     }
@@ -98,11 +94,6 @@ func main() {
     ctx := context.Background()
     res, err := s.WafFirewalls.DeleteWafFirewall(ctx, operations.DeleteWafFirewallRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
-        WafFirewall: &components.WafFirewall{
-            Data: &components.WafFirewallData{
-                Attributes: &components.WafFirewallDataAttributes{},
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -264,11 +255,6 @@ func main() {
     ctx := context.Background()
     res, err := s.WafFirewalls.UpdateWafFirewall(ctx, operations.UpdateWafFirewallRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
-        WafFirewall: &components.WafFirewall{
-            Data: &components.WafFirewallData{
-                Attributes: &components.WafFirewallDataAttributes{},
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)

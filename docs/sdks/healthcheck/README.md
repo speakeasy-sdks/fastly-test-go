@@ -38,13 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Healthcheck.CreateHealthcheck(ctx, operations.CreateHealthcheckRequest{
-        Healthcheck: &components.Healthcheck{
-            Comment: fastlytestgo.String("The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients"),
-            Headers: []string{
-                "string",
-            },
-            Name: fastlytestgo.String("test-healthcheck"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -255,13 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Healthcheck.UpdateHealthcheck(ctx, operations.UpdateHealthcheckRequest{
-        Healthcheck: &components.Healthcheck{
-            Comment: fastlytestgo.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
-            Headers: []string{
-                "string",
-            },
-            Name: fastlytestgo.String("test-healthcheck"),
-        },
         HealthcheckName: "test-healthcheck",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

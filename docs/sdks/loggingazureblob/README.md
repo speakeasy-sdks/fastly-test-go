@@ -38,20 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.CreateLogAzure(ctx, operations.CreateLogAzureRequest{
-        LoggingAzureblob: &components.LoggingAzureblob{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.FormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.MessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.PlacementWafDebug.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -262,20 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingAzureblob.UpdateLogAzure(ctx, operations.UpdateLogAzureRequest{
-        LoggingAzureblob: &components.LoggingAzureblob{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.FormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.MessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.PlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingAzureblobName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

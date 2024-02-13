@@ -37,16 +37,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Director.CreateDirector(ctx, operations.CreateDirectorRequest{
-        Director: &components.Director{
-            Backends: []components.Backend{
-                components.Backend{
-                    Comment: fastlytestgo.String("Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"),
-                    Name: fastlytestgo.String("test-backend"),
-                },
-            },
-            Comment: fastlytestgo.String("Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"),
-            Name: fastlytestgo.String("test-director"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })

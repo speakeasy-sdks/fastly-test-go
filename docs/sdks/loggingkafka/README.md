@@ -37,13 +37,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingKafka.CreateLogKafka(ctx, operations.CreateLogKafkaRequest{
-        LoggingKafka: &components.LoggingKafka{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingKafkaFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingKafkaPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })

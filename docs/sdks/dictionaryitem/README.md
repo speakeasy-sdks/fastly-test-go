@@ -40,14 +40,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.DictionaryItem.BulkUpdateDictionaryItem(ctx, operations.BulkUpdateDictionaryItemRequest{
-        BulkUpdateDictionaryListRequest: &components.BulkUpdateDictionaryListRequest{
-            Items: []components.BulkUpdateDictionaryItem{
-                components.BulkUpdateDictionaryItem{
-                    ItemKey: fastlytestgo.String("test-key"),
-                    ItemValue: fastlytestgo.String("test-value"),
-                },
-            },
-        },
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
@@ -101,10 +93,6 @@ func main() {
     ctx := context.Background()
     res, err := s.DictionaryItem.CreateDictionaryItem(ctx, operations.CreateDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
-        DictionaryItem: &components.DictionaryItem{
-            ItemKey: fastlytestgo.String("test-key"),
-            ItemValue: fastlytestgo.String("test-value"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
     if err != nil {
@@ -319,10 +307,6 @@ func main() {
     ctx := context.Background()
     res, err := s.DictionaryItem.UpdateDictionaryItem(ctx, operations.UpdateDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
-        DictionaryItem: &components.DictionaryItem{
-            ItemKey: fastlytestgo.String("test-key"),
-            ItemValue: fastlytestgo.String("test-value"),
-        },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
@@ -376,10 +360,6 @@ func main() {
     ctx := context.Background()
     res, err := s.DictionaryItem.UpsertDictionaryItem(ctx, operations.UpsertDictionaryItemRequest{
         DictionaryID: "3vjTN8v1O7nOAY7aNDGOL",
-        DictionaryItem: &components.DictionaryItem{
-            ItemKey: fastlytestgo.String("test-key"),
-            ItemValue: fastlytestgo.String("test-value"),
-        },
         DictionaryItemKey: "test-key",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })

@@ -38,20 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingFtp.CreateLogFtp(ctx, operations.CreateLogFtpRequest{
-        LoggingFtp: &components.LoggingFtp{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingFtpFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingFtpMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingFtpPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -262,20 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingFtp.UpdateLogFtp(ctx, operations.UpdateLogFtpRequest{
-        LoggingFtp: &components.LoggingFtp{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingFtpFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingFtpMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingFtpPlacementNone.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingFtpName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

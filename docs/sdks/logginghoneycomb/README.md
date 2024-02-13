@@ -38,12 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.CreateLogHoneycomb(ctx, operations.CreateLogHoneycombRequest{
-        LoggingHoneycomb: &components.LoggingHoneycomb{
-            FormatVersion: components.LoggingHoneycombFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingHoneycombPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -254,12 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingHoneycomb.UpdateLogHoneycomb(ctx, operations.UpdateLogHoneycombRequest{
-        LoggingHoneycomb: &components.LoggingHoneycomb{
-            FormatVersion: components.LoggingHoneycombFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingHoneycombPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingHoneycombName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

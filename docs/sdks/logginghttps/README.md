@@ -38,14 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.CreateLogHTTPS(ctx, operations.CreateLogHTTPSRequest{
-        LoggingHTTPS: &components.LoggingHTTPS{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingHTTPSFormatVersionTwo.ToPointer(),
-            MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingHTTPSPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -256,14 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingHTTPS.UpdateLogHTTPS(ctx, operations.UpdateLogHTTPSRequest{
-        LoggingHTTPS: &components.LoggingHTTPS{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingHTTPSFormatVersionTwo.ToPointer(),
-            MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingHTTPSPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingHTTPSName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

@@ -37,19 +37,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.BillingAddress.AddBillingAddr(ctx, operations.AddBillingAddrRequest{
-        BillingAddressRequest: &components.BillingAddressRequest{
-            Data: &components.BillingAddressRequestData{
-                Attributes: &components.BillingAddressAttributesInput{
-                    Address1: fastlytestgo.String("80719 Dorothea Mountain"),
-                    Address2: fastlytestgo.String("Apt. 652"),
-                    City: fastlytestgo.String("New Rasheedville"),
-                    Country: fastlytestgo.String("US"),
-                    Locality: fastlytestgo.String("New Castle"),
-                    PostalCode: fastlytestgo.String("53538-5902"),
-                    State: fastlytestgo.String("DE"),
-                },
-            },
-        },
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
     })
     if err != nil {
@@ -206,19 +193,6 @@ func main() {
     ctx := context.Background()
     res, err := s.BillingAddress.UpdateBillingAddr(ctx, operations.UpdateBillingAddrRequest{
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
-        UpdateBillingAddressRequest: &components.UpdateBillingAddressRequest{
-            Data: &components.UpdateBillingAddressRequestData{
-                Attributes: &components.BillingAddressAttributesInput{
-                    Address1: fastlytestgo.String("80719 Dorothea Mountain"),
-                    Address2: fastlytestgo.String("Apt. 652"),
-                    City: fastlytestgo.String("New Rasheedville"),
-                    Country: fastlytestgo.String("US"),
-                    Locality: fastlytestgo.String("New Castle"),
-                    PostalCode: fastlytestgo.String("53538-5902"),
-                    State: fastlytestgo.String("DE"),
-                },
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)

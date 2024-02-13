@@ -38,18 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.CreateLogBigquery(ctx, operations.CreateLogBigqueryRequest{
-        LoggingBigquery: &components.LoggingBigquery{
-            AccountName: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            FormatVersion: components.LoggingBigqueryFormatVersionTwo.ToPointer(),
-            Placement: components.LoggingBigqueryPlacementNone.ToPointer(),
-            ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("string"),
-            SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            User: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -260,18 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingBigquery.UpdateLogBigquery(ctx, operations.UpdateLogBigqueryRequest{
-        LoggingBigquery: &components.LoggingBigquery{
-            AccountName: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            FormatVersion: components.LoggingBigqueryFormatVersionTwo.ToPointer(),
-            Placement: components.LoggingBigqueryPlacementWafDebug.ToPointer(),
-            ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("string"),
-            SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            User: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-        },
         LoggingBigqueryName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

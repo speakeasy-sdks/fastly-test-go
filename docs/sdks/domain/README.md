@@ -145,10 +145,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Domain.CreateDomain(ctx, operations.CreateDomainRequest{
-        Domain: &components.Domain{
-            Comment: fastlytestgo.String("Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"),
-            Name: fastlytestgo.String("www.example.com"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -359,10 +355,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Domain.UpdateDomain(ctx, operations.UpdateDomainRequest{
-        Domain: &components.Domain{
-            Comment: fastlytestgo.String("The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients"),
-            Name: fastlytestgo.String("www.example.com"),
-        },
         DomainName: "www.example.com",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

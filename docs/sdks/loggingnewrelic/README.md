@@ -38,12 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.CreateLogNewrelic(ctx, operations.CreateLogNewrelicRequest{
-        LoggingNewrelic: &components.LoggingNewrelic{
-            FormatVersion: components.LoggingNewrelicFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingNewrelicPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -254,12 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingNewrelic.UpdateLogNewrelic(ctx, operations.UpdateLogNewrelicRequest{
-        LoggingNewrelic: &components.LoggingNewrelic{
-            FormatVersion: components.LoggingNewrelicFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingNewrelicPlacementLessThanNilGreaterThan.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingNewrelicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

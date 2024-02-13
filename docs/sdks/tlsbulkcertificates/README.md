@@ -194,20 +194,6 @@ func main() {
     ctx := context.Background()
     res, err := s.TLSBulkCertificates.UpdateBulkTLSCert(ctx, operations.UpdateBulkTLSCertRequest{
         CertificateID: "cRTguUGZzb2W9Euo4moOr",
-        TLSBulkCertificate: &components.TLSBulkCertificate{
-            Data: &components.TLSBulkCertificateData{
-                Attributes: &components.TLSBulkCertificateDataAttributes{},
-                Relationships: components.CreateRelationshipsForTLSBulkCertificateInputRelationshipTLSConfigurationsInput(
-                        components.RelationshipTLSConfigurationsInput{
-                            TLSConfigurations: &components.RelationshipTLSConfigurationsTLSConfigurations{
-                                Data: []components.RelationshipMemberTLSConfigurationInput{
-                                    components.RelationshipMemberTLSConfigurationInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -256,18 +242,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.TLSBulkCertificates.UploadTLSBulkCert(ctx, &components.TLSBulkCertificateData{
-        Attributes: &components.TLSBulkCertificateDataAttributes{},
-        Relationships: components.CreateRelationshipsForTLSBulkCertificateInputRelationshipTLSDomainsInput(
-                components.RelationshipTLSDomainsInput{
-                    TLSDomains: &components.RelationshipTLSDomainsTLSDomains{
-                        Data: []components.RelationshipMemberTLSDomainInput{
-                            components.RelationshipMemberTLSDomainInput{},
-                        },
-                    },
-                },
-        ),
-    })
+    res, err := s.TLSBulkCertificates.UploadTLSBulkCert(ctx, &components.TLSBulkCertificateData{})
     if err != nil {
         log.Fatal(err)
     }

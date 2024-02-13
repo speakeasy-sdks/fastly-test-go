@@ -96,13 +96,6 @@ func main() {
     ctx := context.Background()
     res, err := s.WafFirewallVersions.CreateWafFirewallVersion(ctx, operations.CreateWafFirewallVersionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
-        WafFirewallVersion: &components.WafFirewallVersion{
-            Data: &components.WafFirewallVersionData{
-                Attributes: &components.WafFirewallVersionDataAttributes{
-                    Comment: fastlytestgo.String("Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"),
-                },
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -322,13 +315,6 @@ func main() {
     res, err := s.WafFirewallVersions.UpdateWafFirewallVersion(ctx, operations.UpdateWafFirewallVersionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-        WafFirewallVersion: &components.WafFirewallVersion{
-            Data: &components.WafFirewallVersionData{
-                Attributes: &components.WafFirewallVersionDataAttributes{
-                    Comment: fastlytestgo.String("The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality"),
-                },
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)

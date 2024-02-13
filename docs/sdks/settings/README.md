@@ -89,7 +89,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Settings.UpdateServiceSettings(ctx, operations.UpdateServiceSettingsRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Settings: &components.Settings{},
         VersionID: 1,
     })
     if err != nil {

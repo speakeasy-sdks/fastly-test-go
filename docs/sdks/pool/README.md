@@ -38,11 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Pool.CreateServerPool(ctx, operations.CreateServerPoolRequest{
-        Pool: &components.Pool{
-            Comment: fastlytestgo.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
-            Name: fastlytestgo.String("my-pool"),
-            RequestCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -253,11 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Pool.UpdateServerPool(ctx, operations.UpdateServerPoolRequest{
-        Pool: &components.Pool{
-            Comment: fastlytestgo.String("Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"),
-            Name: fastlytestgo.String("my-pool"),
-            RequestCondition: fastlytestgo.String("string"),
-        },
         PoolName: "my-pool",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

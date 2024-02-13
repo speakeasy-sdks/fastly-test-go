@@ -38,14 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.CreateLogPapertrail(ctx, operations.CreateLogPapertrailRequest{
-        LoggingPapertrail: &components.LoggingPapertrail{
-            Address: fastlytestgo.String("example.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingPapertrailFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingPapertrailPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -256,14 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingPapertrail.UpdateLogPapertrail(ctx, operations.UpdateLogPapertrailRequest{
-        LoggingPapertrail: &components.LoggingPapertrail{
-            Address: fastlytestgo.String("example.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingPapertrailFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingPapertrailPlacementLessThanNilGreaterThan.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingPapertrailName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

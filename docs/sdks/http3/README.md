@@ -36,7 +36,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Http3.CreateHttp3(ctx, operations.CreateHttp3Request{
-        Http3: &components.Http3Input{},
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })

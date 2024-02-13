@@ -38,20 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.CreateLogOpenstack(ctx, operations.CreateLogOpenstackRequest{
-        LoggingOpenstack: &components.LoggingOpenstack{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingOpenstackFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingOpenstackMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingOpenstackPlacementWafDebug.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -262,20 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingOpenstack.UpdateLogOpenstack(ctx, operations.UpdateLogOpenstackRequest{
-        LoggingOpenstack: &components.LoggingOpenstack{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingOpenstackFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingOpenstackMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingOpenstackPlacementLessThanNilGreaterThan.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingOpenstackName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

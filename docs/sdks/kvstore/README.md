@@ -36,9 +36,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.KvStore.CreateStore(ctx, operations.CreateStoreRequest{
-        Store: &components.Store{},
-    })
+    res, err := s.KvStore.CreateStore(ctx, operations.CreateStoreRequest{})
     if err != nil {
         log.Fatal(err)
     }

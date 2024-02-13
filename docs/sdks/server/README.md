@@ -39,9 +39,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Server.CreatePoolServer(ctx, operations.CreatePoolServerRequest{
         PoolID: "2Yd1WfiCBPENLloXfXmlO",
-        Server: &components.Server{
-            Comment: fastlytestgo.String("Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
     if err != nil {
@@ -252,9 +249,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Server.UpdatePoolServer(ctx, operations.UpdatePoolServerRequest{
         PoolID: "2Yd1WfiCBPENLloXfXmlO",
-        Server: &components.Server{
-            Comment: fastlytestgo.String("The Football Is Good For Training And Recreational Purposes"),
-        },
         ServerID: "6kEuoknxiaDBCLiAjKqyXq",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })

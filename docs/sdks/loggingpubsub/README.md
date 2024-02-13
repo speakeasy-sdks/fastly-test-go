@@ -38,20 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingPubsub.CreateLogGcpPubsub(ctx, operations.CreateLogGcpPubsubRequest{
-        LoggingGooglePubsub: &components.LoggingGooglePubsub{
-            AccountName: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingGooglePubsubFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingGooglePubsubPlacementNone.ToPointer(),
-            ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("string"),
-            SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            User: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -262,20 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingPubsub.UpdateLogGcpPubsub(ctx, operations.UpdateLogGcpPubsubRequest{
-        LoggingGooglePubsub: &components.LoggingGooglePubsub{
-            AccountName: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingGooglePubsubFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingGooglePubsubPlacementNone.ToPointer(),
-            ProjectID: fastlytestgo.String("test-project-id"),
-            ResponseCondition: fastlytestgo.String("string"),
-            SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            User: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-        },
         LoggingGooglePubsubName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

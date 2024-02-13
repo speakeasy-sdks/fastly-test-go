@@ -35,20 +35,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.TLSPrivateKeys.CreateTLSKey(ctx, &components.TLSPrivateKey{
-        Data: &components.TLSPrivateKeyData{
-            Attributes: &components.TLSPrivateKeyDataAttributes{},
-            Relationships: components.CreateRelationshipsForTLSPrivateKeyRelationshipTLSDomainsInput(
-                    components.RelationshipTLSDomainsInput{
-                        TLSDomains: &components.RelationshipTLSDomainsTLSDomains{
-                            Data: []components.RelationshipMemberTLSDomainInput{
-                                components.RelationshipMemberTLSDomainInput{},
-                            },
-                        },
-                    },
-            ),
-        },
-    })
+    res, err := s.TLSPrivateKeys.CreateTLSKey(ctx, &components.TLSPrivateKey{})
     if err != nil {
         log.Fatal(err)
     }

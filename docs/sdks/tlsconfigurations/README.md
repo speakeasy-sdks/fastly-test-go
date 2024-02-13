@@ -141,16 +141,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSConfigurations.UpdateTLSConfig(ctx, operations.UpdateTLSConfigRequest{
-        TLSConfiguration: &components.TLSConfiguration{
-            Data: &components.TLSConfigurationData{
-                Attributes: &components.TLSConfigurationDataAttributes{},
-                Relationships: components.CreateRelationshipsForTLSConfigurationInputRelationshipsForTLSConfiguration1Input(
-                        components.RelationshipsForTLSConfiguration1Input{
-                            Service: &components.RelationshipMemberServiceInput{},
-                        },
-                ),
-            },
-        },
         TLSConfigurationID: "t7CguUGZzb2W9Euo5FoKa",
     })
     if err != nil {

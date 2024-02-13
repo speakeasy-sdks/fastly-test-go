@@ -38,10 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Backend.CreateBackend(ctx, operations.CreateBackendRequest{
-        Backend: &components.Backend{
-            Comment: fastlytestgo.String("The Football Is Good For Training And Recreational Purposes"),
-            Name: fastlytestgo.String("test-backend"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -252,10 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Backend.UpdateBackend(ctx, operations.UpdateBackendRequest{
-        Backend: &components.Backend{
-            Comment: fastlytestgo.String("Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"),
-            Name: fastlytestgo.String("test-backend"),
-        },
         BackendName: "test-backend",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

@@ -38,13 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.CreateLogLoggly(ctx, operations.CreateLogLogglyRequest{
-        LoggingLoggly: &components.LoggingLoggly{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingLogglyFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingLogglyPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -255,13 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingLoggly.UpdateLogLoggly(ctx, operations.UpdateLogLogglyRequest{
-        LoggingLoggly: &components.LoggingLoggly{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingLogglyFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingLogglyPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingLogglyName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

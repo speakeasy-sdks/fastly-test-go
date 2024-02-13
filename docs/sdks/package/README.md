@@ -88,12 +88,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Package.PutPackage(ctx, operations.PutPackageRequest{
-        PackageUpload: &components.PackageUpload{
-            Package: &components.Package{
-                Content: []byte("0xbb336eEdCd"),
-                FileName: "industrial.pdf",
-            },
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })

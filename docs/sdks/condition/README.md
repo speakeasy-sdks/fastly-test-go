@@ -38,11 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Condition.CreateCondition(ctx, operations.CreateConditionRequest{
-        Condition: &components.Condition{
-            Comment: fastlytestgo.String("The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"),
-            Name: fastlytestgo.String("test-condition"),
-            Priority: fastlytestgo.String("10"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -253,11 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Condition.UpdateCondition(ctx, operations.UpdateConditionRequest{
-        Condition: &components.Condition{
-            Comment: fastlytestgo.String("The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"),
-            Name: fastlytestgo.String("test-condition"),
-            Priority: fastlytestgo.String("10"),
-        },
         ConditionName: "test-condition",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

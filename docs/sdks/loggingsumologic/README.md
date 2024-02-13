@@ -38,14 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.CreateLogSumologic(ctx, operations.CreateLogSumologicRequest{
-        LoggingSumologic: &components.LoggingSumologic{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingSumologicFormatVersionTwo.ToPointer(),
-            MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingSumologicPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -256,14 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingSumologic.UpdateLogSumologic(ctx, operations.UpdateLogSumologicRequest{
-        LoggingSumologic: &components.LoggingSumologic{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingSumologicFormatVersionTwo.ToPointer(),
-            MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingSumologicPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingSumologicName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

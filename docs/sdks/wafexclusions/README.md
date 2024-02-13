@@ -43,22 +43,6 @@ func main() {
     res, err := s.WafExclusions.CreateWafRuleExclusion(ctx, operations.CreateWafRuleExclusionRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-        WafExclusion: &components.WafExclusion{
-            Data: &components.WafExclusionData{
-                Attributes: &components.WafExclusionDataAttributes{
-                    Number: fastlytestgo.Int64(1),
-                },
-                Relationships: components.CreateRelationshipsForWafExclusionRelationshipWafRuleRevisionsInput(
-                        components.RelationshipWafRuleRevisionsInput{
-                            WafRuleRevisions: &components.RelationshipWafRuleRevisionsWafRuleRevisionsInput{
-                                Data: []components.RelationshipMemberWafRuleRevisionInput{
-                                    components.RelationshipMemberWafRuleRevisionInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -282,22 +266,6 @@ func main() {
         ExclusionNumber: 1,
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         FirewallVersionNumber: 1,
-        WafExclusion: &components.WafExclusion{
-            Data: &components.WafExclusionData{
-                Attributes: &components.WafExclusionDataAttributes{
-                    Number: fastlytestgo.Int64(1),
-                },
-                Relationships: components.CreateRelationshipsForWafExclusionRelationshipWafRulesInput(
-                        components.RelationshipWafRulesInput{
-                            WafRules: &components.RelationshipWafRulesWafRules{
-                                Data: []components.RelationshipMemberWafRuleInput{
-                                    components.RelationshipMemberWafRuleInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)

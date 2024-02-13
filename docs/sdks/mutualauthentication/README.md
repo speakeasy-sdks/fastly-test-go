@@ -36,20 +36,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.MutualAuthentication.CreateMutualTLSAuthentication(ctx, &components.MutualAuthentication{
-        Data: &components.MutualAuthenticationData{
-            Attributes: &components.MutualAuthenticationDataAttributes{},
-            Relationships: components.CreateRelationshipsForMutualAuthenticationInputRelationshipTLSActivationsInput(
-                    components.RelationshipTLSActivationsInput{
-                        TLSActivations: &components.RelationshipTLSActivationsTLSActivations{
-                            Data: []components.RelationshipMemberTLSActivationInput{
-                                components.RelationshipMemberTLSActivationInput{},
-                            },
-                        },
-                    },
-            ),
-        },
-    })
+    res, err := s.MutualAuthentication.CreateMutualTLSAuthentication(ctx, &components.MutualAuthentication{})
     if err != nil {
         log.Fatal(err)
     }
@@ -254,20 +241,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.MutualAuthentication.PatchMutualAuthentication(ctx, operations.PatchMutualAuthenticationRequest{
-        MutualAuthentication: &components.MutualAuthentication{
-            Data: &components.MutualAuthenticationData{
-                Attributes: &components.MutualAuthenticationDataAttributes{},
-                Relationships: components.CreateRelationshipsForMutualAuthenticationInputRelationshipTLSActivationsInput(
-                        components.RelationshipTLSActivationsInput{
-                            TLSActivations: &components.RelationshipTLSActivationsTLSActivations{
-                                Data: []components.RelationshipMemberTLSActivationInput{
-                                    components.RelationshipMemberTLSActivationInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
         MutualAuthenticationID: "SEAwSOsP7dEpTgGZdP7ZFw",
     })
     if err != nil {

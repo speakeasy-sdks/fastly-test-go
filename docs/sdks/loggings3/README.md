@@ -38,20 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingS3.CreateLogAwsS3(ctx, operations.CreateLogAwsS3Request{
-        LoggingS3: &components.LoggingS3{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingS3FormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingS3MessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingS3PlacementWafDebug.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -262,20 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingS3.UpdateLogAwsS3(ctx, operations.UpdateLogAwsS3Request{
-        LoggingS3: &components.LoggingS3{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingS3FormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingS3MessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingS3PlacementWafDebug.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingS3Name: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

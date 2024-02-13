@@ -40,7 +40,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Service.CreateService(ctx, &components.ServiceCreate{
-        Comment: fastlytestgo.String("The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality"),
+        Comment: fastlytestgo.String(""),
         CustomerID: fastlytestgo.String("x4xCwxxJxGCx123Rx5xTx"),
         Name: fastlytestgo.String("test-service"),
     })
@@ -403,11 +403,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Service.UpdateService(ctx, operations.UpdateServiceRequest{
-        Service: &components.Service{
-            Comment: fastlytestgo.String("The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"),
-            CustomerID: fastlytestgo.String("x4xCwxxJxGCx123Rx5xTx"),
-            Name: fastlytestgo.String("test-service"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
     if err != nil {

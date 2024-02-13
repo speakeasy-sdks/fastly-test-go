@@ -191,11 +191,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ApexRedirect.UpdateApexRedirect(ctx, operations.UpdateApexRedirectRequest{
-        ApexRedirect: &components.ApexRedirectInput{
-            Domains: []string{
-                "string",
-            },
-        },
         ApexRedirectID: "string",
     })
     if err != nil {

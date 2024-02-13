@@ -38,9 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ACL.CreateACL(ctx, operations.CreateACLRequest{
-        ACL: &components.ACL{
-            Name: fastlytestgo.String("test-acl"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -251,9 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ACL.UpdateACL(ctx, operations.UpdateACLRequest{
-        ACL: &components.ACL{
-            Name: fastlytestgo.String("test-acl"),
-        },
         ACLName: "test-acl",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

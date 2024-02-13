@@ -38,10 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Resource.CreateResource(ctx, operations.CreateResourceRequest{
-        Resource: &components.Resource{
-            Name: fastlytestgo.String("test-resource"),
-            ResourceID: fastlytestgo.String("3vjTN8v1O7nOAY7aNDGOL"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -253,10 +249,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Resource.UpdateResource(ctx, operations.UpdateResourceRequest{
         ID: "7Lsb7Y76rChV9hSrv3KgFl",
-        Resource: &components.Resource{
-            Name: fastlytestgo.String("test-resource"),
-            ResourceID: fastlytestgo.String("3vjTN8v1O7nOAY7aNDGOL"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })

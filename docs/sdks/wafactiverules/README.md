@@ -43,22 +43,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafActiveRules.BulkUpdateWafActiveRules(ctx, operations.BulkUpdateWafActiveRulesRequest{
-        BulkWafActiveRule: &components.BulkWafActiveRule{
-            Attributes: &components.Attributes{
-                Revision: components.CreateWafRuleRevisionOrLatestInteger(
-                2,
-                ),
-            },
-            Relationships: components.CreateRelationshipsForWafActiveRuleInputRelationshipWafFirewallVersionInput(
-                    components.RelationshipWafFirewallVersionInput{
-                        WafFirewallVersion: &components.RelationshipWafFirewallVersionWafFirewallVersionInput{
-                            Data: []components.RelationshipMemberWafFirewallVersionInput{
-                                components.RelationshipMemberWafFirewallVersionInput{},
-                            },
-                        },
-                    },
-            ),
-        },
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
     })
@@ -113,26 +97,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.WafActiveRules.CreateWafActiveRule(ctx, operations.CreateWafActiveRuleRequest{
-        BulkWafActiveRules: &components.BulkWafActiveRules{
-            Data: []components.WafActiveRuleDataInput{
-                components.WafActiveRuleDataInput{
-                    Attributes: &components.WafActiveRuleDataAttributes{
-                        Revision: components.CreateWafRuleRevisionOrLatestStr(
-                        "latest",
-                        ),
-                    },
-                    Relationships: components.CreateRelationshipsForWafActiveRuleInputRelationshipWafRuleRevisionInput(
-                            components.RelationshipWafRuleRevisionInput{
-                                WafRuleRevisions: &components.RelationshipWafRuleRevisionWafRuleRevisions{
-                                    Data: []components.RelationshipMemberWafRuleRevisionInput{
-                                        components.RelationshipMemberWafRuleRevisionInput{},
-                                    },
-                                },
-                            },
-                    ),
-                },
-            },
-        },
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
     })
@@ -190,24 +154,6 @@ func main() {
     res, err := s.WafActiveRules.CreateWafActiveRulesTag(ctx, operations.CreateWafActiveRulesTagRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
-        WafActiveRule: &components.WafActiveRuleInput{
-            Data: &components.WafActiveRuleDataInput{
-                Attributes: &components.WafActiveRuleDataAttributes{
-                    Revision: components.CreateWafRuleRevisionOrLatestStr(
-                    "latest",
-                    ),
-                },
-                Relationships: components.CreateRelationshipsForWafActiveRuleInputRelationshipWafFirewallVersionInput(
-                        components.RelationshipWafFirewallVersionInput{
-                            WafFirewallVersion: &components.RelationshipWafFirewallVersionWafFirewallVersionInput{
-                                Data: []components.RelationshipMemberWafFirewallVersionInput{
-                                    components.RelationshipMemberWafFirewallVersionInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
         WafTagName: "test-waf-tag",
     })
     if err != nil {
@@ -432,24 +378,6 @@ func main() {
     res, err := s.WafActiveRules.UpdateWafActiveRule(ctx, operations.UpdateWafActiveRuleRequest{
         FirewallID: "fW7g2uUGZzb2W9Euo4Mo0r",
         VersionID: 1,
-        WafActiveRule: &components.WafActiveRuleInput{
-            Data: &components.WafActiveRuleDataInput{
-                Attributes: &components.WafActiveRuleDataAttributes{
-                    Revision: components.CreateWafRuleRevisionOrLatestStr(
-                    "latest",
-                    ),
-                },
-                Relationships: components.CreateRelationshipsForWafActiveRuleInputRelationshipWafRuleRevisionInput(
-                        components.RelationshipWafRuleRevisionInput{
-                            WafRuleRevisions: &components.RelationshipWafRuleRevisionWafRuleRevisions{
-                                Data: []components.RelationshipMemberWafRuleRevisionInput{
-                                    components.RelationshipMemberWafRuleRevisionInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
         WafRuleID: "3krg2uUGZzb2W9Euo4moOR",
     })
     if err != nil {

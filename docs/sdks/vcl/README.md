@@ -43,9 +43,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Vcl.CreateCustomVcl(ctx, operations.CreateCustomVclRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Vcl: &components.Vcl{
-            Name: fastlytestgo.String("test-vcl"),
-        },
         VersionID: 1,
     })
     if err != nil {
@@ -466,9 +463,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Vcl.UpdateCustomVcl(ctx, operations.UpdateCustomVclRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Vcl: &components.Vcl{
-            Name: fastlytestgo.String("test-vcl"),
-        },
         VclName: "test-vcl",
         VersionID: 1,
     })

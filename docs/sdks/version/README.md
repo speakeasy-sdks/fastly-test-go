@@ -405,9 +405,6 @@ func main() {
     ctx := context.Background()
     res, err := s.Version.UpdateServiceVersion(ctx, operations.UpdateServiceVersionRequest{
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
-        Version: &components.VersionInput{
-            Comment: fastlytestgo.String("Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"),
-        },
         VersionID: 1,
     })
     if err != nil {

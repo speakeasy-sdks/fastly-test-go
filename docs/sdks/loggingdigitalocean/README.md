@@ -38,20 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.CreateLogDigocean(ctx, operations.CreateLogDigoceanRequest{
-        LoggingDigitalocean: &components.LoggingDigitalocean{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingDigitaloceanFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingDigitaloceanMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingDigitaloceanPlacementWafDebug.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -262,20 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingDigitalocean.UpdateLogDigocean(ctx, operations.UpdateLogDigoceanRequest{
-        LoggingDigitalocean: &components.LoggingDigitalocean{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingDigitaloceanFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingDigitaloceanMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingDigitaloceanPlacementWafDebug.ToPointer(),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingDigitaloceanName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

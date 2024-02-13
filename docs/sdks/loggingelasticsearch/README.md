@@ -38,12 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.CreateLogElasticsearch(ctx, operations.CreateLogElasticsearchRequest{
-        LoggingElasticsearch: &components.LoggingElasticsearch{
-            FormatVersion: components.LoggingElasticsearchFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingElasticsearchPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -254,12 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingElasticsearch.UpdateLogElasticsearch(ctx, operations.UpdateLogElasticsearchRequest{
-        LoggingElasticsearch: &components.LoggingElasticsearch{
-            FormatVersion: components.LoggingElasticsearchFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingElasticsearchPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingElasticsearchName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

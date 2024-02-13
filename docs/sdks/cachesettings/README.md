@@ -38,10 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.CacheSettings.CreateCacheSettings(ctx, operations.CreateCacheSettingsRequest{
-        CacheSetting: &components.CacheSetting{
-            CacheCondition: fastlytestgo.String("string"),
-            Name: fastlytestgo.String("test-cache-setting"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -252,10 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.CacheSettings.UpdateCacheSettings(ctx, operations.UpdateCacheSettingsRequest{
-        CacheSetting: &components.CacheSetting{
-            CacheCondition: fastlytestgo.String("string"),
-            Name: fastlytestgo.String("test-cache-setting"),
-        },
         CacheSettingsName: "test-cache-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

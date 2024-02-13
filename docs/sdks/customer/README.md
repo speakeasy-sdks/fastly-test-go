@@ -238,7 +238,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Customer.UpdateCustomer(ctx, operations.UpdateCustomerRequest{
-        Customer: &components.Customer{},
         CustomerID: "x4xCwxxJxGCx123Rx5xTx",
     })
     if err != nil {

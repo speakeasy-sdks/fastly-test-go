@@ -290,9 +290,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.User.UpdateUser(ctx, operations.UpdateUserRequest{
-        User: &components.User{
-            Role: components.RoleUserUser.ToPointer(),
-        },
         UserID: "x9KzsrACXZv8tPwlEDsKb6",
     })
     if err != nil {

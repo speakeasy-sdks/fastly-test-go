@@ -36,19 +36,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.ServiceAuthorizations.CreateServiceAuthorization(ctx, &components.ServiceAuthorization{
-        Data: &components.ServiceAuthorizationData{
-            Attributes: &components.ServiceAuthorizationDataAttributes{
-                Permission: components.PermissionFull.ToPointer(),
-            },
-            Relationships: &components.ServiceAuthorizationDataRelationships{
-                Service: &components.RelationshipMemberServiceInput{},
-                User: &components.ServiceAuthorizationDataUser{
-                    Data: &components.ServiceAuthorizationDataData{},
-                },
-            },
-        },
-    })
+    res, err := s.ServiceAuthorizations.CreateServiceAuthorization(ctx, &components.ServiceAuthorization{})
     if err != nil {
         log.Fatal(err)
     }
@@ -253,19 +241,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ServiceAuthorizations.UpdateServiceAuthorization(ctx, operations.UpdateServiceAuthorizationRequest{
-        ServiceAuthorization: &components.ServiceAuthorization{
-            Data: &components.ServiceAuthorizationData{
-                Attributes: &components.ServiceAuthorizationDataAttributes{
-                    Permission: components.PermissionFull.ToPointer(),
-                },
-                Relationships: &components.ServiceAuthorizationDataRelationships{
-                    Service: &components.RelationshipMemberServiceInput{},
-                    User: &components.ServiceAuthorizationDataUser{
-                        Data: &components.ServiceAuthorizationDataData{},
-                    },
-                },
-            },
-        },
         ServiceAuthorizationID: "3krg2uUGZzb2W9Euo4moOY",
     })
     if err != nil {

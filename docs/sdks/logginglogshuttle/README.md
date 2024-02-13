@@ -38,13 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.CreateLogLogshuttle(ctx, operations.CreateLogLogshuttleRequest{
-        LoggingLogshuttle: &components.LoggingLogshuttle{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingLogshuttleFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingLogshuttlePlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -255,13 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingLogshuttle.UpdateLogLogshuttle(ctx, operations.UpdateLogLogshuttleRequest{
-        LoggingLogshuttle: &components.LoggingLogshuttle{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingLogshuttleFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingLogshuttlePlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingLogshuttleName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

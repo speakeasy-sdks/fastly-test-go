@@ -36,22 +36,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Publish.Publish(ctx, operations.PublishRequest{
-        PublishRequest: &components.PublishRequest{
-            Items: []components.PublishItem{
-                components.PublishItem{
-                    Channel: "string",
-                    Formats: components.Formats{
-                        HTTPResponse: &components.HTTPResponseFormat{
-                            Headers: map[string]string{
-                                "key": "string",
-                            },
-                        },
-                        HTTPStream: &components.HTTPStreamFormat{},
-                        WsMessage: &components.WsMessageFormat{},
-                    },
-                },
-            },
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
     })
     if err != nil {

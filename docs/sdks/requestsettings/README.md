@@ -195,10 +195,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.RequestSettings.UpdateRequestSettings(ctx, operations.UpdateRequestSettingsRequest{
-        RequestSettings: &components.RequestSettings{
-            Name: fastlytestgo.String("test-request-setting"),
-            RequestCondition: fastlytestgo.String("string"),
-        },
         RequestSettingsName: "test-request-setting",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

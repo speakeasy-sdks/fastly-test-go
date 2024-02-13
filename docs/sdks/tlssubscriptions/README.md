@@ -41,9 +41,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.CreateGlobalsignEmailChallenge(ctx, operations.CreateGlobalsignEmailChallengeRequest{
-        RequestBody: map[string]interface{}{
-            "key": "string",
-        },
         TLSAuthorizationID: "aU3guUGZzb2W9Euo4Mo0r",
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
     })
@@ -97,16 +94,6 @@ func main() {
     ctx := context.Background()
     res, err := s.TLSSubscriptions.CreateTLSSub(ctx, operations.CreateTLSSubRequest{
         Force: fastlytestgo.Bool(true),
-        TLSSubscription: &components.TLSSubscription{
-            Data: &components.TLSSubscriptionData{
-                Attributes: &components.TLSSubscriptionDataAttributes{},
-                Relationships: components.CreateRelationshipsForTLSSubscriptionRelationshipCommonName(
-                        components.RelationshipCommonName{
-                            CommonName: &components.RelationshipMemberTLSDomainInput{},
-                        },
-                ),
-            },
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -369,20 +356,6 @@ func main() {
     ctx := context.Background()
     res, err := s.TLSSubscriptions.PatchTLSSub(ctx, operations.PatchTLSSubRequest{
         Force: fastlytestgo.Bool(true),
-        TLSSubscription: &components.TLSSubscription{
-            Data: &components.TLSSubscriptionData{
-                Attributes: &components.TLSSubscriptionDataAttributes{},
-                Relationships: components.CreateRelationshipsForTLSSubscriptionRelationshipTLSDomainsInput(
-                        components.RelationshipTLSDomainsInput{
-                            TLSDomains: &components.RelationshipTLSDomainsTLSDomains{
-                                Data: []components.RelationshipMemberTLSDomainInput{
-                                    components.RelationshipMemberTLSDomainInput{},
-                                },
-                            },
-                        },
-                ),
-            },
-        },
         TLSSubscriptionID: "sU3guUGZzb2W9Euo4Mo0r",
     })
     if err != nil {

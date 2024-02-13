@@ -341,9 +341,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ConfigStore.UpdateConfigStore(ctx, operations.UpdateConfigStoreRequest{
-        ConfigStore: &components.ConfigStore{
-            Name: fastlytestgo.String("test-config-store"),
-        },
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
     })
     if err != nil {

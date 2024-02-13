@@ -38,15 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.CreateLogSyslog(ctx, operations.CreateLogSyslogRequest{
-        LoggingSyslog: &components.LoggingSyslog{
-            Address: fastlytestgo.String("example.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingSyslogFormatVersionTwo.ToPointer(),
-            MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingSyslogPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -257,15 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingSyslog.UpdateLogSyslog(ctx, operations.UpdateLogSyslogRequest{
-        LoggingSyslog: &components.LoggingSyslog{
-            Address: fastlytestgo.String("example.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingSyslogFormatVersionTwo.ToPointer(),
-            MessageType: components.LoggingMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingSyslogPlacementWafDebug.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingSyslogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

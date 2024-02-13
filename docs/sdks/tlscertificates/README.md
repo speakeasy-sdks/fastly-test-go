@@ -36,18 +36,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.TLSCertificates.CreateTLSCert(ctx, &components.TLSCertificate{
-        Data: &components.TLSCertificateData{
-            Attributes: &components.TLSCertificateDataAttributes{},
-            Relationships: &components.RelationshipTLSDomainsInput{
-                TLSDomains: &components.RelationshipTLSDomainsTLSDomains{
-                    Data: []components.RelationshipMemberTLSDomainInput{
-                        components.RelationshipMemberTLSDomainInput{},
-                    },
-                },
-            },
-        },
-    })
+    res, err := s.TLSCertificates.CreateTLSCert(ctx, &components.TLSCertificate{})
     if err != nil {
         log.Fatal(err)
     }
@@ -252,18 +241,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSCertificates.UpdateTLSCert(ctx, operations.UpdateTLSCertRequest{
-        TLSCertificate: &components.TLSCertificate{
-            Data: &components.TLSCertificateData{
-                Attributes: &components.TLSCertificateDataAttributes{},
-                Relationships: &components.RelationshipTLSDomainsInput{
-                    TLSDomains: &components.RelationshipTLSDomainsTLSDomains{
-                        Data: []components.RelationshipMemberTLSDomainInput{
-                            components.RelationshipMemberTLSDomainInput{},
-                        },
-                    },
-                },
-            },
-        },
         TLSCertificateID: "cRTguUGZzb2W9Euo4moOr",
     })
     if err != nil {

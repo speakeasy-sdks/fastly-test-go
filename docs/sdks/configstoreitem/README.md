@@ -40,14 +40,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.ConfigStoreItem.BulkUpdateConfigStoreItem(ctx, operations.BulkUpdateConfigStoreItemRequest{
-        BulkUpdateConfigStoreListRequest: &components.BulkUpdateConfigStoreListRequest{
-            Items: []components.BulkUpdateConfigStoreItem{
-                components.BulkUpdateConfigStoreItem{
-                    ItemKey: fastlytestgo.String("test-key"),
-                    ItemValue: fastlytestgo.String("test-value"),
-                },
-            },
-        },
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
     })
     if err != nil {
@@ -100,10 +92,6 @@ func main() {
     ctx := context.Background()
     res, err := s.ConfigStoreItem.CreateConfigStoreItem(ctx, operations.CreateConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-        ConfigStoreItem: &components.ConfigStoreItem{
-            ItemKey: fastlytestgo.String("test-key"),
-            ItemValue: fastlytestgo.String("test-value"),
-        },
     })
     if err != nil {
         log.Fatal(err)
@@ -310,10 +298,6 @@ func main() {
     ctx := context.Background()
     res, err := s.ConfigStoreItem.UpdateConfigStoreItem(ctx, operations.UpdateConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-        ConfigStoreItem: &components.ConfigStoreItem{
-            ItemKey: fastlytestgo.String("test-key"),
-            ItemValue: fastlytestgo.String("test-value"),
-        },
         ConfigStoreItemKey: "test-key",
     })
     if err != nil {
@@ -366,10 +350,6 @@ func main() {
     ctx := context.Background()
     res, err := s.ConfigStoreItem.UpsertConfigStoreItem(ctx, operations.UpsertConfigStoreItemRequest{
         ConfigStoreID: "7Lsb7Y76rChV9hSrv3KgFl",
-        ConfigStoreItem: &components.ConfigStoreItem{
-            ItemKey: fastlytestgo.String("test-key"),
-            ItemValue: fastlytestgo.String("test-value"),
-        },
         ConfigStoreItemKey: "test-key",
     })
     if err != nil {

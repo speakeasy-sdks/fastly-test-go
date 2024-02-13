@@ -38,13 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.CreateLogHeroku(ctx, operations.CreateLogHerokuRequest{
-        LoggingHeroku: &components.LoggingHeroku{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingHerokuFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingHerokuPlacementLessThanNilGreaterThan.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -255,13 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingHeroku.UpdateLogHeroku(ctx, operations.UpdateLogHerokuRequest{
-        LoggingHeroku: &components.LoggingHeroku{
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingHerokuFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingHerokuPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingHerokuName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

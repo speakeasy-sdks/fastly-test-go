@@ -35,16 +35,7 @@ func main() {
     )
 
     ctx := context.Background()
-    res, err := s.Star.CreateServiceStar(ctx, &components.Star{
-        Data: &components.StarData{
-            Relationships: &components.RelationshipsForStarInput{
-                Service: &components.RelationshipMemberServiceInput{},
-                User: &components.RelationshipsForStarUserInput{
-                    Data: &components.RelationshipsForStarDataInput{},
-                },
-            },
-        },
-    })
+    res, err := s.Star.CreateServiceStar(ctx, &components.Star{})
     if err != nil {
         log.Fatal(err)
     }

@@ -38,9 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Dictionary.CreateDictionary(ctx, operations.CreateDictionaryRequest{
-        Dictionary: &components.Dictionary{
-            Name: fastlytestgo.String("test_dictionary"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -251,9 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.Dictionary.UpdateDictionary(ctx, operations.UpdateDictionaryRequest{
-        Dictionary: &components.Dictionary{
-            Name: fastlytestgo.String("test_dictionary"),
-        },
         DictionaryName: "test_dictionary",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

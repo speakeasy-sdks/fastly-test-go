@@ -38,12 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.CreateLogDatadog(ctx, operations.CreateLogDatadogRequest{
-        LoggingDatadog: &components.LoggingDatadog{
-            FormatVersion: components.LoggingDatadogFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingDatadogPlacementNone.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -254,12 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingDatadog.UpdateLogDatadog(ctx, operations.UpdateLogDatadogRequest{
-        LoggingDatadog: &components.LoggingDatadog{
-            FormatVersion: components.LoggingDatadogFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingDatadogPlacementLessThanNilGreaterThan.ToPointer(),
-            ResponseCondition: fastlytestgo.String("string"),
-        },
         LoggingDatadogName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,

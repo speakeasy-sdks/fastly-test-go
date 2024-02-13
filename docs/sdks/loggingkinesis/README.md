@@ -37,11 +37,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingKinesis.CreateLogKinesis(ctx, operations.CreateLogKinesisRequest{
-        LoggingKinesis: &components.LoggingKinesis{
-            FormatVersion: components.LoggingFormatVersionTwo.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Placement: components.LoggingPlacementLessThanNilGreaterThan.ToPointer(),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })

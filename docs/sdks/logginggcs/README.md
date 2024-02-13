@@ -38,27 +38,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingGcs.CreateLogGcs(ctx, operations.CreateLogGcsRequest{
-        LoggingGcs: &components.LoggingGcs{
-            AccountName: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingGcsFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingGcsMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingGcsPlacementLessThanNilGreaterThan.ToPointer(),
-            ProjectID: fastlytestgo.String("test-project-id"),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-            SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            User: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-        },
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
     })
@@ -269,27 +248,6 @@ func main() {
 
     ctx := context.Background()
     res, err := s.LoggingGcs.UpdateLogGcs(ctx, operations.UpdateLogGcsRequest{
-        LoggingGcs: &components.LoggingGcs{
-            AccountName: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-            Format: fastlytestgo.String("%h %l %u %t \"%r\" %&gt;s %b"),
-            FormatVersion: components.LoggingGcsFormatVersionTwo.ToPointer(),
-            GzipLevel: fastlytestgo.Int64(0),
-            MessageType: components.LoggingGcsMessageTypeClassic.ToPointer(),
-            Name: fastlytestgo.String("test-log-endpoint"),
-            Period: fastlytestgo.Int64(3600),
-            Placement: components.LoggingGcsPlacementWafDebug.ToPointer(),
-            ProjectID: fastlytestgo.String("test-project-id"),
-            PublicKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            ResponseCondition: fastlytestgo.String("string"),
-            SecretKey: fastlytestgo.String("-----BEGIN PRIVATE KEY-----
-        ...
-        -----END PRIVATE KEY-----
-        "),
-            User: fastlytestgo.String("test-user@test-project-id.iam.gserviceaccount.com"),
-        },
         LoggingGcsName: "test-log-endpoint",
         ServiceID: "SU1Z0isxPaozGVKXdv0eY",
         VersionID: 1,
