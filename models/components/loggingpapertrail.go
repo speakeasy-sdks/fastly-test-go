@@ -40,9 +40,8 @@ func (e *LoggingPapertrailFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingPapertrailPlacement string
 
 const (
-	LoggingPapertrailPlacementNone                   LoggingPapertrailPlacement = "none"
-	LoggingPapertrailPlacementWafDebug               LoggingPapertrailPlacement = "waf_debug"
-	LoggingPapertrailPlacementLessThanNilGreaterThan LoggingPapertrailPlacement = "<nil>"
+	LoggingPapertrailPlacementNone     LoggingPapertrailPlacement = "none"
+	LoggingPapertrailPlacementWafDebug LoggingPapertrailPlacement = "waf_debug"
 )
 
 func (e LoggingPapertrailPlacement) ToPointer() *LoggingPapertrailPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingPapertrailPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingPapertrailPlacement(v)
 		return nil
 	default:

@@ -41,9 +41,8 @@ func (e *LoggingHerokuResponseFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingHerokuResponsePlacement string
 
 const (
-	LoggingHerokuResponsePlacementNone                   LoggingHerokuResponsePlacement = "none"
-	LoggingHerokuResponsePlacementWafDebug               LoggingHerokuResponsePlacement = "waf_debug"
-	LoggingHerokuResponsePlacementLessThanNilGreaterThan LoggingHerokuResponsePlacement = "<nil>"
+	LoggingHerokuResponsePlacementNone     LoggingHerokuResponsePlacement = "none"
+	LoggingHerokuResponsePlacementWafDebug LoggingHerokuResponsePlacement = "waf_debug"
 )
 
 func (e LoggingHerokuResponsePlacement) ToPointer() *LoggingHerokuResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingHerokuResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingHerokuResponsePlacement(v)
 		return nil
 	default:

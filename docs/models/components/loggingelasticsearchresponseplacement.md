@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                                          | Value                                                         |
-| ------------------------------------------------------------- | ------------------------------------------------------------- |
-| `LoggingElasticsearchResponsePlacementNone`                   | none                                                          |
-| `LoggingElasticsearchResponsePlacementWafDebug`               | waf_debug                                                     |
-| `LoggingElasticsearchResponsePlacementLessThanNilGreaterThan` | <nil>                                                         |
+| Name                                            | Value                                           |
+| ----------------------------------------------- | ----------------------------------------------- |
+| `LoggingElasticsearchResponsePlacementNone`     | none                                            |
+| `LoggingElasticsearchResponsePlacementWafDebug` | waf_debug                                       |

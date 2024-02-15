@@ -105,9 +105,8 @@ func (e *LoggingGcsMessageType) UnmarshalJSON(data []byte) error {
 type LoggingGcsPlacement string
 
 const (
-	LoggingGcsPlacementNone                   LoggingGcsPlacement = "none"
-	LoggingGcsPlacementWafDebug               LoggingGcsPlacement = "waf_debug"
-	LoggingGcsPlacementLessThanNilGreaterThan LoggingGcsPlacement = "<nil>"
+	LoggingGcsPlacementNone     LoggingGcsPlacement = "none"
+	LoggingGcsPlacementWafDebug LoggingGcsPlacement = "waf_debug"
 )
 
 func (e LoggingGcsPlacement) ToPointer() *LoggingGcsPlacement {
@@ -123,8 +122,6 @@ func (e *LoggingGcsPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingGcsPlacement(v)
 		return nil
 	default:

@@ -5,11 +5,10 @@ The variable to exclude. An optional selector can be specified after the variabl
 
 ## Values
 
-| Name                                             | Value                                            |
-| ------------------------------------------------ | ------------------------------------------------ |
-| `WafExclusionDataVariableReqCookies`             | req.cookies                                      |
-| `WafExclusionDataVariableReqHeaders`             | req.headers                                      |
-| `WafExclusionDataVariableReqPost`                | req.post                                         |
-| `WafExclusionDataVariableReqPostFilename`        | req.post_filename                                |
-| `WafExclusionDataVariableReqQs`                  | req.qs                                           |
-| `WafExclusionDataVariableLessThanNilGreaterThan` | <nil>                                            |
+| Name                                      | Value                                     |
+| ----------------------------------------- | ----------------------------------------- |
+| `WafExclusionDataVariableReqCookies`      | req.cookies                               |
+| `WafExclusionDataVariableReqHeaders`      | req.headers                               |
+| `WafExclusionDataVariableReqPost`         | req.post                                  |
+| `WafExclusionDataVariableReqPostFilename` | req.post_filename                         |
+| `WafExclusionDataVariableReqQs`           | req.qs                                    |

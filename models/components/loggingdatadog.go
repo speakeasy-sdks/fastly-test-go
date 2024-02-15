@@ -40,9 +40,8 @@ func (e *LoggingDatadogFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingDatadogPlacement string
 
 const (
-	LoggingDatadogPlacementNone                   LoggingDatadogPlacement = "none"
-	LoggingDatadogPlacementWafDebug               LoggingDatadogPlacement = "waf_debug"
-	LoggingDatadogPlacementLessThanNilGreaterThan LoggingDatadogPlacement = "<nil>"
+	LoggingDatadogPlacementNone     LoggingDatadogPlacement = "none"
+	LoggingDatadogPlacementWafDebug LoggingDatadogPlacement = "waf_debug"
 )
 
 func (e LoggingDatadogPlacement) ToPointer() *LoggingDatadogPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingDatadogPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingDatadogPlacement(v)
 		return nil
 	default:

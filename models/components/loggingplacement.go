@@ -11,9 +11,8 @@ import (
 type LoggingPlacement string
 
 const (
-	LoggingPlacementNone                   LoggingPlacement = "none"
-	LoggingPlacementWafDebug               LoggingPlacement = "waf_debug"
-	LoggingPlacementLessThanNilGreaterThan LoggingPlacement = "<nil>"
+	LoggingPlacementNone     LoggingPlacement = "none"
+	LoggingPlacementWafDebug LoggingPlacement = "waf_debug"
 )
 
 func (e LoggingPlacement) ToPointer() *LoggingPlacement {
@@ -29,8 +28,6 @@ func (e *LoggingPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingPlacement(v)
 		return nil
 	default:

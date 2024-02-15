@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                              | Value                                             |
-| ------------------------------------------------- | ------------------------------------------------- |
-| `LoggingHoneycombPlacementNone`                   | none                                              |
-| `LoggingHoneycombPlacementWafDebug`               | waf_debug                                         |
-| `LoggingHoneycombPlacementLessThanNilGreaterThan` | <nil>                                             |
+| Name                                | Value                               |
+| ----------------------------------- | ----------------------------------- |
+| `LoggingHoneycombPlacementNone`     | none                                |
+| `LoggingHoneycombPlacementWafDebug` | waf_debug                           |

@@ -865,7 +865,7 @@ func main() {
 
 	ctx := context.Background()
 	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
-		ApexRedirectID: "string",
+		ApexRedirectID: "<value>",
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -901,7 +901,7 @@ func main() {
 
 	ctx := context.Background()
 	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
-		ApexRedirectID: "string",
+		ApexRedirectID: "<value>",
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -977,7 +977,7 @@ func main() {
 
 	ctx := context.Background()
 	res, err := s.ApexRedirect.DeleteApexRedirect(ctx, operations.DeleteApexRedirectRequest{
-		ApexRedirectID: "string",
+		ApexRedirectID: "<value>",
 	})
 	if err != nil {
 		log.Fatal(err)

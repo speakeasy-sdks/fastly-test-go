@@ -41,9 +41,8 @@ func (e *LoggingHoneycombResponseFormatVersion) UnmarshalJSON(data []byte) error
 type LoggingHoneycombResponsePlacement string
 
 const (
-	LoggingHoneycombResponsePlacementNone                   LoggingHoneycombResponsePlacement = "none"
-	LoggingHoneycombResponsePlacementWafDebug               LoggingHoneycombResponsePlacement = "waf_debug"
-	LoggingHoneycombResponsePlacementLessThanNilGreaterThan LoggingHoneycombResponsePlacement = "<nil>"
+	LoggingHoneycombResponsePlacementNone     LoggingHoneycombResponsePlacement = "none"
+	LoggingHoneycombResponsePlacementWafDebug LoggingHoneycombResponsePlacement = "waf_debug"
 )
 
 func (e LoggingHoneycombResponsePlacement) ToPointer() *LoggingHoneycombResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingHoneycombResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingHoneycombResponsePlacement(v)
 		return nil
 	default:

@@ -87,7 +87,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStore.DeleteStore(ctx, operations.DeleteStoreRequest{
-        StoreID: "string",
+        StoreID: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -138,7 +138,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStore.GetStore(ctx, operations.GetStoreRequest{
-        StoreID: "string",
+        StoreID: "<value>",
     })
     if err != nil {
         log.Fatal(err)

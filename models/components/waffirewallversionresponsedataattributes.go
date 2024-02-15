@@ -13,11 +13,10 @@ import (
 type LastDeploymentStatus string
 
 const (
-	LastDeploymentStatusLessThanNilGreaterThan LastDeploymentStatus = "<nil>"
-	LastDeploymentStatusPending                LastDeploymentStatus = "pending"
-	LastDeploymentStatusInProgress             LastDeploymentStatus = "in progress"
-	LastDeploymentStatusCompleted              LastDeploymentStatus = "completed"
-	LastDeploymentStatusFailed                 LastDeploymentStatus = "failed"
+	LastDeploymentStatusPending    LastDeploymentStatus = "pending"
+	LastDeploymentStatusInProgress LastDeploymentStatus = "in progress"
+	LastDeploymentStatusCompleted  LastDeploymentStatus = "completed"
+	LastDeploymentStatusFailed     LastDeploymentStatus = "failed"
 )
 
 func (e LastDeploymentStatus) ToPointer() *LastDeploymentStatus {
@@ -30,8 +29,6 @@ func (e *LastDeploymentStatus) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "<nil>":
-		fallthrough
 	case "pending":
 		fallthrough
 	case "in progress":

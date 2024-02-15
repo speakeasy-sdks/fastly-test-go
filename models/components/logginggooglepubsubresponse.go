@@ -41,9 +41,8 @@ func (e *LoggingGooglePubsubResponseFormatVersion) UnmarshalJSON(data []byte) er
 type LoggingGooglePubsubResponsePlacement string
 
 const (
-	LoggingGooglePubsubResponsePlacementNone                   LoggingGooglePubsubResponsePlacement = "none"
-	LoggingGooglePubsubResponsePlacementWafDebug               LoggingGooglePubsubResponsePlacement = "waf_debug"
-	LoggingGooglePubsubResponsePlacementLessThanNilGreaterThan LoggingGooglePubsubResponsePlacement = "<nil>"
+	LoggingGooglePubsubResponsePlacementNone     LoggingGooglePubsubResponsePlacement = "none"
+	LoggingGooglePubsubResponsePlacementWafDebug LoggingGooglePubsubResponsePlacement = "waf_debug"
 )
 
 func (e LoggingGooglePubsubResponsePlacement) ToPointer() *LoggingGooglePubsubResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingGooglePubsubResponsePlacement) UnmarshalJSON(data []byte) error 
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingGooglePubsubResponsePlacement(v)
 		return nil
 	default:

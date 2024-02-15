@@ -106,9 +106,8 @@ func (e *LoggingCloudfilesResponseMessageType) UnmarshalJSON(data []byte) error 
 type LoggingCloudfilesResponsePlacement string
 
 const (
-	LoggingCloudfilesResponsePlacementNone                   LoggingCloudfilesResponsePlacement = "none"
-	LoggingCloudfilesResponsePlacementWafDebug               LoggingCloudfilesResponsePlacement = "waf_debug"
-	LoggingCloudfilesResponsePlacementLessThanNilGreaterThan LoggingCloudfilesResponsePlacement = "<nil>"
+	LoggingCloudfilesResponsePlacementNone     LoggingCloudfilesResponsePlacement = "none"
+	LoggingCloudfilesResponsePlacementWafDebug LoggingCloudfilesResponsePlacement = "waf_debug"
 )
 
 func (e LoggingCloudfilesResponsePlacement) ToPointer() *LoggingCloudfilesResponsePlacement {
@@ -124,8 +123,6 @@ func (e *LoggingCloudfilesResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingCloudfilesResponsePlacement(v)
 		return nil
 	default:
@@ -137,13 +134,12 @@ func (e *LoggingCloudfilesResponsePlacement) UnmarshalJSON(data []byte) error {
 type LoggingCloudfilesResponseRegion string
 
 const (
-	LoggingCloudfilesResponseRegionDfw                    LoggingCloudfilesResponseRegion = "DFW"
-	LoggingCloudfilesResponseRegionOrd                    LoggingCloudfilesResponseRegion = "ORD"
-	LoggingCloudfilesResponseRegionIad                    LoggingCloudfilesResponseRegion = "IAD"
-	LoggingCloudfilesResponseRegionLon                    LoggingCloudfilesResponseRegion = "LON"
-	LoggingCloudfilesResponseRegionSyd                    LoggingCloudfilesResponseRegion = "SYD"
-	LoggingCloudfilesResponseRegionHkg                    LoggingCloudfilesResponseRegion = "HKG"
-	LoggingCloudfilesResponseRegionLessThanNilGreaterThan LoggingCloudfilesResponseRegion = "<nil>"
+	LoggingCloudfilesResponseRegionDfw LoggingCloudfilesResponseRegion = "DFW"
+	LoggingCloudfilesResponseRegionOrd LoggingCloudfilesResponseRegion = "ORD"
+	LoggingCloudfilesResponseRegionIad LoggingCloudfilesResponseRegion = "IAD"
+	LoggingCloudfilesResponseRegionLon LoggingCloudfilesResponseRegion = "LON"
+	LoggingCloudfilesResponseRegionSyd LoggingCloudfilesResponseRegion = "SYD"
+	LoggingCloudfilesResponseRegionHkg LoggingCloudfilesResponseRegion = "HKG"
 )
 
 func (e LoggingCloudfilesResponseRegion) ToPointer() *LoggingCloudfilesResponseRegion {
@@ -167,8 +163,6 @@ func (e *LoggingCloudfilesResponseRegion) UnmarshalJSON(data []byte) error {
 	case "SYD":
 		fallthrough
 	case "HKG":
-		fallthrough
-	case "<nil>":
 		*e = LoggingCloudfilesResponseRegion(v)
 		return nil
 	default:

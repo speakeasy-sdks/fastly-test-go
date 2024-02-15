@@ -43,12 +43,11 @@ func (e *WafExclusionDataExclusionType) UnmarshalJSON(data []byte) error {
 type WafExclusionDataVariable string
 
 const (
-	WafExclusionDataVariableReqCookies             WafExclusionDataVariable = "req.cookies"
-	WafExclusionDataVariableReqHeaders             WafExclusionDataVariable = "req.headers"
-	WafExclusionDataVariableReqPost                WafExclusionDataVariable = "req.post"
-	WafExclusionDataVariableReqPostFilename        WafExclusionDataVariable = "req.post_filename"
-	WafExclusionDataVariableReqQs                  WafExclusionDataVariable = "req.qs"
-	WafExclusionDataVariableLessThanNilGreaterThan WafExclusionDataVariable = "<nil>"
+	WafExclusionDataVariableReqCookies      WafExclusionDataVariable = "req.cookies"
+	WafExclusionDataVariableReqHeaders      WafExclusionDataVariable = "req.headers"
+	WafExclusionDataVariableReqPost         WafExclusionDataVariable = "req.post"
+	WafExclusionDataVariableReqPostFilename WafExclusionDataVariable = "req.post_filename"
+	WafExclusionDataVariableReqQs           WafExclusionDataVariable = "req.qs"
 )
 
 func (e WafExclusionDataVariable) ToPointer() *WafExclusionDataVariable {
@@ -70,8 +69,6 @@ func (e *WafExclusionDataVariable) UnmarshalJSON(data []byte) error {
 	case "req.post_filename":
 		fallthrough
 	case "req.qs":
-		fallthrough
-	case "<nil>":
 		*e = WafExclusionDataVariable(v)
 		return nil
 	default:

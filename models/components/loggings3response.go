@@ -106,9 +106,8 @@ func (e *LoggingS3ResponseMessageType) UnmarshalJSON(data []byte) error {
 type LoggingS3ResponsePlacement string
 
 const (
-	LoggingS3ResponsePlacementNone                   LoggingS3ResponsePlacement = "none"
-	LoggingS3ResponsePlacementWafDebug               LoggingS3ResponsePlacement = "waf_debug"
-	LoggingS3ResponsePlacementLessThanNilGreaterThan LoggingS3ResponsePlacement = "<nil>"
+	LoggingS3ResponsePlacementNone     LoggingS3ResponsePlacement = "none"
+	LoggingS3ResponsePlacementWafDebug LoggingS3ResponsePlacement = "waf_debug"
 )
 
 func (e LoggingS3ResponsePlacement) ToPointer() *LoggingS3ResponsePlacement {
@@ -124,8 +123,6 @@ func (e *LoggingS3ResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingS3ResponsePlacement(v)
 		return nil
 	default:

@@ -145,9 +145,9 @@ func main() {
 
     ctx := context.Background()
     res, err := s.TLSSubscriptions.DeleteGlobalsignEmailChallenge(ctx, operations.DeleteGlobalsignEmailChallengeRequest{
-        GlobalsignEmailChallengeID: "string",
-        TLSAuthorizationID: "string",
-        TLSSubscriptionID: "string",
+        GlobalsignEmailChallengeID: "<value>",
+        TLSAuthorizationID: "<value>",
+        TLSSubscriptionID: "<value>",
     })
     if err != nil {
         log.Fatal(err)

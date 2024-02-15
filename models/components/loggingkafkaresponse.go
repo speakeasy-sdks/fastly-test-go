@@ -44,10 +44,9 @@ func (e *LoggingKafkaResponseAuthMethod) UnmarshalJSON(data []byte) error {
 type LoggingKafkaResponseCompressionCodec string
 
 const (
-	LoggingKafkaResponseCompressionCodecGzip                   LoggingKafkaResponseCompressionCodec = "gzip"
-	LoggingKafkaResponseCompressionCodecSnappy                 LoggingKafkaResponseCompressionCodec = "snappy"
-	LoggingKafkaResponseCompressionCodecLz4                    LoggingKafkaResponseCompressionCodec = "lz4"
-	LoggingKafkaResponseCompressionCodecLessThanNilGreaterThan LoggingKafkaResponseCompressionCodec = "<nil>"
+	LoggingKafkaResponseCompressionCodecGzip   LoggingKafkaResponseCompressionCodec = "gzip"
+	LoggingKafkaResponseCompressionCodecSnappy LoggingKafkaResponseCompressionCodec = "snappy"
+	LoggingKafkaResponseCompressionCodecLz4    LoggingKafkaResponseCompressionCodec = "lz4"
 )
 
 func (e LoggingKafkaResponseCompressionCodec) ToPointer() *LoggingKafkaResponseCompressionCodec {
@@ -65,8 +64,6 @@ func (e *LoggingKafkaResponseCompressionCodec) UnmarshalJSON(data []byte) error 
 	case "snappy":
 		fallthrough
 	case "lz4":
-		fallthrough
-	case "<nil>":
 		*e = LoggingKafkaResponseCompressionCodec(v)
 		return nil
 	default:
@@ -106,9 +103,8 @@ func (e *LoggingKafkaResponseFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingKafkaResponsePlacement string
 
 const (
-	LoggingKafkaResponsePlacementNone                   LoggingKafkaResponsePlacement = "none"
-	LoggingKafkaResponsePlacementWafDebug               LoggingKafkaResponsePlacement = "waf_debug"
-	LoggingKafkaResponsePlacementLessThanNilGreaterThan LoggingKafkaResponsePlacement = "<nil>"
+	LoggingKafkaResponsePlacementNone     LoggingKafkaResponsePlacement = "none"
+	LoggingKafkaResponsePlacementWafDebug LoggingKafkaResponsePlacement = "waf_debug"
 )
 
 func (e LoggingKafkaResponsePlacement) ToPointer() *LoggingKafkaResponsePlacement {
@@ -124,8 +120,6 @@ func (e *LoggingKafkaResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingKafkaResponsePlacement(v)
 		return nil
 	default:

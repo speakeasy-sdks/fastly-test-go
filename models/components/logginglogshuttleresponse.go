@@ -41,9 +41,8 @@ func (e *LoggingLogshuttleResponseFormatVersion) UnmarshalJSON(data []byte) erro
 type LoggingLogshuttleResponsePlacement string
 
 const (
-	LoggingLogshuttleResponsePlacementNone                   LoggingLogshuttleResponsePlacement = "none"
-	LoggingLogshuttleResponsePlacementWafDebug               LoggingLogshuttleResponsePlacement = "waf_debug"
-	LoggingLogshuttleResponsePlacementLessThanNilGreaterThan LoggingLogshuttleResponsePlacement = "<nil>"
+	LoggingLogshuttleResponsePlacementNone     LoggingLogshuttleResponsePlacement = "none"
+	LoggingLogshuttleResponsePlacementWafDebug LoggingLogshuttleResponsePlacement = "waf_debug"
 )
 
 func (e LoggingLogshuttleResponsePlacement) ToPointer() *LoggingLogshuttleResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingLogshuttleResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingLogshuttleResponsePlacement(v)
 		return nil
 	default:

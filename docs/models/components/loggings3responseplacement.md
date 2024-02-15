@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                               | Value                                              |
-| -------------------------------------------------- | -------------------------------------------------- |
-| `LoggingS3ResponsePlacementNone`                   | none                                               |
-| `LoggingS3ResponsePlacementWafDebug`               | waf_debug                                          |
-| `LoggingS3ResponsePlacementLessThanNilGreaterThan` | <nil>                                              |
+| Name                                 | Value                                |
+| ------------------------------------ | ------------------------------------ |
+| `LoggingS3ResponsePlacementNone`     | none                                 |
+| `LoggingS3ResponsePlacementWafDebug` | waf_debug                            |

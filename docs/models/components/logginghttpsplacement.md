@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                          | Value                                         |
-| --------------------------------------------- | --------------------------------------------- |
-| `LoggingHTTPSPlacementNone`                   | none                                          |
-| `LoggingHTTPSPlacementWafDebug`               | waf_debug                                     |
-| `LoggingHTTPSPlacementLessThanNilGreaterThan` | <nil>                                         |
+| Name                            | Value                           |
+| ------------------------------- | ------------------------------- |
+| `LoggingHTTPSPlacementNone`     | none                            |
+| `LoggingHTTPSPlacementWafDebug` | waf_debug                       |

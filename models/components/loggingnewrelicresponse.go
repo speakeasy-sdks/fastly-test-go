@@ -41,9 +41,8 @@ func (e *LoggingNewrelicResponseFormatVersion) UnmarshalJSON(data []byte) error 
 type LoggingNewrelicResponsePlacement string
 
 const (
-	LoggingNewrelicResponsePlacementNone                   LoggingNewrelicResponsePlacement = "none"
-	LoggingNewrelicResponsePlacementWafDebug               LoggingNewrelicResponsePlacement = "waf_debug"
-	LoggingNewrelicResponsePlacementLessThanNilGreaterThan LoggingNewrelicResponsePlacement = "<nil>"
+	LoggingNewrelicResponsePlacementNone     LoggingNewrelicResponsePlacement = "none"
+	LoggingNewrelicResponsePlacementWafDebug LoggingNewrelicResponsePlacement = "waf_debug"
 )
 
 func (e LoggingNewrelicResponsePlacement) ToPointer() *LoggingNewrelicResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingNewrelicResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingNewrelicResponsePlacement(v)
 		return nil
 	default:

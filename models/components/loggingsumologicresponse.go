@@ -41,9 +41,8 @@ func (e *LoggingSumologicResponseFormatVersion) UnmarshalJSON(data []byte) error
 type LoggingSumologicResponsePlacement string
 
 const (
-	LoggingSumologicResponsePlacementNone                   LoggingSumologicResponsePlacement = "none"
-	LoggingSumologicResponsePlacementWafDebug               LoggingSumologicResponsePlacement = "waf_debug"
-	LoggingSumologicResponsePlacementLessThanNilGreaterThan LoggingSumologicResponsePlacement = "<nil>"
+	LoggingSumologicResponsePlacementNone     LoggingSumologicResponsePlacement = "none"
+	LoggingSumologicResponsePlacementWafDebug LoggingSumologicResponsePlacement = "waf_debug"
 )
 
 func (e LoggingSumologicResponsePlacement) ToPointer() *LoggingSumologicResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingSumologicResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingSumologicResponsePlacement(v)
 		return nil
 	default:

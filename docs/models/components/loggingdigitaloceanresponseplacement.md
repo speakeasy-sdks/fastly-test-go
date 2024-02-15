@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                                         | Value                                                        |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `LoggingDigitaloceanResponsePlacementNone`                   | none                                                         |
-| `LoggingDigitaloceanResponsePlacementWafDebug`               | waf_debug                                                    |
-| `LoggingDigitaloceanResponsePlacementLessThanNilGreaterThan` | <nil>                                                        |
+| Name                                           | Value                                          |
+| ---------------------------------------------- | ---------------------------------------------- |
+| `LoggingDigitaloceanResponsePlacementNone`     | none                                           |
+| `LoggingDigitaloceanResponsePlacementWafDebug` | waf_debug                                      |

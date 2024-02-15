@@ -40,9 +40,8 @@ func (e *LoggingScalyrFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingScalyrPlacement string
 
 const (
-	LoggingScalyrPlacementNone                   LoggingScalyrPlacement = "none"
-	LoggingScalyrPlacementWafDebug               LoggingScalyrPlacement = "waf_debug"
-	LoggingScalyrPlacementLessThanNilGreaterThan LoggingScalyrPlacement = "<nil>"
+	LoggingScalyrPlacementNone     LoggingScalyrPlacement = "none"
+	LoggingScalyrPlacementWafDebug LoggingScalyrPlacement = "waf_debug"
 )
 
 func (e LoggingScalyrPlacement) ToPointer() *LoggingScalyrPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingScalyrPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingScalyrPlacement(v)
 		return nil
 	default:

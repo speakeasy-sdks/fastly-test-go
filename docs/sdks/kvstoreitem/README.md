@@ -38,8 +38,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.DeleteKeyFromStore(ctx, operations.DeleteKeyFromStoreRequest{
-        KeyName: "string",
-        StoreID: "string",
+        KeyName: "<value>",
+        StoreID: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -90,7 +90,7 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetKeys(ctx, operations.GetKeysRequest{
-        StoreID: "string",
+        StoreID: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -141,8 +141,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.GetValueForKey(ctx, operations.GetValueForKeyRequest{
-        KeyName: "string",
-        StoreID: "string",
+        KeyName: "<value>",
+        StoreID: "<value>",
     })
     if err != nil {
         log.Fatal(err)
@@ -193,8 +193,8 @@ func main() {
 
     ctx := context.Background()
     res, err := s.KvStoreItem.SetValueForKey(ctx, operations.SetValueForKeyRequest{
-        KeyName: "string",
-        StoreID: "string",
+        KeyName: "<value>",
+        StoreID: "<value>",
     })
     if err != nil {
         log.Fatal(err)

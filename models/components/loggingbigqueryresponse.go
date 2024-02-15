@@ -41,9 +41,8 @@ func (e *LoggingBigqueryResponseFormatVersion) UnmarshalJSON(data []byte) error 
 type LoggingBigqueryResponsePlacement string
 
 const (
-	LoggingBigqueryResponsePlacementNone                   LoggingBigqueryResponsePlacement = "none"
-	LoggingBigqueryResponsePlacementWafDebug               LoggingBigqueryResponsePlacement = "waf_debug"
-	LoggingBigqueryResponsePlacementLessThanNilGreaterThan LoggingBigqueryResponsePlacement = "<nil>"
+	LoggingBigqueryResponsePlacementNone     LoggingBigqueryResponsePlacement = "none"
+	LoggingBigqueryResponsePlacementWafDebug LoggingBigqueryResponsePlacement = "waf_debug"
 )
 
 func (e LoggingBigqueryResponsePlacement) ToPointer() *LoggingBigqueryResponsePlacement {
@@ -59,8 +58,6 @@ func (e *LoggingBigqueryResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingBigqueryResponsePlacement(v)
 		return nil
 	default:

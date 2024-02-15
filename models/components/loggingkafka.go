@@ -43,10 +43,9 @@ func (e *AuthMethod) UnmarshalJSON(data []byte) error {
 type LoggingKafkaCompressionCodec string
 
 const (
-	LoggingKafkaCompressionCodecGzip                   LoggingKafkaCompressionCodec = "gzip"
-	LoggingKafkaCompressionCodecSnappy                 LoggingKafkaCompressionCodec = "snappy"
-	LoggingKafkaCompressionCodecLz4                    LoggingKafkaCompressionCodec = "lz4"
-	LoggingKafkaCompressionCodecLessThanNilGreaterThan LoggingKafkaCompressionCodec = "<nil>"
+	LoggingKafkaCompressionCodecGzip   LoggingKafkaCompressionCodec = "gzip"
+	LoggingKafkaCompressionCodecSnappy LoggingKafkaCompressionCodec = "snappy"
+	LoggingKafkaCompressionCodecLz4    LoggingKafkaCompressionCodec = "lz4"
 )
 
 func (e LoggingKafkaCompressionCodec) ToPointer() *LoggingKafkaCompressionCodec {
@@ -64,8 +63,6 @@ func (e *LoggingKafkaCompressionCodec) UnmarshalJSON(data []byte) error {
 	case "snappy":
 		fallthrough
 	case "lz4":
-		fallthrough
-	case "<nil>":
 		*e = LoggingKafkaCompressionCodec(v)
 		return nil
 	default:
@@ -105,9 +102,8 @@ func (e *LoggingKafkaFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingKafkaPlacement string
 
 const (
-	LoggingKafkaPlacementNone                   LoggingKafkaPlacement = "none"
-	LoggingKafkaPlacementWafDebug               LoggingKafkaPlacement = "waf_debug"
-	LoggingKafkaPlacementLessThanNilGreaterThan LoggingKafkaPlacement = "<nil>"
+	LoggingKafkaPlacementNone     LoggingKafkaPlacement = "none"
+	LoggingKafkaPlacementWafDebug LoggingKafkaPlacement = "waf_debug"
 )
 
 func (e LoggingKafkaPlacement) ToPointer() *LoggingKafkaPlacement {
@@ -123,8 +119,6 @@ func (e *LoggingKafkaPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingKafkaPlacement(v)
 		return nil
 	default:

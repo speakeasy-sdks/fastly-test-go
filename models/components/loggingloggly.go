@@ -40,9 +40,8 @@ func (e *LoggingLogglyFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingLogglyPlacement string
 
 const (
-	LoggingLogglyPlacementNone                   LoggingLogglyPlacement = "none"
-	LoggingLogglyPlacementWafDebug               LoggingLogglyPlacement = "waf_debug"
-	LoggingLogglyPlacementLessThanNilGreaterThan LoggingLogglyPlacement = "<nil>"
+	LoggingLogglyPlacementNone     LoggingLogglyPlacement = "none"
+	LoggingLogglyPlacementWafDebug LoggingLogglyPlacement = "waf_debug"
 )
 
 func (e LoggingLogglyPlacement) ToPointer() *LoggingLogglyPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingLogglyPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingLogglyPlacement(v)
 		return nil
 	default:

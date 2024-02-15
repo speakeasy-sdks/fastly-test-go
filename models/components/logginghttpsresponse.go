@@ -100,9 +100,8 @@ func (e *LoggingHTTPSResponseMethod) UnmarshalJSON(data []byte) error {
 type LoggingHTTPSResponsePlacement string
 
 const (
-	LoggingHTTPSResponsePlacementNone                   LoggingHTTPSResponsePlacement = "none"
-	LoggingHTTPSResponsePlacementWafDebug               LoggingHTTPSResponsePlacement = "waf_debug"
-	LoggingHTTPSResponsePlacementLessThanNilGreaterThan LoggingHTTPSResponsePlacement = "<nil>"
+	LoggingHTTPSResponsePlacementNone     LoggingHTTPSResponsePlacement = "none"
+	LoggingHTTPSResponsePlacementWafDebug LoggingHTTPSResponsePlacement = "waf_debug"
 )
 
 func (e LoggingHTTPSResponsePlacement) ToPointer() *LoggingHTTPSResponsePlacement {
@@ -118,8 +117,6 @@ func (e *LoggingHTTPSResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingHTTPSResponsePlacement(v)
 		return nil
 	default:

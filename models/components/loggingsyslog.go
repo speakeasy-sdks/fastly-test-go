@@ -40,9 +40,8 @@ func (e *LoggingSyslogFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingSyslogPlacement string
 
 const (
-	LoggingSyslogPlacementNone                   LoggingSyslogPlacement = "none"
-	LoggingSyslogPlacementWafDebug               LoggingSyslogPlacement = "waf_debug"
-	LoggingSyslogPlacementLessThanNilGreaterThan LoggingSyslogPlacement = "<nil>"
+	LoggingSyslogPlacementNone     LoggingSyslogPlacement = "none"
+	LoggingSyslogPlacementWafDebug LoggingSyslogPlacement = "waf_debug"
 )
 
 func (e LoggingSyslogPlacement) ToPointer() *LoggingSyslogPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingSyslogPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingSyslogPlacement(v)
 		return nil
 	default:

@@ -106,9 +106,8 @@ func (e *LoggingOpenstackResponseMessageType) UnmarshalJSON(data []byte) error {
 type LoggingOpenstackResponsePlacement string
 
 const (
-	LoggingOpenstackResponsePlacementNone                   LoggingOpenstackResponsePlacement = "none"
-	LoggingOpenstackResponsePlacementWafDebug               LoggingOpenstackResponsePlacement = "waf_debug"
-	LoggingOpenstackResponsePlacementLessThanNilGreaterThan LoggingOpenstackResponsePlacement = "<nil>"
+	LoggingOpenstackResponsePlacementNone     LoggingOpenstackResponsePlacement = "none"
+	LoggingOpenstackResponsePlacementWafDebug LoggingOpenstackResponsePlacement = "waf_debug"
 )
 
 func (e LoggingOpenstackResponsePlacement) ToPointer() *LoggingOpenstackResponsePlacement {
@@ -124,8 +123,6 @@ func (e *LoggingOpenstackResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingOpenstackResponsePlacement(v)
 		return nil
 	default:

@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                                     | Value                                                    |
-| -------------------------------------------------------- | -------------------------------------------------------- |
-| `LoggingBigqueryResponsePlacementNone`                   | none                                                     |
-| `LoggingBigqueryResponsePlacementWafDebug`               | waf_debug                                                |
-| `LoggingBigqueryResponsePlacementLessThanNilGreaterThan` | <nil>                                                    |
+| Name                                       | Value                                      |
+| ------------------------------------------ | ------------------------------------------ |
+| `LoggingBigqueryResponsePlacementNone`     | none                                       |
+| `LoggingBigqueryResponsePlacementWafDebug` | waf_debug                                  |

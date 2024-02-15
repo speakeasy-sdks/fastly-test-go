@@ -40,9 +40,8 @@ func (e *LoggingElasticsearchFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingElasticsearchPlacement string
 
 const (
-	LoggingElasticsearchPlacementNone                   LoggingElasticsearchPlacement = "none"
-	LoggingElasticsearchPlacementWafDebug               LoggingElasticsearchPlacement = "waf_debug"
-	LoggingElasticsearchPlacementLessThanNilGreaterThan LoggingElasticsearchPlacement = "<nil>"
+	LoggingElasticsearchPlacementNone     LoggingElasticsearchPlacement = "none"
+	LoggingElasticsearchPlacementWafDebug LoggingElasticsearchPlacement = "waf_debug"
 )
 
 func (e LoggingElasticsearchPlacement) ToPointer() *LoggingElasticsearchPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingElasticsearchPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingElasticsearchPlacement(v)
 		return nil
 	default:

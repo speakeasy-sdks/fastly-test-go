@@ -40,9 +40,8 @@ func (e *LoggingSplunkFormatVersion) UnmarshalJSON(data []byte) error {
 type LoggingSplunkPlacement string
 
 const (
-	LoggingSplunkPlacementNone                   LoggingSplunkPlacement = "none"
-	LoggingSplunkPlacementWafDebug               LoggingSplunkPlacement = "waf_debug"
-	LoggingSplunkPlacementLessThanNilGreaterThan LoggingSplunkPlacement = "<nil>"
+	LoggingSplunkPlacementNone     LoggingSplunkPlacement = "none"
+	LoggingSplunkPlacementWafDebug LoggingSplunkPlacement = "waf_debug"
 )
 
 func (e LoggingSplunkPlacement) ToPointer() *LoggingSplunkPlacement {
@@ -58,8 +57,6 @@ func (e *LoggingSplunkPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingSplunkPlacement(v)
 		return nil
 	default:

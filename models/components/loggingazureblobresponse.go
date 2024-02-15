@@ -106,9 +106,8 @@ func (e *LoggingAzureblobResponseMessageType) UnmarshalJSON(data []byte) error {
 type LoggingAzureblobResponsePlacement string
 
 const (
-	LoggingAzureblobResponsePlacementNone                   LoggingAzureblobResponsePlacement = "none"
-	LoggingAzureblobResponsePlacementWafDebug               LoggingAzureblobResponsePlacement = "waf_debug"
-	LoggingAzureblobResponsePlacementLessThanNilGreaterThan LoggingAzureblobResponsePlacement = "<nil>"
+	LoggingAzureblobResponsePlacementNone     LoggingAzureblobResponsePlacement = "none"
+	LoggingAzureblobResponsePlacementWafDebug LoggingAzureblobResponsePlacement = "waf_debug"
 )
 
 func (e LoggingAzureblobResponsePlacement) ToPointer() *LoggingAzureblobResponsePlacement {
@@ -124,8 +123,6 @@ func (e *LoggingAzureblobResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingAzureblobResponsePlacement(v)
 		return nil
 	default:

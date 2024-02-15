@@ -106,9 +106,8 @@ func (e *LoggingFtpResponseMessageType) UnmarshalJSON(data []byte) error {
 type LoggingFtpResponsePlacement string
 
 const (
-	LoggingFtpResponsePlacementNone                   LoggingFtpResponsePlacement = "none"
-	LoggingFtpResponsePlacementWafDebug               LoggingFtpResponsePlacement = "waf_debug"
-	LoggingFtpResponsePlacementLessThanNilGreaterThan LoggingFtpResponsePlacement = "<nil>"
+	LoggingFtpResponsePlacementNone     LoggingFtpResponsePlacement = "none"
+	LoggingFtpResponsePlacementWafDebug LoggingFtpResponsePlacement = "waf_debug"
 )
 
 func (e LoggingFtpResponsePlacement) ToPointer() *LoggingFtpResponsePlacement {
@@ -124,8 +123,6 @@ func (e *LoggingFtpResponsePlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingFtpResponsePlacement(v)
 		return nil
 	default:

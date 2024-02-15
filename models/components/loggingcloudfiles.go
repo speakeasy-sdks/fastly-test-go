@@ -105,9 +105,8 @@ func (e *LoggingCloudfilesMessageType) UnmarshalJSON(data []byte) error {
 type LoggingCloudfilesPlacement string
 
 const (
-	LoggingCloudfilesPlacementNone                   LoggingCloudfilesPlacement = "none"
-	LoggingCloudfilesPlacementWafDebug               LoggingCloudfilesPlacement = "waf_debug"
-	LoggingCloudfilesPlacementLessThanNilGreaterThan LoggingCloudfilesPlacement = "<nil>"
+	LoggingCloudfilesPlacementNone     LoggingCloudfilesPlacement = "none"
+	LoggingCloudfilesPlacementWafDebug LoggingCloudfilesPlacement = "waf_debug"
 )
 
 func (e LoggingCloudfilesPlacement) ToPointer() *LoggingCloudfilesPlacement {
@@ -123,8 +122,6 @@ func (e *LoggingCloudfilesPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingCloudfilesPlacement(v)
 		return nil
 	default:
@@ -136,13 +133,12 @@ func (e *LoggingCloudfilesPlacement) UnmarshalJSON(data []byte) error {
 type LoggingCloudfilesRegion string
 
 const (
-	LoggingCloudfilesRegionDfw                    LoggingCloudfilesRegion = "DFW"
-	LoggingCloudfilesRegionOrd                    LoggingCloudfilesRegion = "ORD"
-	LoggingCloudfilesRegionIad                    LoggingCloudfilesRegion = "IAD"
-	LoggingCloudfilesRegionLon                    LoggingCloudfilesRegion = "LON"
-	LoggingCloudfilesRegionSyd                    LoggingCloudfilesRegion = "SYD"
-	LoggingCloudfilesRegionHkg                    LoggingCloudfilesRegion = "HKG"
-	LoggingCloudfilesRegionLessThanNilGreaterThan LoggingCloudfilesRegion = "<nil>"
+	LoggingCloudfilesRegionDfw LoggingCloudfilesRegion = "DFW"
+	LoggingCloudfilesRegionOrd LoggingCloudfilesRegion = "ORD"
+	LoggingCloudfilesRegionIad LoggingCloudfilesRegion = "IAD"
+	LoggingCloudfilesRegionLon LoggingCloudfilesRegion = "LON"
+	LoggingCloudfilesRegionSyd LoggingCloudfilesRegion = "SYD"
+	LoggingCloudfilesRegionHkg LoggingCloudfilesRegion = "HKG"
 )
 
 func (e LoggingCloudfilesRegion) ToPointer() *LoggingCloudfilesRegion {
@@ -166,8 +162,6 @@ func (e *LoggingCloudfilesRegion) UnmarshalJSON(data []byte) error {
 	case "SYD":
 		fallthrough
 	case "HKG":
-		fallthrough
-	case "<nil>":
 		*e = LoggingCloudfilesRegion(v)
 		return nil
 	default:

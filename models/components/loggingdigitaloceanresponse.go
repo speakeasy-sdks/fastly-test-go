@@ -106,9 +106,8 @@ func (e *LoggingDigitaloceanResponseMessageType) UnmarshalJSON(data []byte) erro
 type LoggingDigitaloceanResponsePlacement string
 
 const (
-	LoggingDigitaloceanResponsePlacementNone                   LoggingDigitaloceanResponsePlacement = "none"
-	LoggingDigitaloceanResponsePlacementWafDebug               LoggingDigitaloceanResponsePlacement = "waf_debug"
-	LoggingDigitaloceanResponsePlacementLessThanNilGreaterThan LoggingDigitaloceanResponsePlacement = "<nil>"
+	LoggingDigitaloceanResponsePlacementNone     LoggingDigitaloceanResponsePlacement = "none"
+	LoggingDigitaloceanResponsePlacementWafDebug LoggingDigitaloceanResponsePlacement = "waf_debug"
 )
 
 func (e LoggingDigitaloceanResponsePlacement) ToPointer() *LoggingDigitaloceanResponsePlacement {
@@ -124,8 +123,6 @@ func (e *LoggingDigitaloceanResponsePlacement) UnmarshalJSON(data []byte) error 
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingDigitaloceanResponsePlacement(v)
 		return nil
 	default:

@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                           | Value                                          |
-| ---------------------------------------------- | ---------------------------------------------- |
-| `LoggingSyslogPlacementNone`                   | none                                           |
-| `LoggingSyslogPlacementWafDebug`               | waf_debug                                      |
-| `LoggingSyslogPlacementLessThanNilGreaterThan` | <nil>                                          |
+| Name                             | Value                            |
+| -------------------------------- | -------------------------------- |
+| `LoggingSyslogPlacementNone`     | none                             |
+| `LoggingSyslogPlacementWafDebug` | waf_debug                        |

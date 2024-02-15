@@ -6,8 +6,7 @@ Where in the generated VCL the logging call should be placed. If not set, endpoi
 
 ## Values
 
-| Name                                                     | Value                                                    |
-| -------------------------------------------------------- | -------------------------------------------------------- |
-| `LoggingNewrelicResponsePlacementNone`                   | none                                                     |
-| `LoggingNewrelicResponsePlacementWafDebug`               | waf_debug                                                |
-| `LoggingNewrelicResponsePlacementLessThanNilGreaterThan` | <nil>                                                    |
+| Name                                       | Value                                      |
+| ------------------------------------------ | ------------------------------------------ |
+| `LoggingNewrelicResponsePlacementNone`     | none                                       |
+| `LoggingNewrelicResponsePlacementWafDebug` | waf_debug                                  |

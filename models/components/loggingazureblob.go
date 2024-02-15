@@ -105,9 +105,8 @@ func (e *MessageType) UnmarshalJSON(data []byte) error {
 type Placement string
 
 const (
-	PlacementNone                   Placement = "none"
-	PlacementWafDebug               Placement = "waf_debug"
-	PlacementLessThanNilGreaterThan Placement = "<nil>"
+	PlacementNone     Placement = "none"
+	PlacementWafDebug Placement = "waf_debug"
 )
 
 func (e Placement) ToPointer() *Placement {
@@ -123,8 +122,6 @@ func (e *Placement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = Placement(v)
 		return nil
 	default:

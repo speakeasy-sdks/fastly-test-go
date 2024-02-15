@@ -105,9 +105,8 @@ func (e *LoggingSftpMessageType) UnmarshalJSON(data []byte) error {
 type LoggingSftpPlacement string
 
 const (
-	LoggingSftpPlacementNone                   LoggingSftpPlacement = "none"
-	LoggingSftpPlacementWafDebug               LoggingSftpPlacement = "waf_debug"
-	LoggingSftpPlacementLessThanNilGreaterThan LoggingSftpPlacement = "<nil>"
+	LoggingSftpPlacementNone     LoggingSftpPlacement = "none"
+	LoggingSftpPlacementWafDebug LoggingSftpPlacement = "waf_debug"
 )
 
 func (e LoggingSftpPlacement) ToPointer() *LoggingSftpPlacement {
@@ -123,8 +122,6 @@ func (e *LoggingSftpPlacement) UnmarshalJSON(data []byte) error {
 	case "none":
 		fallthrough
 	case "waf_debug":
-		fallthrough
-	case "<nil>":
 		*e = LoggingSftpPlacement(v)
 		return nil
 	default:

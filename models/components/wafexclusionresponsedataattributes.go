@@ -44,12 +44,11 @@ func (e *ExclusionType) UnmarshalJSON(data []byte) error {
 type Variable string
 
 const (
-	VariableReqCookies             Variable = "req.cookies"
-	VariableReqHeaders             Variable = "req.headers"
-	VariableReqPost                Variable = "req.post"
-	VariableReqPostFilename        Variable = "req.post_filename"
-	VariableReqQs                  Variable = "req.qs"
-	VariableLessThanNilGreaterThan Variable = "<nil>"
+	VariableReqCookies      Variable = "req.cookies"
+	VariableReqHeaders      Variable = "req.headers"
+	VariableReqPost         Variable = "req.post"
+	VariableReqPostFilename Variable = "req.post_filename"
+	VariableReqQs           Variable = "req.qs"
 )
 
 func (e Variable) ToPointer() *Variable {
@@ -71,8 +70,6 @@ func (e *Variable) UnmarshalJSON(data []byte) error {
 	case "req.post_filename":
 		fallthrough
 	case "req.qs":
-		fallthrough
-	case "<nil>":
 		*e = Variable(v)
 		return nil
 	default:
