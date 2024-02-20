@@ -61,12 +61,12 @@ func (s *Billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	client := s.sdkConfiguration.SecurityClient
-
 	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
+
+	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -89,7 +89,6 @@ func (s *Billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 			return nil, err
 		}
 	}
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.GetInvoiceResponse{
@@ -169,12 +168,12 @@ func (s *Billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	client := s.sdkConfiguration.SecurityClient
-
 	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
+
+	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -197,7 +196,6 @@ func (s *Billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 			return nil, err
 		}
 	}
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.GetInvoiceByIDResponse{
@@ -266,12 +264,12 @@ func (s *Billing) GetInvoiceMtd(ctx context.Context, request operations.GetInvoi
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	client := s.sdkConfiguration.SecurityClient
-
 	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
+
+	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -294,7 +292,6 @@ func (s *Billing) GetInvoiceMtd(ctx context.Context, request operations.GetInvoi
 			return nil, err
 		}
 	}
-
 	contentType := httpRes.Header.Get("Content-Type")
 
 	res := &operations.GetInvoiceMtdResponse{
