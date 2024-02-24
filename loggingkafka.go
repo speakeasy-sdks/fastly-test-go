@@ -31,7 +31,11 @@ func newLoggingKafka(sdkConfig sdkConfiguration) *LoggingKafka {
 // CreateLogKafka - Create a Kafka log endpoint
 // Create a Kafka logging endpoint for a particular service and version.
 func (s *LoggingKafka) CreateLogKafka(ctx context.Context, request operations.CreateLogKafkaRequest) (*operations.CreateLogKafkaResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create-log-kafka"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create-log-kafka",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/kafka", request, nil)
@@ -52,12 +56,12 @@ func (s *LoggingKafka) CreateLogKafka(ctx context.Context, request operations.Cr
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -67,15 +71,15 @@ func (s *LoggingKafka) CreateLogKafka(ctx context.Context, request operations.Cr
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -120,7 +124,11 @@ func (s *LoggingKafka) CreateLogKafka(ctx context.Context, request operations.Cr
 // DeleteLogKafka - Delete the Kafka log endpoint
 // Delete the Kafka logging endpoint for a particular service and version.
 func (s *LoggingKafka) DeleteLogKafka(ctx context.Context, request operations.DeleteLogKafkaRequest) (*operations.DeleteLogKafkaResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "delete-log-kafka"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "delete-log-kafka",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/kafka/{logging_kafka_name}", request, nil)
@@ -135,12 +143,12 @@ func (s *LoggingKafka) DeleteLogKafka(ctx context.Context, request operations.De
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -150,15 +158,15 @@ func (s *LoggingKafka) DeleteLogKafka(ctx context.Context, request operations.De
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -203,7 +211,11 @@ func (s *LoggingKafka) DeleteLogKafka(ctx context.Context, request operations.De
 // GetLogKafka - Get a Kafka log endpoint
 // Get the Kafka logging endpoint for a particular service and version.
 func (s *LoggingKafka) GetLogKafka(ctx context.Context, request operations.GetLogKafkaRequest) (*operations.GetLogKafkaResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-log-kafka"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-log-kafka",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/kafka/{logging_kafka_name}", request, nil)
@@ -218,12 +230,12 @@ func (s *LoggingKafka) GetLogKafka(ctx context.Context, request operations.GetLo
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -233,15 +245,15 @@ func (s *LoggingKafka) GetLogKafka(ctx context.Context, request operations.GetLo
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -286,7 +298,11 @@ func (s *LoggingKafka) GetLogKafka(ctx context.Context, request operations.GetLo
 // ListLogKafka - List Kafka log endpoints
 // List all of the Kafka logging endpoints for a particular service and version.
 func (s *LoggingKafka) ListLogKafka(ctx context.Context, request operations.ListLogKafkaRequest) (*operations.ListLogKafkaResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list-log-kafka"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list-log-kafka",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/service/{service_id}/version/{version_id}/logging/kafka", request, nil)
@@ -301,12 +317,12 @@ func (s *LoggingKafka) ListLogKafka(ctx context.Context, request operations.List
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -316,15 +332,15 @@ func (s *LoggingKafka) ListLogKafka(ctx context.Context, request operations.List
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

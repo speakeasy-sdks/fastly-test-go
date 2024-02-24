@@ -31,7 +31,11 @@ func newConfigStoreItem(sdkConfig sdkConfiguration) *ConfigStoreItem {
 // BulkUpdateConfigStoreItem - Update multiple entries in a config store
 // Add multiple key-value pairs to an individual config store, specified by ID.
 func (s *ConfigStoreItem) BulkUpdateConfigStoreItem(ctx context.Context, request operations.BulkUpdateConfigStoreItemRequest) (*operations.BulkUpdateConfigStoreItemResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "bulk-update-config-store-item"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "bulk-update-config-store-item",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/items", request, nil)
@@ -52,12 +56,12 @@ func (s *ConfigStoreItem) BulkUpdateConfigStoreItem(ctx context.Context, request
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -67,15 +71,15 @@ func (s *ConfigStoreItem) BulkUpdateConfigStoreItem(ctx context.Context, request
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -120,7 +124,11 @@ func (s *ConfigStoreItem) BulkUpdateConfigStoreItem(ctx context.Context, request
 // CreateConfigStoreItem - Create an entry in a config store
 // Add a single key-value pair to an individual config store, specified by ID.
 func (s *ConfigStoreItem) CreateConfigStoreItem(ctx context.Context, request operations.CreateConfigStoreItemRequest) (*operations.CreateConfigStoreItemResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create-config-store-item"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create-config-store-item",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/item", request, nil)
@@ -141,12 +149,12 @@ func (s *ConfigStoreItem) CreateConfigStoreItem(ctx context.Context, request ope
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -156,15 +164,15 @@ func (s *ConfigStoreItem) CreateConfigStoreItem(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -209,7 +217,11 @@ func (s *ConfigStoreItem) CreateConfigStoreItem(ctx context.Context, request ope
 // DeleteConfigStoreItem - Delete an item from a config store
 // Delete an entry in a config store given a config store ID, and item key.
 func (s *ConfigStoreItem) DeleteConfigStoreItem(ctx context.Context, request operations.DeleteConfigStoreItemRequest) (*operations.DeleteConfigStoreItemResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "delete-config-store-item"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "delete-config-store-item",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/item/{config_store_item_key}", request, nil)
@@ -224,12 +236,12 @@ func (s *ConfigStoreItem) DeleteConfigStoreItem(ctx context.Context, request ope
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -239,15 +251,15 @@ func (s *ConfigStoreItem) DeleteConfigStoreItem(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -292,7 +304,11 @@ func (s *ConfigStoreItem) DeleteConfigStoreItem(ctx context.Context, request ope
 // GetConfigStoreItem - Get an item from a config store
 // Retrieve a config store entry given a config store ID and item key.
 func (s *ConfigStoreItem) GetConfigStoreItem(ctx context.Context, request operations.GetConfigStoreItemRequest) (*operations.GetConfigStoreItemResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-config-store-item"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-config-store-item",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/item/{config_store_item_key}", request, nil)
@@ -307,12 +323,12 @@ func (s *ConfigStoreItem) GetConfigStoreItem(ctx context.Context, request operat
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -322,15 +338,15 @@ func (s *ConfigStoreItem) GetConfigStoreItem(ctx context.Context, request operat
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -375,7 +391,11 @@ func (s *ConfigStoreItem) GetConfigStoreItem(ctx context.Context, request operat
 // ListConfigStoreItems - List items in a config store
 // List the key-value pairs associated with a given config store ID.
 func (s *ConfigStoreItem) ListConfigStoreItems(ctx context.Context, request operations.ListConfigStoreItemsRequest) (*operations.ListConfigStoreItemsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list-config-store-items"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list-config-store-items",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/items", request, nil)
@@ -390,12 +410,12 @@ func (s *ConfigStoreItem) ListConfigStoreItems(ctx context.Context, request oper
 	req.Header.Set("Accept", "application/json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -405,15 +425,15 @@ func (s *ConfigStoreItem) ListConfigStoreItems(ctx context.Context, request oper
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -458,7 +478,11 @@ func (s *ConfigStoreItem) ListConfigStoreItems(ctx context.Context, request oper
 // UpdateConfigStoreItem - Update an entry in a config store
 // Update an entry in a config store given a config store ID, item key, and item value.
 func (s *ConfigStoreItem) UpdateConfigStoreItem(ctx context.Context, request operations.UpdateConfigStoreItemRequest) (*operations.UpdateConfigStoreItemResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "update-config-store-item"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "update-config-store-item",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/item/{config_store_item_key}", request, nil)
@@ -479,12 +503,12 @@ func (s *ConfigStoreItem) UpdateConfigStoreItem(ctx context.Context, request ope
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -494,15 +518,15 @@ func (s *ConfigStoreItem) UpdateConfigStoreItem(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -547,7 +571,11 @@ func (s *ConfigStoreItem) UpdateConfigStoreItem(ctx context.Context, request ope
 // UpsertConfigStoreItem - Insert or update an entry in a config store
 // Insert or update an entry in a config store given a config store ID, item key, and item value.
 func (s *ConfigStoreItem) UpsertConfigStoreItem(ctx context.Context, request operations.UpsertConfigStoreItemRequest) (*operations.UpsertConfigStoreItemResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "upsert-config-store-item"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "upsert-config-store-item",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/resources/stores/config/{config_store_id}/item/{config_store_item_key}", request, nil)
@@ -568,12 +596,12 @@ func (s *ConfigStoreItem) UpsertConfigStoreItem(ctx context.Context, request ope
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -583,15 +611,15 @@ func (s *ConfigStoreItem) UpsertConfigStoreItem(ctx context.Context, request ope
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

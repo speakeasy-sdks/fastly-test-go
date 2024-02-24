@@ -33,7 +33,11 @@ func newWafExclusions(sdkConfig sdkConfiguration) *WafExclusions {
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafExclusions) CreateWafRuleExclusion(ctx context.Context, request operations.CreateWafRuleExclusionRequest) (*operations.CreateWafRuleExclusionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create-waf-rule-exclusion"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create-waf-rule-exclusion",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions", request, nil)
@@ -54,12 +58,12 @@ func (s *WafExclusions) CreateWafRuleExclusion(ctx context.Context, request oper
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -69,15 +73,15 @@ func (s *WafExclusions) CreateWafRuleExclusion(ctx context.Context, request oper
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -124,7 +128,11 @@ func (s *WafExclusions) CreateWafRuleExclusion(ctx context.Context, request oper
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafExclusions) DeleteWafRuleExclusion(ctx context.Context, request operations.DeleteWafRuleExclusionRequest) (*operations.DeleteWafRuleExclusionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "delete-waf-rule-exclusion"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "delete-waf-rule-exclusion",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}", request, nil)
@@ -139,12 +147,12 @@ func (s *WafExclusions) DeleteWafRuleExclusion(ctx context.Context, request oper
 	req.Header.Set("Accept", "*/*")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -154,15 +162,15 @@ func (s *WafExclusions) DeleteWafRuleExclusion(ctx context.Context, request oper
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -198,7 +206,11 @@ func (s *WafExclusions) DeleteWafRuleExclusion(ctx context.Context, request oper
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafExclusions) GetWafRuleExclusion(ctx context.Context, request operations.GetWafRuleExclusionRequest) (*operations.GetWafRuleExclusionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-waf-rule-exclusion"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-waf-rule-exclusion",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}", request, nil)
@@ -213,12 +225,12 @@ func (s *WafExclusions) GetWafRuleExclusion(ctx context.Context, request operati
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -228,15 +240,15 @@ func (s *WafExclusions) GetWafRuleExclusion(ctx context.Context, request operati
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -283,7 +295,11 @@ func (s *WafExclusions) GetWafRuleExclusion(ctx context.Context, request operati
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafExclusions) ListWafRuleExclusions(ctx context.Context, request operations.ListWafRuleExclusionsRequest) (*operations.ListWafRuleExclusionsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list-waf-rule-exclusions"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list-waf-rule-exclusions",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions", request, nil)
@@ -302,12 +318,12 @@ func (s *WafExclusions) ListWafRuleExclusions(ctx context.Context, request opera
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -317,15 +333,15 @@ func (s *WafExclusions) ListWafRuleExclusions(ctx context.Context, request opera
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -372,7 +388,11 @@ func (s *WafExclusions) ListWafRuleExclusions(ctx context.Context, request opera
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafExclusions) UpdateWafRuleExclusion(ctx context.Context, request operations.UpdateWafRuleExclusionRequest) (*operations.UpdateWafRuleExclusionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "update-waf-rule-exclusion"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "update-waf-rule-exclusion",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/exclusions/{exclusion_number}", request, nil)
@@ -393,12 +413,12 @@ func (s *WafExclusions) UpdateWafRuleExclusion(ctx context.Context, request oper
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -408,15 +428,15 @@ func (s *WafExclusions) UpdateWafRuleExclusion(ctx context.Context, request oper
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

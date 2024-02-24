@@ -33,7 +33,11 @@ func newWafFirewallVersions(sdkConfig sdkConfiguration) *WafFirewallVersions {
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, request operations.CloneWafFirewallVersionRequest) (*operations.CloneWafFirewallVersionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "clone-waf-firewall-version"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "clone-waf-firewall-version",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/clone", request, nil)
@@ -48,12 +52,12 @@ func (s *WafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, reque
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -63,15 +67,15 @@ func (s *WafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, reque
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -118,7 +122,11 @@ func (s *WafFirewallVersions) CloneWafFirewallVersion(ctx context.Context, reque
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, request operations.CreateWafFirewallVersionRequest) (*operations.CreateWafFirewallVersionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "create-waf-firewall-version"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "create-waf-firewall-version",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions", request, nil)
@@ -139,12 +147,12 @@ func (s *WafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, requ
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -154,15 +162,15 @@ func (s *WafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, requ
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -209,7 +217,11 @@ func (s *WafFirewallVersions) CreateWafFirewallVersion(ctx context.Context, requ
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Context, request operations.DeployActivateWafFirewallVersionRequest) (*operations.DeployActivateWafFirewallVersionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "deploy-activate-waf-firewall-version"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "deploy-activate-waf-firewall-version",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}/activate", request, nil)
@@ -224,12 +236,12 @@ func (s *WafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Conte
 	req.Header.Set("Accept", "application/vnd.api+json")
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -239,15 +251,15 @@ func (s *WafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Conte
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -294,7 +306,11 @@ func (s *WafFirewallVersions) DeployActivateWafFirewallVersion(ctx context.Conte
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request operations.GetWafFirewallVersionRequest) (*operations.GetWafFirewallVersionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-waf-firewall-version"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-waf-firewall-version",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}", request, nil)
@@ -313,12 +329,12 @@ func (s *WafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -328,15 +344,15 @@ func (s *WafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -383,7 +399,11 @@ func (s *WafFirewallVersions) GetWafFirewallVersion(ctx context.Context, request
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafFirewallVersions) ListWafFirewallVersions(ctx context.Context, request operations.ListWafFirewallVersionsRequest) (*operations.ListWafFirewallVersionsResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "list-waf-firewall-versions"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "list-waf-firewall-versions",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions", request, nil)
@@ -402,12 +422,12 @@ func (s *WafFirewallVersions) ListWafFirewallVersions(ctx context.Context, reque
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -417,15 +437,15 @@ func (s *WafFirewallVersions) ListWafFirewallVersions(ctx context.Context, reque
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -472,7 +492,11 @@ func (s *WafFirewallVersions) ListWafFirewallVersions(ctx context.Context, reque
 //
 // Deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
 func (s *WafFirewallVersions) UpdateWafFirewallVersion(ctx context.Context, request operations.UpdateWafFirewallVersionRequest) (*operations.UpdateWafFirewallVersionResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "update-waf-firewall-version"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "update-waf-firewall-version",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/waf/firewalls/{firewall_id}/versions/{firewall_version_number}", request, nil)
@@ -493,12 +517,12 @@ func (s *WafFirewallVersions) UpdateWafFirewallVersion(ctx context.Context, requ
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 	req.Header.Set("Content-Type", reqContentType)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -508,15 +532,15 @@ func (s *WafFirewallVersions) UpdateWafFirewallVersion(ctx context.Context, requ
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}

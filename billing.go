@@ -31,7 +31,11 @@ func newBilling(sdkConfig sdkConfiguration) *Billing {
 // GetInvoice - Get an invoice
 // Get the invoice for a given year and month. Can be any month from when the Customer was created to the current month.
 func (s *Billing) GetInvoice(ctx context.Context, request operations.GetInvoiceRequest, opts ...operations.Option) (*operations.GetInvoiceResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-invoice"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-invoice",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -61,12 +65,12 @@ func (s *Billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -76,15 +80,15 @@ func (s *Billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -138,7 +142,11 @@ func (s *Billing) GetInvoice(ctx context.Context, request operations.GetInvoiceR
 // GetInvoiceByID - Get an invoice
 // Get the invoice for the given invoice_id.
 func (s *Billing) GetInvoiceByID(ctx context.Context, request operations.GetInvoiceByIDRequest, opts ...operations.Option) (*operations.GetInvoiceByIDResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-invoice-by-id"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-invoice-by-id",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -168,12 +176,12 @@ func (s *Billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 
 	req.Header.Set("User-Agent", s.sdkConfiguration.UserAgent)
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -183,15 +191,15 @@ func (s *Billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
@@ -245,7 +253,11 @@ func (s *Billing) GetInvoiceByID(ctx context.Context, request operations.GetInvo
 // GetInvoiceMtd - Get month-to-date billing estimate
 // Get the current month-to-date estimate. This endpoint has two different responses. Under normal circumstances, it generally takes less than 5 seconds to generate but in certain cases can take up to 60 seconds. Once generated the month-to-date estimate is cached for 4 hours, and is available the next request will return the JSON representation of the month-to-date estimate. While a report is being generated in the background, this endpoint will return a `202 Accepted` response. The full format of which can be found in detail in our [billing calculation guide](https://docs.fastly.com/en/guides/how-we-calculate-your-bill). There are certain accounts for which we are unable to generate a month-to-date estimate. For example, accounts who have parent-pay are unable to generate an MTD estimate. The parent accounts are able to generate a month-to-date estimate but that estimate will not include the child accounts amounts at this time.
 func (s *Billing) GetInvoiceMtd(ctx context.Context, request operations.GetInvoiceMtdRequest) (*operations.GetInvoiceMtdResponse, error) {
-	hookCtx := hooks.HookContext{OperationID: "get-invoice-mtd"}
+	hookCtx := hooks.HookContext{
+		Context:        ctx,
+		OperationID:    "get-invoice-mtd",
+		SecuritySource: s.sdkConfiguration.Security,
+	}
 
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	opURL, err := utils.GenerateURL(ctx, baseURL, "/billing/v2/account_customers/{customer_id}/mtd_invoice", request, nil)
@@ -264,12 +276,12 @@ func (s *Billing) GetInvoiceMtd(ctx context.Context, request operations.GetInvoi
 		return nil, fmt.Errorf("error populating query params: %w", err)
 	}
 
-	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{hookCtx}, req)
+	client := s.sdkConfiguration.SecurityClient
+
+	req, err = s.sdkConfiguration.Hooks.BeforeRequest(hooks.BeforeRequestContext{HookContext: hookCtx}, req)
 	if err != nil {
 		return nil, err
 	}
-
-	client := s.sdkConfiguration.SecurityClient
 
 	httpRes, err := client.Do(req)
 	if err != nil || httpRes == nil {
@@ -279,15 +291,15 @@ func (s *Billing) GetInvoiceMtd(ctx context.Context, request operations.GetInvoi
 			err = fmt.Errorf("error sending request: no response")
 		}
 
-		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, nil, err)
+		_, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 		return nil, err
 	} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{hookCtx}, httpRes, nil)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 		if err != nil {
 			return nil, err
 		}
 	} else {
-		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{hookCtx}, httpRes)
+		httpRes, err = s.sdkConfiguration.Hooks.AfterSuccess(hooks.AfterSuccessContext{HookContext: hookCtx}, httpRes)
 		if err != nil {
 			return nil, err
 		}
