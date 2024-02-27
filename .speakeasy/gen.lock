@@ -4,9 +4,9 @@ management:
   docChecksum: 2560877811d6492729fc79e82f6ddc52
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.272.4
-  releaseVersion: 2.1.2
-  configChecksum: c8f47f2a19ea75804e19a7ad5a75f33e
+  generationVersion: 2.272.7
+  releaseVersion: 2.1.3
+  configChecksum: e869f30dd3cac125c63fa5bea9778565
   repoURL: https://github.com/speakeasy-sdks/fastly-test-go.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/fastly-test-go
@@ -19,7 +19,7 @@ features:
     deprecations: 2.81.1
     downloadStreams: 0.1.1
     examples: 2.81.3
-    globalSecurity: 2.82.7
+    globalSecurity: 2.82.8
     globalServerURLs: 2.82.1
     inputOutputModels: 2.83.0
     methodSecurity: 2.82.2
