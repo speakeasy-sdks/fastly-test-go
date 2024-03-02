@@ -4,9 +4,9 @@ management:
   docChecksum: 2560877811d6492729fc79e82f6ddc52
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.272.7
-  releaseVersion: 2.1.3
-  configChecksum: e869f30dd3cac125c63fa5bea9778565
+  generationVersion: 2.277.0
+  releaseVersion: 2.1.4
+  configChecksum: 03e7dcc7345e9bdc1beee7241d3da385
   repoURL: https://github.com/speakeasy-sdks/fastly-test-go.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/fastly-test-go
@@ -14,7 +14,7 @@ management:
 features:
   go:
     additionalProperties: 0.1.2
-    constsAndDefaults: 0.1.3
+    constsAndDefaults: 0.1.4
     core: 3.4.3
     deprecations: 2.81.1
     downloadStreams: 0.1.1
@@ -23,7 +23,7 @@ features:
     globalServerURLs: 2.82.1
     inputOutputModels: 2.83.0
     methodSecurity: 2.82.2
-    unions: 2.85.3
+    unions: 2.85.4
 generatedFiles:
   - apexredirect.go
   - billing.go
