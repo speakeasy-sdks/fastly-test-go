@@ -42,7 +42,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.BillingResponse != nil {
         // handle response
     }
@@ -94,7 +93,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.BillingResponse != nil {
         // handle response
     }
@@ -147,7 +145,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.BillingEstimateResponse != nil {
         // handle response
     }

@@ -40,7 +40,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Object != nil {
         // handle response
     }
@@ -77,7 +76,6 @@ import(
 	"context"
 	"github.com/speakeasy-sdks/fastly-test-go/v2/models/operations"
 	"log"
-	"net/http"
 )
 
 func main() {
@@ -92,8 +90,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
-    if res.StatusCode == http.StatusOK {
+    if res != nil {
         // handle response
     }
 }
@@ -143,7 +140,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TLSCertificateResponse != nil {
         // handle response
     }
@@ -195,7 +191,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TLSCertificatesResponse != nil {
         // handle response
     }
@@ -246,7 +241,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TLSCertificateResponse != nil {
         // handle response
     }

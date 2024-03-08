@@ -47,7 +47,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DomainCheckResponse != nil {
         // handle response
     }
@@ -99,7 +98,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DomainCheckResponseList != nil {
         // handle response
     }
@@ -151,7 +149,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DomainResponse != nil {
         // handle response
     }
@@ -204,7 +201,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Object != nil {
         // handle response
     }
@@ -257,7 +253,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DomainResponse != nil {
         // handle response
     }
@@ -309,7 +304,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DomainsResponse != nil {
         // handle response
     }
@@ -362,7 +356,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.DomainResponse != nil {
         // handle response
     }

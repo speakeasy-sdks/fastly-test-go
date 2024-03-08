@@ -42,7 +42,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TLSConfigurationResponse != nil {
         // handle response
     }
@@ -95,7 +94,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TLSConfigurationsResponse != nil {
         // handle response
     }
@@ -146,7 +144,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.TLSConfigurationResponse != nil {
         // handle response
     }

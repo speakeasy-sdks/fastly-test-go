@@ -47,7 +47,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafFirewallVersionResponse != nil {
         // handle response
     }
@@ -100,7 +99,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafFirewallVersionResponse != nil {
         // handle response
     }
@@ -154,7 +152,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.Object != nil {
         // handle response
     }
@@ -209,7 +206,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafFirewallVersionResponse != nil {
         // handle response
     }
@@ -265,7 +261,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafFirewallVersionsResponse != nil {
         // handle response
     }
@@ -319,7 +314,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafFirewallVersionResponse != nil {
         // handle response
     }

@@ -44,7 +44,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafRuleRevisionResponse != nil {
         // handle response
     }
@@ -100,7 +99,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.WafRuleRevisionsResponse != nil {
         // handle response
     }

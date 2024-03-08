@@ -48,7 +48,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalResponse != nil {
         // handle response
     }
@@ -100,7 +99,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalAggregateResponse != nil {
         // handle response
     }
@@ -153,7 +151,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalFieldResponse != nil {
         // handle response
     }
@@ -206,7 +203,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalAggregateResponse != nil {
         // handle response
     }
@@ -260,7 +256,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalFieldAggregateResponse != nil {
         // handle response
     }
@@ -308,7 +303,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalRegionsResponse != nil {
         // handle response
     }
@@ -356,7 +350,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalUsageAggregateResponse != nil {
         // handle response
     }
@@ -409,7 +402,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalUsageMonthResponse != nil {
         // handle response
     }
@@ -458,7 +450,6 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-
     if res.HistoricalUsageServiceResponse != nil {
         // handle response
     }
